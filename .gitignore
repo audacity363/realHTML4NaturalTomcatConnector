@@ -1,0 +1,7 @@
+*.o
+*.swp
+*~
+*.class
+*.so
+bin/*
+servlet/web/WEB-INF/lib/realHTMLconnector.jar
