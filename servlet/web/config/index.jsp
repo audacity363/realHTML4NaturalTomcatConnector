@@ -34,6 +34,9 @@
 		<br>
 		<label for="natparm">Natural Parameter:</label>
 		<input type="text" name="natparm">
+        <br>
+        <label for="natbinpath">Natural bin path:</label>
+        <input type="text" name="natbinpath">
 		<br>
 		<label for="natsrc">Natural SRC Path:</label>
 		<input type="text" name="natsrc">

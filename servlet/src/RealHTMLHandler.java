@@ -66,8 +66,7 @@ public class RealHTMLHandler extends RealHTMLInit {
     public void doDelete(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
         try {
-            handleRequest(request, response);;
-        } catch(ServletException e) {
+            handleRequest(request, response);; } catch(ServletException e) {
             throw(e);
         } catch(Exception e) {
             throw(new ServletException("", e));
@@ -186,6 +185,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         parms.natProgram = route.route.natProgram;
         parms.loglevel = route.route.loglevel;
         parms.natparms = env.natparms;
+        parms.natbinpath = env.natbinpath;
         parms.natsrcpath = env.natsourcepath;
         parms.charEncoding = env.charEncoding;
         parms.environs = env.environvars.toArray(new EnvironmentVar[env.environvars.size()]);

@@ -11,6 +11,7 @@ public class RH4NParams {
     public String natLibrary;
     public String natProgram;
     public String natparms;
+    public String natbinpath;
     public String outputfile;
     public String loglevel;
     public String natsrcpath;

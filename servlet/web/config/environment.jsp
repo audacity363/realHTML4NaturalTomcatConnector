@@ -36,8 +36,11 @@
 <form method="post" action="environment">
 	<label for="natparm">Natural Parms:</label>
 	<input type="text" name="natparm" value=<%= environment.natparms %>>
+    <br>
+    <label for="natbinpath">Natural bin Path</label>
+    <input type="text" name="natbinpath" value=<%= environment.natbinpath %>>
 	<br>
-	<label for="natsrc">Natural RSC PATH:</label>
+	<label for="natsrc">Natural source Path:</label>
 	<input type="text" name="natsrc" value=<%= environment.natsourcepath %>>
     <br>
     <label for="charencoding">Character Encoding</label>

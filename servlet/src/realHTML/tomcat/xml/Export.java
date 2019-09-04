@@ -57,6 +57,9 @@ public class Export {
 		
 		envElement = doc.createElement("environment");
 		envElement.setAttribute("name", envname);
+
+        natsrcElement = doc.createElement("natbin");
+        natsrcElement.setTextContent(env.natbinpath);
 		
 		natsrcElement = doc.createElement("natsrc");
 		natsrcElement.setTextContent(env.natsourcepath);

@@ -48,7 +48,7 @@ public class Import {
 		NodeList environmentsElements, tmpList;
 		Element targetElement, tmpElement;
 		
-		String envname, natsrc = "", natparms = "", encoding = "";
+		String envname, natsrc = "", natbinpath = "", natparms = "", encoding = "";
 		
 		environmentsElements = doc.getElementsByTagName("environment");
 		for(int i = 0; i < environmentsElements.getLength(); i++) {
@@ -63,6 +63,14 @@ public class Import {
 				tmpElement = (Element)tmpList.item(0);
 				natsrc = tmpElement.getTextContent();
 			}
+
+            tmpList = targetElement.getElementsByTagName("natbinpath");
+            if(tmpList.getLength() != 0) {
+                tmpElement = (Element)tmpList.item(0);
+                natbinpath = tmpElement.getTextContent();
+            } else {
+                natbinpath = "";
+            }
 			
 			tmpList = targetElement.getElementsByTagName("natparms");
 			if(tmpList.getLength() != 0) {
@@ -78,10 +86,10 @@ public class Import {
                 encoding = "ISO-8859-1";
             }
 			
-			envs.addEnviroment(envname, natparms, natsrc, encoding);
+			envs.addEnviroment(envname, natparms, natsrc, natbinpath, encoding);
 			envs = this.readRoutes(targetElement, envname, envs);
 			envs = this.readEnvirons(targetElement, envname, envs);
-			envname = natsrc = natparms = "";
+			envname = natsrc = natbinpath = natparms = "";
 		}
 		
 		return(envs);
