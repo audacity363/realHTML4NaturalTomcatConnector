@@ -1,0 +1,32 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=en DO NOT EDIT BY HAND!;
+accpathrefresh;Refresh Layout Repository Buffer
+buffermgmt;Buffer Management
+classLoaderArea;Classloader Management
+client;Client
+collectGarbage;Collect garbage
+closePage;Close Page 
+createClassLoaderButton;Use latest Version of Applications for new Sessions
+lastActivitySince;Last activity since (ms)
+lblClassloader;Class Loader
+lblDebugMode;Server Log File
+lblDebugModeFalse;Normal Mode
+lblDebugModeTrue;Debug Mode
+lblbTextBuffer;Text Buffer
+loggedOnFor;Logged on for (ms)
+memoryArea;Memory
+mlmgmt;Multi Language Management
+mlrefresh;Refresh Text Buffer
+monit_button0;Exit
+monit_column0;Processing
+monit_column1;Processing
+monitoringTitle;Monitoring
+noInteractionProcesses;#&nbsp\;Processes
+processMemory;Process memory
+refresh;Refresh
+remove;Remove
+removeTEMP;Remove temporary sessions
+sessionId;Session
+sessionsArea;Active Sessions
+showServerLog;Open Today's Log File
+systemmgmtArea;System Management
+usedMemory;Used memory

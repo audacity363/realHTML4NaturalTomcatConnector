@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.zzz.AdminCisconfigAdapter">
+    <titlebar name="CISCONFIG Andminstration">
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true" paddingleft="20" paddingright="20" paddingtop="20" paddingbottom="20">
+    	<vdist height="10">
+        </vdist> 
+        <itr>
+            <hdist width="100">
+            </hdist>
+            <button name="Set Use Page Pop-Up true" width="200" method="onUsePagePopupTrue">
+            </button>
+            <hdist width="10">
+            </hdist>
+            <button name="Set Use Page Pop-Up false" width="200" method="onUsePagePopupFalse">
+            </button>
+        </itr>
+        <vdist height="10">
+        </vdist>        
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="DummyAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="licenseProbs.titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button method="endProcess" textid="licenseProbs.button0">
+        </button>
+    </header>
+    <pagebody>
+        <vdist pixelheight="100">
+        </vdist>
+        <itr width="100%">
+            <hdist width="50%">
+            </hdist>
+            <icon image="/HTMLBasedGUI/images/wating.gif">
+            </icon>
+            <hdist width="50%">
+            </hdist>
+        </itr>
+        <vdist pixelheight="10">
+        </vdist>
+        <itr width="100%">
+            <label asplaintext="true" textid="licenseProbs.label0">
+            </label>
+        </itr>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

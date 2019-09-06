@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementformdefault="qualified">
+  <xs:element name="bootstrapworkplaceinfo">
+    <xs:complextype>
+      <xs:sequence>
+        <xs:element maxoccurs="unbounded" minoccurs="1" ref="MFWorkplaceTopic"/>
+      </xs:sequence>
+      <xs:attribute name="defaultContentPage" use="optional" type="xs:string"/>
+      <xs:attribute name="mfWorkplaceEventListener" use="optional" type="xs:string"/>
+      <xs:attribute name="showDustbin" use="optional" type="xs:boolean"/>
+      <xs:attribute name="synchTabNavigation" use="optional" type="xs:boolean"/>
+      <xs:attribute name="targetNameOfResizableLeftPart" use="optional" type="xs:string"/>
+      <xs:attribute name="withCloseAllWindowsIcon" use="optional" type="xs:boolean"/>
+      <xs:attribute name="withTakeOutToPopup" use="optional" type="xs:boolean"/>
+      <xs:attribute name="workplaceStyleSheet" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTopic">
+    <xs:complextype>
+      <xs:choice minoccurs="0" maxoccurs="unbounded">
+        <xs:element maxoccurs="unbounded" ref="MFWorkplaceTreeNodeFolder"/>
+      </xs:choice>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="treeClass" use="required" type="xs:string"/>
+	  <xs:attribute name="treeStyle" use="optional" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+  	  <xs:attribute name="buttonStyle" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeFolder">
+    <xs:complextype>
+      <xs:choice minoccurs="0" maxoccurs="unbounded">
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeFolder"/>
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeHTMLPopup"/>
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeCISPopup"/>
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeCISPage"/>
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeCallback"/>
+        <xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeHTMLPage"/>
+		<xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeHTMLTarget"/>
+		<xs:element minoccurs="0" maxoccurs="unbounded" ref="MFWorkplaceTreeNodeCISTarget"/>
+      </xs:choice>
+      <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+      <xs:attribute name="opened" use="optional" type="xs:boolean"/>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeHTMLPopup">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+	  <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+	  <xs:attribute name="width" use="optional" type="xs:integer"/>
+      <xs:attribute name="height" use="optional" type="xs:integer"/>
+      <xs:attribute name="left" use="optional" type="xs:integer"/>
+      <xs:attribute name="top" use="optional" type="xs:integer"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeCISPopup">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+	  <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+	  <xs:attribute name="width" use="optional" type="xs:integer"/>
+      <xs:attribute name="height" use="optional" type="xs:integer"/>
+      <xs:attribute name="left" use="optional" type="xs:integer"/>
+	  <xs:attribute name="top" use="optional" type="xs:integer"/>
+  </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeCISPage">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+      <xs:attribute name="followPageSwitches" use="required" type="xs:boolean"/>
+      <xs:attribute name="onlyOneInstance" use="required" type="xs:boolean"/>
+      <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+      <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+	</xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeCallback">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="class" use="required" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+	  <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeHTMLPage">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+      <xs:attribute name="onlyOneInstance" use="required" type="xs:boolean"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+      <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeHTMLTarget">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="target" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+      <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+  <xs:element name="MFWorkplaceTreeNodeCISTarget">
+    <xs:complextype>
+      <xs:attribute name="text" use="required" type="xs:string"/>
+      <xs:attribute name="target" use="required" type="xs:string"/>
+      <xs:attribute name="activityURL" use="required" type="xs:string"/>
+	  <xs:attribute name="iconURL" use="optional" type="xs:string"/>
+      <xs:attribute name="dragInfo" use="optional" type="xs:string"/>
+    </xs:complextype>
+  </xs:element>
+</xs:schema>

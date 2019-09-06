@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cisfo:foppage pageheight="19cm" 
+                pagewidth="24.7cm"
+                margintop="1cm" 
+                marginbottom="1cm" 
+                marginleft="2cm" 
+                marginright="2cm"
+                headerheight="3cm" 
+                footerheight="3cm">
+
+	<!-- header -->
+	<cisfo:header>
+		<fo:block text-align="center">
+			Simple PDF-FOP Example - Header
+		</fo:block>
+	    <cisfo:vdist height="0.2cm"/>
+	    <cisfo:hline/>
+	</cisfo:header>
+
+	<!-- footer -->
+	<cisfo:footer>
+	    <cisfo:vdist/>
+	    <cisfo:hline/>
+	    <cisfo:vdist height="0.2cm"/>
+          <cisfo:table columnwidths="10.4cm;10.4cm">
+          	  <cisfo:tablerow>
+              	<cisfo:tablecell>
+        			<fo:block text-align="left">Simple PDF-FOP Example - Footer</fo:block>
+               	</cisfo:tablecell>
+                	<cisfo:tablecell>
+        			<fo:block text-align="right">
+					Page <cisfo:pagenumber separator=" of " />
+				</fo:block>
+                </cisfo:tablecell>
+           	 </cisfo:tablerow>
+          </cisfo:table>
+	</cisfo:footer>
+	
+	<!-- body -->
+	<cisfo:body>
+		<fo:block>
+			Now the first table:
+		</fo:block>
+	    
+	    <!-- first table -->
+	    <cisfo:vdist height="1cm"/>
+        <cisfo:table columnwidths="5cm;5cm">
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block>Peter</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Pan</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block>Wolfgang Amadeus</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Mozart</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block>Benjamin</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Franklin</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+        </cisfo:table>
+        
+	    <!-- second table -->
+	    <cisfo:vdist height="1cm"/>
+        <cisfo:table columnwidths="3cm;3cm;3cm;3cm" >
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block>Peter</fo:block>
+        			<fo:block>Peter</fo:block>
+        			<fo:block>Peter</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Pan</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Peter</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Pan</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block>Benjamin</fo:block>
+        			<fo:block>Benjamin</fo:block>
+        			<fo:block>Benjamin</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Franklin</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Benjamin</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block>Franklin</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+        </cisfo:table>
+	</cisfo:body>
+
+</cisfo:foppage>

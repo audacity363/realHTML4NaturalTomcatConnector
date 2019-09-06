@@ -1,0 +1,22 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+columnTextNotSetError;Spalte &1 hat keinen Text. Bitte korrigieren Sie die Eingabe. 
+columnTextNotUniqueError;An den Spalten &1 und &2 ist derselbe Text (&3) gesetzt. Bitte korrigieren Sie die Eingabe.
+connectionError;Ein Fehler ist beim Zugriff auf die Datenbank aufgetreten! &1
+csvDownload;Download
+csvDownloadHyperlinkText;Klicken Sie hier um die obige Ausgabe herunterzuladen
+errorColumnNotExist;Variante "&1" besitzt veraltete Spalten Information (&2). Die Variante ist nicht mehr aktuell und sollte entfernt werden
+errorFilterNotExist;Variante "&1" besitzt veraltete Filter Information (&2). Die Variante ist nicht mehr aktuell und sollte entfernt werden
+invalidFilterValue;Der Wert &3 ist falsch. Wiederholen Sie die Eingabe. 
+pdfFilterName;Filtername
+pdfFilterValue;Wert
+pdfResultSetEmpty;Es wurden keine Daten zu den obenstehenden Filterwerten getroffen.
+scrollstatus_line;Zeile
+successLinesReadFromDB;&1 Zeilen
+titleCSVOutput;Ausgabe im CSV Format
+titlePDFOutput;PDF Ausgabe
+titlePrintVersionOutput;Druckausgabe
+variantNotFound;Die Variante &1 ist noch nicht definiert!
+warningMoreColumnsExist;Mehr als &1 Zeilen entsprechen Ihrer Selektion!
+searchvariant;Suchvariante 
+scrollstatus_of;/
+scrollstatus_to;-

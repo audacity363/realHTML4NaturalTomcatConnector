@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cisfo:foppage pageheight="19cm" 
+                pagewidth="24.7cm"
+                margintop="1cm" 
+                marginbottom="1cm" 
+                marginleft="2cm" 
+                marginright="2cm"
+                headerheight="3cm" 
+                footerheight="3cm">
+
+	<!-- header -->
+	<cisfo:header>
+		<fo:block text-align="center">
+			Simple PDF-FOP Example - Header
+		</fo:block>
+	    <cisfo:vdist height="0.2cm"/>
+	    <cisfo:hline/>
+	</cisfo:header>
+
+	<!-- footer -->
+	<cisfo:footer>
+	    <cisfo:vdist/>
+	    <cisfo:hline/>
+	    <cisfo:vdist height="0.2cm"/>
+		<fo:block text-align="center">
+			Simple PDF-FOP Example - Footer
+		</fo:block>
+	</cisfo:footer>
+	
+	<!-- body -->
+	<cisfo:body>
+		<fo:block>
+			This is some text inside the body area of the document.
+		</fo:block>
+	    <cisfo:vdist height="1cm"/>
+		<fo:block text-align="right">
+			This is some text that is right-aligned.
+		</fo:block>
+	    <cisfo:vdist height="1cm"/>
+		<fo:block text-align="center" 
+		          color="#FF0000"
+		          font-size="20pt">
+			This is some big, coloured text.
+		</fo:block>
+	</cisfo:body>
+
+</cisfo:foppage>

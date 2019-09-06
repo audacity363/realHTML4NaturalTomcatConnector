@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionTagAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css" darkbackground="true">
+    <pagebody horizdist="false" takefullheight="true" paddingtop="5">
+        <itr height="100%" fixlayout="true" width="100%">
+            <coltable0 width="100%" takefullheight="true">
+                <rowtablearea2 griddataprop="attributes" rowcount="25" height="100%" width="100%" withborder="true" hscroll="true">
+                    <tr>
+                        <label textid="reeta.label1" asheadline="true" height="15">
+                        </label>
+                        <label textid="label.name" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                        </label>
+                        <label textid="label.datatype" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                        </label>
+                        <label textid="label.ismandatory" width="90" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                        </label>
+                    </tr>
+                    <repeat>
+                        <str valueprop="selected">
+                            <checkbox valueprop="selected" flush="screen">
+                            </checkbox>
+                            <field valueprop="name" width="50%" noborder="true" transparentbackground="true">
+                            </field>
+                            <field valueprop="datatype" width="50%" noborder="true" transparentbackground="true">
+                            </field>
+                            <checkbox valueprop="mandatory" width="90">
+                            </checkbox>
+                        </str>
+                    </repeat>
+                </rowtablearea2>
+                <vdist>
+                </vdist>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/arrowupfast.gif" method="moveUpTo1Pos" titletextid="icon.label.moveupfirst">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="images/arrowup.gif" method="moveNodeUp" withdistance="false" titletextid="icon.label.moveup">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="images/arrowdown.gif" method="moveNodeDown" withdistance="false" titletextid="icon.label.movedown">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/arrowdownfast.gif" method="moveDownToLastPos" titletextid="icon.label.movedownlast">
+                    </icon>
+                    <hdist width="20">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/distance.gif">
+                    </icon>
+                    <hdist width="20">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/new.gif" method="onAttributeAdd" titletextid="icon.label.add">
+                    </icon>
+                    <hdist width="5">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/remove.gif" method="onAttributeRemove" titletextid="icon.label.remove">
+                    </icon>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+            </coltable0>
+            <hdist width="5">
+            </hdist>
+            <coltable0 widthprop="helpAreaWidth" takefullheight="true">
+                <tr>
+                    <ihtml valueprop="tab1HTML" width="100%" height="100%">
+                    </ihtml>
+                </tr>
+            </coltable0>
+            <coltable0 width="20">
+                <tr>
+                    <icon image="images/scrolllastpage.gif" method="onHidelHelp" titletextid="icon.label.hidehelp">
+                    </icon>
+                </tr>
+                <vdist>
+                </vdist>
+                <tr>
+                    <icon image="images/scrollfirstpage.gif" method="onShowHelp" titletextid="icon.label.showhelp">
+                    </icon>
+                </tr>
+            </coltable0>
+        </itr>
+    </pagebody>
+</page>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page ispopup="true" model="com.softwareag.cis.editor.EditorModel" popupheight="768" popupwidth="1024" translationreference="editor">
+    <titlebar valueprop="titlebar" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button method="newFile" textid="buttonNew">
+        </button>
+        <button method="openFile" textid="buttonOpen">
+        </button>
+        <button method="save" textid="buttonSave">
+        </button>
+        <button method="saveAs" textid="buttonSaveAs">
+        </button>
+        <icon image="images/distance.gif">
+        </icon>
+        <button method="generateAndSaveHTML" textid="buttonPublish">
+        </button>
+        <icon image="images/distance.gif">
+        </icon>
+        <button method="endProcess" textid="buttonExit">
+        </button>
+    </header>
+    <pagebody verticalscrollbar="true">
+        <tr>
+            <td>
+                <table0>
+                    <tr>
+                        <td valign="top" width="314">
+                            <table0 width="100%">
+                                <rowarea textid="areaNodes">
+                                    <tr>
+                                        <td width="100%">
+                                            <tablearea indexchange="20" maxindexprop="nodesMaxIndex" rowcountprop="nodesRowCount" topindexprop="nodesTopIndex" width="282" withborder="false">
+                                                <tr>
+                                                    <label asheadline="true" textid="headlineTag" width="282">
+                                                    </label>
+                                                </tr>
+                                                <repeat to="19">
+                                                    <tr>
+                                                        <treenode imageclosed="images/xmlclosed.gif" imageendnode="images/xmlendnode.gif" imageopened="images/xmlopened.gif" index="$i$" indexprop="selectedNodeIndex" levelprop="nodes[$i$].hierarchyLevel" method="toggleNode" openedprop="nodes[$i$].opened" selectmethod="selectNode" textprop="nodes[$i$].displayName" width="1000">
+                                                        </treenode>
+                                                    </tr>
+                                                </repeat>
+                                            </tablearea>
+                                        </td>
+                                    </tr>
+                                    <vdist>
+                                    </vdist>
+                                    <vdist>
+                                    </vdist>
+                                    <tr>
+                                        <td colspan="10">
+                                            <icon image="images/arrowup.gif" method="moveNodeUp" titletextid="editor.icon26" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/arrowdown.gif" method="moveNodeDown" titletextid="editor.icon27" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/distance.gif" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/remove.gif" method="removeNode" titletextid="editor.icon28" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/distance.gif" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/cut.gif" method="cut" titletextid="editor.icon29" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/copy.gif" method="copy" titletextid="editor.icon30" withdistance="false" withtd="false">
+                                            </icon>
+                                            <icon image="images/paste.gif" method="paste" titletextid="editor.icon31" withdistance="false" withtd="false">
+                                            </icon>
+                                        </td>
+                                    </tr>
+                                </rowarea>
+                                <vdist>
+                                </vdist>
+                                <tr>
+                                    <td>
+                                        <tabarea height="100" page1="DIVATTRIBUTES" page2="DIVSUBNODES" textid1="areaAttributes" textid2="areaSubnodes" width="100%">
+                                            <tabpage height="157" id="DIVATTRIBUTES">
+                                                <tr>
+                                                    <td>
+                                                        <tablearea indexchange="5" maxindexprop="attributesMaxIndex" rowcountprop="attributesRowCount" topindexprop="attributesTopIndex">
+                                                            <tr>
+                                                                <label asheadline="true" textid="labelAttribute">
+                                                                </label>
+                                                                <label asheadline="true" textid="labelValue">
+                                                                </label>
+                                                            </tr>
+                                                            <repeat to="4">
+                                                                <tr>
+                                                                    <textout valueprop="attributes[$i$].attribute" width="160">
+                                                                    </textout>
+                                                                    <field helptext="attribute.html" length="17" popupmethod="openIdValueHelp" popupprop="attributes[$i$].popupAvailable" valueprop="attributes[$i$].value">
+                                                                    </field>
+                                                                </tr>
+                                                            </repeat>
+                                                        </tablearea>
+                                                    </td>
+                                                </tr>
+                                            </tabpage>
+                                            <tabpage display="none" height="157" id="DIVSUBNODES">
+                                                <tr>
+                                                    <textgrid height="128" selectprop="selected" singleselect="true" valueprop="validSubNodes" width="100%">
+                                                        <column property="tagName" textid="headlineTagName" width="277">
+                                                        </column>
+                                                    </textgrid>
+                                                </tr>
+                                                <vdist>
+                                                </vdist>
+                                                <tr>
+                                                    <td colspan="10">
+                                                        <button method="addSubNodeFirst" textid="buttonAddFirst" withtd="false">
+                                                        </button>
+                                                        <button method="addSubNodeLast" textid="buttonAddLast" withtd="false">
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tabpage>
+                                        </tabarea>
+                                    </td>
+                                </tr>
+                            </table0>
+                        </td>
+                        <hdist>
+                        </hdist>
+                        <td valign="top" width="400">
+                            <table0 width="100%">
+                                <rowarea textid="areaPreview">
+                                    <tr>
+                                        <td>
+                                            <subpage height="636" id="HTMLVIEWIFRAME" pageheightminus="58" pagewidthminus="360" valueprop="htmlPreview" width="665">
+                                            </subpage>
+                                        </td>
+                                    </tr>
+                                    <vdist>
+                                    </vdist>
+                                    <itr>
+                                        <button method="generateHTML" textid="buttonPreview">
+                                        </button>
+                                        <hdist>
+                                        </hdist>
+                                        <button method="createNewClassLoader" textid="buttonNewApp">
+                                        </button>
+                                        <hdist>
+                                        </hdist>
+                                        <icon image="images/distance.gif">
+                                        </icon>
+                                        <hdist>
+                                        </hdist>
+                                        <menubutton menuposition="above" textid="menubuttonView">
+                                            <menuitem method="viewProtocol" pixelwidth="200" textid="editor.menuitem0">
+                                            </menuitem>
+                                            <menuitem method="viewLog" pixelwidth="200" textid="buttonViewLog">
+                                            </menuitem>
+                                            <menuitem method="viewXML" pixelwidth="200" textid="buttonViewXML">
+                                            </menuitem>
+                                            <menuitem method="viewAsPopup" pixelwidth="200" textid="editor.menuitem1">
+                                            </menuitem>
+                                        </menubutton>
+                                    </itr>
+                                </rowarea>
+                            </table0>
+                        </td>
+                    </tr>
+                </table0>
+            </td>
+        </tr>
+    </pagebody>
+    <statusbar longtextprop="messageLongText" shorttextprop="messageShortText" typeprop="messageType" withdistance="false">
+    </statusbar>
+    <hotkeys>
+        <hotkey ctrlkey="true" keycode="83" method="save">
+        </hotkey>
+    </hotkeys>
+</page>

@@ -1,0 +1,10 @@
+<xmlclient>
+	<ctreenode name="File">
+	    <ctreenode name="Save" method="onSave"/>
+	    <ctreenode name="Close"/>
+	</ctreenode>
+	<ctreenode name="Edit">
+	    <ctreenode name="Cut"/>
+	    <ctreenode name="Paste"/>
+	</ctreenode>
+</xmlclient>

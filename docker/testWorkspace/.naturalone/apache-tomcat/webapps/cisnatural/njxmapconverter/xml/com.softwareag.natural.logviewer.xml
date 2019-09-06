@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.natural.mapconverter.gui.LogViewerAdapter" popupwidth="800" popupheight="600">
+    <titlebar name="Conversion Logs" withclose="true">
+    </titlebar>
+    <pagebody>
+        <rowarea name="Select Project and Log Files">
+            <itr>
+                <label name="Select the project containing the conversion logs." width="600" asplaintext="true">
+                </label>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label name="Project" width="100" asplaintext="true">
+                </label>
+                <combodyn2 valueprop="projectName" validvaluesprop="projectValues" width="200" flush="server" flushmethod="onProjectChanged">
+                </combodyn2>
+                <hdist width="10">
+                </hdist>
+                <combodyn2 valueprop="logfile" validvaluesprop="logfileValues" width="200">
+                </combodyn2>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <hdist width="100">
+                </hdist>
+                <button name="Load Log File" method="onLoadLogfile">
+                </button>
+                <hdist width="10">
+                </hdist>
+                <button name="View Text" method="onViewLogfileAsText">
+                </button>
+                <hdist width="10">
+                </hdist>
+                <button name="Delete Log Files" method="onDeleteLogfiles">
+                </button>
+            </itr>
+            <vdist height="10">
+            </vdist>
+        </rowarea>
+        <rowarea name="Log File" height="600">
+            <itr>
+                <label name="Logged map conversions" width="100" asplaintext="true">
+                </label>
+                <combodyn2 valueprop="mapfile" validvaluesprop="mapfileValues" width="200" flush="server" flushmethod="onMapfileChanged">
+                </combodyn2>
+                <hdist width="10">
+                </hdist>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <field valueprop="textloglines" width="600" displayonly="true" noborder="true">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr takefullwidth="true" height="100%">
+                <textgridsss2 griddataprop="loglines" rowcount="20" width="100%" height="100%">
+                    <csvcolumn titlesprop="logtitles" valuesprop="logvalues" widthsprop="logwidths" backgroundsprop="backgrounds">
+                    </csvcolumn>
+                </textgridsss2>
+            </itr>
+        </rowarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

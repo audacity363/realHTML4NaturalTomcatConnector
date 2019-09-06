@@ -1,0 +1,4 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=en DO NOT EDIT BY HAND!;
+labelNoValidInput;The field you just input does not contain a valid value. Your input might get lost.<br><br><b>Please correct</b>.
+labelNoValidPage;The page contains one or several fields in which you did not input a correct value.<br><br><b>Please correct</b>.
+buttonOK;OK

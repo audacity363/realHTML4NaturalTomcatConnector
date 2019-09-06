@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body style="font-size: 12px; font-family: Verdana">
+
+<h2>CIS Configuration Files/ Upgrade Procedure&nbsp;</h2>
+<h3><b>Motivation</b></h3>
+<p>CIS Server comes along with a set of configuration files.</p>
+<p><b>Configuration Files</b></p>
+<ul>
+  <li>softwareag/config/cisconfig.xml</li>
+  <li>softwareag/config/controllibraries.xml</li>
+  <li>softwareag/config/controlwizard.xml</li>
+  <li>softwareag/config/editortemplates.xml</li>
+  <li>softwareag/config/startapps.xml</li>
+</ul>
+<p>After installation of a CIS Server the files contain the default
+configuration settings. Typically you change one or more settings over time
+(e.g. you change parameter session timeout in the file cisconfig.xml). The problem: you
+loose this changes if you (re-)install a CIS Server over the existing
+installation. </p>
+<h3>Management of User Configuration Settings</h3>
+<p>The User Configuration Manager is a tool to support the handling of configuration
+files with user defined modifications. The CIS framework distinguishes between:</p>
+<ul>
+  <li><b>Default</b> configuration files</li>
+  <li><b>User</b> configruation files</li>
+</ul>
+<p>User configuration files start with the prefix <b>user_</b>. When a file with the name
+<b>user_</b>editortemplates.xml exists, the CIS framework will use this one instead of
+the default editortemplates.xml. If for the configuration files listed above no file with
+the name <b>user_</b>&lt;configfilename&gt; exists the default configuration file is used.
+In future upgrade-kits configuration files starting with <b>user_</b> will be automatically
+copied to your upgraded version. This allows you to automatically keep your configuration
+settings and if necessary adapt them to the new features introduced in the new version. </p>
+<p>This Tool supports the creation of user configuration files. It also has some basic
+support for comparing them with the corresponding default configuration files.</p>
+<p>The following describes the recommended steps to manage user configuration files:</>
+<h4><b>Step 1: Create User Configuration Files</b></h4>
+<p>Use menu item &quotCreate User Configuration&quot;</p>
+<p align="center"><br>
+<img border="0" src="uconfigmgr_create.GIF"><br>
+<br>
+<b>Create User Configuration</b> <p></p>
+<p>This will create a copy of the default configuration file. The file name of a copy
+is the prefix "user_" following the origin file. The "user_"* copy is stored within
+the directory of the original file. The File Overview Screen will show the copies.
+</p>
+<h4><b>Step 2: Modify User Defined Configuration Files</b></h4>
+<p>Switch to the tab &quot;Edit -&gt; Compare&quot;
+Select the corresponding default configuration file if not yet selected. Now you can
+modify the user configuration file. You can also do a very basic compare of the "user_"* file
+with the default configuration files</p>
+<p align="center"><br>
+<img border="0" src="uconfigmgr_compare.GIF"><br>
+<br>
+<b>Modify User Configuration</b> <p></p>
+</p>
+<h4><b>Step 3: Adapt User Definition Configuration Files after an Upgrade</b></h4>
+<p>When an upgrade to a new version has been executed, the default configuration files
+have changed. You can now use the Compare feature as described in Step 2 to compare your
+*user_"* configuration files with the default ones. In case of new features you might want
+to add changes to your "user_"* files. </p>
+<p align="center"><br>
+<img border="0" src="uconfigmgr_diff.GIF"><br>
+<br>
+<b>Switch to File Compare Screen</b></p>
+<p>Select &quot;Compare&quot; to switch into the File Compare Screen. At the left hand you
+see the user file - at the right hand the defaultfile. To see differences click button &quot;View Differences&quot; at the
+bottom of the page. A file diff popup appears.</p>
+<h4><b>Step 4: Restart CIS Server</b></h4>
+<p>In case you modified the cisconfig or the controlllibraries configuration files you must restart
+the CIS Server. For modifications of editortemplates.xml no restart is required.</p>
+<h4><b>Deleting User Defined Configuration Files</b></h4>
+<p>When deleting "user_"* configuration files the default configuration files will be the
+active configuration again.</p>
+<p>Be very careful with deleting "user_"* configuration files. After a delete they are
+physically deleted from disk. There is no undo for this delete.</p>
+</body>
+
+</html>

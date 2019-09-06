@@ -1,0 +1,40 @@
+<table cellpadding=3 cellspacing=0 width=100% height=100%>
+<tr>
+<td>
+<font face="Verdana" size="4"><i>How to use</i></font>
+</td>
+</tr>
+<tr>
+<td>
+<font face="Verdana" size="2">You use this tab when developing macro controls.
+A macro control typically  &quot;just&quot; combines several existing controls 
+to form a more complex control with a certain dedicated
+task. You take what is available and group it into certain units. 
+You use the text area on the left to describe your control directly in XML. For macro controls,
+you do not need to provide a tag handler class. </font>
+<p><font face="Verdana" size="2"><b>Example</b>:</font>
+<p><font face="Courier" size="1">&lt;coltable0
+width=&quot;$width$&quot;&gt;<br>
+&nbsp;&nbsp; &lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label name=&quot;$name$&quot;
+width=&quot;100%&quot; asplaintext=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/label&gt;<br>
+&nbsp;&nbsp; &lt;/tr&gt;<br>
+&nbsp;&nbsp; &lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;field
+valueprop=&quot;$valueprop$&quot;
+popupmethod=&quot;openIdValueCombo&quot; width=&quot;100%&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/field&gt;<br>
+&nbsp;&nbsp; &lt;/tr&gt;<br>
+&lt;/coltable0&gt;</font>
+<p><font face="Verdana" size="2">The rendered control consists of two lines. The first
+line displays a label, the second line displays an input field. The two lines are placed
+into a column container. You see that the attribute WIDTH of the column container
+and the attribute VALUEPROP of the FIELD are not set in a static way. They refer to
+the attributes WIDTH and VALUEPROP of the macro control. Remember that you have defined the attributes of the macro control 
+on the <b>Attributes</b> tab.</font>
+<p><font face="Verdana" size="2">For a more complex example, have a look at the standard REPORT control. 
+This is a macro control itself. To do so, open editor extension file <i>editor_report.xml</i>.</font>
+</td>
+</tr>
+</table>

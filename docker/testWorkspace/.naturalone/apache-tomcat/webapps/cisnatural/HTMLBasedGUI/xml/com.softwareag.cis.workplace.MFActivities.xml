@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.MFActivitiesAdapter" translationreference="workplace" occupiedpixelheight="0" occupiedpixelwidth="0" contextmenumethod="processAsDefault">
+    <pagebody vscroll="hidden" hscroll="hidden" horizdist="false" pagebodystyle="swt-background-color: #CECCE7">
+        <itr itrclass="WORKPLACEBelowTitle">
+            <coltable0>
+                <vdist height="2">
+                </vdist>
+                <itr>
+                    <icon image="images/takeout.gif" method="onTakeOut" visibleprop="takeOutVisible" valign="middle" colstyle="font-size: 14px" titletextid="onTakeOut">
+                    </icon>
+                    <hdist width="5">
+                    </hdist>
+                    <icon image="images/closecornersmall.gif" method="onCloseAll" visibleprop="closeAllVisible" valign="middle" colstyle="font-size: 14px" titletextid="onCloseAll">
+                    </icon>
+                </itr>
+            </coltable0>
+            <coltable0 width="100%" fixlayout="true">
+                <tabstrip2 tabstripprop="activities2" align="right" scrollable="true">
+                </tabstrip2>
+            </coltable0>
+        </itr>
+        <itr height="100" itrclass="WORKPLACEBelowTitle" width="100%">
+        </itr>
+    </pagebody>
+</page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.HTMLPageAdapter" pagename="htmlpage.html">
+    <titlebar valueprop="url" withclose="true" visibleprop="titlebarVisible" closetitletextid="closePage">
+    </titlebar>
+    <pagebody vscroll="false" hscroll="false" horizdist="false" takefullheight="true">
+        <itr height="100%" width="100%">
+            <subpage valueprop="url" alwaysreload="false" height="100%" width="100%">
+            </subpage>
+        </itr>
+    </pagebody>
+</page>

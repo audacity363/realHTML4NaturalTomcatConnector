@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.attributeCompareAdapter" translationreference="CIS_EDIT">
+    <titlebar textid="attribComp..titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <header>
+        <icon image="images/refresh.gif" method="onRefresh">
+        </icon>
+        <hdist width="5">
+        </hdist>
+        <button image="../HTMLBasedGUI/images/edit.gif" method="onEdit" textid="attribComp..button0" visibleprop="editButtonVis">
+        </button>
+        <button image="../HTMLBasedGUI/images/edit.gif" method="onOPenDocuEditor" textid="attribComp..button1" visibleprop="editButtonVis">
+        </button>
+    </header>
+    <pagebody horizdist="false" takefullheight="true">
+        <itr fixlayout="true" height="15" width="100%">
+            <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attribComp..label0" width="100%">
+            </label>
+        </itr>
+        <rowarea height="1" withbottomborder="false" withleftborder="false" withrightborder="false" withtopborder="false" withtoppadding="false">
+            <vdist>
+            </vdist>
+            <itr width="100%">
+                <hdist width="8">
+                </hdist>
+                <label textid="attribComp..label1" width="100">
+                </label>
+                <field displayonly="true" valueprop="sourceFile" width="100%">
+                </field>
+                <hdist>
+                </hdist>
+            </itr>
+            <itr>
+                <hdist width="8">
+                </hdist>
+                <label textid="attribComp..label2" width="100">
+                </label>
+                <field displayonly="true" valueprop="destFile" width="100%">
+                </field>
+                <hdist>
+                </hdist>
+            </itr>
+            <vdist>
+            </vdist>
+        </rowarea>
+        <vsplit height="100%" widthleft="250">
+            <splitcell takefullheight="true">
+                <itr fixlayout="true" height="15" width="100%">
+                    <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attribComp..label3" width="100%">
+                    </label>
+                </itr>
+                <vdist height="5">
+                </vdist>
+                <rowtablearea2 griddataprop="tagTree" height="100%" hscroll="true" rowcount="40" width="100%" withborder="false">
+                    <repeat>
+                        <tr>
+                            <hdist width="5">
+                            </hdist>
+                            <treenode3 enabledrag="false" imageclosed="images/xmlclosed.gif" imageendnode="images/xmlendnode.gif" imageopened="images/xmlopened.gif" singleselect="true" width="300" withlines="true" withplusminus="true" withtooltip="true">
+                            </treenode3>
+                        </tr>
+                    </repeat>
+                </rowtablearea2>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr fixlayout="true" height="15" width="100%">
+                    <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attribComp..label4" width="100%">
+                    </label>
+                </itr>
+                <rowdynavis valueprop="editButtonVis">
+                    <vdist height="8">
+                    </vdist>
+                    <itr height="100%" width="100%">
+                        <hdist width="10px">
+                        </hdist>
+                        <textout height="100%" valign="top" valueprop="result" width="100%">
+                        </textout>
+                    </itr>
+                </rowdynavis>
+                <vdist height="100%">
+                </vdist>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

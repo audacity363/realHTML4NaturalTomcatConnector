@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.adapter.sdo.ControlParserEditor2">
+    <titlebar name="SDO Control Parser Editor">
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true" paddingleft="20" paddingright="20" paddingtop="20" paddingbottom="20">
+        <itr>
+            <label name="XML Path" width="100">
+            </label>
+            <field valueprop="xmlPath" width="280" flush="server" flushmethod="onXSDPathChanged">
+            </field>
+            <hdist width="30">
+            </hdist>
+        </itr>
+        <vdist height="5">
+        </vdist>
+        <itr>
+            <hdist width="100">
+            </hdist>
+            <button name="Load" method="onLoad">
+            </button>
+            <hdist width="10">
+            </hdist>
+            <button name="Save" method="onSave">
+            </button>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <hline height="1">
+        </hline>
+        <vdist height="10">
+        </vdist>
+        <rowtablearea2 griddataprop="grouplines" rowcount="9" width="900" firstrowcolwidths="false">
+            <repeat>
+                <tr>
+                    <coltable0 width="100%">
+                        <rowarea nameprop="sdogroupname">
+                            <itr visibleprop="ploblemvisible0">
+                                <field valueprop="sdoname0" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <combofix valueprop="sdolevel0" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid0" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                            <itr visibleprop="ploblemvisible1">
+                                <field valueprop="sdoname1" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <combofix valueprop="sdolevel1" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid1" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                            <itr visibleprop="ploblemvisible2">
+                                <field valueprop="sdoname2" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <combofix valueprop="sdolevel2" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid2" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                            <itr visibleprop="ploblemvisible3">
+                                <field valueprop="sdoname3" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <combofix valueprop="sdolevel3" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid3" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                            <itr visibleprop="ploblemvisible4">
+                                <field valueprop="sdoname4" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <combofix valueprop="sdolevel4" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid4" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                             <itr visibleprop="ploblemvisible5">
+                                <field valueprop="sdoname5" width="400" noborder="true" transparentbackground="true">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                               <combofix valueprop="sdolevel5" width="100">
+                                    <combooption name="error" value="E">
+                                    </combooption>
+                                    <combooption name="warning" value="W">
+                                    </combooption>
+                                    <combooption name="info" value="I">
+                                    </combooption>
+                                    <combooption name="nothing" value="N">
+                                    </combooption>
+                                </combofix>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="sdoid5" width="300" noborder="true" transparentbackground="true">
+                                </field>
+                            </itr>
+                        </rowarea>
+                    </coltable0>
+                </tr>
+            </repeat>
+        </rowtablearea2>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

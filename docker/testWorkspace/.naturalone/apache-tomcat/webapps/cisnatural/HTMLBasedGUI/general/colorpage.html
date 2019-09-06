@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+	function doInit()
+	{
+		var passedValues;
+		var color = null;
+		if (opener != undefined) // MOZILLA
+		{
+			color = opener.csciframe.casaPopupParameters[0];
+		}
+		else // INTERNET EXPLORER
+		{
+			if (window.dialogArguments != null && window.dialogArguments[0] != null)
+				color = window.dialogArguments[0];
+		}
+		COLOR.init(color);
+	}
+</script>
+
+<title>Color Input&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+
+<style>
+html {height:100%;padding:0;margin:0;}
+body {height:100%;padding:0;margin:0;}
+</style>
+</head>
+<body>
+<iframe scrolling='no' frameborder='0' onload="doInit();" id="COLOR" name="COLOR" target="main" tabIndex="-1" src="color.html" style="height:100%;width:100%">
+</iframe>
+</body>
+</html>

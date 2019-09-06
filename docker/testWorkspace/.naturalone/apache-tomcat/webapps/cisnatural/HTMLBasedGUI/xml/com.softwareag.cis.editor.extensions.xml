@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css">
+    <titlebar textid="ce.titlebar.title" valueprop="title" closetitletextid="closePage">
+    </titlebar>
+    <header align="left">
+        <menu menucollectionprop="menu">
+        </menu>
+        <hdist width="100">
+        </hdist>
+        <icon image="../HTMLBasedGUI/images/new.gif" method="onCreateFile" titletextid="ce.icon.title.newEdExtension">
+        </icon>
+        <icon image="../HTMLBasedGUI/images/open.gif" method="onOpenFile" titletextid="ce.icon.title.openfile">
+        </icon>
+        <hdist>
+        </hdist>
+        <icon image="../HTMLBasedGUI/images/distance.gif">
+        </icon>
+        <hdist>
+        </hdist>
+        <icon image="../HTMLBasedGUI/images/save.gif" method="onSave" titletextid="ce.icon.title.save">
+        </icon>
+    </header>
+    <pagebody horizdist="false" takefullheight="true">
+        <vsplit height="100%" widthleft="220">
+            <splitcell takefullheight="true">
+                <itr height="15" fixlayout="true" width="100%">
+                    <label textid="ce.label.xmltags" width="100%" asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                    </label>
+                </itr>
+                <rowtablearea2 griddataprop="tree" rowcount="43" height="100%" width="100%" withborder="false" hscroll="true">
+                    <vdist height="5">
+                    </vdist>
+                    <repeat>
+                        <tr>
+                            <hdist width="5">
+                            </hdist>
+                            <treenode3 width="1000" withplusminus="true" imageopened="images/xmlopened.gif" imageclosed="images/xmlclosed.gif" imageendnode="images/xmlendnode.gif" singleselect="false" enabledrag="false" withlines="true" withtooltip="true">
+                            </treenode3>
+                        </tr>
+                    </repeat>
+                </rowtablearea2>
+                <rowarea withleftborder="false" withtopborder="false" withrightborder="false" withbottomborder="false" withtoppadding="false">
+                    <itr width="100%">
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onTagAdd" titletextid="ce.icon.label.newctrl">
+                        </icon>
+                        <hdist>
+                        </hdist>
+                        <icon image="images/distance.gif">
+                        </icon>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onDatatypeAdd" titletextid="ce.icon.label.newdatat">
+                        </icon>
+                        <hdist width="50">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onTreeItemRemove" titletextid="ce.icon.label.selline">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <vdist height="10">
+                </vdist>
+                <rowdynavis valueprop="generalHelpVis" height="100%">
+                    <rowscrollarea height="100%" takefullwidth="true" takefullheight="true">
+                        <itr height="100%" width="100%">
+                            <hdist width="10">
+                            </hdist>
+                            <ihtml valueprop="infoTopHTML" width="100%" height="100%" valign="top">
+                            </ihtml>
+                            <hdist width="10">
+                            </hdist>
+                        </itr>
+                    </rowscrollarea>
+                </rowdynavis>
+                <rowdynavis valueprop="generalHelpNotVis" height="100%">
+                    <itr width="100%">
+                        <hdist width="10">
+                        </hdist>
+                        <ihtml valueprop="infoTopHTML" width="100%" height="200">
+                        </ihtml>
+                        <hdist width="10">
+                        </hdist>
+                    </itr>
+                    <vdist height="10">
+                    </vdist>
+                    <itr height="100%" fixlayout="true">
+                        <hdist width="10">
+                        </hdist>
+                        <coltable0 width="100%" takefullheight="true">
+                            <rowdynavis valueprop="tabPageVis" height="100%">
+                                <rowtabsubpages pagesprop="subPageInfo" height="100%" leftindent="30" pagestyle="border:2">
+                                </rowtabsubpages>
+                            </rowdynavis>
+                        </coltable0>
+                        <hdist width="10">
+                        </hdist>
+                    </itr>
+                </rowdynavis>
+                <vdist height="10">
+                </vdist>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

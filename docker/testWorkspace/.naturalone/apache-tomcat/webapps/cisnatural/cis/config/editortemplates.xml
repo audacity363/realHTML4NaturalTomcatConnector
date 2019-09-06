@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+Configuration of Templates used inside the Layout Painter
+=========================================================
+
+adaptertemplate (mandatory)
+A CIS HTML page is bound to server side java class - the so called adapter.
+The Layout Painter provides for code generation of this class. A code template
+is used if the file adapter class file does not exist so far. Use this attribute 
+to specify the file name of this template. Note: input the file name without 
+any directory information and place the file within the same config 
+directory (<webapp>/cis/config). 
+
+fopclasstemplate (mandatory)
+CIS provides for PDF services using FOP (Formatting Object Processor). 
+On creation of a PDF document the application programmer must provide for 
+a class (the so called data object) that contains the data that is flushed 
+into the PDF print out. The Layout Painter provides for a generation of data
+objects. Use this attribute to specify the file name of a coding template. 
+Note: input the file name without any directory information and place the 
+file within the same config directory (<webapp>/cis/config). 
+
+xmltemplate
+On creation of a new file you can choose among different layout templates. CIS
+provides for several templates (HTML Page, Multi Frame Page, Print Form). The available
+templates are offered within an icon list. You can append own templates or replace
+the CIS ones by own templates. Attributes:
+
+xmltemplate.filename (mandatory)
+The file name of the template withoutany directory information. 
+Place the template file within the same config directory (<webapp>/cis/config). 
+
+xmltemplate.image (mandatory)
+Image URL. 
+
+xmltemplate.info (optional)
+Additional info that helps to choose between different templates. 
+This info is offered as image tooltip. 
+
+-->
+
+<editortemplates adaptertemplate="adapterTemplate.java"
+		     fopclasstemplate="fopClassTemplate.java">
+
+    <group name="HTML Page">
+         <xmltemplate filename="editorTemplateHTMLPage.xml" image="../HTMLBasedGUI/images/template1.jpg" info="HTML Page"/>
+         <xmltemplate filename="editorTemplateLogon.xml" image="../HTMLBasedGUI/images/loginpage.jpg" info="Login Page"/>         
+         <xmltemplate filename="editorTemplateAbsenceRequest.xml" image="../HTMLBasedGUI/images/absencerequest.jpg" info="Absence Request"/>
+         <xmltemplate filename="editorTemplateInvoice.xml" image="../HTMLBasedGUI/images/invoice.jpg" info="Invoice "/>
+         <xmltemplate filename="editorTemplateMeetingAgenda.xml" image="../HTMLBasedGUI/images/meetingagenda.jpg" info="Meeting Agenda"/>
+         <xmltemplate filename="editorTemplateExpenseReport.xml" image="../HTMLBasedGUI/images/expensereport.jpg" info="Expense Report"/>
+    </group>
+    <group name="Workplace"> 
+         <xmltemplate filename="editorTemplateMFWorkplace.xml" image="../HTMLBasedGUI/images/template5.jpg" info="Multi Frame Workplace" />
+        <xmltemplate filename="editorTemplateMFWPBootstrapInfo.xml" image="../HTMLBasedGUI/images/templateBootstrapinfo.jpg" info="Bootstrapinfo"  />  
+         <xmltemplate filename="editorTemplateMFPage.xml" image="../HTMLBasedGUI/images/template3.jpg" info="Multi Frame Page" />
+         <xmltemplate filename="editorTemplateMFActivities.xml" image="../HTMLBasedGUI/images/templateMFActivities.jpg" info="Workplace Activities Frame" />
+         <xmltemplate filename="editorTemplateMFActivities2.xml" image="../HTMLBasedGUI/images/templateMFActivities2.jpg" info="Workplace Activities Frame 2" />
+         <xmltemplate filename="editorTemplateMFActivitiesStripsel.xml" image="../HTMLBasedGUI/images/templateMFActivitiesStripsel.jpg" info="Workplace Stripsel Activities Frame" />
+         <xmltemplate filename="editorTemplateMFActivitiesStripsel2.xml" image="../HTMLBasedGUI/images/templateMFActivitiesStripsel2.jpg" info="Workplace Stripsel Activities Frame 2" />
+         <!-- <xmltemplate filename="editorTemplateMFFunctions.xml" image="../HTMLBasedGUI/images/templateMFFunctions.jpg" info="Workplace Functions Frame" />
+         <xmltemplate filename="editorTemplateMFFunctionsSSS.xml" image="../HTMLBasedGUI/images/templateMFFunctions.jpg" info="Workplace SSS-Functions Frame" />
+         <xmltemplate filename="editorTemplateMFFunctionsPlusMinus.xml" image="../HTMLBasedGUI/images/templateMFFunctions.jpg" info="Workplace PlusMinus-Functions Frame" />
+         <xmltemplate filename="editorTemplateMFFunctionsSSSPlusMinus.xml" image="../HTMLBasedGUI/images/templateMFFunctions.jpg" info="Workplace SSS-PlusMinus-Functions Frame" /> -->       
+    </group>
+    <group name="Standard Pop-up Dialogs">
+         <xmltemplate filename="editorTemplatePopupOnlinehelp.xml" image="../HTMLBasedGUI/images/templatehelp.jpg" info="Onlinehelp Popup" /> 
+         <xmltemplate filename="editorTemplatePopupok.xml" image="../HTMLBasedGUI/images/templatepopupok.jpg" info="OK Popup" />
+         <xmltemplate filename="editorTemplatePopupyesno.xml" image="../HTMLBasedGUI/images/templatepopupyesno.jpg" info="Yes/No Popup" />
+         <xmltemplate filename="editorTemplatePopuplog.xml" image="../HTMLBasedGUI/images/templatepopuplog.jpg" info="Log Popup" />
+    </group>  
+    <group name="Natural Page">
+         <xmltemplate filename="editorTemplateNATPage.xml" image="../HTMLBasedGUI/images/templatenatural.jpg" info="Natural Page"/>
+         <xmltemplate filename="editorTemplateNJXMapConv.xml" image="../HTMLBasedGUI/images/templatenjxmap.jpg" info="Natural Map Converter Template"/>
+         <xmltemplate filename="editorTemplateNJXMobile.xml" image="../HTMLBasedGUI/images/templatenjxmobile.jpg" info="Natural Mobile Page"/>
+    </group>
+    <group name="PDF Output">
+         <xmltemplate filename="editorTemplatePrintForm.xml" image="../HTMLBasedGUI/images/template4.jpg" info="Print Form (PDF Output)"/>
+    </group>
+</editortemplates>

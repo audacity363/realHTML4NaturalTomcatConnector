@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pg="http://www.softwareag.com/xci/XXX_APP_NAME_XXX/XXX_PAGE_XXX" xmlns:dt="http://www.softwareag.com/xci/xciDataTypes" targetNamespace="http://www.softwareag.com/xci/XXX_APP_NAME_XXX/XXX_PAGE_XXX" elementFormDefault="qualified">
+<xs:import namespace="http://www.softwareag.com/xci/xciDataTypes" schemaLocation="xciDataTypes.xsd"/>
+
+XXX_XSD_XXX	
+	
+</xs:schema>

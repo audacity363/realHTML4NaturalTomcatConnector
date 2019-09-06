@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.popups.PopupDBSelectOptionModel" popupwidth="400" popupheight="280" popupfeatures="resizable:no; status:no" pagename="dbselectoption" ispopup="true">
+    <pagebody horizdist="false" takefullheight="true">
+        <rowarea height="100%" withleftborder="false" withrightborder="false" withbottomborder="false" withtoppadding="false">
+            <vdist height="30">
+            </vdist>
+            <itr visibleprop="betweenGridVisible">
+                <coltable0 width="100%" takefullheight="true">
+                    <rowtablearea2 griddataprop="lines" rowcount="4" width="100%" withborder="true">
+                        <tr>
+                            <label textid="operator" width="80" asheadline="true">
+                            </label>
+                            <label textid="value1" width="50%" asheadline="true">
+                            </label>
+                            <label textid="value2" width="50%" asheadline="true">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <tr>
+                                <field valueprop="operator" width="80" flush="server" popupmethod="openIdValueCombo">
+                                </field>
+                                <field valueprop="value1" width="50%" statusprop="value1DisplayStatus" datatype="date">
+                                </field>
+                                <field valueprop="value2" width="50%" statusprop="value2DisplayStatus" datatype="date">
+                                </field>
+                            </tr>
+                        </repeat>
+                    </rowtablearea2>
+                </coltable0>
+                <coltable0 takefullheight="true">
+                    <tr>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" titletextid="clearLines" method="onClear" valign="top">
+                        </icon>
+                    </tr>
+                    <vdist height="100%">
+                    </vdist>
+                    <tr>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" titletextid="moreLines" method="moreLines" valign="top">
+                        </icon>
+                    </tr>
+                </coltable0>
+            </itr>
+            <itr visibleprop="equalsGridVisible">
+                <coltable0 width="100%" takefullheight="true">
+                    <rowtablearea2 griddataprop="lines" rowcount="4" width="100%" withborder="true">
+                        <tr>
+                            <label textid="operator" width="80" asheadline="true">
+                            </label>
+                            <label textid="value1" width="100%" asheadline="true">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <tr>
+                                <field valueprop="operator" width="80" flush="server" popupmethod="openIdValueCombo">
+                                </field>
+                                <field valueprop="value1" width="100%" statusprop="value1DisplayStatus" datatype="date">
+                                </field>
+                            </tr>
+                        </repeat>
+                    </rowtablearea2>
+                </coltable0>
+                <coltable0 takefullheight="true">
+                    <tr>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" titletextid="clearLines" method="onClear" valign="top">
+                        </icon>
+                    </tr>
+                    <vdist height="100%">
+                    </vdist>
+                    <tr>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" titletextid="moreLines" method="moreLines" valign="top">
+                        </icon>
+                    </tr>
+                </coltable0>
+            </itr>
+            <vdist height="30">
+            </vdist>
+            <itr width="100%">
+                <hdist width="50%">
+                </hdist>
+                <button textid="buttonOK" method="onOK">
+                </button>
+                <hdist width="50%">
+                </hdist>
+            </itr>
+            <vdist height="30">
+            </vdist>
+            <vdist>
+            </vdist>
+        </rowarea>
+        <vdist height="100%">
+        </vdist>
+    </pagebody>
+    <hotkeys>
+        <hotkey keycode="13" method="onOK">
+        </hotkey>
+    </hotkeys>
+</page>

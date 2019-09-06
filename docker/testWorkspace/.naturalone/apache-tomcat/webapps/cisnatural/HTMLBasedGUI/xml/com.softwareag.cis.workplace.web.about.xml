@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.MFWorkplaceAboutAdapter" translationreference="CIS_EDIT">
+    <titlebar textid="workplaceabt.titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true">
+        <itr valign="middle">
+            <hdist width="50">
+            </hdist>
+            <coltable0 takefullheight="true" width="168">
+                <itr height="100%" valign="middle">
+                    <icon align="right" image="images/aboutapplicationdesigner.gif">
+                    </icon>
+                </itr>
+            </coltable0>
+            <hdist width="40">
+            </hdist>
+            <coltable0 takefullheight="true" width="100%">
+                <itr takefullwidth="true">
+                    <textout textcolor="#FF0000" valueprop="info" width="100%">
+                    </textout>
+                </itr>
+                <itr takefullwidth="true">
+                    <field displayonly="true" fieldstyle="font-weight:bold" noborder="true" transparentbackground="true" valueprop="adField" width="100%">
+                    </field>
+                </itr>
+                <itr takefullwidth="true">
+                    <field displayonly="true" noborder="true" transparentbackground="true" valueprop="versionField" width="100%">
+                    </field>
+                </itr>
+                <itr takefullwidth="true">
+                    <field displayonly="true" noborder="true" transparentbackground="true" valueprop="copyrightText" width="100%">
+                    </field>
+                </itr>
+                <vdist height="20">
+                </vdist>
+                <itr>
+                    <label asplaintext="true" labelstyle="font-weight:bold" textid="rwwa.label0">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label1">
+                    </label>
+                </itr>
+                <itr>
+                    <label asplaintext="true" labelstyle="font-weight:bold" textid="rwwa.label2">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label3">
+                    </label>
+                </itr>
+                <itr>
+                    <label asplaintext="true" labelstyle="font-weight:bold" textid="rwwa.label4">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label5">
+                    </label>
+                </itr>
+                <itr>
+                    <hdist width="152">
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label6">
+                    </label>
+                </itr>
+                <itr>
+                    <hdist width="152">
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label7">
+                    </label>
+                </itr>
+                <itr>
+                    <hdist width="152">
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label8">
+                    </label>
+                </itr>
+                <itr>
+                    <hdist width="152">
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label9">
+                    </label>
+                </itr>
+                <vdist height="20">
+                </vdist>
+                <itr>
+                    <label asplaintext="true" textid="rwwa.label10">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label11">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <label asplaintext="true" textid="rwwa.label12">
+                    </label>
+                </itr>
+                <itr>
+                    <label asplaintext="true" textid="rwwa.label13">
+                    </label>
+                </itr>
+                <itr>
+                    <label asplaintext="true" textid="rwwa.label14">
+                    </label>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <label asplaintext="true" textid="rwwa.label15">
+                    </label>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <label asplaintext="true" textid="rwwa.label16">
+                    </label>
+                </itr>
+                <vdist height="10">
+                </vdist>
+            </coltable0>
+            <hdist width="20">
+            </hdist>
+        </itr>
+        <itr>
+            <hdist width="50">
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label17">
+            </label>
+        </itr>
+        <itr>
+            <hdist width="50">
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label18">
+            </label>
+        </itr>
+        <itr>
+            <hdist width="50">
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label19">
+            </label>
+            <hdist>
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label20">
+            </label>
+            <hdist>
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label21">
+            </label>
+            <hdist>
+            </hdist>
+            <label asplaintext="true" textid="rwwa.label22">
+            </label>
+        </itr>
+        <vdist height="20">
+        </vdist>
+        <itr height="16" itrstyle="background-color: #668CB0" takefullwidth="true">
+            <methodlink align="left" linkstyle="color:#FFFFFF;font-weight: bold" method="onLegacy" straighttext="true" valueprop="legacyText" width="7%">
+            </methodlink>
+            <methodlink align="left" linkstyle="color:#FFFFFF;font-weight: bold" method="onPrivacy" straighttext="true" valueprop="privacyText" width="20%">
+            </methodlink>
+            <methodlink align="right" linkstyle="color: #FFFFFF;font-weight:bold" method="onCopyRight" straighttext="true" valueprop="copyText" width="25%">
+            </methodlink>
+        </itr>
+    </pagebody>
+</page>

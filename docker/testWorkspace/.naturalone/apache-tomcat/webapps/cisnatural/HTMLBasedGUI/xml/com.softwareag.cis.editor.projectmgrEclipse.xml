@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.edit.ProjectMgrAdapter" translationreference="CIS_TOOLS">
+    <pagebody vscroll="auto" hscroll="auto" horizdist="false" takefullheight="true">
+        <rowarea textid="pm.rowarea.existingapp" height="100%" withleftborder="false" withrightborder="false">
+            <itr height="100%" fixlayout="true" width="100%">
+                <textgrid2 griddataprop="projects" width="100%" height="100%" selectprop="selected" singleselect="false" hscroll="true">
+                    <column textid="pm.txtgrid2.clm.pname" property="name" width="40%">
+                    </column>
+                    <column textid="pm.txtgrid2.clm.pdir" property="directory" width="60%">
+                    </column>
+                </textgrid2>
+            </itr>
+            <vdist pixelheight="5">
+            </vdist>
+            <itr>
+                <button textid="btn.new1" method="openNewArea">
+                </button>
+                <hdist>
+                </hdist>
+                <button textid="btn.remove1" method="openRemoveArea">
+                </button>
+            </itr>
+        </rowarea>
+        <rowdynavis valueprop="newAreaOpened">
+            <rowarea textid="pm.rowarea.ceatenewapp" withleftborder="false" withrightborder="false">
+                <itr>
+                    <label textid="pn.label.appproject" width="150">
+                    </label>
+                    <field valueprop="newProjectName" length="20">
+                    </field>
+                    <hdist>
+                    </hdist>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <td width="150">
+                    </td>
+                    <button textid="btn.create" method="createProject">
+                    </button>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <td width="150">
+                    </td>
+                    <label textid="pm.labeltext.pleasenote" asplaintext="true">
+                    </label>
+                </itr>
+            </rowarea>
+        </rowdynavis>
+        <rowdynavis valueprop="removeAreaOpened">
+            <rowarea textid="pm.rowarea.removeapp" withleftborder="false" withrightborder="false">
+                <itr>
+                    <label textid="pm.labeltext.pleasepayatt" asplaintext="true">
+                    </label>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <button textid="btn.donotremove" method="closeRemoveArea">
+                    </button>
+                    <hdist>
+                    </hdist>
+                    <button textid="btn.remove2" method="removeSelectedDirectories">
+                    </button>
+                </itr>
+            </rowarea>
+        </rowdynavis>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

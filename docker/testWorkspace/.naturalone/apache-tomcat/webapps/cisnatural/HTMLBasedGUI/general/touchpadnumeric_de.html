@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Zahleingabe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+
+<script>
+
+function initTouchPadInput()
+{
+	var passedValues;
+	var passedValues = null;
+	if (opener != undefined) // MOZILLA
+	{
+		passedValues = opener.csciframe.casaPopupParameters;
+	}
+	else // INTERNET EXPLORER
+	{
+		passedValues = window.dialogArguments;
+	}
+
+	if (passedValues != null && passedValues[0] != null)
+	{
+	    var vValue = passedValues[0];
+	    if (vValue == "0" || vValue == "0,0" || vValue == "0.0")
+	    	vValue = "";
+		TOUCHPADINPUT.setValueInternally(vValue);
+	}
+	if (passedValues != null && passedValues[1] != null)
+		TOUCHPADINPUT.setDataType(passedValues[1]);
+	if (passedValues != null && passedValues[2] != null)
+		TOUCHPADINPUT.setDecimalSeparator(passedValues[2]);
+	if (passedValues != null && passedValues[3] != null)
+		TOUCHPADINPUT.setCheckIfValueHasError(passedValues[3]);
+	if (passedValues != null && passedValues[4] != null)
+		TOUCHPADINPUT.switchToStyle(passedValues[4]);
+
+	TOUCHPADINPUT.setDisplayTextClear("Entf");
+	TOUCHPADINPUT.setDisplayTextOK("Enter");
+	TOUCHPADINPUT.init();
+}
+
+</script>
+</head>
+
+
+<frameset rows="*" framespacing="0" border="0" frameborder="0" onload="initTouchPadInput();">
+	<frame name="TOUCHPADINPUT" src="touchpadnumeric.html" scrolling="no" target="main">
+</frameset>
+
+</html>
+

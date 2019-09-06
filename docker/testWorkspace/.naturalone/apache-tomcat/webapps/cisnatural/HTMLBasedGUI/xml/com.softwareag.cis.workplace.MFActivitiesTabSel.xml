@@ -1,0 +1,12 @@
+<page model="com.softwareag.cis.workplace.MFActivitiesAdapter" occupiedpixelheight="0" occupiedpixelwidth="0">
+    <pagebody vscroll="hidden" hscroll="hidden" horizdist="false">
+        <vdist>
+        </vdist>
+        <tabsel tabselprop="tabSelInfo">
+        </tabsel>
+        <dlmenu menuprop="menuData" align="center" onlyoneline="true">
+        </dlmenu>
+        <rowdiv height="100" divclass="WORKPLACEBelowTitle">
+        </rowdiv>
+    </pagebody>
+</page>

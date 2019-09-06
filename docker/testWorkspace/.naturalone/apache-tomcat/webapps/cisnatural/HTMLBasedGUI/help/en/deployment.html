@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body style="font-size: 12px; font-family: Verdana">
+
+<p>There are two types of WAR generation:</p>
+<ul>
+  <li>WAR with reference to the file system</li>
+  <li>WAR without reference to the file system</li>
+</ul>
+<p><b>(1) WAR with Reference to the File System</b></p>
+<p>This is the standard mode in which the Application Designer is delivered:
+inside the WAR's web.xml file there are references to the web application's root
+inside the file system and to the location where log files are written. The
+development functions of Application Designer (such as the Layout Painter) require access to
+the file system and as consequence know where to read and write files. In
+addition the Application Designer class loader that simplifies development accesses
+application classes through the file system (projects' appclasses- directory).</p>
+<p>This mode is &quot;ideal&quot; for development but has some disadvantages in
+clustered runtime scenarios:</p>
+<ul>
+  <li>With some applicaitons servers you do not know the location of the
+    deployed files - or better: you should not know at all!</li>
+  <li>In clustered scenarios you would require to have one directory that is the
+    same for all cluster nodes.</li>
+</ul>
+<p><b>(2) WAR without Reference to the File System</b></p>
+<p>This is the &quot;preferred&quot; deployment mode for applications. All
+resources are not read from the file system but are read via the servlet
+engine's web resource reader. The log is written into the log of the servlet
+engine as well. Classes are not read via a Application Designer class loader but are read
+from the WEB-INF/classes or WEB-INF/lin directory.</p>
+<p>There are no things to be aware of from Application Designer side when runnning the
+application in an application server cluster.</p>
+<p>When creating the WAR file in this mode then the following activities are
+implicitly done:</p>
+<ul>
+  <li>cisconfig.xml is adapted not to use the Application Designer class loader and not to
+    start an own monitoring thread</li>
+  <li>all class files in &lt;project&gt;/appclasses/classes are brought to
+    WEB-INF/classes, all files in &lt;project&gt;/appclasses/lib are brought to
+    WEB-INF/lib</li>
+</ul>
+
+</body>
+
+</html>

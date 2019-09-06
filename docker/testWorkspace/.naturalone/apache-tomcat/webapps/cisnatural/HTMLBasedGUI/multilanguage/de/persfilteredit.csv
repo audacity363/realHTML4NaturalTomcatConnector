@@ -1,0 +1,26 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+MsgUnsavedDataLost;Ungesicherte Daten werden verloren gehen. Wollen Sie wirklich das Szenario wechseln?
+areaMaintenance;Sichtbarkeit
+areaStatusMaintenance;Editierstatus
+btnBack;Beenden
+btnBackToEdit;Beenden
+btnChangeScenario;Szenario wechseln...
+btnNewProposal;Neu
+btnRemoveProposal;Entfernen
+btnRemoveValue;Entfernen
+btnSave;Sichern und beenden
+columnText;Szenario
+lblAccessPath;Name
+lblEditStatus;Editierstatus
+lblEditStatusDISPLAY;Anzeige
+lblEditStatusINVISIBLE;Unsichtbar
+lblIsInvisible;Unsichtbar
+lblIsNotAssigned;Nicht personalisiert
+lblIsVisible;Sichtbar
+lblScenario;Szenario:
+lblValue;Wert
+lblVisibility;Sichtbarkeit
+lblmultiscenariosave;Bitte selektieren Sie eine Szenario Sequenz.
+tabFilter;Layout
+tabProposal;Vorschlagswerte
+title;Personalisierung

@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.StyleSheetCreatorAdapter" translationreference="CIS_TOOLS" stylesheetfile="../cis/styles/CIS_DEFAULT.css">
+    <titlebar textid="sc.title" closetitletextid="closePage">
+        <button textid="btn.configuration" method="onOpenConfiguration" image="../HTMLBasedGUI/images/config.gif" visibleprop="openAreaVisible" invisiblemode="invisible" titletextid="btn.configuration.titletext">
+        </button>
+        <hdist>
+        </hdist>
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true">
+        <vdist height="20">
+        </vdist>
+        <rowarea textid="sc.rowarea.stylesheetvariant" withleftborder="false" withrightborder="false">
+            <itr>
+                <label textid="sc.label.variant" width="150">
+                </label>
+                <field valueprop="variant" width="200" statusprop="variantStatus" popupmethod="openIdValueCombo">
+                </field>
+            </itr>
+            <vdist>
+            </vdist>
+            <rowdynavis valueprop="saveAreaVisible">
+                <itr>
+                    <hdist width="150">
+                    </hdist>
+                    <button textid="btn.saveandapply" method="onSaveAndApply">
+                    </button>
+                    <hdist>
+                    </hdist>
+                    <button textid="btn.save" method="onSave">
+                    </button>
+                    <hdist>
+                    </hdist>
+                    <button textid="btn.othervariant" method="onOtherVariant">
+                    </button>
+                </itr>
+                <vdist height="10">
+                </vdist>
+                <itr>
+                    <hdist width="150">
+                    </hdist>
+                    <label textid="sc.labeltext.afterfirsttime" asplaintext="true">
+                    </label>
+                </itr>
+            </rowdynavis>
+            <rowdynavis valueprop="openAreaVisible">
+                <itr>
+                    <hdist width="150">
+                    </hdist>
+                    <button textid="btn.open" method="onOpen">
+                    </button>
+                    <hdist>
+                    </hdist>
+                    <menubutton textid="btn.refresh" menuposition="below">
+                        <menuitem textid="btn.selectvariant" method="onRefreshSelectedVariant" pixelwidth="150">
+                        </menuitem>
+                        <menuitem textid="btn.allvariants" method="onRefreshAllVariants" pixelwidth="150">
+                        </menuitem>
+                    </menubutton>
+                </itr>
+                <vdist height="50">
+                </vdist>
+                <itr>
+                    <hdist width="150">
+                    </hdist>
+                    <label textid="sc.labeltext.open" width="100%" asplaintext="true">
+                    </label>
+                </itr>
+                <vdist height="5">
+                </vdist>
+                <itr>
+                    <hdist width="150">
+                    </hdist>
+                    <label textid="sc.labeltext.refresh" width="100%" asplaintext="true">
+                    </label>
+                </itr>
+            </rowdynavis>
+        </rowarea>
+        <vdist height="20">
+        </vdist>
+        <rowtable0 height="100%" fixlayout="100%">
+            <rowdynavis valueprop="editAreaVisible" height="100%">
+                <rowtabarea height="100%" leftindent="50" withleftborder="false" withrightborder="false" textid1="sc.tabpage.general" page1="GENERAL" textid2="sc.tabpage.grids" page2="GRIDS" textid3="sc.tabpage.individualcontrols" page3="CONTROLS" textid4="sc.tabpage.tabcontrols" page4="TABS" textid5="sc.tabpage.workplace" page5="WORKPLACE" textid6="sc.rowarea0" page6="Accessibility" textid7="sc.tabpage.styledetails" page7="CSS">
+                    <tabpage id="Accessibility">
+                        <rowarea textid="sc.rowarea0">
+                            <itr>
+                                <label textid="sc.label0" width="150">
+                                </label>
+                                <checkbox valueprop="exchangePXbyPT">
+                                </checkbox>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label1" width="150">
+                                </label>
+                                <field valueprop="factor" datatype="float" validationrules="factor;ltet;0-This value for factor is not allowed_onchange">
+                                </field>
+                            </itr>
+                        </rowarea>
+                    </tabpage>
+                    <tabpage id="GENERAL">
+                        <rowarea textid="sc.rowarea.font">
+                            <itr>
+                                <label textid="sc.label.fontname" width="150">
+                                </label>
+                                <field valueprop="font" title="@@FONT@@" width="200">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.fontsize" width="150">
+                                </label>
+                                <field valueprop="fontSize" title="@@FONTSIZE@@" width="50">
+                                </field>
+                            </itr>
+                            <itr width="100%">
+                                <label textid="sc.label.color" width="120">
+                                </label>
+                                <label textid="sc.label.color1" width="30">
+                                </label>
+                                <field valueprop="colorDark" title="@@FONTCOLORDARK@@" width="100" datatype="color">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <label textid="sc.labeltext.stdtxtcolor" width="100%" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="120">
+                                </hdist>
+                                <label textid="sc.label.color2" width="30">
+                                </label>
+                                <field valueprop="colorLight" title="@@FONTCOLORLIGHT@@" width="100" datatype="color">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <label textid="sc.labeltext.inversecolor" width="100%" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="120">
+                                </hdist>
+                                <label textid="sc.label.color3" width="30">
+                                </label>
+                                <field valueprop="colorInactive" title="@@FONTCOLORINACTIVE@@" width="100" datatype="color">
+                                </field>
+                                <hdist width="10">
+                                </hdist>
+                                <label textid="sc.labeltext.popuptxtcolor" width="100%" asplaintext="true">
+                                </label>
+                            </itr>
+                        </rowarea>
+                        <rowarea textid="sc.rowarea.bgcolors">
+                            <itr>
+                                <label textid="sc.label.lightbg" width="150">
+                                </label>
+                                <field valueprop="lightBackground" title="@@LIGHTBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.darkbg" width="150">
+                                </label>
+                                <field valueprop="darkBackground" title="@@DARKBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.titlebar" width="150">
+                                </label>
+                                <field valueprop="titlebarBackground" title="@@TITLEBARBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.headlines" width="150">
+                                </label>
+                                <field valueprop="headlineBackground" title="@@HEADLINEBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <rowarea textid="sc.rowarea.inputcontrols">
+                            <itr>
+                                <label textid="sc.label.editcolor" width="150">
+                                </label>
+                                <field valueprop="editBackground" title="@@CONTROLEDITBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.editpopupcolor" width="150">
+                                </label>
+                                <field valueprop="popupInputOnlyBackground" title="@@CONTROLPOPUPINPUTONLYBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.displaycolor" width="150">
+                                </label>
+                                <field valueprop="displayBackground" title="@@CONTROLDISPLAYBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.errctrl" width="150">
+                                </label>
+                                <field valueprop="errorBackground" title="@@CONTROLERRORBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.selectedctrl" width="150">
+                                </label>
+                                <field valueprop="selectedColor" title="@@SELECTEDBACKGROUND@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                            <vdist height="10">
+                            </vdist>
+                            <itr>
+                                <label textid="sc.label.ctrlborder" width="150">
+                                </label>
+                                <field valueprop="fieldBorderColor" title="@@FIELDBORDERCOLOR@@" width="100" datatype="color">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <vdist height="100%">
+                        </vdist>
+                    </tabpage>
+                    <tabpage id="GRIDS" display="none">
+                        <itr>
+                            <hdist width="150">
+                            </hdist>
+                            <label textid="label.default" width="100" asplaintext="true">
+                            </label>
+                            <hdist width="20">
+                            </hdist>
+                            <label textid="label.var1" width="100" asplaintext="true">
+                            </label>
+                            <label textid="label.var2" width="100" asplaintext="true">
+                            </label>
+                            <hdist width="20"></hdist>                            
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.oddrows" width="150">
+                            </label>
+                            <field valueprop="oddRowColor" title="@@ODDCELLBACKGROUND@@" width="100" datatype="color">
+                            </field>
+                            <hdist width="20">
+                            </hdist>
+                            <field valueprop="oddRowColorVAR1" title="@@ODDCELLBACKGROUNDVAR1@@" width="100" datatype="color">
+                            </field>
+                            <field valueprop="oddRowColorVAR2" title="@@ODDCELLBACKGROUNDVAR2@@" width="100" datatype="color">
+                            </field>
+                            <hdist width="20">
+                            </hdist>                                                       
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.evenrows" width="150">
+                            </label>
+                            <field valueprop="evenRowColor" title="@@EVENCELLBACKGROUND@@" width="100" datatype="color">
+                            </field>
+                            <hdist width="20">
+                            </hdist>
+                            <field valueprop="evenRowColorVAR1" title="@@EVENCELLBACKGROUNDVAR1@@" width="100" datatype="color">
+                            </field>
+                            <field valueprop="evenRowColorVAR2" title="@@EVENCELLBACKGROUNDVAR2@@" width="100" datatype="color">
+                            </field>                            
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.emptyrows" width="150">
+                            </label>
+                            <field valueprop="emptyRowColor" title="@@EMPTYCELLBACKGROUND@@" width="100" datatype="color">
+                            </field>
+                            <hdist width="20">
+                            </hdist>
+                            <field valueprop="emptyRowColorVAR1" title="@@EMPTYCELLBACKGROUNDVAR1@@" width="100" datatype="color">
+                            </field>
+                            <field valueprop="emptyRowColorVAR2" title="@@EMPTYCELLBACKGROUNDVAR2@@" width="100" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.selectedrows" width="150">
+                            </label>
+                            <field valueprop="selectedRowColor" title="@@SELECTEDCELLBACKGROUND@@" width="100" datatype="color">
+                            </field>
+                            <hdist width="20">
+                            </hdist>
+                            <field valueprop="selectedRowColorVAR1" title="@@SELECTEDCELLBACKGROUNDVAR1@@" width="100" datatype="color">
+                            </field>
+                            <field valueprop="selectedRowColorVAR2" title="@@SELECTEDCELLBACKGROUNDVAR1@@" width="100" datatype="color">
+                            </field>
+                        </itr>
+                        <vdist height="20"></vdist>
+                        <itr>
+                             <hdist width="150"></hdist>
+                             <label name="Variables are shown as tool-tips" width="200"></label>
+                        </itr>
+                        <vdist height="100%">
+                        </vdist>
+                    </tabpage>
+                    <tabpage id="CONTROLS" display="none">
+                        <rowarea textid="sc.rowarea.field">
+                            <itr>
+                                <label textid="label.stdheight" width="150">
+                                </label>
+                                <field valueprop="fieldHeight" width="200">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <rowarea textid="sc.rowarea.button">
+                            <itr>
+                                <label textid="sc.label.bgcolor" width="150">
+                                </label>
+                                <field valueprop="buttonColor" width="200" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.bgimage" width="150">
+                                </label>
+                                <field valueprop="buttonImage" width="400">
+                                </field>
+                            </itr>
+                            <itr>
+                                <hdist width="150">
+                                </hdist>
+                                <label textid="sc.labeltext.ifcolorspecified" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <label textid="label.stdheight" width="150">
+                                </label>
+                                <field valueprop="buttonHeight" width="200">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <rowarea textid="sc.rowarea.titlebar">
+                            <itr>
+                                <label textid="label.stdheight" width="150">
+                                </label>
+                                <field valueprop="titlebarHeight" width="200">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <vdist height="100%">
+                        </vdist>
+                    </tabpage>
+                    <tabpage id="TABS" display="none">
+                        <rowarea textid="sc.rowarea.tabareactrls">
+                            <itr>
+                                <label textid="label.style" width="150">
+                                </label>
+                                <radiobutton valueprop="tabImageStyle">
+                                </radiobutton>
+                                <label textid="label.default" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="150">
+                                </hdist>
+                                <radiobutton valueprop="tabImageStyle" value="edged">
+                                </radiobutton>
+                                <label textid="sc.label.edgedstyle" asplaintext="true">
+                                </label>
+                            </itr>
+                            <vdist height="20">
+                            </vdist>
+                            <itr>
+                                <label textid="sc.label.activesel" width="150" titletextid="shwDTDlabel0">
+                                </label>
+                                <checkbox valueprop="markSelection">
+                                </checkbox>
+                                <hdist width="20">
+                                </hdist>
+                                <field valueprop="highlight1" width="150" datatype="color">
+                                </field>
+                                <hdist>
+                                </hdist>
+                                <field valueprop="highlight2" width="150" datatype="color">
+                                </field>
+                            </itr>
+                            <vdist height="20">
+                            </vdist>
+                            <itr>
+                                <label textid="sc.label.seltabbgcolor" width="250">
+                                </label>
+                                <radiobutton valueprop="tabSelected" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="sc.label.defaultdarkbgcolor" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabSelected" value="CUST">
+                                </radiobutton>
+                                <label textid="label.customized" asplaintext="true">
+                                </label>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="tabsBGSelected" width="150" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.unseltabbgcolor" width="250">
+                                </label>
+                                <radiobutton valueprop="tabUnselected" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="label.default" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabUnselected" value="DARK">
+                                </radiobutton>
+                                <label textid="sc.label.darktitlebar" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabUnselected" value="CUST">
+                                </radiobutton>
+                                <label textid="label.customized" asplaintext="true">
+                                </label>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="tabsBGUnselected" width="150" datatype="color">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <rowarea textid="sc.rowarea.tabstripctrl">
+                            <itr>
+                                <label textid="label.style" width="150">
+                                </label>
+                                <radiobutton valueprop="tabStripStyle" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="label.default" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="150">
+                                </hdist>
+                                <radiobutton valueprop="tabStripStyle" value="edged">
+                                </radiobutton>
+                                <label textid="sc.label.edgedstyle" asplaintext="true">
+                                </label>
+                            </itr>
+                            <vdist height="20">
+                            </vdist>
+                            <itr>
+                                <label textid="sc.label.seltabbgcolor" width="250">
+                                </label>
+                                <radiobutton valueprop="tabStripSelected" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="sc.label.defaultdarkbgcolor" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabStripSelected" value="CUST">
+                                </radiobutton>
+                                <label textid="label.customized" asplaintext="true">
+                                </label>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="tabStripBGSelected" width="150" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="sc.label.unseltabbgcolor" width="250">
+                                </label>
+                                <radiobutton valueprop="tabStripUnselected" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="sc.label.defaultdarkbgcolor" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabStripUnselected" value="CUST">
+                                </radiobutton>
+                                <label textid="label.customized" asplaintext="true">
+                                </label>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="tabStripBGUnselected" width="150" datatype="color">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="label.rolloverbgcolor" width="250">
+                                </label>
+                                <radiobutton valueprop="tabStripRollover" value="DEFAULT">
+                                </radiobutton>
+                                <label textid="sc.label.defaultdarkbgcolor" asplaintext="true">
+                                </label>
+                            </itr>
+                            <itr>
+                                <hdist width="250">
+                                </hdist>
+                                <radiobutton valueprop="tabStripRollover" value="CUST">
+                                </radiobutton>
+                                <label textid="label.customized" asplaintext="true">
+                                </label>
+                                <hdist width="10">
+                                </hdist>
+                                <field valueprop="tabStripBGRollover" width="150" datatype="color">
+                                </field>
+                            </itr>
+                        </rowarea>
+                        <vdist height="100%">
+                        </vdist>
+                    </tabpage>
+                    <tabpage id="WORKPLACE" display="none">
+                        <itr>
+                            <label textid="sc.label.topic1color" width="150">
+                            </label>
+                            <field valueprop="colorTopic1" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic2color" width="150">
+                            </label>
+                            <field valueprop="colorTopic2" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic3color" width="150">
+                            </label>
+                            <field valueprop="colorTopic3" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic4color" width="150">
+                            </label>
+                            <field valueprop="colorTopic4" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic5color" width="150">
+                            </label>
+                            <field valueprop="colorTopic5" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic6color" width="150">
+                            </label>
+                            <field valueprop="colorTopic6" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic7color" width="150">
+                            </label>
+                            <field valueprop="colorTopic7" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic8color" width="150">
+                            </label>
+                            <field valueprop="colorTopic8" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic9color" width="150">
+                            </label>
+                            <field valueprop="colorTopic9" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <itr>
+                            <label textid="sc.label.topic10color" width="150">
+                            </label>
+                            <field valueprop="colorTopic10" width="200" datatype="color">
+                            </field>
+                        </itr>
+                        <vdist height="100%">
+                        </vdist>
+                    </tabpage>
+                    <tabpage id="CSS" takefullheight="true" fixlayout="true" display="none">
+                        <itr>
+                            <label textid="label.variable">
+                            </label>
+                            <hdist width="20">
+                            </hdist>
+                            <field valueprop="varcrossref" flush="server" flushmethod="onSearchVarCrossRef" width="350" popupmethod="openIdValueCombo">
+                            </field>
+                            <hdist width="10">
+                            </hdist>                                 
+                            <icon image="../HTMLBasedGUI/images/refreshCross.gif" imageinactive="../HTMLBasedGUI/images/refreshCrossInactive.gif" method="onSearchVarCrossRef" visibleprop="searchStatus" title="Refresh list">
+       						</icon>                                                             
+                            <hdist width="80">
+                            </hdist>
+                            <label textid="label.value">
+                            </label>                             
+                            <hdist width="20">
+                            </hdist>                                                               
+                            <field valueprop="crossrefval" width="250" displayprop="crossrefvalprop">
+                            </field>
+                            <hdist width="10">
+                            </hdist>                                
+                            <button textid="btn.updatecrossref" method="onUpdateVarCrossRef">
+                            </button>
+                        </itr>
+        				<vdist height="5">
+        				</vdist>                        
+                        <itr height="100%" width="100%">
+                            <coltable0 width="300" takefullheight="true" fixlayout="true" tablestyle="background-color: #FFFFFF">
+                                <rowtablearea2 griddataprop="styleTree" rowcount="30" height="100%" width="100%" withborder="false" hscroll="false" vscroll="auto">
+                                    <repeat>
+                                        <tr>
+                                            <treenode3 width="100%" withplusminus="true">
+                                            </treenode3>
+                                        </tr>
+                                    </repeat>
+                                </rowtablearea2>
+                            </coltable0>
+                            <textgrid2 griddataprop="attributes" width="100%" height="100%" selectprop="selected" singleselect="true" directselectmethod="onSelectAttribute" directselectevent="onclick">
+                                <column textid="label.attribute" property="attribute" width="125" textstyleprop="rowStyle">
+                                </column>
+                                <column textid="label.value" property="value" width="100%" textstyleprop="rowStyle">
+                                </column>
+                            </textgrid2>
+                        </itr>
+                        <vdist>
+                        </vdist>
+                        <rowtable0 height="25" fixlayout="true">
+                            <itr visibleprop="styleFieldVisible">
+                                <hdist width="315">
+                                </hdist>
+                                <field valueprop="styleAttribute" width="125">
+                                </field>
+                                <field valueprop="styleValue" width="100%">
+                                </field>
+                                <hdist>
+                                </hdist>
+                                <button textid="btn.update" method="onAddStyleAttribute">
+                                </button>
+                            </itr>
+                        </rowtable0>
+                    </tabpage>
+                </rowtabarea>
+            </rowdynavis>
+        </rowtable0>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

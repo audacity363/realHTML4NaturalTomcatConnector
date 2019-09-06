@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Dynamic extension of editor.xml file.
+-->
+
+<controllibrary>
+  <editor>
+
+  <!--
+  *****************************************************************************
+  * DATATYPEs
+  *****************************************************************************
+  -->
+
+
+  <!--
+  *****************************************************************************
+  * TAGs
+  *****************************************************************************
+  -->
+
+  <!-- REPORT -->
+  <tag name="report">
+    <attribute name="reportprop" datatype="property" mandatory="true"/>
+    <attribute name="height" datatype="height" defaultvalue="100"/>
+    <attribute name="name" datatype="string"/>
+    <attribute name="showpdf" datatype="boolean" defaultvalue="false"/>
+    <attribute name="showprintversion" datatype="boolean" defaultvalue="false"/>
+    <attribute name="showupload" datatype="boolean" defaultvalue="false" blacklist="page"/>
+    <attribute name="areastyle" datatype="style"/>
+    <attribute name="areastyleclass" defaultvalue="PAGEBodyDark"/>
+    <attribute name="fixlayout" datatype="boolean" defaultvalue="false"/>
+    <taginstance>
+        <itr width="100%" height="$height$" itrclass="$areastyleclass$">
+            <coltable0 width="100%" takefullheight="true" tablestyle="$areastyle$">
+                <rowscrollarea height="$height$" takefullwidth="true" hscroll="auto" takefullheight="true">
+                    <itr width="100%" height="100%" itrclass="REPORTOuterTable">
+                        <ihtml height="100%" valign="top" valueprop="$reportprop$.html">
+                        </ihtml>
+                    </itr>
+                </rowscrollarea>
+            </coltable0>
+            <coldynavis valueprop="$reportprop$.showIconColumn" takefullheight="true">
+                <vdist height="3">
+                </vdist>
+                <tr>
+                    <icon image="../HTMLBasedGUI/images/pdf.gif" visibleprop="$reportprop$.showPDF" method="$reportprop$.onGeneratePDF">
+                    </icon>
+                </tr>
+                <vdist height="3">
+                </vdist>
+                <tr>
+                    <icon image="../HTMLBasedGUI/images/printer.gif" visibleprop="$reportprop$.showPrintVersion" method="$reportprop$.onGeneratePrintVersion">
+                    </icon>
+                </tr>
+                <vdist height="3">
+                </vdist>
+                <tr>
+                    <icon image="../HTMLBasedGUI/images/pdfupload.gif" visibleprop="$reportprop$.showUpload" method="$reportprop$.onUploadPDF">
+                    </icon>
+                </tr>                
+                <vdist height="100%">
+                </vdist>
+            </coldynavis>
+        </itr>
+    </taginstance>
+    <protocolitem>
+        <addproperty name="$reportprop$" datatype="REPORTInfo" useincodegenerator="true"/>
+        <addproperty name="$reportprop$.html" datatype="String"/>
+        <addproperty name="$reportprop$.selectedId" datatype="String"/>
+        <addproperty name="$reportprop$.reportprop" datatype="String" presetvalue="$reportprop$"/>
+        <addproperty name="$reportprop$.name" datatype="String" presetvalue="$name$"/>
+        <addproperty name="$reportprop$.showPDF" datatype="String" presetvalue="$showpdf$"/>
+        <addproperty name="$reportprop$.showPrintVersion" datatype="String" presetvalue="$showprintversion$"/>
+        <addproperty name="$reportprop$.showUpload" datatype="String" presetvalue="$showupload$"/>
+        <addproperty name="$reportprop$.fixlayout" datatype="String" presetvalue="$fixlayout$"/>
+        <addmethod name="$reportprop$.onGeneratePDF"/>
+        <addmethod name="$reportprop$.onGeneratePrintVersion"/>
+        <addmethod name="$reportprop$.onUploadPDF"/>
+        <addjslib src="../HTMLBasedGUI/general/REPORTControls.js"/>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="abstable0" newsubnode="report"/>
+  <tagsubnodeextension control="colarea" newsubnode="report"/>
+  <tagsubnodeextension control="coldynavis" newsubnode="report"/>
+  <tagsubnodeextension control="coltable0" newsubnode="report"/>
+  <tagsubnodeextension control="innerdiv" newsubnode="report"/>
+  <tagsubnodeextension control="dynavis" newsubnode="report"/>
+  <tagsubnodeextension control="pagebody" newsubnode="report"/>
+  <tagsubnodeextension control="rowarea" newsubnode="report"/>
+  <tagsubnodeextension control="rowdynavis" newsubnode="report"/>
+  <tagsubnodeextension control="rowscrollarea" newsubnode="report"/>
+  <tagsubnodeextension control="rowtable0" newsubnode="report"/>
+  <tagsubnodeextension control="splitcell" newsubnode="report"/>
+  <tagsubnodeextension control="tabpage" newsubnode="report"/>
+
+
+  </editor>
+</controllibrary>

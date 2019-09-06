@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.popups.PopupDBQueryVariantInfoPropertiesModel" popupwidth="540" popupheight="345" popupfeatures="resizable:no; status:no" pagename="popupdbqueryvariantinfoproperties" ispopup="true">
+    <pagebody horizdist="false" takefullheight="true" paddingleft="10" paddingright="10" paddingtop="6" paddingbottom="6">
+        <rowtabarea height="285" openedindexprop="openedIndex" textid1="titleGeneralSettings" page1="GENERALSETTINGS" textid2="titleColumnOrder" page2="CPROPERTIES" textid3="titleColumnSortOrder" page3="SORTING" textid4="titleColumnGroupOrder" page4="GROUPING" textid5="titleFilters" page5="FILTERS">
+            <tabpage id="GENERALSETTINGS" takefullheight="true">
+                <vdist height="3">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="6">
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowarea textid="rowareaVariantSettings" foldable="false">
+                            <itr>
+                                <label textid="variantName" width="160">
+                                </label>
+                                <field valueprop="variantName" width="200">
+                                </field>
+                            </itr>
+                            <vdist>
+                            </vdist>
+                        </rowarea>
+                        <vdist>
+                        </vdist>
+                        <rowarea textid="rowareaGeneralSettings" foldable="false">
+                            <itr>
+                                <label textid="reportTitle" width="160">
+                                </label>
+                                <field valueprop="title" width="200">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="maxRows" width="160">
+                                </label>
+                                <field valueprop="maxRows" width="80" maxlength="7" validation="[0-9]{1,7}">
+                                </field>
+                            </itr>
+                            <itr>
+                                <label textid="onLoadExecute" width="160">
+                                </label>
+                                <checkbox valueprop="executeOnLoad">
+                                </checkbox>
+                            </itr>
+                            <vdist>
+                            </vdist>
+                        </rowarea>
+                        <vdist>
+                        </vdist>
+                        <rowarea textid="rowareaPDFSettings" foldable="false">
+                            <itr>
+                                <label textid="pdfGenWithFilterValues" width="160">
+                                </label>
+                                <checkbox valueprop="withFilterValues">
+                                </checkbox>
+                            </itr>
+                            <vdist>
+                            </vdist>
+                        </rowarea>
+                    </coltable0>
+                    <coltable0 width="6">
+                    </coltable0>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <button textid="onOK" method="onOK">
+                    </button>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+                <vdist height="4">
+                </vdist>
+            </tabpage>
+            <tabpage id="CPROPERTIES" takefullheight="true" display="none">
+                <vdist height="6">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="6">
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowtablearea2 griddataprop="columnOrder" rowcount="9" width="100%">
+                            <repeat>
+                                <tr>
+                                    <toggle valueprop="selected" flush="server" trueimage="../HTMLBasedGUI/images/toggleselect.gif" falseimage="../HTMLBasedGUI/images/toggleunselect.gif">
+                                    </toggle>
+                                    <field valueprop="columnName" width="100%" statusprop="columnNameDisplayStatus" valuetextprop="columnNameText" popupmethod="openIdValueCombo">
+                                    </field>
+                                </tr>
+                            </repeat>
+                        </rowtablearea2>
+                    </coltable0>
+                    <coltable0 width="6">
+                    </coltable0>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="6">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/arrowup.gif" method="onColumnUp">
+                    </icon>
+                    <icon image="../HTMLBasedGUI/images/arrowdown.gif" method="onColumnDown">
+                    </icon>
+                    <hdist width="50%">
+                    </hdist>
+                    <button textid="onOK" method="onOK">
+                    </button>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+                <vdist height="4">
+                </vdist>
+            </tabpage>
+            <tabpage id="SORTING" takefullheight="true" display="none">
+                <vdist height="6">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="6">
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowtablearea2 griddataprop="columnSortOrder" rowcount="9" width="100%">
+                            <repeat>
+                                <tr>
+                                    <field valueprop="columnDescription" width="30" displayonly="true" fieldstyle="border:0">
+                                    </field>
+                                    <field valueprop="columnName" width="50%" statusprop="columnNameDisplayStatus" valuetextprop="columnNameText" popupmethod="openIdValueCombo">
+                                    </field>
+                                    <field valueprop="ascending" width="50%" popupmethod="openIdValueCombo">
+                                    </field>
+                                </tr>
+                            </repeat>
+                        </rowtablearea2>
+                    </coltable0>
+                    <coltable0 width="6">
+                    </coltable0>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <button textid="onOK" method="onOK">
+                    </button>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+                <vdist height="4">
+                </vdist>
+            </tabpage>
+            <tabpage id="GROUPING" takefullheight="true" display="none">
+                <vdist height="6">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="6">
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowtablearea2 griddataprop="columnGroupOrder" rowcount="9" width="100%">
+                            <repeat>
+                                <tr>
+                                    <field valueprop="name" width="100%" displayonly="true" fieldstyle="border:0">
+                                    </field>
+                                    <checkbox valueprop="visible" width="100">
+                                    </checkbox>
+                                </tr>
+                            </repeat>
+                        </rowtablearea2>
+                    </coltable0>
+                    <coltable0 width="6">
+                    </coltable0>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <button textid="onOK" method="onOK">
+                    </button>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+                <vdist height="4">
+                </vdist>
+            </tabpage>
+            <tabpage id="FILTERS" takefullheight="true" display="none">
+                <vdist height="6">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="6">
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowtablearea2 griddataprop="filters" rowcount="9" width="100%">
+                            <repeat>
+                                <tr>
+                                    <field valueprop="name" width="100%" displayonly="true" fieldstyle="border:0">
+                                    </field>
+                                    <checkbox valueprop="visible" width="100">
+                                    </checkbox>
+                                </tr>
+                            </repeat>
+                        </rowtablearea2>
+                    </coltable0>
+                    <coltable0 width="6">
+                    </coltable0>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <button textid="onOK" method="onOK">
+                    </button>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+                <vdist height="4">
+                </vdist>
+            </tabpage>
+        </rowtabarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <hotkeys>
+        <hotkey keycode="13" method="onOK">
+        </hotkey>
+    </hotkeys>
+</page>

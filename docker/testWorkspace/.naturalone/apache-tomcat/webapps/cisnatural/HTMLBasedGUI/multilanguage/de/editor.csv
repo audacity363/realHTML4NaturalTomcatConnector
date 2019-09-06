@@ -1,0 +1,607 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+areaAttributes;Attribute
+areaNodes;Knoten
+areaPreview;Vorschau
+areaSubnodes;Unterknoten
+buttonAddFirst;Als Erstes hinzufügen
+buttonAddLast;Als Letztes hinzufügen
+buttonExit;Schließen
+buttonNew;Neu...
+buttonNewApp;Aktuellste Klassen
+buttonOpen;Öffnen...
+buttonSave;Speichern
+buttonSaveAs;Speichern unter...
+buttonViewLog;Log
+buttonViewXML;XML
+ce.icon.label.newctrl;Neues Control
+ce.icon.label.newdatat;Neuen Datentyp
+ce.icon.label.selline;Ausgewählte Zeilen entfernen
+ce.icon.title.newEdExtension;Neue Editor-Erweiterung
+ce.icon.title.openfile;Datei öffnen
+ce.icon.title.save;Speichern
+ce.label.xmltags;XML Tags
+ce.titlebar.title;Control Editor
+ed6.RadioBttn.PreviewModeHTML;HTML
+ed6.RadioBttn.PreviewModeSWT;SWT
+ed6.RadioBttn.withDummyAdapter;Dummy Adapter
+ed6.RadioBttn.withRealAdapter;Anwendung
+ed6.icon.movedownlast;Bewege Knoten an unterste Position
+ed6.icon.movenodedown;Bewege Knoten nach unten
+ed6.icon.movenodedownlast;Bewege Knoten an unterste Position
+ed6.icon.movenodefirst;Bewege Knoten an oberste Position
+ed6.icon.movenodeup;Bewege Knoten nach oben
+ed6.icon.openwiz;Öffne Wizard für ausgewähltes Control
+ed6.icon.pasteasfirst;Als obersten Unterknoten einfügen
+ed6.icon.pasteaslast;Als untersten Unterknoten einfügen
+ed6.icon.swtConfig;Vorschau auf Konfiguration
+ed6.label.ctrls;Controls
+ed6.label.layout;Layout
+ed6.label.swtPreviewAdapter;Vorschau mit
+ed6.label.swtPreviewMode;Vorschaumodus
+ed6.rowarea.SWTConfig;Vorschau auf Konfiguration
+editor.icon0;Speichern (Strg-Shift-S)
+editor.icon1;Knoten an oberste Position bewegen
+editor.icon10;Hinten anhängen
+editor.icon11;Als letzten Unterknoten einfügen
+editor.icon12;Speichern (Strg-Shift-S)
+editor.icon13;Knoten an oberste Position bewegen
+editor.icon14;Knoten nach oben bewegen
+editor.icon15;Knoten nach unten bewegen
+editor.icon16;Knoten an letzte Position bewegen
+editor.icon17;Als obersten Unterknoten einfügen
+editor.icon18;Als untersten Unterknoten einfügen
+editor.icon19;Wizard starten
+editor.icon2;Knoten nach oben bewegen
+editor.icon20;Vorher einfügen
+editor.icon21;Als obersten Unterknoten einfügen
+editor.icon22;Hinten anfügen
+editor.icon23;Als untersten Unterknoten einfügen
+editor.icon24;Rückgängig
+editor.icon25;Wiederholen
+editor.icon26;Knoten nach oben bewegen
+editor.icon27;Knoten nach unten bewegen
+editor.icon28;Knoten entfernen
+editor.icon29;Ausschneiden
+editor.icon3;Knoten nach unten bewegen
+editor.icon30;Kopieren
+editor.icon31;Einfügen
+editor.icon4;Knoten an unterste Position bewegen
+editor.icon5;Als obersten Unterknoten einfügen
+editor.icon6;Als untersten Unterknoten einfügen
+editor.icon7;Wizard starten
+editor.icon8;Vorher einfügen
+editor.icon9;Als obersten Unterknoten einfügen
+editor.label0;Layout
+editor.label1;Layout
+editor.label2;WSDL
+editor.label3;SWT/HTML
+editor.label4;Adapter/Dummy
+editor.label5;Erweiterungen
+editor.menuitem0;Protokoll
+editor.menuitem1;Editor in 1024*768 Popup
+editorHTTPTrace.button0;Speichern und Übernehmen
+editorHTTPTrace.fileupload0;Trace-Datei hochladen
+editorHTTPTrace.label0;Layouts in Ordnern gruppieren. Ordner-Trennzeichen ist 
+editorHTTPTrace.rowarea0;Trace laden
+editorHTTPTrace.rowarea1;Analyse
+editorHTTPTrace.titlebar0;Http Trace Analyzer
+editorHotKey.button0;Neue Zeile einfügen
+editorHotKey.button1;Ausgewählte Zeile entfernen
+editorHotKey.button2;Übernehmen
+editorHotKey.gridcolheader1;Keycode/Text ID
+editorHotKey.gridcolheader2;Strg-Taste
+editorHotKey.gridcolheader3;Shift-Taste
+editorHotKey.gridcolheader4;Alt-Taste
+editorHotKey.gridcolheader5;Methode
+exttagext.rowarea.methods;Methoden
+exttagext.rowarea.properties;Einstellungen
+exttagpos.rowarea.embeddingcont;Umgebende Kontainer
+headlineTag;Tag
+headlineTagName;Tag-Name
+icon.label.add;Hinzufügen
+icon.label.hidehelp;Hilfe ausblenden
+icon.label.movedown;Herunter bewegen
+icon.label.movedownlast;An letzte Position bewegen
+icon.label.moveup;Herauf bewegen
+icon.label.moveupfirst;An erste Position bewegen
+icon.label.remove;Entfernen
+icon.label.showhelp;Hilfe einblenden
+icon.save;Speichern (Strg-Shift-S)
+label.Id;Id
+label.closingxml;XML schließen 
+label.control;Control-Name (z.B. icon)
+label.controlname;Control-Name (z.B. itr, tr)
+label.datatype;Datentyp
+label.defvalue;Standardwert
+label.descr;Beschreibung
+label.douwantto;Wollen Sie eine Kontainer erstellen?
+label.ismandatory;Ist erforderlich
+label.methodname;Methodenname
+label.name;Name
+label.no;Nein
+label.presetvalue;Standardwert
+label.showcodeass;Im Code-Assistenten anzeigen
+label.source;Source (z.B. &quot\;../yourproject/javascript/lib.js&quot\;) 
+label.xmlopeneditor;XML (Öffnen Sie editor_report.xml für ein Beispiel)
+label.xmlshorttag;XML für Start Tag
+label.yesthectrl;Ja - das Control soll andere Controls beinhalten können
+labelAttribute;Attribut
+labelValue;Wert
+menubuttonView;Ansehen...
+wizardBttn;Wizard
+wizardPopupTitle;Control Wizard
+attribComp..button0; Wizard-Struktur bearbeiten
+attribComp..button1;Attribute bearbeiten
+attribComp..label0;Verglichene Ressourcen
+attribComp..label1;Quellcode
+attribComp..label2;Ziel
+attribComp..label3;Control Tags
+attribComp..label4;Status
+attribComp..titlebar0;Attribute vergleichen
+attribComp.button0;Speichern
+attribComp.icon0;Attribut eingeben oder neue Auswahl erzeugen
+attribComp.icon1;Ausgewählte Knoten entfernen
+attribComp.label0;Wizard-Struktur
+attribComp.label1;Multilanguage Einstellungen
+attribComp.label2;Projekt
+attribComp.label3;Multilanguage-Datei
+attribComp.label4;Unzugewiesene Attribute
+attribComp.label5;Wizard-Konfiguration
+attribComp.label6;In Datei speichern
+attribCompEdIn.button0;OK
+attribCompEdIn.label1;Name
+attribCompSav.button0;OK
+attribCompSav.button1;OK
+attribCompSav.dropicon0;Mülleimer
+attribCompSav.dropicon1;Mülleimer
+attribCompSav.label0;Dateiname
+attributesEdit;Eigenschaften
+buttonPreviewDummyIcon;Vorschau mit Dummy-Adapter
+buttonPreviewIcon;Vorschau
+buttonPreviewNewClassesIcon;Vorschau mit aktuellsten Klassen
+buttonPublishIcon;Veröffentlichen
+ce.alreadyex;Die Datei existiert bereits.
+ce.attributes;Attribute
+ce.docu;Dokumentation
+ce.domain;Domain
+ce.exit;Schließen
+ce.file;Datei
+ce.help;Hilfe
+ce.inputname;Bitte geben Sie einen Namen ein
+ce.new;Neu
+ce.nounsaved;Es gibt keine ungesicherten Änderungen...
+ce.open;Öffnen
+ce.pos;Positionierung
+ce.protocol;Protokoll&nbspErweiterungen
+ce.save;Speichern
+ce.selctrlordata;Bitte wählen Sie ein Control oder einen Datentyp und versuchen Sie es erneut
+ce.sellinefirst;Bitte wählen Sie eine Zeile und versuchen Sie es erneut
+ce.wrotef;Datei &1 geschrieben
+ce.xml;XML
+ce.xmldefaults;XML Standards
+closePage;Seite schließen
+codeAssAdapterCode;Adapter Code
+codeAssBinding;Binding
+codeAssGenCode;Generierter Code
+codeAssGenerateCode;Generierter Code
+codeAssMethods;Methoden
+codeAssProperties;Eigenschaften
+codeAssTakeOver;Übernehmen
+configCodeAssSettings;Code-Assistent Einstellungen
+configCodeDir;Quellverzeichnis
+configConfigFile;Konfigurationsdatei
+configDir;Verzeichnis
+configName;Name
+configOneLine;Eigenschaft Methode in einer Zeile
+configPathInfo;Pfadinformationen
+configPrefix;Präfix benutzen
+configSave;Speichern und Übernehmen
+configSpacesPerTab;Leerzeichen pro Tab
+configXMLDir;XML-Verzeichnis
+configXMLDirectorySettings;XML
+disablePropNameValidation;Validierung deaktivieren
+dtdPopupTitle;Data Type Definition (DTD)
+ec.attributes;Attributverwaltung
+ec.classMembers;Class Members
+ec.dynvalidvalues;Dynamische Liste gültiger Werte
+ec.general;Generell
+ec.java;Java
+ec.javaClassName;Java-Klassenname
+ec.validation;Validierung von Eigenschaften- und Klassennamen
+ed6.cmi.dtd;DTD
+ed6.msg.errorsoccured;Während der Generierung sind Fehler aufgetreten. Details unter Home->Protokoll.
+ed6.msg.nonode;Keine Knoten gewählt! 
+ed6.msg.noprotocol;Protokoll nicht verfügbar - Bitte zunächst Vorschau öffnen
+ed6.ucannotremove;Sie können &1 nicht löschen (Wurzelknoten). Benutzen Sie den Layout-Manager um das gesamte XML-Layout zu löschen.
+editorHTTPTrace.label1;(z.B. &quot\;.&quot\; oder &quot\;_&quot\;)
+editorHTTPTrace.label2;Layouts in alphabetischer Reihenfolge gruppieren - 25 Layouts pro Ordner
+editorHTTPTrace.label3;Nicht gruppieren - Layouts in Liste anzeigen
+editorviewcoding.column2;Codezeile
+editorvml.helpicon0;Übersetzungshinweise
+editorvml.helpicon1;Übersetzungshinweise
+errorAttrModelMissing;Code-Assistent nicht verfügbar. Bitte zunächst Attribut MODEL im root-Tag angeben
+errorAttrObjectclassMissing;Code-Assistent nicht verfügbar. Biite zunächst Attribut "objectclass" am Tag "cisfo:foppage2" angeben
+errorAttrPagenameMissing;Literal-Assistent nicht verfügbar. Bitte zunächst TRANSLATIONREFERENCE am root-Tag angeben
+errorBufferEmpty;Kein Objekte in der Zwischenablage
+errorCodeGenAreaEmpty;Es gibt keine Code, der übernommen werden könnte
+errorCodeGenMissingInsertPos;Sie haben keine Einfügeposition gewählt. Bitte wählen Sie ein Zeile im Quellcode
+errorContextMenuRequestChildIsNotInSelection;Kann Kontextmenü nicht öffnen. Knoten "&2" im Unterbaum von "&1" ist nicht ausgewählt
+errorCouldNotSave;Konnte Datei nicht speichern (Existiert das Verzeichnis? Ist die Datei schreibgeschützt?)
+errorDragTargetEqualsDragItem;Kann Datei nicht hier ablegen "&1". Quell- und Zielobjekt sind identisch
+errorInvalidDragItems;Kann Objekte ("&1"" "&2" " ...) nicht bewegen. Alle Objekte müssen den selben Elternknoten haben
+errorInvalidDragTarget;Kann Objekte ("&2"" ...) nicht bewegen. Das Zielobejkt "&1" ist ein Unterknoten von "&2"
+errorLiteralAssNotPreviewed;Literal-Assistent nicht verfügbar. Bitte zunächst Vorschau öffnen
+errorMethodRefersToOutsideAdapter;Kann Code nicht generieren. Die Methode &1 verweist nicht auf eine Adapterklasse
+errorMissingLanguage2;Sie haben noch keine Sprache eingegeben. Bitte geben Sie ein Sprache an
+errorNoFileLoaded;Bitte laden Sie zunächst ein Layout und versuchen Sie es dann erneut
+errorNoLineSelected;Bitte wählen Sie zunächst ein Zeile
+errorNoNodeSelected;Bitte wählen Si ezunächst einen Eintrag und versuchen Sie es dann erneut
+errorNoProtocolAvailable;Kein Log verfügbar - bitte zunächst Vorschau öffnen
+errorNodeMove;Das Bewegen von Objekt ist nur innerhalb einer Ebene zulässig
+errorNodeNotDropable;Abgelegter Knoten &1 passt nicht in ausgewählten Knoten
+errorSelectSubNodeForPlacing;Das Control kann hier nicht abgelegt werden - Bitte legen Sie es in einem Unterknoten ab
+errorSideNodeNotAccept;Kann Objekt (&1 ...) nicht neben dem gewählen Objekt ablegen
+errorSourceDirMissing;Code-Assistent nicht verfügbar. Das Java-Quellcode Verzeichnis ist nicht festgelegt. Verwenden Sie Home->Einstellungen um das Verzeichnis zu bestimmen
+errorSourceDirNotExist;Code-Assistent nicht verfügbar. Das Java-Quellcode Verzeichnis existiert nicht. Überprüfen Sie die Einstellungen unter Home->Einstellungen
+errorUpperNodeNotAccept;Kann Objekt (&1 ...) nicht unter dem gewählten Objekt einfügen
+fniErrorBadFileExtension;Ungültige Datei-Erweiterung. Bitte wählen Sie eine Datei mit der Erweiterung &1
+fniErrorBadFileURL;Die Datei liegt außerhalb der Web-Applikation. Bitte wählen Sie eine Datei innterhalb von &1
+fniErrorFileNameNull;Bitte geben Sie einen Dateinamen an
+fniFileExtensionInfo;Bitte geben Sie eine Datei mit der Erweiterung "&1" an.
+fniFileExtensionInfoAll;Es gibt keine Einschränkung hinsichtlich des Dateitypen. Alle Namenserweiterungen sind OK.
+fniFileName;Dateiname
+fniInfo;Verwenden Sie den Dateidialog um eine Datei vom lokalen Dateisystem auszuwählen. Die absolute Pfadinformation wird in eine relative URL konvertiert - diese kann verwendet werden, um beispielsweise auf ein Bild oder eine CSS-Datei zu verweisen. Hierfür muss sich die Datei im Verzeichnis "&1" (oder einem Unterverzeichnis) befinden.
+fniPopupTitle;Dateiname zu URL
+fniTakeOver;Übernehmen
+generateCode;Code generieren
+layoutCodeSuccessFileSaved;Layout und Quelldatei wurden erfolgreich gespeichert (siehe Bearbeiten->Ressourcen für weitere Informationen)
+layoutCodeTextSuccessFileSaved;Laoyut Quelldatei und Übersetzungsdatei wurdne erfolgreich gespeichert (siehe Bearbeiten->Ressourcen für weitere Informationen)
+layoutTextSuccessFileSaved;Laoyut un dÜbersetzungsdatei wurden erfolgreich gespeichert (siehe Bearbeiten->Ressourcen für weiter Informationen)
+le.prt.errors;Fehler
+le.prt.id;Id
+le.prt.message;Nachricht
+le.prt.protocol;Protokoll
+le.prt.tag;Tag
+le.prt.type;Typ
+le.prt.warnings;Warnungen
+litAssCompareLang;Vergleichssprache
+litAssFileContent;Dateiinhalt
+litAssLanguage;Sprache
+litAssLanguageSettings;Spracheinstellungen
+litAssLiteralMaintenance;Literalverwaltung
+litAssQuestionSaveChanges;Sie sind dabei die Sprache zu Textverwaltung zu ändern. Es gibt ungesicherte Änderungen. Wollen Sie diese Änderungen Speichern?
+litAssTextId;Text ID
+litAssUpdateLanguage;Spracheinstellungen aktualisieren
+lm.pleasedefinelanguage;Bitte legen Sie zunächst eine Sprache fest
+lm.reservedforcis;Diese Abkürzung ist reserviert für CIS
+lm.savedclickdetails;&1 gespeichert. Klicken Sie auf die Nachricht für mehr Informationen.
+looseCodingCancel;Abbrechen
+looseCodingReload;Datei neu laden
+looseCodingSave;Änderungen speichern
+loosedataCancel;Zurück
+loosedataLoose;Daten verwerfen
+loosedataQuestion;Sie sind dabie ungesicherte Daten zu verwerfen. Was wollten Sie tun?
+loosedataSave;Daten speichern
+memberQualifier;Member Qualifier
+menuCodeGenCopy;Kopieren
+menuCodeGenCut;Ausschneiden
+menuCodeGenPaste;Einfügen
+menuCodeGenRemove;Entfernen
+menuCodeGenShiftLeft;- Tab
+menuCodeGenShiftRight;+ Tab
+menuCodeGenTakeOver;Generierten Code übernehmen
+menuEdit;Bearbeiten
+menuEditCopy;Kopieren
+menuEditCut;Ausschneiden
+menuEditDelete;Löschen
+menuEditPasteAsFirst;Zuoberst einfügen
+menuEditPasteAsLast;Zuunterst einfügen
+menuEditRedo;Wiederholen
+menuEditUndo;Rückgängig
+menuFile;Datei
+menuFileExit;Schließen
+menuFileNew;Neu...
+menuFileOpen;Öffnen...
+menuFilePublish;Veröffentlichen
+menuFileSave;Speichern
+menuFileSaveAs;Layout speichern unter...
+menuPreview;Vorschau
+menuPreviewMode;Vorschaumodus
+menuPreviewModeDefault;Standard
+menuPreviewModeHTML;HTML in SWT
+menuPreviewPreview;Vorschau
+menuPreviewPreviewWithDummyAdapter;Vorschau mit Dummy-Adapter
+menuPreviewPreviewWithNewestClasses;Vorschau mit neusten Klassen
+menuSeparator;&SEPARATOR
+menuView;Ansehen
+menuViewConfiguration;Konfiguration
+menuViewLog;Log
+menuViewProtocol;Protokoll
+menuViewResources;Ressourcen
+menuViewServerLog;Server Log
+menuViewXML;XML
+multilinePopupHints;Tipps/ Beispiele
+multilinePopupTitle;Eingabe
+newfileFileName;Dateiname
+newfileName;Name
+noNeedToSave;Sie haben seit dem letzten Speichern keine Änderungen vorgenommen.
+okNewestClasses;Die Adapter laufen nun in einem neuen Class-Loader
+openfileCancel;Abbrechen
+popupTitleConfiguration;Konfiguration
+popupTitleLitAssSaveChanges;Änderungen speichern?
+popupTitleProtocol;XML zu HTML Generierungs Information
+popupTitleReloadJavaSource;Datei neu laden?
+popupTitleResources;Ressourcen
+popupTitleServerLog;CIS Server Log Datei
+popupTitleXML;XML Layout Definition
+previewEdit;Vorschau
+propNameValidation;Regulärer Ausdruck 
+propnamevalidationhint;Ihre Eingabe ist kein gültiger Name einer Eigenschaft oder Methode. Der Name muss aus einem Kleinbuchstaben (a-z) gefolgt von Buchstaben (a-z A-Z) und Zahlen (0-9) bestehen.
+questionReloadJavaSource;Die Java-Quelldatei wurde extern verändert - und der Code-Assistent hat ungesicherte Änderungen. You are about to overwrite the file on the file system. Wollen Sie die Änderungen speichern (Datei überschreiebn) - oder wollen Sie die Datei neu laden (und die Änderungen verlieren)?
+rbnp.button2;Ok
+rbnp.button3;Abbrechen
+rbnp.icon12;Rahmenart
+rbnp.icon14;Rahmenart
+rbnp.icon15;Rahmenstil
+rbnp.icon16;Rahmenstil
+rbnp.icon17;Rahmendicke
+rbnp.icon18;Rahmendicke
+rbnp.icon19;Rahmenfarbe
+rbnp.icon20;Rahmenfarbe
+rbnp.label3;Stil..
+rbnp.label4; Breite..
+rbnp.label5;Rahmenfarbe..
+recp.label1;Mehr Farben...
+ree.label2;Wenn Sie mit 1024*768 arbeiten: wechseln Sie in den Vollbildmodus
+ree6.absicon0;Vorschau
+ree6.absicon1;Speichern
+ree6.absicon2;Vorschau
+ree6.absicon3;Speichern
+ree6.colarea0;Datei
+ree6.colarea1;Log
+ree6.colarea10;Hotkey
+ree6.colarea11;Data Binding
+ree6.colarea12;Multilanguage-Verwaltung
+ree6.colarea13;Formel-Editor
+ree6.colarea14;Datenverifikation
+ree6.colarea15;Datei
+ree6.colarea16;Log
+ree6.colarea17;Konfiguration
+ree6.colarea18;Vorschau
+ree6.colarea19;Zwischenablage
+ree6.colarea2;Konfiguration
+ree6.colarea20;Text
+ree6.colarea21;Attribute
+ree6.colarea22;Status
+ree6.colarea23;Hintergrundbild
+ree6.colarea24;CSS
+ree6.colarea25;Hotkey
+ree6.colarea26;XML Binding
+ree6.colarea27;Multilanguage-Verwaltung
+ree6.colarea28;Formel-Editor
+ree6.colarea29;Datenverifikation
+ree6.colarea3;Vorschau
+ree6.colarea4;Zwischenablage
+ree6.colarea5;Text
+ree6.colarea6;Attribute
+ree6.colarea7;Status
+ree6.colarea8;Hintergrundbild
+ree6.colarea9;CSS
+ree6.field0;Schriftart
+ree6.field1;Schrift 
+ree6.field2;Schriftart
+ree6.field3;Schrift 
+ree6.icon0;Neues Formular
+ree6.icon1;Neues Formular
+ree6.icon11;Einstellungen
+ree6.icon13;Eigenschafts-Editor
+ree6.icon15;Ereignis-Editor
+ree6.icon16;XML Schema (XSD)
+ree6.icon18;Einstellungen
+ree6.icon19;Hintergrundbild
+ree6.icon2;Speichern unter
+ree6.icon21;Stylesheet
+ree6.icon22;Eigenschafts-Editor
+ree6.icon23;Hotkey
+ree6.icon25;Code-Assistent
+ree6.icon26;XML Binding
+ree6.icon27;Literal-Assistent
+ree6.icon28;Formel-Editor
+ree6.icon29;Validierungsregeln
+ree6.icon30;Ereignis-Editor
+ree6.icon34;Hintergrundbild
+ree6.icon36;Stylesheet
+ree6.icon38;Hotkey
+ree6.icon4;Öffnen
+ree6.icon40;Code-Assistent
+ree6.icon41;XML Eigenschaften
+ree6.icon42;Literal-Assistent
+ree6.icon43;Formel-Editor
+ree6.icon44;Validierungsregeln
+ree6.icon45;Übersicht
+ree6.icon5;Speichern unter
+ree6.icon7;Öffnen
+ree6.icon9;XML Schema (XSD)
+ree6.iconAlignCenter;Mittig ausrichten
+ree6.iconAlignLeft;Links ausrichten
+ree6.iconAlignRight;Rechts ausrichten
+ree6.iconBold;Fett
+ree6.iconBorder;Rahmen
+ree6.iconColor;Farbe
+ree6.iconItalic;Kursiv
+ree6.iconUnderline;Unterstrichen
+ree6.label0;Schrift
+ree6.label1;Größe
+ree6.label3;Schrift
+ree6.label4;Größe
+ree6.label6;Farbe
+ree6.radiobutton0;Nur Anzeige testen
+ree6.radiobutton1;Anwendung ausführen
+ree6.radiobutton2;Nur Anzeige testen
+ree6.radiobutton3;Anwendung ausführen
+ree6.rowtabarea0;Home
+ree6.rowtabarea1;Bearbeiten
+ree6.rowtabarea2;Einfügen
+ree6.rowtabarea3;Werkzeuge 
+ree6.rowtabarea4;Home
+ree6.rowtabarea5;Bearbeiten
+ree6.rowtabarea6;Einfügen
+ree6.rowtabarea7;Werkzeuge
+ree6e.label3;XMLSchema 
+ree6w.field3;Farbe
+ree6w.field4;Schrift 
+ree6w.field5;Schriftart
+ree6w.label1;XMLSchema
+reetp.label4;Objektname
+reetp.label5;z.B. Container, Controls
+reetp.rowarea2;Control Palette 
+reetp.rowarea3;Unter-Controls
+refeo.column0;Id
+refeo.column1;Valueprop
+refeo.column2;Formel
+refeo.rowarea1;Formel-Übersicht
+relse.button2;Parsen
+relse.button3;Refactor
+relse.label10;Ändern
+relse.label11;Pfad
+relse.label12;Name
+relse.label13;ID
+relse.label7;Layout-Datei
+relse.label8;ML Datei
+relse.label9;ID Präfix
+relse.titlebar1;Layout String externalizer
+resourceAbsPath;Absoluter Pfad
+resourceCode;Java Source
+resourceLastModified;Zuletzt verändert
+resourceName;Name
+resourcePopupOKMessage;Editor Ressourcen
+resourceTrans;Übersetzungsdatei
+resourceXML;XML Layout 
+revec.rowarea0;Java
+revre.button0;Hinzufügen...
+revre.button1;Ändern...
+revre.button2;Entfernen...
+revre.button3;Ok
+revre.button4;Abbrechen
+revre.button5;Ok
+revre.button6;Abbrechen
+revre.button7;Hinzufügen
+revre.button8;Löschen
+revre.label0;Validierungsregeln
+revre.label1;Ereignisse
+revre.label12;Text ID
+revre.label13;Übersetzungsreferenz:
+revre.label2;Wenn die Bedingung zutrifft:(Geben Sie das Datum im Format YYYYMMDD an)
+revre.label3;dann zeige diesen Fehler:
+revre.label4;Nachricht
+revro.column0;id
+revro.column1;Value prop
+revro.column2;Validierungsregeln
+revro.rowarea0;Validierungsregeln Übersicht
+rexmlsd.button6;Schema laden
+rexmlsd.label24;URL
+rexmlsd.label25;Name
+rexmlsd.label26;Knotentyp
+rexmlsd.label27;Typ
+rexmltv.icon1;WSDL Seite erstellen
+rexmltv.label3;Anzeigelevel
+rexmltv.label4;Name
+rexmltv.label5;Wert
+rexmltv.rowarea4;Textinhalt
+rexmltv.rowarea5;Textinhalt
+rexmltv.rowarea6;Strukturierter Inhalt
+rexmltv.rowarea7;Namespaces
+rexmltv.titlebar1;XML Treeviewer
+rexmltvs.label0;Attribut / Kind
+rexmltvs.label1;Wert
+ribpmempty.label0;Wenn Sie mit 1024*768 arbeiten: wechseln Sie in den Vollbildmodus
+rxcide.label3;Um die Seite zu starten, müssen Sie ihr page processing festlegen.
+rxcide.label4;Bitte öffnen Sie das page processing wie auf dem Screenshot zu sehen.
+rxcide.label5;Nachdem Sie das page processing festgelegt haben, sehen Sie sich das Layout mit den neusten Klassen an.
+rxcide.titlebar1;Applciation Composer - Deployment Fehler
+rzzgen.button0;Ok
+rzzgen.button1;Abbrechen
+rzzgen.icon0;rahmentyp
+rzzgen.icon2;Rahmentyp
+rzzgen.icon3;Rahmenstil
+rzzgen.icon4;Rahmenstil
+rzzgen.icon5;Rahmenbreite
+rzzgen.icon6;Rahmenbreite
+rzzgen.icon7;Rahmenfarbe
+rzzgen.icon8;Rahmenfarbe
+rzzgen.label0;stil..
+rzzgen.label1; Breite..
+rzzgen.label2;Rahmenfarbe..
+scconfig.label.defaultlocation;am Standardort (z.B. &quot\;cis/styles&quot\;)
+scconfig.label.inputdirchoice;Geben Sie ein Verzeichnis Ihrer Wahl an (z.B. C:/Programme/Eclipse/workspace/zzz/styles&quot\;) 
+scconfig.label.inputdirname;Geben Sie den Namen eines Verzeinisses relativ zur Wurzel der Web-Applikation an. Bitte beachten: das Verzeichnis muss sich auf der zweiten Unterebene befinden, z.B. &quot\;yourproject/styles&quot\; oder &quot\;common/styles&quot\; 
+scconfig.label.keeptstylesheets;Sie können Ihre Stylsheet in einem anderen Verzeichnissen ablegen. Wir empfehlen die Verwendung eines Verzeinisses innterhalb der Web-Applikation. Der Stylesheet-Editor kann jedoch jedes Verzeinis Ihrer Wahl verwenden. 
+scconfig.label.outsidewebapp;Außerhalb der Web-Applikation
+scconfig.label.ownstylesheetskept;Ihre eigenen Stylesheets sind gespeichert... 
+scconfig.label.pleasenote;Bitte beachten: Sie müssen sicherstellen, dass Kopien der generierten Stylesheets (und zugehöriger Bilder) zur Laufzeit im Kontext der Web-Applikation zur Verfügung stehen.
+scconfig.label.stylesheetdir;Das Verzeichnis der CIS-Stylesheets (Stylesheets mit dem Präfix &quot\;CI&quot\;) ist &quot\;cis/styles&quot\;. Dieses Verzeichnis ist unveränderlich.
+scconfig.label.withinwebapp;Innerhalb der Web-Applikation (nicht am Standardort)
+scconfig.rowarea.location;Ort
+scconfig.rowareadirectories;Verzeichnisse
+scconfig.stylesheetdir;Stylesheet-Verzeichnisse
+successCopiedNodes;&1 Objekt(e) wurde(n) in die Zwischenablage kopiert
+successFilePublished;Layout wurde als &1 HTML-Seite und als &2 gespeichert
+successFilePublishedCode;Layout HTML-Seite und Quellcode wurden erfolgreich gespeichert (siehe Bearbeiten>Ressourcen für weitere Informationen)
+successFilePublishedCodeText;Layout HTML-Seite, Quellcode und Übersetzungsdatei wurden erfolgreich gepseichert (siehe Bearbeiten->Ressourcen für weitere Informationen)
+successFilePublishedText;Layout HTML-Seite und Übersetzungsdatei wurden erfolgreich gespeichert (siehe Bearbeiten->Ressourcen für weitere Informationen)
+successFileSaved;Layout wurde als &1 gespeichert
+successFileSavedJava;Java-Klasse wurde als &1 gespeichert
+successFileSavedMultiLanguage;Datei wurde als &1 gespeichert
+successPreviewRefreshed;Layout wurde aktualisiert
+tabCodeAssistant;Code-Assistent
+tabHTMLPreview;HTML-Vorschau
+tabLiteralAssistant;Literal-Assistent
+tabPDFPreview;PDF-Vorschau
+tabXmlBinding; XML Binding
+titleEmpty;Layout Painter - kein Layout definiert
+vc.cmi.gencode;Code generieren
+workplaceabt.titlebar0;Über Application Designer
+wsdldataadpt.rowarea0;XML Binding Ansicht und Status
+ree6.colarea26a;Java Binding
+ree6.colarea30;Fenster
+ree6.snbw;In neuem Browserfenster starten
+rxcicfe.label2;Bitte setzen Sie Host und Port in der Konfigurationsdatei endnodes.xml
+rxcicfe.label3;Host- und Port-Einstellungen konnten in der Konfigurationsdatei endnodes.xml nicht gefunden werden.
+rxcicfe.label5;Sie können diese angaben jederzeit später ändern, wenn sich Ihre Konfiguration ändert.
+rxcicfe.titlebar1;Host und Port müssen einmalig gesetzt werden.
+rxcide.label11;Bitte definieren Sie Host und Port in der Konfigurationsdatei endnodes.xml
+rxcinpe.label3;Natural Seiten Fehler
+rxcinpe.label4;Die Unterstützung für Natural Seiten ist in dieser Version nicht installiert.
+rxcinpe.label5;Natural Seiten werden vom Produkt AJAX4Natural unterstützt.
+rxcinpe.titlebar1;AJAX4Natural ist nicht installiert.
+menuViewHTML;HTML
+ree6.icon8;Neu laden
+ree6.rowtabareaPlugins;Erweiterungen
+exttagext.rowarea.javascript;JavaScript Libraries
+attributes;
+buttonPreview;
+buttonPreviewDummy;
+buttonPreviewNewClasses;
+buttonPublish;
+ed6.titlebar; 
+editorHotKey.gridcolheader0; 
+icon.help.showhelp;
+iconTitleCopy;
+iconTitleRemove;
+icontTitleCut;
+preview;
+attribCompEdIn.label0; 
+attribCompSav.label1; 
+editorviewcoding.column0; 
+editorviewcoding.column1; 
+editorviewcoding.column3; 
+editorviewcoding.column4; 
+ree6.label2; 
+ree6.label5; 
+reedt.label1; 
+reeta.label1; 
+reete.label0; 
+reete.label1; 
+reete.label2; 
+reetp.label6; 
+reetp.label7; 

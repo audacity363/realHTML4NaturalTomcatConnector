@@ -1,0 +1,40 @@
+<page model="com.softwareag.cis.pers.PersFilterEditAdapter" pagename="persfilteredit" popupwidth="600" popupheight="400">
+    <pagebody takefullheight="true">
+        <vdist height="10">
+        </vdist>
+        <itr>
+            <label textid="lblmultiscenariosave" asplaintext="true">
+            </label>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr height="100%">
+            <coltable0 takefullheight="true">
+                <itr height="100%">
+                    <textgrid2 griddataprop="scenarios" width="250" height="100%" selectprop="selected" singleselect="true" withselectioncolumn="true">
+                        <column textid="columnText" property="scenario" width="100%">
+                        </column>
+                    </textgrid2>
+                </itr>
+            </coltable0>
+            <hdist width="50">
+            </hdist>
+            <coltable0>
+                <itr>
+                    <button textid="btnSave" method="onSaveMultiScenarios" image="../HTMLBasedGUI/images/save.gif">
+                    </button>
+                </itr>
+                <vdist height="20">
+                </vdist>
+                <itr>
+                    <button textid="btnBackToEdit" method="onBackToEdit">
+                    </button>
+                </itr>
+            </coltable0>
+        </itr>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

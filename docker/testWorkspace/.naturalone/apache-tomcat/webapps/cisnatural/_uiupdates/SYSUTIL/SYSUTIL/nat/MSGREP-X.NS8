@@ -1,0 +1,100 @@
+* PAGE1: PROTOTYPE /*<RO>>
+* PROCESS PAGE USING 'XXXXXXXX' WITH
+* REPORT.CHANGEINDEX REPORT.HORIZONTALINDENT(*) REPORT.ISHEADER(*,*)
+* REPORT.ISLINEBREAK(*,*) REPORT.STYLE(*,*) REPORT.TEXT_001(*,*)
+* REPORT.WIDTH(*,*) REPORT.TEXT(*) REPORT.TEXTSTYLE(*)
+* REPORT.VERTICALDISTANCEPOST(*) REPORT.VERTICALDISTANCEPRE(*)
+* REPORT.ALIGN(*) REPORT.BACKGROUNDCOLOR(*) REPORT.FONTFAMILY(*)
+* REPORT.FONTSIZE(*) REPORT.FONTWEIGHT(*) REPORT.ID(*)
+* REPORT.TEXTCOLOR(*) TITELTEXT
+DEFINE DATA PARAMETER
+/*( PARAMETER
+1 REPORT
+2 CHANGEINDEX (U) DYNAMIC
+2 PARAGRAPH (1:*)
+3 HORIZONTALINDENT (U) DYNAMIC
+3 REPCELL (1:*)
+4 ISHEADER (L)
+4 ISLINEBREAK (L)
+4 STYLE (U) DYNAMIC
+/* Info: Next variable name renamed to make unique.
+4 TEXT_001 (U) DYNAMIC
+4 WIDTH (U) DYNAMIC
+3 TEXT (U) DYNAMIC
+3 TEXTSTYLE (U) DYNAMIC
+3 VERTICALDISTANCEPOST (U) DYNAMIC
+3 VERTICALDISTANCEPRE (U) DYNAMIC
+2 REPSTYLE (1:*)
+3 ALIGN (U) DYNAMIC
+3 BACKGROUNDCOLOR (U) DYNAMIC
+3 FONTFAMILY (U) DYNAMIC
+3 FONTSIZE (U) DYNAMIC
+3 FONTWEIGHT (U) DYNAMIC
+3 ID (U) DYNAMIC
+3 TEXTCOLOR (U) DYNAMIC
+1 TITELTEXT (U) DYNAMIC
+/*) END-PARAMETER
+END-DEFINE
+*
+/*( PROCESS PAGE
+PROCESS PAGE U'/SYSUTIL/MSGREP-NJX' WITH
+PARAMETERS
+ NAME U'report.changeIndex'
+  VALUE REPORT.CHANGEINDEX
+ NAME U'report.paragraph(*).horizontalindent'
+  VALUE REPORT.HORIZONTALINDENT(*)
+ NAME U'report.paragraph(*).repcell(*).isheader'
+  VALUE REPORT.ISHEADER(*,*) (EM='false'/'true')
+ NAME U'report.paragraph(*).repcell(*).islinebreak'
+  VALUE REPORT.ISLINEBREAK(*,*) (EM='false'/'true')
+ NAME U'report.paragraph(*).repcell(*).style'
+  VALUE REPORT.STYLE(*,*)
+ NAME U'report.paragraph(*).repcell(*).text'
+  VALUE REPORT.TEXT_001(*,*)
+ NAME U'report.paragraph(*).repcell(*).width'
+  VALUE REPORT.WIDTH(*,*)
+ NAME U'report.paragraph(*).text'
+  VALUE REPORT.TEXT(*)
+ NAME U'report.paragraph(*).textstyle'
+  VALUE REPORT.TEXTSTYLE(*)
+ NAME U'report.paragraph(*).verticaldistancepost'
+  VALUE REPORT.VERTICALDISTANCEPOST(*)
+ NAME U'report.paragraph(*).verticaldistancepre'
+  VALUE REPORT.VERTICALDISTANCEPRE(*)
+ NAME U'report.repstyle(*).align'
+  VALUE REPORT.ALIGN(*)
+ NAME U'report.repstyle(*).backgroundcolor'
+  VALUE REPORT.BACKGROUNDCOLOR(*)
+ NAME U'report.repstyle(*).fontfamily'
+  VALUE REPORT.FONTFAMILY(*)
+ NAME U'report.repstyle(*).fontsize'
+  VALUE REPORT.FONTSIZE(*)
+ NAME U'report.repstyle(*).fontweight'
+  VALUE REPORT.FONTWEIGHT(*)
+ NAME U'report.repstyle(*).id'
+  VALUE REPORT.ID(*)
+ NAME U'report.repstyle(*).textcolor'
+  VALUE REPORT.TEXTCOLOR(*)
+ NAME U'titelText'
+  VALUE TITELTEXT
+END-PARAMETERS
+/*) END-PROCESS
+*
+/*/*( DEFINE EVENT HANDLER
+* DECIDE ON FIRST *PAGE-EVENT
+*  VALUE U'nat:page.end', U'nat:browser.end'
+*   /* Page closed.
+*   IGNORE
+*  VALUE U'onExit'
+*   PROCESS PAGE UPDATE FULL
+*  VALUE U'report.onGeneratePDF'
+*   PROCESS PAGE UPDATE FULL
+*  VALUE U'report.onGeneratePrintVersion'
+*   PROCESS PAGE UPDATE FULL
+*  NONE VALUE
+*   /* Unhandled events.
+*   PROCESS PAGE UPDATE
+* END-DECIDE
+/*/*) END-HANDLER
+*
+END /*<<RO>

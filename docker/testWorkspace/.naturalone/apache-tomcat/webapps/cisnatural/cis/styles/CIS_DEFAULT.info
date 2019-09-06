@@ -1,0 +1,350 @@
+FONT;Verdana
+FONTSIZE;12px
+FONTCOLORDARK;#000000
+FONTCOLORLIGHT;#FFFFFF
+FONTCOLORINACTIVE;#7C7E85
+LIGHTBACKGROUND;#FFFFFF
+DARKBACKGROUND;#F3F5F0
+CONTROLEDITBACKGROUND;#FFFFFF
+CONTROLDISPLAYBACKGROUND;#F1F3F2
+CONTROLPOPUPINPUTONLYBACKGROUND;#FFFFFF
+CONTROLERRORBACKGROUND;#F2DECE
+HEADLINEBACKGROUND;#687b9c
+TITLEBARBACKGROUND;#a6b2ca
+SELECTEDBACKGROUND;#FFF9C8
+FIELDBORDERCOLOR;#A7A9AB
+BORDERCOLOR;#808080
+ODDCELLBACKGROUND;#FFFFFF
+EVENCELLBACKGROUND;#FFFFFF
+EMPTYCELLBACKGROUND;#FFFFFF
+SELECTEDCELLBACKGROUND;#FFF9C8
+ODDCELLBACKGROUNDVAR1;#FFFFFA
+EVENCELLBACKGROUNDVAR1;#FEEEFE
+EMPTYCELLBACKGROUNDVAR1;#EEEEDE
+SELECTEDCELLBACKGROUNDVAR1;#EEEEDE
+ODDCELLBACKGROUNDVAR2;#FFFFFA
+EVENCELLBACKGROUNDVAR2;#EEFEFE
+EMPTYCELLBACKGROUNDVAR2;#EEEEDE
+SELECTEDCELLBACKGROUNDVAR2;#EEEEDE
+COLORTOPIC1;#FFFFFF
+COLORTOPIC2;#FFFFFF
+COLORTOPIC3;#FFFFFF
+COLORTOPIC4;#FFFFFF
+COLORTOPIC5;#FFFFFF
+COLORTOPIC6;#FFFFFF
+COLORTOPIC7;#FFFFFF
+COLORTOPIC8;#FFFFFF
+COLORTOPIC9;#FFFFFF
+COLORTOPIC10;#FFFFFF
+BUTTONCOLOR;
+BUTTONIMAGE;images/sag23_buttonback2.gif
+BUTTONHEIGHT;22px
+FIELDHEIGHT;20px
+TITLEBARHEIGHT;27px
+TABIMAGESTYLE;
+MARKSELECTION;true
+HIGHLIGHT1;null
+HIGHLIGHT2;null
+TABSELECTED;DEFAULT
+TABUNSELECTED;DEFAULT
+TABSTRIPSTYLE;DEFAULT
+TABSTRIPSELECTED;DEFAULT
+TABSTRIPUNSELECTED;DEFAULT
+TABSTRIPROLLOVER;DEFAULT
+STYLEADDON;AREARightFromTitleCell;font-size;1px
+STYLEADDON;AREARightFromTitleCell;width;15px
+STYLEADDON;AREATable;background-color;DELETE
+STYLEADDON;AREATableContent;border-top;0
+STYLEADDON;TITLEBARTable;background-image;url(images/sag23_titlebarbackground.jpg)
+STYLEADDON;LABELCellNormal;background-image;url('images/sag23_labelback.gif')
+STYLEADDON;TABAREACellSelectedFirst;background-image;url('images/sag23_tabareacellselectedfirst.gif')
+STYLEADDON;TABAREACellUnselected;background-image;url('images/sag23_tabareacellunselected.gif')
+STYLEADDON;TABAREACellUnselected;color;#606060
+STYLEADDON;TABAREACellUnselectedFirst;background-image;url('images/sag23_tabareacellunselectedfirst.gif')
+STYLEADDON;TABAREACellUnselectedFirst;color;#606060
+STYLEADDON;TABAREACellDisabled;background-image;url('images/sag23_tabareacellunselected.gif')
+STYLEADDON;TABAREACellDisabled;color;#6C7478
+STYLEADDON;TABAREACellDisabledFirst;background-image;url('images/sag23_tabareacellunselectedfirst.gif')
+STYLEADDON;TABAREACellDisabledFirst;color;#6C7478
+STYLEADDON;TABAREACellSelected;background-image;url('images/sag23_tabareacellselected.gif')
+STYLEADDON;TABSTRIPTOPCellBefore;background-image;url('images/sag23_tabstriptopback1.gif')
+STYLEADDON;FAVOURITEBackground;background-image;url(images/sag23_favouritesback.jpg)
+STYLEADDON;TABSTRIPBackSelected;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackRight;background-image;url('images/sag23_tabstriprightback.gif')
+STYLEADDON;TABSTRIPBackRightRollover;background-image;url('images/sag23_tabstriprightback.gif')
+STYLEADDON;TABSTRIPBackRightSelected;background-image;url('images/sag23_tabstriprightback.gif')
+STYLEADDON;TABSTRIPBackNextSelected;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackNextSelectedRollover;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackNextRollover;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackNextSelectedRTL;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackSelectedNextRollover;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPCellSelected;color;#909090
+STYLEADDON;TABSTRIPCellRollover;color;#B00000
+STYLEADDON;TABSTRIPCellSelectedRollover;color;#B00000
+STYLEADDON;AREARightTopCell;width;1px
+STYLEADDON;AREARightFromTitleCell;display;none
+STYLEADDON;AREALinks;margin-right;7px
+STYLEADDON;AREATitleCell;cursor;pointer
+STYLEADDON;TABAREACellSelectedFirst;padding-right;8px
+STYLEADDON;TABAREACellSelectedFirst;padding-left;10px
+STYLEADDON;TABAREACellUnselectedFirst;padding-left;10px
+STYLEADDON;TABAREACellUnselectedFirst;padding-right;8px
+STYLEADDON;TABAREACellUnselected;padding-left;10px
+STYLEADDON;TABAREACellUnselected;padding-right;8px
+STYLEADDON;TABAREACellDisabledFirst;padding-left;10px
+STYLEADDON;TABAREACellDisabledFirst;padding-right;8px
+STYLEADDON;TABAREACellDisabled;padding-left;10px
+STYLEADDON;TABAREACellDisabled;padding-right;8px
+STYLEADDON;TABAREACellSelected;padding-left;10px
+STYLEADDON;TABAREACellSelected;padding-right;8px
+STYLEADDON;AREALinks;color;#000000
+STYLEADDON;AREALinks;font-weight;bold
+STYLEADDON;AREATitleCell;height;20px
+STYLEADDON;AREALeftFromTitleCell;font-size;8px
+STYLEADDON;AREARightFromTitleCell;height;22px
+STYLEADDON;AREARightFromTitleCellRemaining;height;22px
+STYLEADDON;AREATable;border;DELETE
+STYLEADDON;AREATableContent;border-left;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREATableContent;border-right;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREARightFromTitleCell;border-top;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREARightFromTitleCellRemaining;border-top;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREALeftFromTitleCell;background-color;DELETE
+STYLEADDON;AREALeftFromTitleCell;background-image;url(images/sag23_arealefttop.gif)
+STYLEADDON;AREALeftFromTitleCell;height;22px
+STYLEADDON;AREALeftFromTitleCell;width;6px
+STYLEADDON;AREATable;border-bottom;1px solid @@BORDERCOLOR@@
+STYLEADDON;TABSTRIPBackLeftRollover;background-image;url('images/sag23_tabstripleftback.gif')
+STYLEADDON;TABSTRIPBackLeftSelected;background-image;url('images/sag23_tabstripleftback.gif')
+STYLEADDON;TABSTRIPBack;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackRollover;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackLeft;background-image;url('images/sag23_tabstripleftback.gif')
+STYLEADDON;AREALeftFromTitleCellNoBorder;height;22px
+STYLEADDON;AREALeftFromTitleCellNoBorder;width;6px
+STYLEADDON;AREALeftFromTitleCellNoBorder;border-top;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREARightTopCellNoBorder;display;none
+STYLEADDON;AREARightTopCell;height;22px
+STYLEADDON;AREARightTopCell;background-color;@@BORDERCOLOR@@
+STYLEADDON;BUTTONVAR2Input;border;0
+STYLEADDON;BUTTONVAR2Input;background-image;DELETE
+STYLEADDON;BUTTONVAR2Input;background-color;transparent
+STYLEADDON;BUTTONVAR2InputRolledOver;border-width;0
+STYLEADDON;linksRolledOver;color;#FF7734
+STYLEADDON;BUTTONLISTInputSelectedRolledOver;background-image;url('../../HTMLBasedGUI/images/cis_default_buttonbackground.jpg')
+STYLEADDON;BUTTONLISTInputRolledOver;background-image;url('../../HTMLBasedGUI/images/cis_default_buttonbackground.jpg')
+STYLEADDON;BUTTONVAR2InputRolledOver;color;#FF7734
+STYLEADDON;BUTTONVAR2InputRolledOver;background-image;DELETE
+STYLEADDON;BUTTONVAR2InputRolledOver;background-color;transparent
+STYLEADDON;SCPCellHeaderLeft;font-size;0
+STYLEADDON;SCPCellHeader;font-size;0
+STYLEADDON;SCPCellHeaderRight;font-size;0
+STYLEADDON;BUTTONVAR2Text;font-weight;bold
+STYLEADDON;BUTTONVAR2InputRolledOver;font-weight;bold
+STYLEADDON;BUTTONVAR2Input;font-weight;bold
+STYLEADDON;BUTTONVAR2Text;color;#909090
+STYLEADDON;BUTTONVAR2Input;color;#7B7B7B
+STYLEADDON;AREALeftFromTitleCell;border-top;DELETE
+STYLEADDON;MENUTopPressed;background-color;@@SELECTEDBACKGROUND@@
+STYLEADDON;FIELDInputInvisibleWithPopup;background-image;url('../../HTMLBasedGUI/images/fieldcombo.gif')
+STYLEADDON;FIELDInputEditWithPopup;background-image;url('../../HTMLBasedGUI/images/fieldcombo.gif')
+STYLEADDON;FIELDInputDisplayWithPopup;background-image;url('../../HTMLBasedGUI/images/fieldcombo.gif')
+STYLEADDON;FIELDPopupInputOnlyWithPopup;background-image;url('../../HTMLBasedGUI/images/fieldcombo2.gif')
+STYLEADDON;FIELDPopupInputOnlyWithPopup;border;1px solid #7F9DB9
+STYLEADDON;TABSTRIPCell;color;#6C0000
+STYLEADDON;BUTTONLISTInputSelected;font-weight;bold
+STYLEADDON;BUTTONLISTInputSelectedRolledOver;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderUnsorted;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeader;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderAscending;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderAscending1;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderAscending2;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderDescending;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderDescending1;padding-left;2px
+STYLEADDON;TEXTGRIDCellHeaderDescending2;padding-left;2px
+STYLEADDON;TEXTGRIDCellContent;padding-left;2px
+STYLEADDON;TEXTGRIDCellContentDark;padding-left;2px
+STYLEADDON;TEXTGRIDCellSelectedContent;padding-left;2px
+STYLEADDON;TEXTGRIDCellRolloverContent;padding-left;2px
+STYLEADDON;AREALinks;font-size;12px
+STYLEADDON;AREALinks;padding-bottom;0
+STYLEADDON;AREALinks;padding-right;7px
+STYLEADDON;AREALinks;padding-left;0
+STYLEADDON;AREATitleImage;margin-right;5px
+STYLEADDON;TITLEBARCellImage;background-image;url('../../HTMLBasedGUI/images/helpiconblue.gif')
+STYLEADDON;TITLEBARCellClose;width;20px
+STYLEADDON;TITLEBARCellHelp;background-image;url('../../HTMLBasedGUI/images/helpiconblue.gif')
+STYLEADDON;TITLEBARCellHelp;width;20px
+STYLEADDON;TITLEBARCellClose;background-image;url('../../HTMLBasedGUI/images/closecornergray.gif')
+STYLEADDON;TABSTRIPTOPCellSelected;color;@@FONTCOLORDARK@@
+STYLEADDON;TABSTRIPTOPCell;color;@@FONTCOLORDARK@@
+STYLEADDON;TABSTRIPTOPCell;font-weight;bold
+STYLEADDON;TABSTRIPTOPCellSelectedRollover;color;#FF0000
+STYLEADDON;TABSTRIPTOPCellRollover;color;@@FONTCOLORDARK@@
+STYLEADDON;FIELDInputErrorWithPopup;background-image;url('../../HTMLBasedGUI/images/fieldcombo.gif')
+STYLEADDON;TREENODETableRollover;cursor;pointer
+STYLEADDON;MENUTopPressed;border;1px solid #C0C0C0
+STYLEADDON;BUTTONInputRolledOver;background-image;url('../../HTMLBasedGUI/images/cis_default_buttonbackground.jpg')
+STYLEADDON;TREENODETableRollover;background-color;@@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;TREENODESelectedTable;background-position;bottom
+STYLEADDON;TREENODESelectedTable;background-repeat;repeat-x
+STYLEADDON;MENUTopRollOver;background-color;@@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;MENUItemLabelCellRollOver;background-color;@@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;MENUItemLabelCellRollOver;border;1px solid @@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;MENUItemImageCellRollOver;border;1px solid @@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;MENUItemImageCellRollOver;background-color;@@SHADEDSELECTEDBACKGROUND@@
+STYLEADDON;TABAREAVAR1CellRemaining;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellRemainingRight;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelectedFirst;border-top;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelectedFirst;border-left;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelectedFirst;border-right;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelected;border-top;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelected;border-left;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSelected;border-right;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSubpages;border-left;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSubpages;border-right;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSubpages;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellSubpages;background-color;#F4FAFF
+STYLEADDON;TABAREAVAR1CellSelected;background-color;#F4FAFF
+STYLEADDON;TABAREAVAR1CellSelectedFirst;background-color;#F4FAFF
+STYLEADDON;TABAREAVAR1Table;background-color;#C5E4FF
+STYLEADDON;TABAREAVAR1CellUnselectedFirst;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellUnselectedFirstRTL;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellUnselected;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellUnselectedFirst;color;#446EAE
+STYLEADDON;TABAREAVAR1CellUnselectedFirstRTL;color;#446EAE
+STYLEADDON;TABAREAVAR1CellUnselected;color;#446EAE
+STYLEADDON;TABAREAVAR1CellUnselectedRTL;color;#446EAE
+STYLEADDON;TABAREAVAR1CellDisabledFirst;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellDisabledFirstRTL;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellDisabled;border-bottom;1px solid #95C0EC
+STYLEADDON;TABAREAVAR1CellDisabledFirst;color;#6C7478
+STYLEADDON;TABAREAVAR1CellDisabledFirstRTL;color;#6C7478
+STYLEADDON;TABAREAVAR1CellDisabled;color;#6C7478
+STYLEADDON;TABAREAVAR1CellDisabledRTL;color;#6C7478
+STYLEADDON;TABAREAVAR1CellSelectedFirst;color;#446EAE
+STYLEADDON;TABAREAVAR1CellSelectedFirstRTL;color;#446EAE
+STYLEADDON;TABAREAVAR1CellSelected;color;#446EAE
+STYLEADDON;TABAREAVAR1CellSelectedRTL;color;#446EAE
+STYLEADDON;AREATitleCell;border-top;1px solid @@BORDERCOLOR@@
+STYLEADDON;AREAVAR1TableOnTop;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1TableOnBottom;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1TableHeader;background-color;#C5E4FF
+STYLEADDON;AREAVAR1TableContent;background-color;#DEEBF7
+STYLEADDON;AREAVAR1TableContent;border-left;1px solid #95C0EC
+STYLEADDON;AREAVAR1TableContent;border-right;1px solid #95C0EC
+STYLEADDON;AREAVAR1TopCell;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1TitleCell;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1TitleCell;background-color;#C5E4FF
+STYLEADDON;AREAVAR1TitleCellOnTop;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1TitleCellOnTop;background-color;#C5E4FF
+STYLEADDON;AREAVAR1TitleCellOnBottom;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1TitleCellOnBottom;background-color;#C5E4FF
+STYLEADDON;AREAVAR1LeftFromTitleCell;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCell;border-left;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCell;background-color;#C5E4FF
+STYLEADDON;AREAVAR1LeftFromTitleCellNoBorder;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCellNoBorder;border-left;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCellNoBorder;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCell;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCellRemaining;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightTopCell;border-right;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightTopCell;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightTopCellNoBorder;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCell;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellRemaining;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellOnTop;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellRemainingOnTop;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellOnBottom;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellRemainingOnBottom;border-bottom;1px solid #95C0EC
+STYLEADDON;AREAVAR1RightFromTitleCellOnTop;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCellRemainingOnTop;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCellOnBottom;background-color;#C5E4FF
+STYLEADDON;AREAVAR1RightFromTitleCellRemainingOnBottom;background-color;#C5E4FF
+STYLEADDON;TITLEBARCell;font-size;@@FONTSIZE@@
+STYLEADDON;TREENODESelectedTable;background-image;url(../../HTMLBasedGUI/images/treeselected.gif)
+STYLEADDON;TABAREAVAR1CellSelectedFirst;padding-left;14px
+STYLEADDON;AREAVAR1Links;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedFirst;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedFirstRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelected;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedLeft;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedRight;font-size;10px
+STYLEADDON;TABAREAVAR1CellRemaining;font-size;10px
+STYLEADDON;TABAREAVAR1CellRemainingRight;font-size;10px
+STYLEADDON;TABAREAVAR1CellUnselectedFirst;font-size;10px
+STYLEADDON;TABAREAVAR1CellUnselectedFirstRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellUnselected;font-size;10px
+STYLEADDON;TABAREAVAR1CellUnselectedRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellDisabledFirst;font-size;10px
+STYLEADDON;TABAREAVAR1CellDisabledFirstRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellDisabled;font-size;10px
+STYLEADDON;TABAREAVAR1CellDisabledRTL;font-size;10px
+STYLEADDON;TABAREAVAR1CellSelectedFirst;height;18px
+STYLEADDON;TABAREAVAR1CellSelected;height;18px
+STYLEADDON;TABAREAVAR1CellSelectedLeft;height;18px
+STYLEADDON;TABAREAVAR1CellSelectedRight;height;18px
+STYLEADDON;TABAREAVAR1CellUnselected;height;18px
+STYLEADDON;TABAREAVAR1CellUnselectedFirst;height;18px
+STYLEADDON;TABAREAVAR1CellUnselectedFirst;padding-left;14px
+STYLEADDON;TABAREAVAR1CellDisabled;height;18px
+STYLEADDON;TABAREAVAR1CellDisabledFirst;height;18px
+STYLEADDON;TABAREAVAR1CellDisabledFirst;padding-left;14px
+STYLEADDON;TABAREACellUnselectedFirst;font-weight;bold
+STYLEADDON;TABAREACellUnselected;font-weight;bold
+STYLEADDON;TABAREACellDisabledFirst;font-weight;bold
+STYLEADDON;TABAREACellDisabled;font-weight;bold
+STYLEADDON;TABAREACellSelectedFirst;font-weight;bold
+STYLEADDON;TABAREACellSelected;font-weight;bold
+STYLEADDON;TEXTGRIDDiv;background-color;#FFFFFF
+STYLEADDON;TEXTGRIDTable;background-color;#FFFFFF
+STYLEADDON;TEXTGRIDCellHeader;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderUnsorted;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderAscending;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderAscending1;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderAscending2;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderDescending;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderDescending1;font-weight;bold
+STYLEADDON;TEXTGRIDCellHeaderDescending2;font-weight;bold
+STYLEADDON;AREALeftFromTitleCellNoBorder;background-color;#88B2D7
+STYLEADDON;AREARightFromTitleCell;background-color;#88B2D7
+STYLEADDON;AREARightFromTitleCellRemaining;background-color;#88B2D7
+STYLEADDON;LABELCellHeadline;font-weight;bold
+STYLEADDON;ABSFOLDERTable;background-color;DELETE
+STYLEADDON;TITLEBARCell;color;#000000
+STYLEADDON;AREARightFromTitleCell;background-image;url(images/sag23_areatitle.gif)
+STYLEADDON;AREARightFromTitleCellRemaining;background-image;url(images/sag23_areatitle.gif)
+STYLEADDON;AREATitleCell;background-image;url(images/sag23_areatitle.gif)
+STYLEADDON;AREALeftFromTitleCellNoBorder;background-image;url(images/sag23_areatitle.gif)
+STYLEADDON;STRRowEven;background-color; #F7F8F9
+STYLEADDON;POPUPDIVTitleBarCell;font-size;@@FONTSIZE@@
+STYLEADDON;POPUPDIVTitleBarCell;background-image;url(images/sag23_titlebarbackground.jpg)
+STYLEADDON;POPUPDIVTitleBarCell;color;#000000
+STYLEADDON;FLASHActive;opacity;.01
+STYLEADDON;FLASHPageSwitch;opacity;.01
+STYLEADDON;FLASHPageSwitch;-moz-opacity;.10
+STYLEADDON;FLASHActive;-moz-opacity;.10
+STYLEADDON;BUTTONInput;white-space;nowrap
+STYLEADDON;BUTTONVAR1Input;white-space;nowrap
+STYLEADDON;BUTTONVAR2Input;white-space;nowrap
+STYLEADDON;BUTTONVAR2InputRolledOver;white-space;nowrap
+STYLEADDON;BUTTONVAR1InputRolledOver;white-space;nowrap
+STYLEADDON;BUTTONInputRolledOver;white-space;nowrap
+STYLEADDON;FLASHPageSwitch;background-color;#ADCAFF
+STYLEADDON;FLASHActive;background-color;#ADCAFF
+STYLEADDON;AREALeftFromTitleCellRTL;font-size;8px
+STYLEADDON;AREALeftFromTitleCellRTL;background-color;DELETE
+STYLEADDON;AREALeftFromTitleCellRTL;background-image;url(images/sag23_arealefttop_rtl.gif)
+STYLEADDON;AREALeftFromTitleCellRTL;height;22px
+STYLEADDON;AREALeftFromTitleCellRTL;width;7px
+STYLEADDON;AREALeftFromTitleCellRTL;border-top;DELETE
+STYLEADDON;AREAVAR1LeftFromTitleCellRTL;border-top;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCellRTL;border-right;1px solid #95C0EC
+STYLEADDON;AREAVAR1LeftFromTitleCellRTL;background-color;#C5E4FF
+STYLEADDON;TABSTRIPTOPCellBeforeRTL;background-image;url('images/sag23_tabstriptopback1_rtl.gif')
+STYLEADDON;TABSTRIPBackLeftRTL;background-image;url('images/sag80_tabstripleftback_rtl.gif')
+STYLEADDON;TABSTRIPBackLeftSelectedRTL;background-image;url('images/sag80_tabstripleftback_rtl.gif')
+STYLEADDON;TABSTRIPBackRightRTL;background-image;url('images/sag80_tabstriprightback_rtl.gif')
+STYLEADDON;TABSTRIPBackRightSelectedRTL;background-image;url('images/sag80_tabstriprightback_rtl.gif')
+STYLEADDON;TABSTRIPBackRightSelectedRTL;background-position;right top
+STYLEADDON;TABSTRIPBackRTL;background-image;url('images/sag23_tabstripback.gif')
+STYLEADDON;TABSTRIPBackSelectedRTL;background-image;url('images/sag23_tabstripback.gif')

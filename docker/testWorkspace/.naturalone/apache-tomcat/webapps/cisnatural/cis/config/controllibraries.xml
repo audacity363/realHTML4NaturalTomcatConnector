@@ -1,0 +1,39 @@
+<!--
+
+This is the configuration file for embedding control libraries into the
+CIS page generation process. The file is not maintained by CIS
+but by users of CIS.
+
+Each control library must be listed with its package, io which the tag handler
+implementations are contained. Each library has a prefix - this is the prefix
+for the controls.
+
+Example: a control library contains a control "abcde". The package name is
+"com.xyz.abc.generate". The prefix is "abc". This means: durging the CIS
+generation process the control with the tag "abc:abcde" will be identified 
+to belong to this library (prefix matches), the generator will look for the tag
+handler implementation "com.xyz.abc.generate.ABCDEHandler".
+
+
+
+This configuration file does NOT control the way how controls of different
+control libraries are treated inside the layout painter tool. This tool has
+an own configuration (editor.xml) which should be in synch with the definitions
+inside this file.
+
+-->
+
+<controllibraries>
+	<library package="com.softwareag.cis.demolibrary"
+	         prefix="demo">
+	</library>
+    <library package="com.softwareag.cis.adapter"
+	         prefix="xci">
+	</library>	
+	<library package="com.softwareag.natural.gui"
+	         prefix="njx">
+	</library>
+	<library package="com.softwareag.cis.bmobile.gui"
+	         prefix="bmobile">
+	</library>
+</controllibraries>

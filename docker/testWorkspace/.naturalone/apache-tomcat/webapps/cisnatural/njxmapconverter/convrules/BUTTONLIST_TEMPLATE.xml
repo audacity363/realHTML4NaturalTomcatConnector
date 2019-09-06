@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<njx:buttonitemlistfix buttonlistprop="thebuttonlist" hdist="4">
+    <njx:njxvariable name="BUTTONITEM_VAR" template="buttonitem_template"/>
+</njx:buttonitemlistfix>

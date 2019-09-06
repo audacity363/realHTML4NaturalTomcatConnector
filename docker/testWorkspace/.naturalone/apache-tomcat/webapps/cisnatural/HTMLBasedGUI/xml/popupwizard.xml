@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page darkbackground="true" ispopup="true" model="com.softwareag.cis.popups.PopupWizardModel" popupheight="520" popupwidth="500" titletextid="popupwiz.page0" translationreference="popups">
+    <pagebody horizdist="false" hscroll="auto" takefullheight="true" vscroll="auto">
+        <rowtable0 height="100%">
+            <vdist backgroundstyle="background-color: #FFFFFF" height="7px">
+            </vdist>
+            <itr height="61px" itrstyle="background-color: #FFFFFF" width="100%">
+                <hdist width="10px">
+                </hdist>
+                <textout textsize="4" valueprop="tagNameOut" width="100%">
+                </textout>
+                <hdist width="10px">
+                </hdist>
+            </itr>
+            <vdist backgroundstyle="background-color: #FFFFFF" height="2px">
+            </vdist>
+            <vdist backgroundstyle="background-color: #808080" height="1px">
+            </vdist>
+            <itr height="100%" width="100%">
+                <hdist width="10px">
+                </hdist>
+                <coltable0 tablestyle="background-color: #F7F3EF" takefullheight="true">
+                    <vdist height="10px">
+                    </vdist>
+                    <itr height="100%">
+                        <imageout height="100%" valueprop="tagImage" width="150">
+                        </imageout>
+                    </itr>
+                    <vdist height="10px">
+                    </vdist>
+                </coltable0>
+                <hdist width="10px">
+                </hdist>
+                <coltable0 tablestyle="background-color: #F7F3EF" takefullheight="true" width="100%">
+                    <vdist height="10px">
+                    </vdist>
+                    <rowscrollarea height="100%" takefullheight="true" takefullwidth="true">
+                        <tr>
+                            <ihtml valueprop="tagDescription">
+                            </ihtml>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </rowscrollarea>
+                    <vdist height="10px">
+                    </vdist>
+                </coltable0>
+                <hdist width="10px">
+                </hdist>
+            </itr>
+            <vdist backgroundstyle="background-color: #808080" height="1px">
+            </vdist>
+            <vdist height="10px">
+            </vdist>
+            <itr height="30px" width="100%">
+                <hdist width="100%">
+                </hdist>
+                <button invisiblemode="disabled" method="onBack" textid="backBttn" visibleprop="backSelectable" width="50">
+                </button>
+                <hdist>
+                </hdist>
+                <button method="onFirstRange" textid="nextBttn" width="50">
+                </button>
+                <hdist width="10">
+                </hdist>
+                <icon image="../HTMLBasedGUI/images/distance.gif">
+                </icon>
+                <hdist width="10">
+                </hdist>
+                <button method="onSave" textid="finishBttn" width="50">
+                </button>
+                <hdist>
+                </hdist>
+                <button method="onQuit" textid="cancelBttn" width="50">
+                </button>
+                <hdist width="13">
+                </hdist>
+            </itr>
+            <vdist height="10px">
+            </vdist>
+        </rowtable0>
+    </pagebody>
+</page>

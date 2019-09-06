@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+	<meta name="ProgId" content="FrontPage.Editor.Document">
+	<title>New Page 1</title>
+	<base target="_self">
+    <link id="casabacstylesheet" rel="stylesheet" type="text/css" href="../../cis/styles/CIS_DEFAULT.css">
+	<script src="VALIDATIONRules.js"></script>
+
+<script>
+
+   function setDisplayTextClear(pDisplayText)
+   {
+      var vSpan = document.getElementById("BUTTON_CLEAR");
+	  vSpan.innerHTML = pDisplayText;
+   }
+
+   function setDisplayTextOK(pDisplayText)
+   {
+      var vSpan = document.getElementById("BUTTON_OK");
+	  vSpan.innerHTML = pDisplayText;
+   }
+
+   var m_decimalSeparator = null;
+   function setDecimalSeparator(pDecimalSeparator)
+   {
+	  m_decimalSeparator = pDecimalSeparator;
+      var vSpan = document.getElementById("KEY_DECIMALSEPARATOR");
+	  vSpan.innerHTML = pDecimalSeparator;
+   }
+
+   var m_checkIfValueHasError = null;
+   function setCheckIfValueHasError(pCheckIfValueHasError)
+   {
+	  m_checkIfValueHasError = pCheckIfValueHasError;
+   }
+
+   var m_dataType = null;
+   function setDataType(pDataType)
+   {
+	  m_dataType = pDataType;
+   }
+
+   var m_value = null;
+   function setValue(value)
+   {
+	  var vConvertedValue = value;
+      if (vConvertedValue != null && vConvertedValue.charAt(vConvertedValue.length-1) == m_decimalSeparator)
+	    vConvertedValue = vConvertedValue + "1";
+
+      if (m_checkIfValueHasError(vConvertedValue, m_dataType, -1))
+		return false;
+
+      setValueInternally(value);
+
+	return true;
+   }
+
+   function setValueInternally(value)
+   {
+      m_value = value;
+	  if (value == null || value == "")
+      {
+		value = "&nbsp;";
+            m_value = "";
+      }
+      var vSpan = document.getElementById("VALUEOUT");
+	vSpan.innerHTML = value;
+   }
+
+   function appendToValue(pId)
+   {
+	  var vSpan = document.getElementById("KEY_" + pId);
+      var vNewValue = "" + m_value;
+      vNewValue = vNewValue + vSpan.innerHTML;
+      var vOK = setValue(vNewValue);
+	  var bgColor = "#EEEEEE";
+	  if (vOK == false)
+	  	  bgColor = "#FF0000";
+	  hightlightKey(pId, bgColor);
+    }
+
+    function onClear()
+    {
+    	setValueInternally();
+        hightlightKey("BUTTON_CLEAR", "#EEEEEE");
+    }
+
+	function hightlightKey(pId, pColor)
+	{
+	  var vTD = document.getElementById("TD_" + pId);
+	  vTD.style.backgroundColor = pColor;
+	  window.setTimeout("unhightlightKey(\""+pId+"\")", 200);
+   }
+
+	function unhightlightKey(pId)
+	{
+	  var vTD = document.getElementById("TD_" + pId);
+	  if (vTD != null) vTD.style.backgroundColor = "#FFFFFF";
+   }
+
+   function onOK()
+   {
+	rValue = [];
+	rValue[0] = m_value;
+	if (parent.opener != null) // MOZILLA
+	{
+		parent.opener.csciframe.takeOverTouchPadResultMOZILLA(rValue);
+	}
+	else // INTERNET EXPLORER
+	{
+		window.returnValue = rValue;
+		closePopup();
+	}
+   }
+   
+   function closePopup()
+	{
+	    if (parent.opener != null)
+		{
+		    parent.opener.csciframe.closeStandardDlgPopupPAGE(); 
+		}
+		else 
+		{
+		    parent.close();
+		}
+			
+	}
+	
+	function init() 
+	{
+	    if (parent.opener != null)
+		{
+	        parent.opener.csciframe.registerStandardDlgPopupPAGE(parent);
+		}
+	}
+
+   function switchToStyle(pStyle)
+   {
+	try
+	{
+	    if (pStyle == null || pStyle == "") return;
+	    var vStyleSheet = document.styleSheets('casabacstylesheet');
+	    if (vStyleSheet.href != pStyle)
+	    	  vStyleSheet.href = "../"+pStyle;
+	}
+	catch (exc)
+	{
+	}
+   }
+</script>
+</head>
+
+<body class="WORKPLACEBelowTitle" topmargin="0" leftmargin="0" rightmargin="0" onunload="closePopup();">
+
+<table cellspacing=0 cellpadding=0 width='100%'><tr><td height="40px" style="background-color: #FFFFFF; background-repeat: no-repeat; background-position: center right; background-image: url('../images/keyboard.gif');"></td></tr></table>
+
+<table border="0" cellpadding=0 cellspacing=0 width='100%'>
+  <tr><td height="10px"></td> </tr>
+  <tr>
+	<td><div style='width: 7px'>&nbsp;</div></td>
+	<td width="100%" class="FIELDInputEdit"><span id='VALUEOUT' style='padding-left: 2'/></td>
+	<td><div style='width: 7px'>&nbsp;</div></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding=0 cellspacing=0 width='100%'>
+  <tr>
+	  <td><div style='width: 7px'>&nbsp;</div></td>
+      <td>
+		<table border="0" cellpadding=2 cellspacing=0>
+  			<tr><td height="4px"></td></tr>
+  			<tr>
+    			<td id='TD_7' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px;" onclick='appendToValue("7");' ondblclick='appendToValue("7");'><span id='KEY_7'>7<td>
+    			<td id='TD_8' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("8");' ondblclick='appendToValue("8");'><span id='KEY_8'>8<td>
+    			<td id='TD_9' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("9");' ondblclick='appendToValue("9");'><span id='KEY_9'>9<td>
+  			</tr>
+  			<tr><td height="4px"></td></tr>
+ 			<tr>
+    			<td id='TD_4' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("4");' ondblclick='appendToValue("4");'><span id='KEY_4'>4<td>
+    			<td id='TD_5' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("5");' ondblclick='appendToValue("5");'><span id='KEY_5'>5<td>
+    			<td id='TD_6' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("6");' ondblclick='appendToValue("6");'><span id='KEY_6'>6<td>
+  			</tr>
+  			<tr><td height="4px"></td></tr>
+  			<tr>
+    			<td id='TD_1' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("1");' ondblclick='appendToValue("1");'><span id='KEY_1'>1<td>
+				<td id='TD_2' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("2");' ondblclick='appendToValue("2");'><span id='KEY_2'>2<td>
+    			<td id='TD_3' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("3");' ondblclick='appendToValue("3");'><span id='KEY_3'>3<td>
+  			</tr>
+  			<tr><td height="4px"></td></tr>
+   			<tr>
+    			<td id='TD_0' colspan=3 height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("0");' ondblclick='appendToValue("0");'><span id='KEY_0'>0<td>
+    			<td id='TD_DECIMALSEPARATOR' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='appendToValue("DECIMALSEPARATOR");'><span id='KEY_DECIMALSEPARATOR'/><td>
+   			</tr>
+   			<tr><td height="4px"></td></tr>
+            <tr>
+                <td id='TD_BUTTON_CLEAR' height="75px" width="75px" valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='onClear();'><span id='BUTTON_CLEAR'/><td>
+                <td colspan=3 height="75px"  valign="middle" align="center" bgcolor="#FFFFFF" style="font-size: 18px" onclick='onOK();'><span id='BUTTON_OK'/><td>
+            </tr>
+		</table>
+      </td>
+  </tr>
+</table>
+
+</body>
+
+</html>
+

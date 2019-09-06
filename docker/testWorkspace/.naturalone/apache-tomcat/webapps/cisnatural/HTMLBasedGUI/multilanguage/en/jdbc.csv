@@ -1,0 +1,26 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=en DO NOT EDIT BY HAND!;
+jdbc.button0;Connect
+jdbc.button1;Check if table exists
+jdbc.button2;Preview update
+jdbc.button3;Create table
+jdbc.button4;Execute
+jdbc.button5;Close Popup
+jdbc.column0;File Key
+jdbc.helpicon0;Help
+jdbc.helpicon1;Help
+jdbc.label0;JDBC Driver Class Name
+jdbc.label1;JDBC Database URL
+jdbc.label2;User
+jdbc.label3;Password
+jdbc.label4;Product
+jdbc.label5;MYSQL
+jdbc.label6;Or other...
+jdbc.label7;Filter
+jdbc.label8;Hint: Use the filter above to shrink the size of the result set.  Just input a part of the file key - without using any wildcard character. 
+jdbc.rowarea0;Database Connection Properties
+jdbc.rowarea1;Product Info
+jdbc.rowarea2;Schema Management
+jdbc.rowtabarea0;Check If  Table Exist
+jdbc.rowtabarea1;Content
+jdbc.titlebar0;JDBC Manager
+closePage;Close Page

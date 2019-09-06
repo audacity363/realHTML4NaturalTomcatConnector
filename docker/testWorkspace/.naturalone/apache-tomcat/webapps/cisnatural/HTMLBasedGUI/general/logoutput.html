@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Client Log</title>
+</head>
+
+<body style="font-family: Verdana; font-size: 12px" onload="initLogOutput();">
+
+<span id="LOGBODY">
+</span>
+
+
+<script>
+function initLogOutput()
+{
+	vSpan = document.getElementById("LOGBODY");
+	var vParameters = window.dialogArguments;
+	var vLogStrings = vParameters[0];
+	var vLogDates = vParameters[1];
+	var vLogIndex = vParameters[2];
+	var vHTML = [];
+	vHTML.push("<table border=1 style='font-size:12px' width='100%'>");
+	var vCurrentIndex = vLogIndex-1;
+	while (true)
+	{
+		if (vCurrentIndex < 0) vCurrentIndex = 99;
+		if (vLogStrings[vCurrentIndex] == null) break;
+		if (vCurrentIndex == vLogIndex) break;
+		var vDate = vLogDates[vCurrentIndex];
+		vHTML.push("<tr><td>"+vDate.getMinutes()+"/"+vDate.getSeconds()+"/"+vDate.getMilliseconds()+": "+vLogStrings[vCurrentIndex]+"</td></tr>");
+		vCurrentIndex--;
+	}
+	vHTML.push("</table>");
+	vSpan.innerHTML = vHTML.join("");
+}
+</script>
+
+</body>
+
+</html>

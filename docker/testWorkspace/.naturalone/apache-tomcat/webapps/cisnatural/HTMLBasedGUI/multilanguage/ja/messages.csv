@@ -1,0 +1,98 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+Adapter.msg1;endProcess() is not supported inside the editor.
+AddressListModel.msg1;Please first select one address from the list.
+AddressListModel.msg2;Please first select one address from the list.
+AddressModel.msg1;Saved address in file &1.
+AttributeCompareEditor.msg1;Can not move attributes below the root tag.
+AttributeCompareEditor.msg2;Can not move the root tag below a range.
+AttributeCompareEditor.msg3;Can not move a range below another range.
+AttributeCompareEditor.msg4;Can not move the root tag below a range.
+AttributeCompareEditor.msg5;Please select a node first.
+AttributeCompareEditor.msg6;Please select a node first.
+AttributeCompareEditor.msg7;Please select a single node only.
+AttributeCompareEditor.msg8;Please select a range or the root tag and try again.
+AttributeCompareEditor.msg9;There are no attributes missing.
+AttributeCompareEditorInput.msg1;Please input a name.
+AttributeCompareEditorInput.msg2;Name already exists. Please use another name.
+BorderNewPageAdapter.msg1;BorderType and BorderStyle is not selected.
+ConfigFileManagerAdapter.msg1;&1 saved successfully!
+EditorExtensionAdapter.msg1;Could not save file: &1.
+EditorModel6.msg1;Please Select The Proper Tag(field)
+EditorModel6.msg10;Alignment is not supported in &1 control.
+EditorModel6.msg11;Text Style is not supported in this control.
+EditorModel6.msg12;Font Size is not supported in this control.
+EditorModel6.msg13;Color is not supported in this control.
+EditorModel6.msg14;Font Family is not supported in this control.
+EditorModel6.msg15;Border Style is not supported in this control.
+EditorModel6.msg16;BackGround Image is not supported in this control.
+EditorModel6.msg2;Please Select The Proper Tag(field)
+EditorModel6.msg3;Function not available in demo mode!
+EditorModel6.msg4;Function not available in demo mode!
+EditorModel6.msg5;You can not remove node &1 (root node). Use the Layout Manager to delete the entire XML layout.
+EditorModel6.msg7;Change of valueprop is not allowed.
+EditorModel6.msg8;valueprop of the field is not set.
+EditorModel6.msg9;change of valueprop is not allowed.
+EditorViewMultiLanguage6Adapter.msg1;Attribute "pagename" at tag "page" not set.
+EditorViewMultiLanguage6Adapter.msg2;You did not input a language so far. Please input a language.
+EditorViewMultiLanguage6Adapter.msg3;&1 does not exist.
+FormulaPageAdapter.msg1;Another function can not be inserted.
+HelloWorldModel.msg1;Please input a user name.
+HotkeyInputAdapter.msg1;Line &1 is not correct. Please insert a key code or delete the line.
+LayoutStringExternalizer.msg1;Could not read file.
+LayoutStringExternalizer.msg2;&1 not unique in list.
+LayoutStringExternalizer.msg3;&1 not unique in Multilanguage File.
+LayoutStringExternalizer.msg4;File refactored
+LayoutStringExternalizer.msg5;Could not write to file &1.
+LogonModel.msg1;Please specify correct user!
+MFWorkplaceAboutAdapter.Licence;License Key
+MFWorkplaceAboutAdapter.basic;Basic
+MFWorkplaceAboutAdapter.config;Config
+MFWorkplaceAboutAdapter.legalaspects;Legal Aspects
+MFWorkplaceAboutAdapter.msg1;Data Saved in &1 cisinfo.xml file
+MFWorkplaceAboutAdapter.readme;Readme
+NewFileModel.msg1;The name of your page must end with ".xml".
+NewFileModel.msg2;The file &1 already exists.
+NewFileModel5.msg1;The name of your page must end with ".xml".
+NewFileModel5.msg2;Do not use blank spaces inside the file name.
+NewFileModel5.msg3;The file &1 already exists.
+NewFileModel5.msg5;A layout name can not contain \\/:*?"<>|#+& or .html or blank spaces.
+NodeInfo6.msg1;Location &1 does not exist.
+PersFilterEditAdapter.msg1;Could not save filter data: &1.
+PersFilterEditAdapter.msg2;Could not save filter data: &1.
+PopupDemoAdapter.msg1;Yes command was called.
+PopupDemoAdapter.msg2;No command was called.
+PopupFilenameInputModel.msg1;Please select a file with extension &1.
+SearchWSIL.msg1;Please input a file name.
+SearchWSIL.msg2;Please select a valid WSIL file.
+SearchWSIL.msg3;Please select a valid WSIL file.
+ServerInfoModel.msg1;Function not available in demo mode!
+ServerInfoModel.msg2;Buffers of multi language management are refreshed.
+ServerInfoModel.msg3;Layout Repository Buffer is refreshed.
+StyleSheetCreatorAdapter.msg1;Please specify attribute.
+StyleSheetCreatorAdapter.msg2;Function not available in demo mode!
+StyleSheetCreatorConfigAdapter.msg1;Please insert a directotry first and retry
+StyleSheetCreatorConfigAdapter.msg2;Please use character "/" instead of "\\" to build up the directory name. Please correct.
+StyleSheetCreatorConfigAdapter.msg3;The first characters ".." are invalid. Please start without "..".
+StyleSheetCreatorConfigAdapter.msg4;The first character "/" is invalid. Please start without "/".
+StyleSheetCreatorConfigAdapter.msg5;Your input is not valid. The style sheet directory must be on second sub-level in respect to the context root. Please correct
+StyleSheetCreatorConfigAdapter.msg6;Directory does not exist. Please correct
+StyleSheetCreatorConfigAdapter.msg7;Please use character "/" instead of "\\" to build up the directory name. Please correct.
+ValidationRulesEditorAdapter.msg1;Please select any rule to Modify.
+ValidationRulesEditorAdapter.msg2;Please select any rule to Remove.
+ValidationRulesEditorAdapter.msg3;Please select joining condition for two rules.
+ValidationRulesEditorAdapter.msg4;Please select any line to delete.
+ValidationRulesEditorAdapter.msg5;Please select the validation field.
+ValidationRulesEditorAdapter.msg6;please enter condition.
+ValidationRulesEditorAdapter.msg7;please enter right operand.
+ValidationRulesEditorAdapter.msg8;Please enter message or message text id.
+ValidationRulesEditorAdapter.msg9;Please enter translation reference.
+ViewEditorConfig5Adapter.msg1;Directory &1 does not exist. Please correct.
+ViewEditorConfig5Adapter.msg3;Could not load class &1 ... &2.
+ViewEditorConfig5Adapter.msg4;Class &1 does not implement interface IEditorValidValuesProvider... &2.
+ViewEditorConfigAdapter.msg1;Directory &1 does not exist. Please correct.
+WSDLDataAdapter.msg1;Change Control.
+XMLSchemaDataAdapter.msg1;Change Control.
+FormulaPageAdapter.msg2;There is nothing to undo the formula.
+FormulaPageAdapter.msg3;There is nothing to redo the formula.
+NewFileModel6.msg6;Please enter a file name.
+NewFileModel5.msg6;Please enter a file name.

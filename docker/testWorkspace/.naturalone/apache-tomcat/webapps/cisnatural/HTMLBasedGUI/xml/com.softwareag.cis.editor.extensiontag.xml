@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionTagAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css">
+    <pagebody horizdist="false" takefullheight="true" paddingleft="10" paddingright="10" paddingtop="10" paddingbottom="10">
+        <itr width="100%">
+            <ihtml valueprop="infoTopHTML" width="100%">
+            </ihtml>
+        </itr>
+        <vdist height="20">
+        </vdist>
+        <rowtabsubpages pagesprop="subPageInfo" height="100%" borderwidth="0">
+        </rowtabsubpages>
+    </pagebody>
+</page>

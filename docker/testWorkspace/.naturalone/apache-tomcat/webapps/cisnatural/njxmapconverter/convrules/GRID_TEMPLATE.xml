@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rowtablearea2 withborder='false' griddataprop="$$gridname$$" rowcount="$$" >
+	<tr>
+		<hdist></hdist>
+		<njx:njxvariable name="GRIDHEADER" />
+	</tr>
+	<repeat>
+		<tr>
+			<hdist ></hdist>
+			<njx:njxvariable name="GRIDITEM" />
+		</tr>
+	</repeat>
+</rowtablearea2>

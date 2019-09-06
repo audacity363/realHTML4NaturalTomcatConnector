@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.WarriorAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="war.titlebar.warpackager" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button textid="btn.exit" method="endProcess">
+        </button>
+    </header>
+    <pagebody horizdist="false" takefullheight="true">
+        <rowtabarea height="260" leftindent="50" withleftborder="false" withrightborder="false" textid1="war.rowtabarea.deploymentscenario" page1="SCENARIO" textid2="war.rowtabarea.projectselection" page2="PROJECT">
+            <tabpage id="SCENARIO">
+                <itr>
+                    <coltable0 width="200">
+                        <vdist height="45">
+                        </vdist>
+                        <itr>
+                            <radiobutton valueprop="clustered" value="false" flush="server">
+                            </radiobutton>
+                            <label textid="war.label.withfilesystemref" asplaintext="true">
+                            </label>
+                        </itr>
+                        <itr>
+                            <radiobutton valueprop="clustered" value="true" flush="server">
+                            </radiobutton>
+                            <label textid="war.label.fullyclusterable" asplaintext="true">
+                            </label>
+                        </itr>
+                    </coltable0>
+                    <icon image="images/warunclustered.gif" method="onWarUnclustered">
+                    </icon>
+                    <label textid="war.label.withreftofile" width="80" asplaintext="true" labelstyle="font-size: 10px">
+                    </label>
+                    <helpicon helpid="deployment">
+                    </helpicon>
+                    <hdist width="30">
+                    </hdist>
+                    <icon image="images/warclustered.gif" method="onWarClustered">
+                    </icon>
+                    <label textid="war.label.fullyclusterableno" width="80" asplaintext="true" labelstyle="font-size: 10px">
+                    </label>
+                    <helpicon helpid="deployment">
+                    </helpicon>
+                </itr>
+                <vdist height="20">
+                </vdist>
+                <itr width="100%">
+                    <label textid="war.label.cisrootloc" width="200">
+                    </label>
+                    <field valueprop="rootLocation" width="100%" statusprop="fileStatus" popupmethod="openIdValueCombo">
+                    </field>
+                </itr>
+                <itr width="100%">
+                    <label textid="war.label.logfileloc" width="200">
+                    </label>
+                    <field valueprop="logFileLocation" width="100%" statusprop="fileStatus" popupmethod="openIdValueCombo">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="war.label.switchoffdesigntime" width="200">
+                    </label>
+                    <checkbox valueprop="designTimeSwitchedOff" statusprop="fileStatus">
+                    </checkbox>
+                </itr>
+            </tabpage>
+            <tabpage id="PROJECT" display="none">
+                <vdist height="10">
+                </vdist>
+                <itr width="100%">
+                    <coltable0 width="200">
+                        <itr>
+                            <label textid="war.label.selectproj" width="200">
+                            </label>
+                        </itr>
+                    </coltable0>
+                    <coltable0 width="100%">
+                        <rowtablearea2 griddataprop="projects" rowcount="9">
+                            <repeat>
+                                <str valueprop="selected">
+                                    <checkbox valueprop="selected" flush="screen" statusprop="selectedStatus">
+                                    </checkbox>
+                                    <textout valueprop="name" width="200">
+                                    </textout>
+                                </str>
+                            </repeat>
+                        </rowtablearea2>
+                    </coltable0>
+                </itr>
+            </tabpage>
+        </rowtabarea>
+        <rowarea textid="war.rowarea.checkandcreate" height="100%" withleftborder="false" withrightborder="false">
+            <itr>
+                <label textid="war.label.warfiletocreate" width="200">
+                </label>
+                <field valueprop="warFileName" width="300">
+                </field>
+                <hdist>
+                </hdist>
+                <button textid="war.btn.createwar" method="onCheckAndCreate">
+                </button>
+            </itr>
+            <itr>
+                <hdist width="200">
+                </hdist>
+                <label textid="war.label.dependenton" asplaintext="true" labelstyle="font-size: 10px">
+                </label>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr height="100%" fixlayout="true" width="100%">
+                <hdist width="200">
+                </hdist>
+                <coltable0 width="100%" takefullheight="true" fixlayout="true">
+                    <itr height="100%" fixlayout="true" width="100%">
+                        <textgridsss2 griddataprop="protocolLines" rowcount="20" width="100%" height="100%" hscroll="true">
+                            <column textid="war.txtgridsss.clm.protocol" property="text" width="100%">
+                            </column>
+                        </textgridsss2>
+                    </itr>
+                </coltable0>
+            </itr>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

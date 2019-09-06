@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dynamic extension of editor.xml file. -->
+<controllibrary>
+	<editor>
+		<!-- ***************************************************************************** 
+			* DATATYPEs ***************************************************************************** -->
+		<!-- DATASOURCE -->
+		<datatype name="aspectratio">
+			<value id="" name="(default)" />
+			<value id="1by1" name="1:1" />
+			<value id="16by9" name="16:9" />
+			<value id="21by9" name="21:9" />
+			<value id="4by3" name="4:3" />
+		</datatype>	
+		
+		<datatype name="datasource">
+			<value id="prop" name="(default)" />
+			<value id="file" name="File" />
+			<value id="url" name="Url" />
+		</datatype>
+		
+		<datatype name="datatablefeatures">
+			<value id="" name="Default"/>
+			<value id="lengthChange: false" name="End users cannot change the paging display length of the table. Default is true."/>
+			<value id="ordering: false" name="Switch off ordering abilities in the table columns. Default is true."/>
+			<value id="paging: false" name="Switch off table pagination. Default is true."/>
+			<value id="searching: false" name="Switch off search (filtering) abilities. Default is true."/>
+			<value id="info: false" name="Switch off information display field. Default is true." />
+		</datatype>
+
+		<datatype name="buttontype">
+			<value id="button" name="Button (default)" />
+			<value id="submit" name="Submit Button" />
+			<value id="file"   name="File Upload Button" />"
+			<value id="reset" name="Reset Button" />
+		</datatype>
+
+        <datatype name="htmlheadingtype">
+			<value id="h1" name="h1" />
+			<value id="h2" name="h2" />
+			<value id="h3" name="h3" />
+			<value id="h4" name="h4" />
+			<value id="h5" name="h5" />
+			<value id="h6" name="h6" />
+		</datatype>
+		
+		<datatype name="invisiblemode4">
+			<value id="" name="(default)" />
+			<value id="invisible" name="Invisible"/>
+			<value id="disabled" name="Visible but disabled"/>
+		</datatype>
+		
+		<datatype name="mediatype">
+			<value id="" name="(default)" />
+			<value id="video" name="Video"/>
+			<value id="camera" name="Camera"/>
+		</datatype>
+		
+		<datatype name="navmode">
+			<value id="" name="(default)" />
+			<value id="nav-tabs" name="Tabs"/>
+			<value id="nav-pills" name="Pills"/>
+		</datatype>
+		
+		<datatype name="dropdownstyle">
+			<value id="" name="(default)" />
+			<value id="menu" name="Drop Down Menu"/>
+			<value id="tree" name="Collapsible Tree"/>
+		</datatype>
+		
+		<datatype name="videotype">
+			<value id="" name="(default)" />
+			<value id="video/mp4" name="video/mp4"/>
+			<value id="video/ogg" name="video/ogg"/>
+			<value id="video/webm" name="video/webm"/>
+		</datatype>
+		
+		<datatype name="csscol" >
+		    <value id="" name="(default)" />
+		    <value id="col-xs-6 col-sm-4 col-md-3 col-lg-2" name="Example width" />
+		    <value id="col-md-offset-1 col-lg-offset-2" name="Example offset" />
+		    <value id="btn-group" name="Button group" />
+		    <value id="btn-group-vertical" name="Vertical button group" />
+		</datatype>
+		
+		<datatype name="cssbutton" >
+		    <value id="" name="(default)" />
+		    <value id="btn-default" name="Default rendering" />
+		    <value id="btn-primary" name="Blue rendering" />
+		    <value id="btn-sm" name="Small button" />
+		    <value id="btn-lg" name="Large button" /> 
+		    <value id="btn-responsive" name="Responsive height" /> 
+		    <value id="close" name="Close button" />    
+		</datatype>
+		
+		<datatype name="cssimg" >
+			<value id="" name="(default)" />
+		    <value id="img-circle" name="Circle shape" />
+		    <value id="img-rounded" name="Rounded corners" />
+		    <value id="img-thumbnail" name="Thumbnail" />
+		</datatype> 
+		
+		<datatype name="cssgrid" >
+		    <value id="" name="(default)" />
+		    <value id="table-striped" name="Striped Lines" />
+		</datatype>
+		
+		<datatype name="cssgridcol">
+		    <value id="" name="(default)" />
+		    <value id="hidden-xs hidden-sm" name="Example hiding" />
+		</datatype>
+		
+		<datatype name="csspanel">
+		    <value id="" name="(default)" />
+		    <value id="panel-warning" name="Yellow panel" />
+		    <value id="panel-success" name="Green panel" />
+		    <value id="panel-danger" name="Red panel" />
+		    <value id="panel-info" name="Light blue panel" />
+		</datatype>
+		
+
+		<!-- ***************************************************************************** 
+			* TAGs ***************************************************************************** -->
+		<!-- ALERT -->
+		<tag name="bmobile:alert" helptext="Alert Box">
+			<attribute name="typeprop" datatype="property" />
+			<attribute name="shorttextprop" datatype="property" />
+			<attribute name="longtextprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="duration" inputtype="duration" />
+			<attribute name="testtoolid" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** BUTTON ******************************************** -->
+		<tag name="bmobile:button" helptext="Button">
+			<attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="nameprop" datatype="property"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="cssbutton" />
+			<attribute name="style" datatype="string" />
+			<attribute name="type" datatype="buttontype" />
+			<attribute name="renderaslink" datatype="boolean" />
+			<attribute name="method" datatype="string" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** CHECKBOX ******************************************** -->
+		<tag name="bmobile:checkbox" helptext="Checkbox">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="flush" datatype="flush" />
+			<attribute name="flushmethod" datatype="method" />
+			<attribute name="name" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="displayonly" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="statusprop" datatype="property" />			
+			<attribute name="inline" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** COLAREA ** DEPRECATED use COL ************************* -->
+		<tag name="bmobile:colarea" helptext="Column Area">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<tag name="bmobile:col" helptext="Column">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="csscol" />
+			<attribute name="style" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** CONTAINER ******************************************** -->
+		<tag name="bmobile:container" helptext="Container">
+			<attribute name="takefullwidth" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** DATEINPUT2 ******************************************** -->
+		<tag name="bmobile:dateinput2" helptext="Dateinput2">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="datatype" datatype="dateinputtype" />
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="flush" datatype="flush" />
+			<attribute name="flushmethod" datatype="method" />
+			<attribute name="statusprop" datatype="property" />
+			<attribute name="fromprop" datatype="property" />
+			<attribute name="toprop" datatype="property" />
+			<attribute name="numberofmonths" />
+			<attribute name="displayonly" datatype="boolean" />
+			<attribute name="popuponalt40" datatype="boolean" />
+			<attribute name="popuponF4F7" datatype="boolean" />
+			<attribute name="title" helptext="Title" />
+			<attribute name="titleprop" datatype="property" />
+			<attribute name="popupicon" datatype="imagefilename" />
+			<attribute name="placeholder" datatype="string" />
+			<attribute name="holidaysurl" />
+			<attribute name="holidaysurlprop" datatype="property" />
+			<attribute name="holidaysstyleclass" />
+			<attribute name="holidaysdescriptionastooltip" datatype="boolean" />
+			<attribute name="testtoolid"/>
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FFIELD ******************************************** -->
+		<tag name="bmobile:ffield" helptext="Form Field">
+			<attribute name="autocompleteref" />
+			<attribute name="autocompletedisplayname" />
+			<attribute name="autocompletedisplayref" />
+			<attribute name="autocompletewithdropdown" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode2"/>
+			<attribute name="statusprop" datatype="property" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="title" datatype="string" />
+			<attribute name="placeholder" datatype="string" />
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="editmask" blacklist="page" />
+			<attribute name="datatype" datatype="datatype" />
+			<attribute name="titleprop" datatype="property" />
+			<attribute name="maxlength" datatype="length" />
+			<attribute name="autotab" datatype="boolean" />
+			<attribute name="uppercase" datatype="boolean" />
+			<attribute name="alwaysflush" datatype="boolean" />
+			<attribute name="flush" datatype="flush" />
+			<attribute name="flushmethod" datatype="method" />
+			<attribute name="flushindexprop" datatype="property" />
+			<attribute name="formautocomplete" datatype="boolean" />
+			<attribute name="hotkeys" datatype="hotkeys" />
+			<attribute name="password" datatype="boolean" />
+			<attribute name="email" datatype="boolean" />
+			<attribute name="displayonly" datatype="boolean" />
+			<attribute name="validation" datatype="validation" />
+			<attribute name="required" datatype="boolean" />
+			<attribute name="validationmessage" datatype="string" />
+			<attribute name="validationmessagetextid" datatype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natstringtype" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FLABEL ******************************************** -->
+		<tag name="bmobile:flabel" helptext="Form Label">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="name" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode" />
+			<attribute name="title" datatype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FORMAREA ******************************************** -->
+		<tag name="bmobile:formarea" helptext="Form Area">
+			<attribute name="legend" datatype="string" />
+			<attribute name="legendprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FOOTER ******************************************** -->
+		<tag name="bmobile:footer" helptext="Footer">
+			<attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="htmlheading" datatype="htmlheadingtype"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />			
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FORMGROUP ******************************************** -->
+		<tag name="bmobile:formgroup" helptext="Form Group">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** FTEXTAREA ******************************************** -->
+		<tag name="bmobile:ftextarea" helptext="Form Textarea">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="rows" datatype="int" />
+			<attribute name="cols" datatype="int" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="placeholder" datatype="string" />
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="datatype" datatype="stringtype" />
+			<attribute name="flush" datatype="flush" />
+			<attribute name="flushmethod" datatype="method" />
+			<attribute name="title" datatype="string" />
+			<attribute name="titleprop" datatype="property" />
+			<attribute name="maxlength" datatype="length" />
+			<attribute name="displayonly" datatype="boolean" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode" />
+			<attribute name="hotkeys" datatype="hotkeys" />
+			<attribute name="required" datatype="boolean" />
+			<attribute name="testtoolid" datatype="string" />
+			<attribute name="wrap" datatpye="wrap" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natstringtype" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** GOOGLEMAP ******************************************** -->
+		<tag name="bmobile:googlemap" helptext="Google Map" blacklist="page">
+			<attribute name="apikeypagename" helptext="APIKeyPage Name"/>
+			<attribute name="longitudeprop" datatype="property" helptext="Longitude Property"/>
+			<attribute name="latitudeprop" datatype="property" helptext="Latitude Property"/>
+			<attribute name="addressprop" datatype="property" helptext="Address Property"/>
+			<attribute name="zoomlevelprop" datatype="property" helptext="ZoomLevel Property"/>
+			<attribute name="infotextprop" datatype="property" helptext="InfoText Property"/>
+			<attribute name="controltype" datatype="googlemapcontroltype" helptext="Control Type"/>
+			<attribute name="mapmode" datatype="googlemapmapmode" helptext="Map Mode"/>
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+		</tag>
+		<!-- ************** ICON ******************************************** -->
+		<tag name="bmobile:icon" helptext="Icon">
+			<attribute name="iconurl" datatype="string" />
+			<attribute name="method" datatype="method" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode" />
+			<attribute name="title" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** IHTML ******************************************** -->
+		<tag name="bmobile:ihtml" helptext="Included HTML">
+			<attribute name="valueprop" datatype="property" helptext="Value Property"/>
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+			<attribute name="testtoolid" datatype="string" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />	
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+		</tag>
+		<!-- ************** IMAGEFILEUPLOAD ******************************************** -->
+		<tag name="bmobile:imagefileupload" helptext="Imagefile Upload">
+		    <attribute name="valueprop" datatype="property" />
+		    <attribute name="fileinfoprop" datatype="property" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+	        <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** IMAGEPREVIEW ******************************************** -->
+		<tag name="bmobile:imagepreview" helptext="Imagepreview">
+		    <attribute name="previewstyle" datatype="string" />
+	        <attribute name="previewstyleclasses" datatype="string" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** IMAGEPREVIEWBUTTON ******************************************** -->
+		<tag name="bmobile:imagepreviewbutton" helptext="Imagepreview Button">
+		    <attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="nameprop" datatype="property"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="type" datatype="buttontype" />
+			<attribute name="renderaslink" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** IMAGEUPLOADBUTTON ******************************************** -->
+		<tag name="bmobile:imageuploadbutton" helptext="Imageupload Button">
+		    <attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="nameprop" datatype="property"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="type" datatype="buttontype" />
+			<attribute name="renderaslink" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+		
+		<!-- ************** IMAGEOUT ******************************************** -->
+		<tag name="bmobile:imageout" helptext="Image" >
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="titleprop" datatype="property" />
+			<attribute name="width" datatype="width" />
+			<attribute name="height" datatype="height" />
+			<attribute name="testtoolid" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="cssimg" />
+			<attribute name="style" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** MASHZONE ******************************************** -->
+		<tag name="bmobile:mashzone" helptext="Mashzone">
+			<attribute name="valueprop" mandatory="true" helptext="Mashzone Property"/>
+	        <attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+	        <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIALIST ******************************************** -->
+		<tag name="bmobile:medialist" helptext="Media List">
+	        <attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIAUPLOAD ******************************************** -->
+		<tag name="bmobile:mediaupload" helptext="Mediaupload">
+		    <attribute name="valueprop" datatype="property" />
+		    <attribute name="mediatype" datatype="mediatype" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+	        <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIAPREVIEW ******************************************** -->
+		<tag name="bmobile:mediapreview" helptext="Mediapreview">
+		    <attribute name="previewstyle" datatype="string" />
+	        <attribute name="previewstyleclasses" datatype="string" />
+	        <attribute name="aspectratio" datatype="aspectratio" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIAPREVIEWBUTTON ******************************************** -->
+		<tag name="bmobile:mediapreviewbutton" helptext="Mediapreview Button">
+		    <attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="nameprop" datatype="property"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="type" datatype="buttontype" />
+			<attribute name="renderaslink" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIAUPLOADBUTTON ******************************************** -->
+		<tag name="bmobile:mediauploadbutton" helptext="Mediaupload Button">
+		    <attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="nameprop" datatype="property"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="type" datatype="buttontype" />
+			<attribute name="renderaslink" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        <!-- ************** MEDIAOBJECT ******************************************** -->
+		<tag name="bmobile:mediaobject" helptext="Mediaobject">
+		    <attribute name="valueprop" datatype="property" />
+			<attribute name="textprop" datatype="property"  />
+			<attribute name="htmlheading" datatype="htmlheadingtype"/>
+			<attribute name="headingprop" datatape="property" />
+			<attribute name="align" datatype="align" />
+			<attribute name="valign" datatype="valign" />
+	        <attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+	        <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+		<!-- ************** MODAL ******************************************** -->
+		<tag name="bmobile:modal" helptext="Modal dialog" >
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="titlename" datatype="string" />
+			<attribute name="modalid" datatype="string" />
+			<attribute name="pageurl" datatype="string" />
+			<attribute name="modalbodystyle" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>		
+		<!-- ************** NAVBAR ******************************************** -->
+		<tag name="bmobile:navbar" helptext="Navigation bar">
+			<attribute name="menuprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="brandprop" datatype="property" />
+			<attribute name="brandstraighttext" datatype="boolean" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>		
+		<!-- ************** NAVTREE ******************************************** -->
+		<tag name="bmobile:navtree" helptext="Navigation tree">
+		    <attribute name="valueprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** NJXFILEDOWNLOAD ******************************************** -->
+		<tag name="bmobile:njxfiledownload" helptext="Natural File Download" blacklist="page">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+			<attribute name="ihtmlstyle" datatype="style" helptext="IHtml Style"/>
+		</tag>		
+		<!-- ************** PAGEHEADER ******************************************** -->
+		<tag name="bmobile:pageheader" helptext="Page Header">
+			<attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="htmlheading" datatype="htmlheadingtype"/>
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />			
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		
+		<!-- ************** PANEL ******************************************** -->
+		<tag name="bmobile:panel" helptext="Panel">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="csspanel" />
+			<attribute name="style" datatype="string" />
+			<attribute name="foldable" datatype="boolean" />
+			<attribute name="foldedprop" datatype="property" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />		
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		
+		<!-- ************** PANELHEADER ******************************************** -->
+		<tag name="bmobile:panelheader" helptext="Panel Header">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />			
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** PANELBODY ******************************************** -->
+		<tag name="bmobile:panelbody" helptext="Panel Body">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />			
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** RADIOBUTTON ******************************************** -->
+		<tag name="bmobile:radiobutton" helptext="Radiobutton">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="value" />
+			<attribute name="flush" datatype="flush" />
+			<attribute name="flushmethod" datatype="method" />
+			<attribute name="name" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="displayonly" datatype="boolean" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="statusprop" datatype="property" />
+			<attribute name="datatype" datatype="datatypesub1" />
+			<attribute name="inline" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="title" datatpype="string" />
+			<attribute name="testtoolid" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** ROWAREA ** DEPRECATED use ROW ***************************** -->
+		<tag name="bmobile:rowarea" helptext="Row Area">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIDENAV ******************************************** -->
+		<tag name="bmobile:sidenav" helptext="Side Navigation">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="height" datatype="height" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIDENAVCONTENT ******************************************** -->
+		<tag name="bmobile:sidenavcontent" helptext="Side Navigation Content">
+		    <attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** ROWAREA ** ROW ****************************************** -->
+		<tag name="bmobile:row" helptext="Row">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="invisiblemode" datatype="invisiblemode2" />
+			<attribute name="visibleprop" datatype="property" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIMPLECOL ******************************************** -->
+		<tag name="bmobile:simplecol" helptext="Simple Gridcolumn">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="colprop" datatype="property" />
+			<attribute name="visible" datatype="boolean" />
+			<attribute name="datatype" datatype="datatype" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIMPLEGRID ******************************************** -->
+		<tag name="bmobile:simplegrid" helptext="Simple Grid">
+			<attribute name="gridprop" datatype="property" />
+			<attribute name="selectprop" datatype="property" />
+			<attribute name="changeindexprop" datatype="property" />
+			<attribute name="sortcol" datatype="string" />
+			<attribute name="sortorder" datatype="string" />
+			<attribute name="width" datatype="width" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="features" datatype="datatablefeatures" />
+			<attribute name="source" datatype="datasource" />
+			<attribute name="sourcelocation" datatype="string" />
+			<attribute name="sourcelocationprop" datatype="property" />
+			<attribute name="styleclasses" datatype="cssgrid" />
+			<attribute name="style" datatype="string" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page" />
+			<attribute name="njx:natcomment" blacklist="page" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIMPLEHEADERCOL ******************************************** -->
+		<tag name="bmobile:simpleheadercol" helptext="Simple Header Column">
+			<attribute name="name" datatype="string" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="title" datatype="string" />
+			<attribute name="titletextid" datatype="titletextid" />
+			<attribute name="style" datatype="string" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIMPLEHEADERROW ******************************************** -->
+		<tag name="bmobile:simpleheaderrow" helptext="Simple Header Row">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SIMPLEROW ******************************************** -->
+		<tag name="bmobile:simplerow" helptext="Simple Row">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="onclickmethod" datatype="string" />
+			<attribute name="ondblclickmethod" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** SUBCISPAGE ******************************************** -->
+		<tag name="bmobile:subcispage" helptext="CIS Sub Page">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+		</tag>
+		<!-- ************** SUBPAGE ******************************************** -->
+		<tag name="bmobile:subpage" helptext="Sub Page">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="aspectratio" inputtype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />
+			<attribute name="alwaysreload" datatype="boolean" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+		</tag>
+		<!-- ************** TABPANE ******************************************** -->
+		<tag name="bmobile:tabpane" helptext="Tab Pane">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="navmode" datatype="navmode" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />
+			<attribute name="withcollapse" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+		</tag>
+		<!-- ************** TAB ******************************************** -->
+		<tag name="bmobile:tab" helptext="Tab">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="name" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="invisiblemode" datatype="invisiblemode4" />
+			<attribute name="visibleprop" datatype="property" />
+			<attribute name="openmethod" datatype="method" />
+		</tag>		
+		<!-- ************** TABSUBPAGES ******************************************** -->
+		<tag name="bmobile:tabsubpages" helptext="Tab Subpages">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="navmode" datatype="navmode" />
+			<attribute name="dropdownstyle" datatype="dropdownstyle" />
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="triggerserver" datatype="boolean" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />			
+			<attribute name="withdropdown" datatype="boolean" />
+			<attribute name="withcollapse" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+		</tag>
+		<!-- ************** STRAIGHTTAB ******************************************** -->
+		<tag name="bmobile:straighttab" helptext="Straighttab">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="name" datatype="string" />
+			<attribute name="nameprop" datatype="property" />
+			<attribute name="textid" datatype="textid" />
+			<attribute name="invisiblemode" datatype="invisiblemode4" />
+			<attribute name="visibleprop" datatype="property" />
+		</tag>
+		<!-- ************** VDIST ******************************************** -->
+		<tag name="bmobile:vdist" helptext="Vertical Distance">
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="style" datatype="string" />
+			<attribute name="styleclasses" datatype="string" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** VERTICALTABPANE ******************************************** -->
+		<tag name="bmobile:verticaltabpane" helptext="Tab Pane">
+			<attribute name="navmode" datatype="navmode" />
+			<attribute name="navcolstyleclasses" datatype="string" />
+			<attribute name="navcolstyle" datatype= "string" />
+			<attribute name="panecolstyleclasses" datatype="string" />
+			<attribute name="panecolstyle" datatype="string" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />
+			<attribute name="withcollapse" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+		</tag>
+		<!-- ************** VERTICALTABSUBPAGES ******************************************** -->
+		<tag name="bmobile:verticaltabsubpages" helptext="Vertical Tab Subpages">
+			<attribute name="navmode" datatype="navmode" />
+			<attribute name="navcolstyleclasses" datatype="string" />
+			<attribute name="navcolstyle" datatype= "string" />
+			<attribute name="panecolstyleclasses" datatype="string" />
+			<attribute name="panecolstyle" datatype="string" />
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="triggerserver" datatype="boolean" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="height" datatype="height" />
+			<attribute name="width" datatype="width" />
+			<attribute name="withdropdown" datatype="boolean" />
+			<attribute name="withcollapse" datatype="boolean" />
+			<attribute name="comment" inputtype="multiline" />
+		</tag>
+		<!-- ************** VIDEO ******************************************** -->
+		<tag name="bmobile:video" helptext="Video">
+		    <attribute name="valueprop" datatype="property" />
+		    <attribute name="videotypeprop" datatype="property" />		    
+		    <attribute name="videourl" datatype="string" />
+		    <attribute name="videotype" datatype="videotype" />
+		    <attribute name="videocontrols" datatype="boolean" />
+			<attribute name="aspectratio" datatype="aspectratio" />
+			<attribute name="autoplay" datatype="boolean" /> 
+			<attribute name="autoplayprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page"/>
+			<attribute name="njx:natcomment" blacklist="page"/>
+		</tag>
+		
+		<!-- ************** PAGER ******************************************** -->
+		<tag name="bmobile:pager" helptext="Pager">
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="style" datatype="string" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="maxcount" />
+		</tag>	
+		<!-- ========================================================================== -->
+		<!--   subnodes PAGEBODY, PAGE   -->
+		<tagsubnodeextension control="pagebody"
+			newsubnode="bmobile:container" />
+		<tagsubnodeextension control="pagebody"
+			newsubnode="bmobile:navbar" />
+		<tagsubnodeextension control="page" newsubnode="bmobile:navbar" />
+		<tagsubnodeextension control="natpage" newsubnode="bmobile:navbar" />
+		
+		<!--   subnodes BMOBILE:CONTAINER -->
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:sidenav" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:imageout" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:ihtml" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:googlemap" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:modal" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="openstreetmap" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="xcidatadef" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:icon" />	
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:subpage" />
+	    <tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:subcispage" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:mashzone" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:mediaupload" />
+			<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:imagefileupload" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:pageheader" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:footer" />
+	    <tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:panel" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:tabpane" />	
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:tabsubpages" />	
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:vdist" />
+		<tagsubnodeextension control="bmobile:container"
+			newsubnode="bmobile:row" />
+			
+		<!--   subnodes BMOBILE:MEDIAUPLOAD -->	
+		<tagsubnodeextension control="bmobile:mediaupload"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:mediaupload"
+			newsubnode="bmobile:panel" />
+			
+		<!--   subnodes BMOBILE:IMAGEFILEUPLOAD -->	
+		<tagsubnodeextension control="bmobile:imagefileupload"
+			newsubnode="bmobile:row" />	
+					
+		<!--   subnodes BMOBILE:ROW -->	
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:col" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:checkbox" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:radiobutton" />	
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:flabel" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:verticaltabpane" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:verticaltabsubpages" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:video" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:mediapreview" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:imagepreview" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:sidenavcontent" />
+		
+		<!--   subnodes BMOBILE:COL -->	
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:pageheader" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:sidenav" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:imageout" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:googlemap" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="openstreetmap" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:alert" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:checkbox" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:radiobutton" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:button" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:mediauploadbutton" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:mediapreviewbutton" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:imageuploadbutton" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:imagepreviewbutton" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:dateinput2" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:ffield" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:formarea" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:flabel" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:njxfiledownload" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:ftextarea" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:icon" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:simplegrid" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:panel" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:tabpane" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:tabsubpages" />
+		<tagsubnodeextension control="bmobile:row"
+			newsubnode="bmobile:navtree" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="bmobile:video" />
+		
+		
+		<!--   subnodes BMOBILE:FORMAREA -->	
+		<tagsubnodeextension control="bmobile:formarea"
+			newsubnode="bmobile:formgroup" />
+		<tagsubnodeextension control="bmobile:formarea"
+			newsubnode="bmobile:vdist" />
+		<tagsubnodeextension control="bmobile:formarea"
+			newsubnode="bmobile:checkbox" />
+		<tagsubnodeextension control="bmobile:formarea"
+			newsubnode="bmobile:radiobutton" />	
+			
+		<!--   subnodes BMOBILE:FORMGROUP -->
+		<tagsubnodeextension control="bmobile:formgroup"
+			newsubnode="bmobile:col" />
+		<tagsubnodeextension control="bmobile:formgroup"
+			newsubnode="bmobile:flabel" />	
+		
+		<!--   subnodes BMOBILE:PANEL -->
+		<tagsubnodeextension control="bmobile:panel"
+			newsubnode="bmobile:panelheader" />
+		<tagsubnodeextension control="bmobile:panel"
+			newsubnode="bmobile:panelbody" />
+			
+		<!--   subnodes BMOBILE:SIDENAV -->
+		<tagsubnodeextension control="bmobile:sidenav"
+			newsubnode="bmobile:row" />
+		
+		<!--   subnodes BMOBILE:SIDENAVCONTENT -->	
+		<tagsubnodeextension control="bmobile:sidenavcontent"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:sidenavcontent"
+			newsubnode="bmobile:subpage" />
+			
+		<!--   subnodes BMOBILE:TABPANE -->
+		<tagsubnodeextension control="bmobile:tabpane"
+			newsubnode="bmobile:tab" />
+			
+		<!--   subnodes BMOBILE:TABSUBPAGES -->
+		<tagsubnodeextension control="bmobile:tabsubpages"
+			newsubnode="bmobile:straighttab" />
+			
+		<tagsubnodeextension control="bmobile:tabsubpages"
+			newsubnode="bmobile:pager" />
+				
+		<!--   subnodes BMOBILE:VERTICALTABPANE -->
+		<tagsubnodeextension control="bmobile:verticaltabpane"
+			newsubnode="bmobile:tab" />
+			
+		<!--   subnodes BMOBILE:TABSUBPAGES -->
+		<tagsubnodeextension control="bmobile:verticaltabsubpages"
+			newsubnode="bmobile:straighttab" />
+			
+		<tagsubnodeextension control="bmobile:verticaltabsubpages"
+			newsubnode="bmobile:pager" />
+			
+		<!--   subnodes BMOBILE:PANELBODY -->	
+		<tagsubnodeextension control="bmobile:panelbody"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:panelbody"
+			newsubnode="bmobile:vdist" />
+			
+		<!--   subnodes BMOBILE:TAB -->
+		<tagsubnodeextension control="bmobile:tab"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:tab"
+			newsubnode="bmobile:vdist" />
+			
+		<!--   subnodes BMOBILE:STRAIGHTTAB -->
+		<tagsubnodeextension control="bmobile:straighttab"
+			newsubnode="bmobile:row" />
+		<tagsubnodeextension control="bmobile:straighttab"
+			newsubnode="bmobile:vdist" />
+		
+		<!--   subnodes BMOBILE:SIMPLEGRID -->
+		<tagsubnodeextension control="bmobile:simplegrid"
+			newsubnode="bmobile:simpleheaderrow" />
+		<tagsubnodeextension control="bmobile:simplegrid"
+			newsubnode="bmobile:simplerow" />
+		
+		<!--   subnodes BMOBILE:SIMPLEHEADERROW -->
+		<tagsubnodeextension control="bmobile:simpleheaderrow"
+			newsubnode="bmobile:simpleheadercol" />	
+			
+		<!--   subnodes BMOBILE:SIMPLEROW -->
+		<tagsubnodeextension control="bmobile:simplerow"
+			newsubnode="bmobile:simplecol" />
+
+		<!-- ========================================================================== -->
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:alert" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:button" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:checkbox" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:radiobutton" />			
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:dateinput2" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:ffield" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:flabel" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:ftextarea" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:icon" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:imageout" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:ihtml" />
+		<taggroupsubnodeextension group="Responsive Controls"
+			newsubnode="bmobile:vdist" />
+		
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:googlemap" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:mashzone" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:mediaupload" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:imagefileupload" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:mediapreview" />
+			<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:imagepreview" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:mediauploadbutton" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:mediapreviewbutton" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:imageuploadbutton" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:imagepreviewbutton" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="bmobile:video" />
+			
+			
+		<taggroupsubnodeextension group="Responsive Pages"
+			newsubnode="bmobile:pageheader" />
+		<taggroupsubnodeextension group="Responsive Pages"
+			newsubnode="bmobile:footer" />
+		<taggroupsubnodeextension group="Responsive Pages"
+			newsubnode="bmobile:subpage" />
+		<taggroupsubnodeextension group="Responsive Pages"
+			newsubnode="bmobile:subcispage" />
+		<taggroupsubnodeextension group="Responsive Pages"
+			newsubnode="bmobile:modal" />
+			
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:col" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:container" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:formarea" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:formgroup" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:row" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:panel" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:panelheader" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:panelbody" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:tabpane" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:verticaltabpane" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:tabsubpages" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:verticaltabsubpages" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:tab" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:straighttab" />
+		<taggroupsubnodeextension group="Responsive Container"
+			newsubnode="bmobile:pager" />
+		<taggroupsubnodeextension group="Responsive Grids"
+			newsubnode="bmobile:simplecol" />
+		<taggroupsubnodeextension group="Responsive Grids"
+			newsubnode="bmobile:simplegrid" />
+		<taggroupsubnodeextension group="Responsive Grids"
+			newsubnode="bmobile:simpleheadercol" />
+		<taggroupsubnodeextension group="Responsive Grids"
+			newsubnode="bmobile:simpleheaderrow" />
+		<taggroupsubnodeextension group="Responsive Grids"
+			newsubnode="bmobile:simplerow" />
+		<taggroupsubnodeextension group="Responsive Menus"
+			newsubnode="bmobile:navbar" />
+		<taggroupsubnodeextension group="Responsive Menus"
+			newsubnode="bmobile:sidenav" />
+		<taggroupsubnodeextension group="Responsive Menus"
+			newsubnode="bmobile:sidenavcontent" />
+		<taggroupsubnodeextension group="Responsive Menus"
+			newsubnode="bmobile:navtree" />
+	</editor>
+
+</controllibrary>

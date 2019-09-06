@@ -1,0 +1,5 @@
+<startapps>
+
+  <start class="com.softwareag.natural.njx.ServletInit"/>
+
+</startapps>

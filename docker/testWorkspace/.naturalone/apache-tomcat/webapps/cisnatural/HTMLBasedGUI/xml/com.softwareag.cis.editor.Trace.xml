@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.TraceAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="trc.titlebar.trace" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button textid="btn.exit" method="endProcess">
+        </button>
+    </header>
+    <pagebody takefullheight="true">
+        <rowarea textid="trc.rowarea.recorderrequ">
+            <itr width="100%">
+                <label textid="trc.label.tracedir" width="200">
+                </label>
+                <field valueprop="directory" width="100%" displayonly="true">
+                </field>
+            </itr>
+            <itr>
+                <label textid="trc.label.tracename" width="200">
+                </label>
+                <field valueprop="traceName" width="200" popupmethod="openIdValueCombo">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label textid="trc.label.configerationof" asplaintext="true" labelstyle="font-size:10px; font-weight: bold">
+                </label>
+            </itr>
+            <itr width="100%">
+                <label textid="trc.label.hostto" width="200">
+                </label>
+                <field valueprop="host" width="100%">
+                </field>
+            </itr>
+            <itr>
+                <label textid="trc.label.repeattracetime" width="200">
+                </label>
+                <field valueprop="repeat" width="50" datatype="int">
+                </field>
+            </itr>
+            <itr>
+                <label textid="trc.label.wait" width="200">
+                </label>
+                <field valueprop="wait" width="50" datatype="int">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label textid="trc.label.configuration" asplaintext="true" labelstyle="font-size:10px; font-weight: bold">
+                </label>
+            </itr>
+            <itr>
+                <label textid="trc.label.partrace" width="200">
+                </label>
+                <field valueprop="threadcount" width="50" datatype="int">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label textid="trc.label.threadstart" >
+                </label>
+            </itr>
+            <itr>
+                <label textid="trc.label.threadmin" width="200">
+                </label>
+                <field valueprop="sleepMin" width="50" datatype="int">
+                </field>
+                <hdist width='15'></hdist>
+                <label textid="trc.label.threadmax" width="100">
+                </label>
+                <field valueprop="sleepMax" width="50" datatype="int">
+                </field>                           
+            </itr>
+            <itr>
+               <label textid="trc.label.threadhint" >
+                </label>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <hdist width="200">
+                </hdist>
+                <button textid="btn.execute" method="onExecute" visibleprop="executeStatus" invisiblemode="disabled">
+                </button>
+                <hdist width="50">
+                </hdist>
+                <button textid="btn.refreshview" method="onRefresh">
+                </button>
+            </itr>
+        </rowarea>
+        <rowarea textid="trc.rowarea.requestStatistics" height="100%">
+            <report reportprop="requestReport" height="100%" showpdf="true">
+            </report>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

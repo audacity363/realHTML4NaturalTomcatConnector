@@ -1,0 +1,98 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+Adapter.msg1;endProcess() wird innerhalb des Editors nicht unterstützt.
+AddressListModel.msg1;Bitte wählen Sie eine Adresse aus der Liste.
+AddressListModel.msg2;Bitte wählen Sie zunächst eine Adresse aus der Liste.
+AddressModel.msg1;Adresse in der Datei &1 gespeichert.
+AttributeCompareEditor.msg1;Kann Attribut nicht unter den Wurzel-Tag bewegen.
+AttributeCompareEditor.msg2;Kann Wurzel-Tag nicht unter eine Auswahl bewegen.
+AttributeCompareEditor.msg3;Kann eine Auswahl nicht unter eine andere Auswahl bewegen.
+AttributeCompareEditor.msg4;Kann den Wurzel-Tag nicht unter eine Auswahl bewegen.
+AttributeCompareEditor.msg5;Bitte wählen sie zunächst einen Knoten.
+AttributeCompareEditor.msg6;Bitte wählen Sie zunächst einen Knoten.
+AttributeCompareEditor.msg7;Bitte wählen Sie nur einen Knoten.
+AttributeCompareEditor.msg8;Bitte wählen Sie eine Auswahl oder den Wurzelknoten und versuchen Sie es erneut.
+AttributeCompareEditor.msg9;Es fehlen keine Attribute.
+AttributeCompareEditorInput.msg1;Bitte geben Sie einen Namen ein.
+AttributeCompareEditorInput.msg2;Der Name existiert bereits. Bitte geben Sie einen anderen Namen ein.
+BorderNewPageAdapter.msg1;Rahmentyp und Rahmenstil wurden nicht ausgewählt.
+ConfigFileManagerAdapter.msg1;&1 erfolgreich gespeichert!
+EditorExtensionAdapter.msg1;Konnte Datei nicht speichern: &1.
+EditorModel6.msg1;Bitte wählen Sie das richtige Tag(feld)
+EditorModel6.msg10;Ausrichtung wird vom &1-Control nicht unterstützt.
+EditorModel6.msg11;Textstil wird vom Control nicht unterstützt.
+EditorModel6.msg12;Schriftgröße wird vom Control nicht unterstützt.
+EditorModel6.msg13;Farbe wird vom Control nicht unterstützt.
+EditorModel6.msg14;Schrfitart wird vom Control nicht unterstützt.
+EditorModel6.msg15;Rahmenstil wird vom Control nicht unterstützt.
+EditorModel6.msg16;Hintergrundbild wird vom Control nicht unterstützt.
+EditorModel6.msg2;Bitte wählen Sie das richtige Tag(feld)
+EditorModel6.msg3;Diese Funktion steht im Demo-Modus nicht zur Verfügung
+EditorModel6.msg4;Diese Funktion steht im Demo-Modus nicht zur Verfügung!
+EditorModel6.msg5;Sie können den Knoten &1 nicht entfernen (Wurzelknoten). Verwenden Sie dne Layout-Manager um das gesamte Layout zu löschen.
+EditorModel6.msg7;Änderung von valueprop nicht erlaubt.
+EditorModel6.msg8;valueprop des Feldes wurde nicht gesetzt.
+EditorModel6.msg9;Änderung von valueprop nicht erlaubt.
+EditorViewMultiLanguage6Adapter.msg1;Attribut "pagename" am "page"-Tag ist nicht gesetzt.
+EditorViewMultiLanguage6Adapter.msg2;Sie haben noch keine sprache angegeben. Bitte geben Sie eine Sprache an.
+EditorViewMultiLanguage6Adapter.msg3;&1 existiert nicht.
+FormulaPageAdapter.msg1;Es kann keine weitere Funktion eingefügt werden.
+HelloWorldModel.msg1;Bitte geben Sie einen Benutzernamen ein.
+HotkeyInputAdapter.msg1;Zeiel &1 ist nicht korrekt. Bitte geben Sie eine Keycode ein oder löschen Sie die Zeile.
+LayoutStringExternalizer.msg1;Konnte Datei nicht lesen.
+LayoutStringExternalizer.msg2;&1 ist nicht eindeutig in der Liste.
+LayoutStringExternalizer.msg3;&1 ist nicht eindeutig in der Multilanguage-Datei.
+LayoutStringExternalizer.msg4;Datei refactored
+LayoutStringExternalizer.msg5;Konnte in Datei &1 nicht schreiben.
+LogonModel.msg1;Bitte geben Sie den richtigen Benutzer an!
+MFWorkplaceAboutAdapter.Licence;Lizenzschlüssel
+MFWorkplaceAboutAdapter.basic;Basis
+MFWorkplaceAboutAdapter.config;Konfiguration
+MFWorkplaceAboutAdapter.legalaspects;Rechtshinweise
+MFWorkplaceAboutAdapter.msg1;Daten gespeichert in &1 cisinfo.xml file
+MFWorkplaceAboutAdapter.readme;Readme
+NewFileModel.msg1;Der Name Ihrer Seite muss auf ".xml" enden.
+NewFileModel.msg2;Die Datei &1 existiert bereits.
+NewFileModel5.msg1;Der Name Ihrer Seite muss auf ".xml" enden.
+NewFileModel5.msg2;Bitte verwenden Sie keine Leerzeichen im Dateinamen.
+NewFileModel5.msg3;Die Datei &1 existiert bereits.
+NewFileModel5.msg5;Ein Dateiname darf die Zeichen \\/:*?"<>|# nicht enthalten.
+NodeInfo6.msg1;Der Ort &1 existiert nicht.
+PersFilterEditAdapter.msg1;Konnte Filterdaten nicht speichern: &1.
+PersFilterEditAdapter.msg2;Konnte Filterdaten nicht speichern: &1.
+PopupDemoAdapter.msg1;Ja, Befehl wurde ausgeführt.
+PopupDemoAdapter.msg2;Es wurde keine Befehl ausgeführt.
+PopupFilenameInputModel.msg1;Bitte wählen Sie eine Datei mit der Erweiterung &1.
+SearchWSIL.msg1;Bitte geben Sie einen Dateinamen an.
+SearchWSIL.msg2;Bitte wählen Sie eine gültige WSIL-Datei.
+SearchWSIL.msg3;Bitte wählen Sie eine gültige WSIL-Datei.
+ServerInfoModel.msg1;Diese Funktione steht im Demo-Modus nicht zur Verfügung!
+ServerInfoModel.msg2;Die Puffer der Multilanguage-Verwaltung wurden aktualisiert.
+ServerInfoModel.msg3;Layout-Repository-Puffer ist aktualisiert.
+StyleSheetCreatorAdapter.msg1;Bitte geben Sie das Attribut an.
+StyleSheetCreatorAdapter.msg2;Diese Funktion steht im Demo-Modus nicht zur Verfügung!
+StyleSheetCreatorConfigAdapter.msg1;Bitte geben Sie zunächt ein Verzeichnis an und versuchen Sie es dann erneut
+StyleSheetCreatorConfigAdapter.msg2;Bitte verwenden Sie "/" an Stelle von "\\" in Verzeichnisnamen. Bitte korrigieren.
+StyleSheetCreatorConfigAdapter.msg3;Der Beginn mit ".." ist unzulässig. Bitte beginnen Sie mit etwas anderem als "..".
+StyleSheetCreatorConfigAdapter.msg4;Das erste Zeichen "/" ist ungültig. Bitte beginnen Sie mit etwas anderem als "/".
+StyleSheetCreatorConfigAdapter.msg5;Ihre Eingabe ist ungültig. Das Stylesheetverzeichnis muss sich auf der zweiten Unterebene des Kontext-Wurzelverzeichnis befinden. Bitte korrigieren
+StyleSheetCreatorConfigAdapter.msg6;Das Verzeichnis existiert nicht. Bitte korrigieren
+StyleSheetCreatorConfigAdapter.msg7;Bitte verwenden Sie "/" anstelle von "\\" in Verzeichnisnamen. Bitte korrigieren.
+ValidationRulesEditorAdapter.msg1;Bitte wählen Sie die zu verändernde Regel.
+ValidationRulesEditorAdapter.msg2;Bitte wählen Sie die zu entfernende Regel.
+ValidationRulesEditorAdapter.msg3;Bitte wählen Sie die Verknüpfungsbedingen der Regeln.
+ValidationRulesEditorAdapter.msg4;Bitte selektieren Sie die zu löschenden Zeilen.
+ValidationRulesEditorAdapter.msg5;Bitte wählen Sie das Validierungsfeld.
+ValidationRulesEditorAdapter.msg6;Bitte geben Sie die Bedingung ein.
+ValidationRulesEditorAdapter.msg7;Bitte geben Sie den rechten Operanden ein.
+ValidationRulesEditorAdapter.msg8;Bitte geben Sie die Nachricht oder die Text Id der Nachricht an.
+ValidationRulesEditorAdapter.msg9;Bitte geben Sie die Übersetzungsreferenz an.
+ViewEditorConfig5Adapter.msg1;Das Verzeichnis &1 existiert nicht. Bitte korrigieren.
+ViewEditorConfig5Adapter.msg3;Konnte Klasse &1 ... &2 nicht laden.
+ViewEditorConfig5Adapter.msg4;Die Klasse &1 implementiert das Interface IEditorValidValuesProvider... &2 nicht.
+ViewEditorConfigAdapter.msg1;Das Verzeichnis &1 existiert nicht Bitte korrigieren.
+WSDLDataAdapter.msg1;Control ändern.
+XMLSchemaDataAdapter.msg1;Control ändern.
+FormulaPageAdapter.msg2;In der Formel ist nichts rückgängig zu machen.
+FormulaPageAdapter.msg3;In der Formel ist nichts zu wiederholen.
+NewFileModel6.msg6;Bitte geben Sie einen Dateinamen ein.
+NewFileModel5.msg6;Bitte geben Sie einen Dateinamen ein.

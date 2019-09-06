@@ -1,0 +1,22 @@
+<cisfo:foppage2 pageheight="29.7cm" pagewidth="21cm" margintop="1cm" marginbottom="0.5cm" marginleft="1cm" marginright="1cm" headerheight="1.5cm" footerheight="1.3cm">
+	<cisfo:styleclasses2>
+	</cisfo:styleclasses2>
+	<cisfo:header2>
+		<cisfo:rowtextblock2 textalign="center" text="Header">
+		</cisfo:rowtextblock2>
+	</cisfo:header2>
+	<cisfo:footer2>
+		<cisfo:hline2>
+		</cisfo:hline2>
+		<cisfo:vdist2 height="0.3cm">
+		</cisfo:vdist2>
+		<cisfo:rowtextblock2 textalign="center" text="Page">
+			<cisfo:pagenumber2 separator=" of ">
+			</cisfo:pagenumber2>
+		</cisfo:rowtextblock2>
+	</cisfo:footer2>
+	<cisfo:body2>
+	   <cisfo:rowtextblock2 textalign="center" text="Body">
+	   </cisfo:rowtextblock2>
+	</cisfo:body2>
+</cisfo:foppage2>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Dynamic extension of editor.xml file.
+-->
+<controllibrary>
+	<editor>
+		<!--
+  *****************************************************************************
+  * DATATYPEs
+  *****************************************************************************
+  -->
+		<!--
+  *****************************************************************************
+  * TAGs
+  *****************************************************************************
+  -->
+		<!-- ************** NJXVARIABLES ********************************************-->
+		<tag name="njx:njxvariable" helptext="Template Variable" blacklist="page">
+			<attribute name="name"/>
+			<taginstance>
+        </taginstance>
+			<protocolitem>
+        </protocolitem>
+		</tag>
+		<tagsubnodeextension control="abstable0" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="colarea" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="coldynavis" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="coltable0" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="dynavis" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="innerdiv" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="natpgcontainer" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="pagebody" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="rowarea" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="rowareabody" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="rowdynavis" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="rowscrollarea" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="rowtable0" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="splitcell" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="table0" newsubnode="njx:njxvariable"/>
+		<tagsubnodeextension control="tabpage" newsubnode="njx:njxvariable"/>		
+		<!-- ************** BUTTONITEMLIST ********************************************-->
+		<tag name="njx:buttonitemlist" helptext="Dynamic Buttonlist (Horizontal)" blacklist="page">
+			<attribute name="buttonlistprop"/>
+			<attribute name="buttoncount"/>
+			<!-- hardcoded / automatically set attributes: method + visible -->
+			<attribute name="hdist"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem>
+    	</protocolitem>
+		</tag>
+		<tag name="njx:buttonitem" helptext="Dynamic Buttonitem" blacklist="page">
+			<attribute name="image" datatype="imagefilename"/>
+			<attribute name="comment" inputtype="multiline"/>
+			<attribute name="invisiblemode" datatype="invisiblemode2"/>
+			<attribute name="width" datatype="width"/>
+			<attribute name="height" datatype="height"/>
+			<attribute name="imageheight"/>
+			<attribute name="imagewidth"/>
+			<attribute name="imagedisabled" datatype="imagefilename"/>
+			<attribute name="stylevariant" datatype="stylevariant"/>
+			<attribute name="focusedprop" datatype="property"/>
+			<attribute name="tabindex" datatype="tabindex"/>
+			<attribute name="align" datatype="align"/>
+			<attribute name="valign" datatype="valign"/>
+			<attribute name="colspan" datatype="padding"/>
+			<attribute name="rowspan" datatype="padding"/>
+			<attribute name="textstyle" datatype="style"/>
+			<attribute name="buttonstyle" datatype="style"/>
+			<attribute name="submitbutton" datatype="boolean"/>
+			<attribute name="testtoolid"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem/>
+		</tag>
+		<tagsubnodeextension control="header" newsubnode="njx:buttonitemlist"/>		
+		<tagsubnodeextension control="itr" newsubnode="njx:buttonitemlist"/>
+		<tagsubnodeextension control="njx:buttonitemlist" newsubnode="njx:buttonitem"/>		
+		<!-- ************** FIXED BUTTONITEMLIST ********************************************-->
+		<tag name="njx:buttonitemlistfix" helptext="Fixed Buttonlist (Horizontal)" blacklist="page">
+			<attribute name="buttonlistprop"/>
+			<attribute name="hdist"/>
+			<attribute name="focusedprop" datatype="property"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem>
+		    </protocolitem>
+		</tag>
+		<tag name="njx:buttonitemfix" helptext="Fixed Buttonitem" blacklist="page">
+			<attribute name="name"/>
+			<attribute name="textid" datatype="textid"/>
+			<attribute name="method" datatype="method"/>
+			<attribute name="image" datatype="imagefilename"/>
+			<attribute name="comment" inputtype="multiline"/>
+		    <attribute name="invisiblemode" datatype="invisiblemode2"/>
+			<attribute name="width" datatype="width"/>
+			<attribute name="height" datatype="height"/>
+			<attribute name="imageheight"/>
+			<attribute name="imagewidth"/>
+			<attribute name="imagedisabled" datatype="imagefilename"/>
+			<attribute name="stylevariant" datatype="stylevariant"/>			
+			<attribute name="tabindex" datatype="tabindex"/>
+			<attribute name="align" datatype="align"/>
+			<attribute name="valign" datatype="valign"/>
+			<attribute name="colspan" datatype="padding"/>
+			<attribute name="rowspan" datatype="padding"/>
+			<attribute name="textstyle" datatype="style"/>
+			<attribute name="buttonstyle" datatype="style"/>
+			<attribute name="title"/>
+			<attribute name="titletextid"/>
+			<attribute name="submitbutton" datatype="boolean"/>
+			<attribute name="testtoolid"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem/>
+		</tag>
+		<tagsubnodeextension control="header" newsubnode="njx:buttonitemlistfix"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:buttonitemlistfix"/>
+		<tagsubnodeextension control="njx:buttonitemlistfix" newsubnode="njx:buttonitemfix"/>		
+		<!-- ************** FIELDLIST *************************************************-->
+		<tag name="njx:fieldlist" helptext="Fieldlist" blacklist="page">
+			<attribute name="fieldlistprop"/>
+			<attribute name="fieldcount"/>
+			<attribute name="hdist"/>
+			<attribute name="njx:natname" descriptionid="njx_attr_natname"/>
+			<attribute name="njx:natcomment" descriptionid="njx_attr_natcomment"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem>
+            </protocolitem>
+		</tag>
+		<tag name="njx:fielditem" helptext="Fieldlist Fielditem" blacklist="page">
+			<attribute name="valueprop" datatype="property"/>
+			<attribute name="width" datatype="width"/>
+			<attribute name="alwaysflush" datatype="boolean" />
+			<attribute name="flush" datatype="flush"/>
+			<attribute name="flushmethod" datatype="method"/>
+			<attribute name="comment" inputtype="multiline"/>
+			<attribute name="invisiblemode" datatype="invisiblemode"/>
+			<attribute name="bgcolorprop" datatype="property"/>
+			<attribute name="fgcolorprop" datatype="property"/>
+			<attribute name="titleprop" datatype="property"/>
+			<attribute name="length" datatype="length"/>
+			<attribute name="maxlength" datatype="length"/>
+			<attribute name="maxlengthprop" datatype="property"/>
+			<attribute name="password" datatype="boolean"/>
+			<attribute name="textalign" datatype="align"/>
+			<attribute name="displayonly" datatype="boolean"/>
+			<attribute name="uppercase" datatype="boolean"/>
+			<attribute name="noborder" datatype="boolean"/>
+			<attribute name="transparentbackground" datatype="boolean"/>
+			<attribute name="align" datatype="align"/>
+			<attribute name="valign" datatype="valign"/>
+			<attribute name="colspan" datatype="padding"/>
+			<attribute name="rowspan" datatype="padding"/>
+			<attribute name="fieldstyle" datatype="style"/>
+			<attribute name="tabindex" datatype="tabindex"/>
+			<attribute name="popupmethod" datatype="popupmethod"/>
+			<attribute name="autocallpopupmethod" datatype="boolean"/>
+			<attribute name="popupinputonly" datatype="boolean"/>
+			<attribute name="popupicon" datatype="imagefilename"/>
+			<attribute name="popupprop" datatype="property"/>
+			<attribute name="popupcombowidth" datatype="int"/>
+			<attribute name="touchpadinput" datatype="boolean"/>
+			<attribute name="popuponalt40" datatype="boolean"/>
+			<attribute name="datatype" datatype="datatype"/>
+			<attribute name="formula" datatype="formula"/>
+			<attribute name="validation" datatype="validation"/>
+			<attribute name="validationprop" datatype="property"/>
+			<attribute name="validationuserhint"/>
+			<attribute name="validationuserhintprop" datatype="property"/>
+			<attribute name="decimaldigitsprop" datatype="property"/>
+			<attribute name="decimaldigits" datatype="int"/>
+			<attribute name="digits" datatype="int"/>
+			<attribute name="digitsprop" datatype="property"/>
+			<attribute name="title"/>
+			<attribute name="titletextid"/>
+			<attribute name="helpid"/>
+			<attribute name="hotkeys" datatype="hotkeys"/>
+			<attribute name="validationrules" datatype="validationrules"/>
+			<attribute name="testtoolid"/>
+			<attribute name="spinrangemin" datatype="int"/>
+		    <attribute name="spinrangemax" datatype="int"/>
+		    <attribute name="direction" datatype="direction" />
+		    <attribute name="autotab" datatype="boolean" />
+			<attribute name="njx:natname" descriptionid="njx_attr_natname"/>
+			<attribute name="njx:natcomment" descriptionid="njx_attr_natcomment"/>
+			<taginstance>
+            </taginstance>
+			<protocolitem>
+            </protocolitem>
+		</tag>
+		<tag name="njx:fieldvalue" helptext="Fieldlist Fieldvalue" blacklist="page">
+			<attribute name="width" datatype="width"/>
+			<attribute name="alwaysflush" datatype="boolean" />
+			<attribute name="flush" datatype="flush"/>
+			<attribute name="flushmethod" datatype="method"/>
+			<attribute name="comment" inputtype="multiline"/>
+			<attribute name="invisiblemode" datatype="invisiblemode"/>
+			<attribute name="bgcolorprop" datatype="property"/>
+			<attribute name="fgcolorprop" datatype="property"/>
+			<attribute name="length" datatype="length"/>
+			<attribute name="maxlength" datatype="length"/>
+			<attribute name="maxlengthprop" datatype="property"/>
+			<attribute name="password" datatype="boolean"/>
+			<attribute name="textalign" datatype="align"/>
+			<attribute name="displayonly" datatype="boolean"/>
+			<attribute name="uppercase" datatype="boolean"/>
+			<attribute name="noborder" datatype="boolean"/>
+			<attribute name="transparentbackground" datatype="boolean"/>
+			<attribute name="align" datatype="align"/>
+			<attribute name="valign" datatype="valign"/>
+			<attribute name="colspan" datatype="padding"/>
+			<attribute name="rowspan" datatype="padding"/>
+			<attribute name="fieldstyle" datatype="style"/>
+			<attribute name="tabindex" datatype="tabindex"/>
+			<attribute name="popupmethod" datatype="popupmethod"/>
+			<attribute name="autocallpopupmethod" datatype="boolean"/>
+			<attribute name="popupinputonly" datatype="boolean"/>
+			<attribute name="popupicon" datatype="imagefilename"/>
+			<attribute name="popupprop" datatype="property"/>
+			<attribute name="popupcombowidth" datatype="int"/>
+			<attribute name="touchpadinput" datatype="boolean"/>
+			<attribute name="popuponalt40" datatype="boolean"/>
+			<attribute name="datatype" datatype="datatype"/>
+			<attribute name="formula" datatype="formula"/>
+			<attribute name="validation" datatype="validation"/>
+			<attribute name="validationuserhint"/>
+			<attribute name="validationuserhintprop" datatype="property"/>
+			<attribute name="decimaldigitsprop" datatype="property"/>
+			<attribute name="decimaldigits" datatype="int"/>
+			<attribute name="digits" datatype="int"/>
+			<attribute name="digitsprop" datatype="property"/>
+			<attribute name="title"/>
+			<attribute name="titletextid"/>
+			<attribute name="helpid"/>
+			<attribute name="hotkeys" datatype="hotkeys"/>
+			<attribute name="validationrules" datatype="validationrules"/>
+			<attribute name="testtoolid"/>
+			<attribute name="spinrangemin" datatype="int"/>
+		    <attribute name="spinrangemax" datatype="int"/>
+		    <attribute name="direction" datatype="direction" />
+		    <attribute name="autotab" datatype="boolean" />
+			<taginstance>
+            </taginstance>
+			<protocolitem>
+             </protocolitem>
+		</tag>
+		<!-- EVENTDATA -->
+		<tag name="njx:eventdata" helptext="Natural Event Data" blacklist="page">
+		    <attribute name="withcolindex" datatype="boolean" />
+			<taginstance>
+		    </taginstance>
+			<protocolitem>
+            </protocolitem>
+		</tag>
+		<!-- TRIGGEREVENT -->
+		<tag name="njx:triggerevent" helptext="Trigger Natural Event" blacklist="page">
+			<taginstance>
+		    </taginstance>
+			<protocolitem>
+            </protocolitem>
+		</tag>
+		<!-- SESSIONPARAMS -->
+		<tag name="njx:sessionparams" helptext="Session Parameters" blacklist="page">			
+		</tag>
+		<!-- REQUESTCONTEXT -->
+		<tag name="njx:requestcontext" helptext="Request Context" blacklist="page">			
+		</tag>
+		<!-- natural blob support: documents -->
+		<tag name="njx:documentlink" helptext="Natural Document Link" blacklist="page">
+		   <attribute name="name" helptext="Name"/>
+			<attribute name="textid" datatype="textid" helptext="Text Id"/>
+			<attribute name="valueprop" datatype="property" helptext="Value Property"/>
+			<attribute name="linkstatusprop" datatype="property" helptext="Status Property"/>
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+			<attribute name="width" datatype="width" helptext="Width"/>
+			<attribute name="straighttext" datatype="boolean" helptext="Straight Text"/>
+			<attribute name="align" datatype="align" helptext="Align"/>
+			<attribute name="valign" datatype="valign" helptext="Vertical Align"/>
+			<attribute name="colspan" datatype="padding" helptext="Colspan"/>
+			<attribute name="rowspan" datatype="padding" helptext="Rowspan"/>
+			<attribute name="linkstyle" datatype="style" helptext="Link Style"/>
+			<attribute name="linkclass" helptext="Link Class"/>
+			<attribute name="titleprop" datatype="property" helptext="Title Property"/>
+			<attribute name="nowrap" datatype="boolean" helptext="No Wrap"/>
+			<attribute name="oncontextmenumethod" datatype="method" helptext="OnContextMenu Method"/>
+		   <attribute name="linkprop" datatype="property" />
+		   <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>		   
+		</tag>
+		<!-- natural blob support: documents -->
+		<tag name="njx:njxfileupload2" helptext="Natural File Upload2" blacklist="page">
+			<attribute name="width" datatype="width" helptext="Width"/>			
+			<attribute name="valueprop" datatype="property" />			
+			<attribute name="withsubmitbutton" datatype="boolean" helptext="With Submit-Button"/>
+			<attribute name="submitbuttonname" helptext="Name"/>
+			<attribute name="submitbuttontextid" datatype="textid" helptext="Text Id"/>
+			<attribute name="visibleprop" datatype="property" helptext="Visible Property"/>
+			<attribute name="invisiblemode" datatype="invisiblemode2" helptext="Invisible Mode"/>
+			<attribute name="colspan" datatype="padding" helptext="Colspan"/>
+			<attribute name="rowspan" datatype="padding" helptext="Rowspan"/>
+			<attribute name="darkbackground" datatype="boolean" helptext="DarkBackground"/>
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+			<!-- NJX annotations -->
+			<!-- <attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>-->
+		</tag>
+		<tag name="njx:njxfiledownload" helptext="Natural File Download" blacklist="page">
+			<attribute name="valueprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" helptext="Comment"/>
+			<attribute name="width" datatype="width" helptext="Width"/>
+			<attribute name="height" datatype="height" helptext="Height"/>
+			<!-- <attribute name="valign" datatype="valign" helptext="Vertical Align"/>
+			<attribute name="colspan" datatype="padding" helptext="Colspan"/>
+			<attribute name="rowspan" datatype="padding" helptext="Rowspan"/> -->
+			<attribute name="ihtmlstyle" datatype="style" helptext="IHtml Style"/>
+			<!-- NJX annotations -->
+			<!-- <attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>-->
+		</tag>		
+		<!-- natural blob support: blob transport cache -->
+		<tag name="njx:objects" helptext="Natural Objects" blacklist="page">
+			<taginstance>
+		    </taginstance>
+			<protocolitem>
+            </protocolitem>
+		</tag>
+		<!-- workplace controls -->
+		<tag name="njx:xciwpfunctions" helptext="Enable WP Functions" blacklist="page">
+		</tag>
+		<tag name="njx:xciwpinfo2" helptext="Enable WP Info" blacklist="page">
+		</tag>
+		<tag name="njx:xciwpaccess2" helptext="Enable WP Access" blacklist="page">
+		</tag>
+		<!-- OPENPOPUP -->
+		<tag name="njx:xciopenpopup" helptext="Open Popup Features" blacklist="page">
+		</tag>
+		<tag name="njx:xcilivingpopup" helptext="Living Popup Features" blacklist="page">
+		</tag>
+		<!-- MASHZONE -->
+		<tag name="njx:mashzone" helptext="Natural MashZone" blacklist="page">
+            <attribute name="valueprop" helptext="Mashzone Property"/>
+ 	        <attribute name="height" datatype="height" helptext="Height"/>
+	        <attribute name="width" datatype="width" helptext="Width"/>
+	        <attribute name="scrolling" datatype="scrolling" helptext="Scrolling"/>
+	        <attribute name="pagestyle" helptext="Page Style"/>
+	        <attribute name="colspan" datatype="padding" helptext="Colspan"/>
+	        <attribute name="rowspan" datatype="padding" helptext="Rowspan"/>
+	        <attribute name="comment" inputtype="multiline" helptext="Comment"/>
+	        <!-- NJX annotations -->
+			<attribute name="njx:natname" blacklist="page;xcipage"/>
+			<attribute name="njx:natcomment" blacklist="page;xcipage"/>
+            <taginstance>
+            </taginstance>
+            <protocolitem>
+            </protocolitem>
+        </tag>
+        
+        <!-- ========================================================================== -->
+		<tagsubnodeextension control="natpage" newsubnode="njx:xciwpfunctions"/>
+		<tagsubnodeextension control="natpgcontainer" newsubnode="njx:xciwpfunctions"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:xciwpinfo2"/>
+		<tagsubnodeextension control="natpgcontainer" newsubnode="njx:xciwpinfo2"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:xciwpaccess2"/>
+		<tagsubnodeextension control="natpgcontainer" newsubnode="njx:xciwpaccess2"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:xciopenpopup"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:xcilivingpopup"/>
+		<taggroupsubnodeextension group="Page" newsubnode="njx:xciopenpopup"/>
+		<taggroupsubnodeextension group="Page" newsubnode="njx:xcilivingpopup"/>
+		<taggroupsubnodeextension group="Workplace" newsubnode="njx:xciwpfunctions"/>
+		<taggroupsubnodeextension group="Workplace" newsubnode="njx:xciwpinfo2"/>
+		<taggroupsubnodeextension group="Workplace" newsubnode="njx:xciwpaccess2"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:eventdata"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:triggerevent"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:sessionparams"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:requestcontext"/>
+		<tagsubnodeextension control="natpage" newsubnode="njx:objects"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:documentlink"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:njxfileupload2"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:njxfiledownload"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:fieldlist"/>
+		<tagsubnodeextension control="itr" newsubnode="njx:mashzone"/>
+		<tagsubnodeextension control="njx:fieldlist" newsubnode="njx:fielditem"/>
+		<tagsubnodeextension control="njx:fieldlist" newsubnode="njx:fieldvalue"/>
+		<tagsubnodeextension control="resizable" newsubnode="njx:njxfileupload2"/>
+		<tagsubnodeextension control="resizable" newsubnode="njx:njxfiledownload"/>
+		<tagsubnodeextension control="resizable" newsubnode="njx:documentlink"/>
+		<tagsubnodeextension control="rowareaheader" newsubnode="njx:njxfileupload2"/>
+		<tagsubnodeextension control="rowareaheader" newsubnode="njx:njxfiledownload"/>
+		<tagsubnodeextension control="rowareaheader" newsubnode="njx:documentlink"/>
+		<tagsubnodeextension control="str" newsubnode="njx:njxfileupload2"/>
+		<tagsubnodeextension control="str" newsubnode="njx:njxfiledownload"/>
+		<tagsubnodeextension control="str" newsubnode="njx:documentlink"/>
+		<tagsubnodeextension control="tr" newsubnode="njx:njxfileupload2"/>
+		<tagsubnodeextension control="tr" newsubnode="njx:njxfiledownload"/>
+		<tagsubnodeextension control="tr" newsubnode="njx:documentlink"/>	
+        <tagsubnodeextension control="tr" newsubnode="njx:mashzone"/>
+        <!-- ========================================================================== -->
+        <taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:njxvariable"/>	
+        <taggroupsubnodeextension group="Natural Extensions" newsubnode="------------------------- Button List" />
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:buttonitemlist"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:buttonitem"/>
+        <taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:buttonitemlistfix"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:buttonitemfix"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="------------------------- Events and Data" />
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:eventdata"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:triggerevent"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:sessionparams"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:requestcontext"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:objects"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="------------------------- Field List" />
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:fieldlist"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:fielditem"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:fieldvalue"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="------------------------- Documents" />
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:documentlink"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:njxfileupload2"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:njxfiledownload"/>
+		<taggroupsubnodeextension group="Natural Extensions" newsubnode="njx:mashzone"/>
+		<taggroupsubnodeextension group="Maps/Mashups/Charts" newsubnode="njx:mashzone"/>
+		<!-- ========================================================================== -->
+		<taggroupsubnodeextension group="Non-Visual Controls" newsubnode="njx:triggerevent"/>
+		<taggroupsubnodeextension group="Non-Visual Controls" newsubnode="njx:sessionparams"/>
+		<taggroupsubnodeextension group="Non-Visual Controls" newsubnode="njx:requestcontext"/>
+		<taggroupsubnodeextension group="Non-Visual Controls" newsubnode="njx:objects"/>	
+		<taggroupsubnodeextension group="Non-Visual Controls" newsubnode="njx:eventdata" />		       				
+	</editor>
+	
+</controllibrary>

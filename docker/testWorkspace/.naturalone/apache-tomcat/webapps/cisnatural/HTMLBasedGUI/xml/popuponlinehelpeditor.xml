@@ -1,0 +1,28 @@
+<page model="com.softwareag.cis.popups.PopupOnlineHelpModel" pagename="onlinehelp.html" popupwidth="800" popupheight="700">
+    <pagebody vscroll="auto" hscroll="auto" takefullheight="true">
+        <vdist>
+        </vdist>
+        <itr width="100%" height="100%">
+            <text valueprop="html" width="100%" height="100%" textareastyle="background-color: #000000; color: #AAFFFF; font-weight: bold">
+            </text>
+        </itr>
+        <vdist>
+        </vdist>
+        <itr>
+            <hdist width="50%">
+            </hdist>
+            <button textid="popupEditSaveAndCloseEditor" method="onSaveEditor">
+            </button>
+            <hdist>
+            </hdist>
+            <button textid="popupEditCloseEditor" method="onCloseEditor">
+            </button>
+            <hdist width="50%">
+            </hdist>
+        </itr>
+    </pagebody>
+    <hotkeys>
+        <hotkey keycode="83" ctrlkey="true" method="onSaveEditor">
+        </hotkey>
+    </hotkeys>
+</page>

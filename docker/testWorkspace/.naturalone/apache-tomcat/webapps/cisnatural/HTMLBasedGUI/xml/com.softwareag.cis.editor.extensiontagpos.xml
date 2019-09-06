@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionTagAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css" darkbackground="true">
+    <pagebody horizdist="false" takefullheight="true" paddingleft="5" paddingbottom="5">
+        <itr height="100%" width="100%">
+            <coltable0 width="100%" takefullheight="true">
+                <rowarea textid="reetp.rowarea2">
+                    <itr takefullwidth="true">
+                        <label textid="reetp.label4" width="80">
+                        </label>
+                        <field valueprop="tagGroup" width="100%">
+                        </field>
+                        <hdist>
+                        </hdist>
+                        <label textid="reetp.label5" width="160" asplaintext="true">
+                        </label>
+                    </itr>
+                </rowarea>
+                <rowarea textid="exttagpos.rowarea.embeddingcont">
+                    <rowtablearea2 griddataprop="subnodeExtensions" rowcount="30" width="100%" withborder="true" hscroll="true">
+                        <tr>
+                            <label textid="reetp.label6" asheadline="true" height="15">
+                            </label>
+                            <label textid="label.controlname" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <str valueprop="selected">
+                                <checkbox valueprop="selected" flush="screen">
+                                </checkbox>
+                                <field valueprop="control" width="100%" noborder="true" transparentbackground="true">
+                                </field>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                    <itr height="50%" width="100%">
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onSubnodeExtensionAdd" titletextid="icon.label.add">
+                        </icon>
+                        <hdist width="5">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onSubnodeExtensionRemove" titletextid="icon.label.remove">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+                <vdist height="5">
+                </vdist>
+                <rowarea textid="reetp.rowarea3">
+                    <rowtablearea2 griddataprop="subNodes" rowcount="2" width="100%" withborder="true" hscroll="true">
+                        <tr>
+                            <label textid="reetp.label7" asheadline="true" height="15">
+                            </label>
+                            <label textid="label.control" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <str valueprop="selected">
+                                <checkbox valueprop="selected" flush="screen">
+                                </checkbox>
+                                <field valueprop="control" width="100%" noborder="true" transparentbackground="true">
+                                </field>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                    <itr>
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onSubnodeAdd" titletextid="icon.label.add">
+                        </icon>
+                        <hdist width="5">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onSubnodeRemove" titletextid="icon.label.remove">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+            </coltable0>
+            <hdist width="5">
+            </hdist>
+            <coldynavis valueprop="helpAreaVis" width="250" takefullheight="true">
+                <tr>
+                    <ihtml valueprop="tab2HTML" width="100%" height="100%">
+                    </ihtml>
+                </tr>
+            </coldynavis>
+            <coltable0 width="20">
+                <tr>
+                    <icon image="images/scrolllastpage.gif" method="onHidelHelp" titletextid="icon.label.hidehelp">
+                    </icon>
+                </tr>
+                <vdist>
+                </vdist>
+                <tr>
+                    <icon image="images/scrollfirstpage.gif" method="onShowHelp" titletextid="icon.label.showhelp">
+                    </icon>
+                </tr>
+            </coltable0>
+        </itr>
+    </pagebody>
+</page>

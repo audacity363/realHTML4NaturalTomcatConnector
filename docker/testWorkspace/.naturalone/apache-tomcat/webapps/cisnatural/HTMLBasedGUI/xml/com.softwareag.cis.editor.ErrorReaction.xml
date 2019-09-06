@@ -1,0 +1,28 @@
+<page model="com.softwareag.cis.workplace.ErrorReactionAdapter" pagename="ErrorReaction">
+    <titlebar textid="title" withclose="false" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+    </header>
+    <pagebody takefullheight="true">
+        <rowarea textid="ra_explanation">
+            <itr width="100%">
+                <label textid="lbl_explanation" width="100%" asplaintext="true">
+                </label>
+                <hdist width="10">
+                </hdist>
+                <icon image="/HTMLBasedGUI/images/flash.gif">
+                </icon>
+            </itr>
+        </rowarea>
+        <rowarea textid="ra_errorinfo" height="100%">
+            <itr width="100%" height="100%">
+                <text valueprop="stackTrace" width="100%" height="100%" textareastyle="background-color: #000000; color: #C0FFC0; font-weight: bold">
+                </text>
+            </itr>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

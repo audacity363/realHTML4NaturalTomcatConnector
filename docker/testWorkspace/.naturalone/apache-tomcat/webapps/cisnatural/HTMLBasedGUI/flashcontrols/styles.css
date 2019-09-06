@@ -1,0 +1,63 @@
+html {
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	font-family: trebuchet, verdana, arial, sans-serif;
+	font-size: 9pt;
+}
+
+a {
+	text-decoration: none;
+	color: #397201;
+}
+
+a:hover {
+	color: #66cc00;
+	/*background-color: #f2ffe6;*/
+}
+
+embed {
+	float: left;
+}
+
+div {
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid #eee;
+	background-color: #f9f9f9;
+	float: left;
+}
+
+fieldset {
+	margin: 2px;
+	padding: 2px;
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	float: left;
+}
+
+input, select {
+	margin: 1px 0 5px 0;
+	display: block;
+}
+
+.noblock input, select {
+	display: inline;
+}
+
+.noblock {
+	display: block;
+}
+
+table {
+	text-align: center;
+	width: 400px;
+	font-size: 9pt;
+	margin: 3px;
+	float: left;
+}
+
+tr {
+	border-bottom: 1px solid #eee;
+}

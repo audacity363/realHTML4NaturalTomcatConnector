@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<natpage xmlns:njx="http://www.softwareag.com/njx/njxMapConverter" natsource="$$NATSOURCE$$" natsinglebyte="true">
+    <titlebar name="NAT Map Converter Template" align="center">
+    </titlebar>
+    <pagebody>
+        <rowtabarea name1="Page1" page1="idPage1" name2="Page2" page2="idPage2">
+            <tabpage id="idPage1" takefullheight="true">
+                <njx:njxvariable name="MAPROOT">
+                </njx:njxvariable>
+            </tabpage>
+            <tabpage id="idPage2">
+                <njx:njxvariable name="BEHIND">
+                </njx:njxvariable>
+            </tabpage>
+        </rowtabarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</natpage>

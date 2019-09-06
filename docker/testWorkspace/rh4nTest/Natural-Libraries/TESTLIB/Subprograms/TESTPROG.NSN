@@ -1,0 +1,15 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+define data
+    parameter
+        1 http-req-type (A) DYNAMIC
+        1 rh4n-internals (B) DYNAMIC
+    local using testlda
+end-define
+
+json-output.msg := 'Hello from the other side'
+call interface4 'rhgenjs' rh4n-internals 'json-output@TESTLDA' json-output
+
+END

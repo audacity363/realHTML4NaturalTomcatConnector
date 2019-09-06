@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.ViewEditorConfig5Adapter" translationreference="CIS_EDIT" stylesheetfile="../cis/styles/CIS_DEFAULT.css" popupwidth="550" popupheight="400">
+    <pagebody paddingleft="10" paddingright="10" paddingtop="10">
+        <vdist height="8">
+        </vdist>
+        <itr>
+            <hdist width="8">
+            </hdist>
+            <radiobutton valueprop="projectTreeView" value="package" flush="server">
+            </radiobutton>
+            <hdist width="8">
+            </hdist>
+            <label textid="editorHTTPTrace.label0" asplaintext="true">
+            </label>
+            <hdist width="4">
+            </hdist>
+            <field valueprop="packageSeparator" statusprop="packageSeparatorStatus" length="1" maxlength="1" fieldstyle="text-align: center">
+            </field>
+            <hdist width="4">
+            </hdist>
+            <label textid="editorHTTPTrace.label1" asplaintext="true">
+            </label>
+        </itr>
+        <vdist>
+        </vdist>
+        <itr>
+            <hdist width="8">
+            </hdist>
+            <radiobutton valueprop="projectTreeView" value="alphabetical" flush="server">
+            </radiobutton>
+            <hdist width="8">
+            </hdist>
+            <label textid="editorHTTPTrace.label2" asplaintext="true">
+            </label>
+        </itr>
+        <vdist>
+        </vdist>
+        <itr>
+            <hdist width="8">
+            </hdist>
+            <radiobutton valueprop="projectTreeView" value="donotgroup" flush="server">
+            </radiobutton>
+            <hdist width="8">
+            </hdist>
+            <label textid="editorHTTPTrace.label3" width="100%" asplaintext="true">
+            </label>
+        </itr>
+        <vdist height="8">
+        </vdist>
+        <itr>
+            <hdist width="8">
+            </hdist>
+            <button textid="editorHTTPTrace.button0" method="onOK" image="../HTMLBasedGUI/images/save.gif">
+            </button>
+        </itr>
+    </pagebody>
+    <statusbar>
+    </statusbar>
+</page>

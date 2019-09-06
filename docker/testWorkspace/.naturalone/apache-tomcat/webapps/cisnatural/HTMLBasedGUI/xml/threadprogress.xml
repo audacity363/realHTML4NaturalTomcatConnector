@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.popups.ThreadProgressAdapter" occupiedpixelheight="0" occupiedpixelwidth="0" popupheight="300" popupwidth="300" translationreference="CIS_TOOLS">
+    <pagebody horizdist="false" takefullheight="true">
+        <itr width="100%">
+            <label align="right" asplaintext="true" labelstyle="color:#808080; font-size: 8px; text-align: right" textid="threadprogress.label0" width="100%">
+            </label>
+            <hdist width="5">
+            </hdist>
+        </itr>
+        <itr width="100%">
+            <hdist width="50%">
+            </hdist>
+            <icon align="center" image="general/occupied.gif">
+            </icon>
+            <hdist width="10">
+            </hdist>
+            <label asplaintext="true" labelstyle="font-size: 20 px" textid="threadprogress.label1" valign="middle">
+            </label>
+            <hdist width="50%">
+            </hdist>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr fixlayout="true" height="100%" width="100%">
+            <textgridsss2 griddataprop="messages" height="100%" hscroll="true" rowcount="30" width="100%" withtitlerow="false">
+                <column property="message" textid="threadprogress.column0" width="100%">
+                </column>
+            </textgridsss2>
+        </itr>
+        <itr>
+            <scheduleline pixelheight="20" valueprop="schedule" width="100%">
+            </scheduleline>
+        </itr>
+    </pagebody>
+    <timer intervalprop="interval" method="onRefresh">
+    </timer>
+</page>

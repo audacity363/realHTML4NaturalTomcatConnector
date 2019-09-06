@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Dynamic extension of editor.xml file.
+-->
+
+<controllibrary>
+  <editor>
+
+  <!--
+  *****************************************************************************
+  * DATATYPEs
+  *****************************************************************************
+  -->
+
+
+  <!--
+  *****************************************************************************
+  * TAGs
+  *****************************************************************************
+  -->
+
+  <!-- PIVOT -->
+  <tag name="pivot" blacklist="xcipage;natpage">
+    <attribute name="pivotprop" datatype="property" mandatory="true"/>
+    <attribute name="height" datatype="height" defaultvalue="100"/>
+    <attribute name="showpdf" datatype="boolean" defaultvalue="false"/>
+    <attribute name="areastyle" datatype="style"/>
+    <taginstance>
+        <itr width="100%" height="$height$" itrclass="PIVOTOuterTable">
+            <coltable0 width="100%" takefullheight="true">
+                <rowscrollarea height="$height$" takefullheight="true" areastyle="$areastyle$">
+                    <itr width="100%" height="100%">
+                        <ihtml valueprop="$pivotprop$.report.html" valign="top">
+                        </ihtml>
+                    </itr>
+                </rowscrollarea>
+            </coltable0>
+            <coldynavis valueprop="$pivotprop$.report.showPDF" takefullheight="true">
+                <vdist height="3">
+                </vdist>
+                <tr>
+                    <icon image="../HTMLBasedGUI/images/pdf.gif" method="$pivotprop$.report.onGeneratePDF">
+                    </icon>
+                </tr>
+                <vdist height="100%">
+                </vdist>
+            </coldynavis>
+        </itr>
+    </taginstance>
+    <protocolitem>
+        <addproperty name="$pivotprop$" datatype="PIVOTInfo" useincodegenerator="true"/>
+        <addproperty name="$pivotprop$.report" datatype="REPORTInfo"/>
+        <addproperty name="$pivotprop$.report.html" datatype="String"/>
+        <addproperty name="$pivotprop$.report.selectedId" datatype="String"/>
+        <addproperty name="$pivotprop$.report.reportprop" datatype="String" presetvalue="$pivotprop$.report"/>
+        <addproperty name="$pivotprop$.report.showPDF" datatype="String" presetvalue="$showpdf$"/>
+        <addmethod name="$pivotprop$.report.onGeneratePDF"/>
+        <addjslib src="../HTMLBasedGUI/general/REPORTControls.js"/>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="abstable0" newsubnode="pivot"/>
+  <tagsubnodeextension control="colarea" newsubnode="pivot"/>
+  <tagsubnodeextension control="coldynavis" newsubnode="pivot"/>
+  <tagsubnodeextension control="coltable0" newsubnode="pivot"/>
+  <tagsubnodeextension control="innerdiv" newsubnode="pivot"/>
+  <tagsubnodeextension control="dynavis" newsubnode="pivot"/>
+  <tagsubnodeextension control="pagebody" newsubnode="pivot"/>
+  <tagsubnodeextension control="rowarea" newsubnode="pivot"/>
+  <tagsubnodeextension control="rowdynavis" newsubnode="pivot"/>
+  <tagsubnodeextension control="rowscrollarea" newsubnode="pivot"/>
+  <tagsubnodeextension control="rowtable0" newsubnode="pivot"/>
+  <tagsubnodeextension control="splitcell" newsubnode="pivot"/>
+  <tagsubnodeextension control="tabpage" newsubnode="pivot"/>
+
+
+  </editor>
+</controllibrary>

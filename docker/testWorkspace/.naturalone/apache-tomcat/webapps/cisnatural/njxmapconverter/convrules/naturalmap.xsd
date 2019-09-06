@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:me="http://www.softwareag.com/nat/mapextractor" targetNamespace="http://www.softwareag.com/nat/mapextractor" elementFormDefault="qualified">
+  <xs:element name="map">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="identity" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idDBID" type="xs:int" minOccurs="0"/>
+              <xs:element name="idFNR" type="xs:int" minOccurs="0"/>
+              <xs:element name="idLibrary" type="xs:string" minOccurs="0"/>
+              <xs:element name="idName" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mpParms" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mpAD" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpAL" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpCD" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpDF" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpDL" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpEM" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpFL" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpIP" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="mpLS" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpMC" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpMS" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="mpNL" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpPC" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpPM" type="xs:string" minOccurs="0"/>
+              <xs:element name="mpPS" type="xs:int" minOccurs="0"/>
+              <xs:element name="mpSG" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="mpZP" type="xs:boolean" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="define" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dfField" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="dfLevel" type="xs:int"/>
+                    <xs:element name="dfName" type="xs:string"/>
+                    <xs:element name="dfFormat" type="xs:string"/>
+                    <xs:element name="dfArray" minOccurs="0" maxOccurs="3">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="dfLower" type="xs:int"/>
+                          <xs:element name="dfUpper" type="xs:int"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dfControl" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="input" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ipParms" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ipAD" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipAL" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipBX" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipCD" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipCV" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipCVIndex" minOccurs="0" maxOccurs="3">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ipCVOffset" type="xs:int"/>
+                          <xs:element name="ipCVBaseIndex" type="xs:int" minOccurs="0"/>
+                          <xs:element name="ipCVBaseField" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ipDC" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipDF" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipDL" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipDY" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipEM" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipFL" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipHE" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipIP" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="ipLS" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipMC" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipMS" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="ipNL" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipPC" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipPM" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipPS" type="xs:int" minOccurs="0"/>
+                    <xs:element name="ipSG" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="ipZP" type="xs:boolean" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="ltLiteral">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ltName" type="xs:string"/>
+                      <xs:element name="ltFormat" type="xs:string"/>
+                      <xs:element name="ltWidth" type="xs:int"/>
+                      <xs:element name="ltRow" type="xs:int"/>
+                      <xs:element name="ltCol" type="xs:int" minOccurs="0"/>
+                      <xs:element name="ltParms" minOccurs="0">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="ltAD" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ltCD" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ltPM" type="xs:string" minOccurs="0"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="ifField">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ifName" type="xs:string"/>
+                      <xs:element name="ifFormat" type="xs:string" minOccurs="0"/>
+                      <xs:element name="ifWidth" type="xs:int"/>
+                      <xs:element name="ifIndex" minOccurs="0" maxOccurs="3">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="ifOffset" type="xs:int"/>
+                            <xs:element name="ifBaseIndex" type="xs:int" minOccurs="0"/>
+                            <xs:element name="ifBaseField" type="xs:string" minOccurs="0"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="ifRow" type="xs:int"/>
+                      <xs:element name="ifCol" type="xs:int" minOccurs="0"/>
+                      <xs:element name="ifParms" minOccurs="0">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element name="ifAD" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifAL" type="xs:int" minOccurs="0"/>
+                            <xs:element name="ifCD" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifCV" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifCVIndex" minOccurs="0" maxOccurs="3">
+                              <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="ifCVOffset" type="xs:int"/>
+                                  <xs:element name="ifCVBaseIndex" type="xs:int" minOccurs="0"/>
+                                  <xs:element name="ifCVBaseField" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ifDF" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifDL" type="xs:int" minOccurs="0"/>
+                            <xs:element name="ifDY" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifEM" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifEMU" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifFL" type="xs:int" minOccurs="0"/>
+                            <xs:element name="ifHE" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifIP" type="xs:boolean" minOccurs="0"/>
+                            <xs:element name="ifNL" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifPM" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifSB" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ifSG" type="xs:boolean" minOccurs="0"/>
+                            <xs:element name="ifZP" type="xs:boolean" minOccurs="0"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

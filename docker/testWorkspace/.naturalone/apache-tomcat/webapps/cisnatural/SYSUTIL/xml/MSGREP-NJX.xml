@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<natpage hotkeys="113;report.onGeneratePDF;114;report.onGeneratePrintVersion" natsource="MSGREP-X">
+    <titlebar name="Message Report" valueprop="titelText" align="left" closetitle="Exit the application" image="./images/Natural.png">
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true" paddingleft="2">
+        <itr takefullwidth="true" height="100%">
+            <coltable0 width="100%" takefullheight="true">
+                <rowarea height="100%" fixlayout="true">
+                    <itr>
+                        <button name="Exit" method="onExit" width="80" align="left" valign="middle" title="Exit the application">
+                        </button>
+                        <hdist width="4">
+                        </hdist>
+                        <button name="PDF (F2)" method="report.onGeneratePDF" image="../HTMLBasedGUI/images/pdf.gif" width="100" valign="middle" title="Convert into PDF document">
+                        </button>
+                        <hdist width="4">
+                        </hdist>
+                        <button name="Print (F3)" method="report.onGeneratePrintVersion" image="../HTMLBasedGUI/images/printer.gif" width="100" title="Print the message">
+                        </button>
+                    </itr>
+                    <vdist height="10">
+                    </vdist>
+                    <report reportprop="report" height="100%" showpdf="false" showprintversion="false">
+                    </report>
+                </rowarea>
+            </coltable0>
+        </itr>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</natpage>

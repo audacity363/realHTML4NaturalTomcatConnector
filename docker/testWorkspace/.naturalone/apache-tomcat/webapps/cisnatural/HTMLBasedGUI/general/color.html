@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+<script>
+	var m_color;
+	var m_selectedCell;
+	var m_lastSelectedCell;
+</script>
+
+<!-- INCLUDEs -->
+<script src="COLORSELECTIONControls.js"></script>
+
+	    <link rel="stylesheet" type="text/css" href="../../cis/styles/CIS_DEFAULT.css">
+
+		<STYLE TYPE="text/css">
+		.ColorTable
+		{
+		    border-top-style: solid;
+		    border-right-style: solid;
+		    border-bottom-style: solid;
+		    border-left-style: solid;
+		    border-width: 2;
+		    border-left-color: #868686;
+		    border-top-color: #868686;
+		    border-right-color: #F0F0F0;
+		    border-bottom-color: #F0F0F0;
+		}
+		.ColorTableCell
+		{
+		    height: 8px;
+		    width: 8px;
+		    padding: 1px;
+		}
+		.ColorTableCellSelected
+		{
+		    height: 8px;
+		    width: 8px;
+			border-style: solid;
+			border-width: 1;
+			border-color: #000000;
+		}
+		.PredDefColorCell
+		{
+		    height: 20px;
+		    width: 20px;
+		    padding: 1px;
+			font-size: 10;
+			font-family: Verdana;
+			color: #FFFFFF;
+		}
+		.PredDefColorCellSelected
+		{
+		    height: 20px;
+		    width: 20px;
+			border-style: solid;
+			border-width: 1;
+			border-color: #000000;
+		}
+		.RightColumnCell
+		{
+		    height: 8px;
+		    width: 30px;
+		    padding: 1px;
+		}
+		.RightColumnCellSelected
+		{
+		    height: 8px;
+		    width: 30px;
+			border-style: solid;
+			border-width: 1;
+			border-color: #000000;
+		}
+		</STYLE>
+	</head>
+
+	<body class="PAGEBody" style="height: 100%;margin:0" topmargin="0" leftmargin="0" onkeyup="if (event.keyCode==27) parent.close();" onunload="closePopup();">
+		<table width="100%" height="90%" border="0" cellspacing="0" cellpadding="0" style='background-color: #F7F3EF'>
+
+		<!-- VDIST -->
+		<tr height="5px"><td></td></tr>
+		<tr>
+			<td width="5px">&nbsp;</td>
+			<td width="100%"><span id='COLORTABLE'></span></td>
+			<td width="5px">&nbsp;</td>
+			<td width="30px"><span id='COLORCOLUMN'></span></td>
+			<td width="5px">&nbsp;</td>
+			<td width="30px"><span id='COLORCOLUMN2'></span></td>
+			<td width="5px">&nbsp;</td>
+		</tr>
+
+		<!-- VDIST -->
+		<tr><td height="5px"></td></tr>
+		<tr>
+			<td width="5px">&nbsp;</td>
+			<td colspan=5 width="100%" height="100%"><span id='PREDEFCOLORS' style='height:100%'></span></td>
+			<td width="5px">&nbsp;</td>
+		</tr>
+
+		<!-- VDIST -->
+		<table width="100%" height="10%" border="0" cellspacing="0" cellpadding="0" style='background-color: #F7F3EF'>
+		<tr>
+			<td id='SELECTEDCOLOR' width='100%'></td>
+		</tr>
+		</table>
+
+		<!-- VDIST -->
+		<tr height="5px"><td></td></tr>
+		</table>
+
+<script>
+
+	function init(color)
+	{
+		m_color = color;
+		if (color == null) m_color = "#FFFFFF";
+		visualizeColorTable();
+		visualizeRightColumn();
+		visualizeRightColumn2();
+		visualizePreDefColors();
+		visualizeSelectedColor();
+		vizualizeColor();
+		var ci = document.getElementById("COLORINPUT");
+		if (color == null) ci.value = "";
+		
+		if (parent.opener != null)
+		    parent.opener.csciframe.registerStandardDlgPopupPAGE(parent);
+	}
+
+	function cellSelect()
+	{
+
+	    var vObject = document.getElementById(m_selectedCell);
+
+	    // select
+	    if (m_selectedCell.indexOf("Pre") >= 0)
+	        vObject.className = "PredDefColorCellSelected";
+	    else if (m_selectedCell.indexOf("RC") >= 0)
+	        vObject.className = "RightColumnCellSelected";
+	    else
+	    	vObject.className = "ColorTableCellSelected";
+
+		// deselect
+	    if(m_lastSelectedCell != null)
+	    {
+	        vObject = document.getElementById(m_lastSelectedCell);
+	        if (m_lastSelectedCell.indexOf("Pre") >= 0)
+	        	vObject.className = "PredDefColorCell";
+	    	else if (m_lastSelectedCell.indexOf("RC") >= 0)
+	        	vObject.className = "RightColumnCell";
+	        else
+	        	vObject.className = "ColorTableCell";
+	    }
+	    m_lastSelectedCell = m_selectedCell;
+
+	 	if ((m_selectedCell.indexOf("RC") < 0)&&(m_selectedCell.indexOf("RR") <0))
+	 	{
+	    	visualizeRightColumn();
+	    	visualizeRightColumn2();
+	   	}
+	    vizualizeColor();
+	}
+
+	function reactOnOKPressed()
+	{
+		rValue = [];
+		rValue[0] = m_color;
+		if (parent.opener != null) // MOZILLA
+		{
+			parent.opener.csciframe.transferColorPopupRetValFIELD(rValue);
+		}
+		else // INTERNET EXPLORER
+		{
+			window.returnValue = rValue;
+		}
+		//parent.close();
+		closePopup();
+	}
+	
+	function closePopup()
+	{
+	    if (parent.opener != null)
+		    parent.opener.csciframe.closeStandardDlgPopupPAGE(); 
+		else
+		    parent.close();
+	}	
+
+	function reactOnCancelPressed()
+	{
+	   
+		window.returnValue = null;
+		 closePopup();
+		//parent.close();
+	}
+
+	function vizualizeColor()
+	{
+		ci = document.getElementById("COLORINPUT");
+		ci.value = " " + m_color;
+		ci.style.backgroundColor = m_color;
+		if (checkIfColorIsDarkCOLORSELECTION(m_color) == true)
+	         ci.style.color = "#FFFFFF";
+	    else
+	         ci.style.color = "#000000";
+	}
+
+	function visualizeColorTable()
+	{
+		var vHtml = [];
+		vHtml.push("<table width='100%' cellspacing=0 cellpadding=0  class='ColorTable'>");
+
+	    var maxValue = 255;
+	    var red = 0;
+	    var green = 0;
+	    var blue = 0;
+	    var color;
+	    var tdId;
+	    for (var i=0; i<32; i++)
+	    {
+	        maxValue = 255- 6*i;
+	        var step = parseInt("" + (maxValue+1)/8);
+	        vHtml.push("<tr>");
+	        for (var j=0; j<48; j++)
+	        {
+	            if (j < 8)
+	            {
+	                red = maxValue;
+	                green = step*j;
+	                blue = 0;
+	            }
+	            else if (j < 16)
+	            {
+	                red = maxValue-step*(j-8);
+	                green = maxValue;
+	                blue = 0;
+	            }
+	            else if (j < 24)
+	            {
+	                red = 0;
+	                green = maxValue;
+	                blue = step*(j-16);
+	            }
+	            else if (j < 32)
+	            {
+	                red = 0;
+	                green = maxValue-step*(j-24);
+	                blue = maxValue;
+	            }
+	            else if (j < 40)
+	            {
+	                red = step*(j-32);
+	                green = 0;
+	                blue = maxValue;
+	            }
+	            else
+	            {
+	                red = maxValue;
+	                green = 0;
+	                blue = maxValue-step*(j-40);
+	            }
+	            color = "#" + toHexString(red) + toHexString(green) + toHexString(blue);
+	            tdId = "CSB"+color;
+	            vHtml.push("<td id='"+tdId+"' class='ColorTableCell' onclick='m_color=\""+color+"\"; m_selectedCell=\""+tdId+"\";  cellSelect();' style='background-color: "+color+"' ></td>");
+	        }
+	        vHtml.push("</tr>");
+	    }
+		vHtml.push("</table>  ");
+		var vColorTable = document.getElementById("COLORTABLE");
+		vColorTable.innerHTML = vHtml.join("");
+	}
+
+	function visualizePreDefColors()
+	{
+		var vHtml = [];
+		vHtml.push("<table height='100%' cellspacing=0 cellpadding=0 width='100%' class='ColorTable'>");
+		vHtml.push("<tr>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPreFF0000' onclick='m_color=\"#FF0000\"; m_selectedCell=\"CSBPreFF0000\";  cellSelect();' style='background-color: #FF0000;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPreFFFF00' onclick='m_color=\"#FFFF00\"; m_selectedCell=\"CSBPreFFFF00\";  cellSelect();' style='background-color: #FFFF00;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPre00FF00' onclick='m_color=\"#00FF00\"; m_selectedCell=\"CSBPre00FF00\";  cellSelect();' style='background-color: #00FF00;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPre00FFFF' onclick='m_color=\"#00FFFF\"; m_selectedCell=\"CSBPre00FFFF\";  cellSelect();' style='background-color: #00FFFF;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPre0000FF' onclick='m_color=\"#0000FF\"; m_selectedCell=\"CSBPre0000FF\";  cellSelect();' style='background-color: #0000FF;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPreFF00FF' onclick='m_color=\"#FF00FF\"; m_selectedCell=\"CSBPreFF00FF\";  cellSelect();' style='background-color: #FF00FF;' ></td>");
+		vHtml.push("<td height='100%' class='PredDefColorCell' id='CSBPre000000' onclick='m_color=\"#000000\"; m_selectedCell=\"CSBPre000000\";  cellSelect();' style='background-color: #000000;' ></td>");
+		vHtml.push("</tr>");
+
+
+		vHtml.push("</table>");
+		var vColorTable = document.getElementById("PREDEFCOLORS");
+		vColorTable.innerHTML = vHtml.join("");
+	}
+
+	function visualizeRightColumn()
+	{
+		var vHtml = [];
+		vHtml.push("<table width='26px' height='100%' cellspacing=0 cellpadding=0  class='ColorTable'>");
+		var red = m_color.substring(1, 3);
+		var green = m_color.substring(3, 5);
+		var blue = m_color.substring(5, 7);
+		var vIncreaseRed = "false";
+		var vIncreaseGreen = "false";
+		var vIncreaseBlue = "false";
+		if (red == "00")
+			vIncreaseRed = "true";
+		if (green == "00")
+			vIncreaseGreen = "true";
+		if (blue == "00")
+			vIncreaseBlue = "true";
+
+	    for (var i2=0; i2<32; i2++)
+	    {
+	        vHtml.push("<tr>");
+	        if (vIncreaseRed == "true")
+	        	red = toHexString(8*(i2+1));
+	       	if (vIncreaseGreen == "true")
+	       	    green = toHexString(8*(i2+1));
+	       	if (vIncreaseBlue == "true")
+	       	    blue = toHexString(8*(i2+1));
+
+	       	color = "#" + red + green + blue;
+	       	tdId = "CSBRC" + i2;
+			vHtml.push("<td id='"+tdId+"' onclick='m_color=\""+color+"\"; m_selectedCell=\""+tdId+"\";  cellSelect();' class='RightColumnCell' style='background-color: "+color+"'></td>");
+			vHtml.push("</tr>");
+		}
+		vHtml.push("</table>");
+
+		var vColorColumn = document.getElementById("COLORCOLUMN");
+		vColorColumn.innerHTML = vHtml.join("");
+	}
+
+	function visualizeRightColumn2()
+	{
+		var vHtml = [];
+		vHtml.push("<table width='26px' height='100%' cellspacing=0 cellpadding=0  class='ColorTable'>");
+
+		var redbase = hexToDecimal(m_color.substring(1, 3));
+		var red = m_color.substring(1, 3);;
+		var redStep = (256-redbase)/32;
+
+		var greenbase = hexToDecimal(m_color.substring(3, 5));
+		var green = m_color.substring(3, 5);;
+		var greenStep = (256-greenbase)/32;
+
+		var bluebase = hexToDecimal(m_color.substring(5, 7));
+		var blue = m_color.substring(5, 7);;
+		var blueStep = (256-bluebase)/32;
+
+
+	    for (var i2=0; i2<32; i2++)
+	    {
+	        vHtml.push("<tr>");
+
+	        red = toHexString(redbase + redStep*(i2+1));
+	        green = toHexString(greenbase + greenStep*(i2+1));
+	        blue = toHexString(bluebase + blueStep*(i2+1));
+
+	       	color = "#" + red + green + blue;
+
+
+	       	tdId = "CSBRR" + i2;
+			vHtml.push("<td id='"+tdId+"' onclick='m_color=\""+color+"\"; m_selectedCell=\""+tdId+"\";  cellSelect();' class='RightColumnCell' style='background-color: "+color+"'></td>");
+			vHtml.push("</tr>");
+		}
+		vHtml.push("</table>");
+
+		var vColorColumn = document.getElementById("COLORCOLUMN2");
+		vColorColumn.innerHTML = vHtml.join("");
+	}
+
+	function visualizeSelectedColor()
+	{
+		var vHtml = [];
+		vHtml.push("<table width='100%' cellspacing=5 border=0><tr>");
+		vHtml.push("<td width='100%'><input type='text' readOnly=true id='COLORINPUT' name='COLORINPUT' onkeydown='return false;' onkeypress='return false;' style='width:100%;font-family: Verdana;font-size: 10pt;'></td>");
+	    vHtml.push("<td><input class='BUTTONInput' id='OK' type='button' value=' OK ' onclick='reactOnOKPressed();' style='width:50;font-family: Verdana; font-size: 10pt; border: 1 solid #A0A0A0'></td>");
+	    vHtml.push("<td><input class='BUTTONInput' type='button' value=' Cancel ' onclick='reactOnCancelPressed();' style='width:60;font-family: Verdana; font-size: 10pt; border: 1 solid #A0A0A0'></td>");
+	  	var vObject = document.getElementById("SELECTEDCOLOR");
+		vObject.innerHTML = vHtml.join("");
+	}
+
+	function toHexString(base10)
+	{
+	    if (base10 > 255) return "FF";
+	    var result ="";
+	    var first = parseInt("" + base10/16);
+
+	    if (first > 9)
+	    {
+	        if (first == 10) result = "A";
+	        if (first == 11) result = "B";
+	        if (first == 12) result = "C";
+	        if (first == 13) result = "D";
+	        if (first == 14) result = "E";
+	        if (first == 15) result = "F";
+	    }
+	    else
+	        result = "" + first;
+
+	    var second = parseInt("" + base10 - 16*first);
+	    if (second > 9)
+	    {
+	        if (second == 10) result = result + "A";
+	        if (second == 11) result = result + "B";
+	        if (second == 12) result = result + "C";
+	        if (second == 13) result = result + "D";
+	        if (second == 14) result = result + "E";
+	        if (second == 15) result = result + "F";
+	    }
+	    else
+	        result = result + second;
+
+	    return result;
+	}
+
+	function hexToDecimal(xx)
+	{
+	    var result = 0;
+	    var x1 = xx.charAt(0);
+	    if ((x1 == 'F')||(x1 == 'f')) result = 16*15;
+	    else if ((x1 == 'E')||(x1 == 'e')) result = 16*14;
+	    else if ((x1 == 'D')||(x1 == 'd')) result = 16*13;
+	    else if ((x1 == 'C')||(x1 == 'c')) result = 16*12;
+	    else if ((x1 == 'B')||(x1 == 'b')) result = 16*11;
+	    else if ((x1 == 'A')||(x1 == 'a')) result = 16*10;
+	    else if (x1 == '9') result = 16*9;
+	    else if (x1 == '8') result = 16*8;
+	    else if (x1 == '7') result = 16*7;
+	    else if (x1 == '6') result = 16*6;
+	    else if (x1 == '5') result = 16*5;
+	    else if (x1 == '4') result = 16*4;
+	    else if (x1 == '3') result = 16*3;
+	    else if (x1 == '2') result = 16*2;
+	    else if (x1 == '1') result = 16*1;
+
+	    var x2 = xx.charAt(1);
+	    if ((x2 == 'F')||(x2 == 'f')) result += 15;
+	    else if ((x2 == 'E')||(x2 == 'e')) result += 14;
+	    else if ((x2 == 'D')||(x2 == 'd')) result += 13;
+	    else if ((x2 == 'C')||(x2 == 'c')) result += 12;
+	    else if ((x2 == 'B')||(x2 == 'b')) result += 11;
+	    else if ((x2 == 'A')||(x2 == 'a')) result += 10;
+	    else if (x2 == '9') result += 9;
+	    else if (x2 == '8') result += 8;
+	    else if (x2 == '7') result += 7;
+	    else if (x2 == '6') result += 6;
+	    else if (x2 == '5') result += 5;
+	    else if (x2 == '4') result += 4;
+	    else if (x2 == '3') result += 3;
+	    else if (x2 == '2') result += 2;
+	    else if (x2 == '1') result += 1;
+
+	    return result;
+	}
+	focus();
+</script>
+
+	</body>
+</html>

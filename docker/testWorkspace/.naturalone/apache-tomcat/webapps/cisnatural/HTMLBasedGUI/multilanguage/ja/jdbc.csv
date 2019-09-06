@@ -1,0 +1,26 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+jdbc.button0;接続
+jdbc.button1;テーブルの存在の確認
+jdbc.button2;更新のプレビュー
+jdbc.button3;テーブルの作成
+jdbc.button4;実行
+jdbc.button5;ポップアップを閉じる
+jdbc.column0;ファイルキー
+jdbc.helpicon0;ヘルプ
+jdbc.helpicon1;ヘルプ
+jdbc.label0;JDBCドライバクラス名
+jdbc.label1;JDBCデータベースURL
+jdbc.label2;ユーザー
+jdbc.label3;パスワード
+jdbc.label4;製品
+jdbc.label5;MYSQL
+jdbc.label6;そのほか...
+jdbc.label7;フィルタ
+jdbc.label8;ヒント: 上記のフィルタを使用して結果セットのサイズを縮小してください。 ワイルドカード文字を使用せずに、ファイルキーの一部だけを入力してください。 
+jdbc.rowarea0;データベース接続のプロパティ
+jdbc.rowarea1;製品情報
+jdbc.rowarea2;スキーマ管理
+jdbc.rowtabarea0;テーブルの存在の確認
+jdbc.rowtabarea1;コンテンツ
+jdbc.titlebar0;JDBC マネージャー
+closePage;ページを閉じる

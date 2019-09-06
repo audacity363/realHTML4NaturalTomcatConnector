@@ -1,0 +1,95 @@
+0010DB: 000 FILE: 011  - EMPLOYEES                        DEFAULT SEQUENCE:   
+0020TYPE: ADABAS
+0030 
+0040T L DB Name                              F Leng  S D Remark
+0050- - -- --------------------------------  - ----  - - ------------------------
+0060  1 AA PERSONNEL-ID                      A    8    D 
+0070       HD=PERSONNEL/ID
+0080*      CNNNNNNN                                      
+0090*      C=COUNTRY                                     
+0100G 1 AB FULL-NAME                                     
+0110  2 AC FIRST-NAME                        A   20  N   
+0120  2 AD MIDDLE-I                          A    1  N   
+0130  2 AE NAME                              A   20    D 
+0140  1 AD MIDDLE-NAME                       A   20  N   
+0150  1 AF MAR-STAT                          A    1  F   
+0160       HD=MARITAL/STATUS
+0170*      M=MARRIED                                     
+0180*      S=SINGLE                                      
+0190*      D=DIVORCED                                    
+0200*      W=WIDOWED                                     
+0210  1 AG SEX                               A    1  F   
+0220       HD=S/E/X
+0230  1 AH BIRTH                             D    6    D 
+0240       HD=DATE/OF/BIRTH
+0250       EM=YYYY-MM-DD
+0260  1 AH N@BIRTH                           I    2    D 
+0270G 1 A1 FULL-ADDRESS                                  
+0280M 2 AI ADDRESS-LINE                      A   20  N   
+0290       HD=ADDRESS
+0300  2 AJ CITY                              A   20  N D 
+0310  2 AK ZIP                               A   10  N   
+0320       HD=POSTAL/ADDRESS
+0330  2 AK POST-CODE                         A   10  N   
+0340       HD=POSTAL/ADDRESS
+0350  2 AL COUNTRY                           A    3  N   
+0360G 1 A2 TELEPHONE                                     
+0370  2 AN AREA-CODE                         A    6  N   
+0380       HD=AREA/CODE
+0390  2 AM PHONE                             A   15  N   
+0400       HD=TELEPHONE
+0410  1 AO DEPT                              A    6    D 
+0420       HD=DEPARTMENT/CODE
+0430  1 AP JOB-TITLE                         A   25  N D 
+0440       HD=CURRENT/POSITION
+0450P 1 AQ INCOME                                        
+0460*      ANNUAL INCOMES                                
+0470*      DURING YEARS WITH THE INTER-                  
+0480*      NATIONAL ENTERPRISE                           
+0490  2 AR CURR-CODE                         A    3  N   
+0500       HD=CURRENCY/CODE
+0510  2 AS SALARY                            P  9.0  N   
+0520       HD=ANNUAL/SALARY
+0530M 2 AT BONUS                             P  9.0  N   
+0540*      BONUS PER YEAR                                
+0550*      IN CURRRENCY UNIT                             
+0560G 1 A3 LEAVE-DATA                                    
+0570*      LEAVE/VACATION INFO                           
+0580*      FOR EMPLOYEE WITHIN 1 YEAR                    
+0590  2 AU LEAVE-DUE                         N  2.0      
+0600       HD=LEAVE/DUE
+0610*      VACATION DAYS/YEAR                            
+0620*      EMPLOYEE IS ENTITLED TO                       
+0630  2 AV LEAVE-TAKEN                       N  2.0  N   
+0640*      VACATION DAYS TAKEN                           
+0650*      IN THIS YEAR                                  
+0660P 1 AW LEAVE-BOOKED                                  
+0670  2 AX LEAVE-START                       N  8.0  N   
+0680       HD=LEAVE/START
+0690       EM=9999/99/99
+0700  2 AY LEAVE-END                         N  8.0  N   
+0710       HD=LEAVE/END
+0720       EM=9999/99/99
+0730M 1 AZ LANG                              A    3  N D 
+0740       HD=LANG/SPOKEN
+0750  1 PH PHONETIC-NAME                     A   20    P 
+0760*      -------- SOURCE FIELD(S) -------
+0770*      NAME
+0780  1 H1 LEAVE-LEFT                        B    4  N S 
+0790       HD=LEAVE/REMAINING
+0800*      -------- SOURCE FIELD(S) -------
+0810*      LEAVE-DUE(1-2)
+0820*      LEAVE-TAKEN(1-2)
+0830  1 S1 DEPARTMENT                        A    4    S 
+0840       HD=SECTION
+0850*      -------- SOURCE FIELD(S) -------
+0860*      DEPT(1-4)
+0870  1 S2 DEPT-PERSON                       A   26    S 
+0880*      -------- SOURCE FIELD(S) -------
+0890*      DEPT(1-6)
+0900*      NAME(1-20)
+0910P 1 S3 CURRENCY-SALARY                   A   12  N S 
+0920*      -------- SOURCE FIELD(S) -------
+0930*      CURR-CODE(1-3)
+0940*      SALARY(1-9)
+0950******DDM OUTPUT TERMINATED******

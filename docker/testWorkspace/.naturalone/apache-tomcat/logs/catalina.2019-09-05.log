@@ -1,0 +1,43 @@
+05-Sep-2019 14:17:13.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.10
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 20 2018 17:32:21 UTC
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.10.0
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.15.0-20-generic
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/softwareag_complete/jvm/jvm/jre
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_181-b02
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Azul Systems, Inc.
+05-Sep-2019 14:17:13.544 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /opt/softwareag_complete/naturalone/apache-tomcat
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/conf/logging.properties
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmn128m
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx1024m
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/apache-tomcat/endorsed
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/apache-tomcat
+05-Sep-2019 14:17:13.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/temp
+05-Sep-2019 14:17:13.546 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+05-Sep-2019 14:17:13.596 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-28080"]
+05-Sep-2019 14:17:13.603 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Sep-2019 14:17:13.607 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 387 ms
+05-Sep-2019 14:17:13.621 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Sep-2019 14:17:13.621 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.10
+05-Sep-2019 14:17:13.722 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/cisnatural.war]
+05-Sep-2019 14:17:16.283 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Sep-2019 14:17:16.339 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.0 ( 20130502-2118 https://svn.java.net/svn/mojarra~svn/tags/2.2.0@11930) for context '/cisnatural'
+05-Sep-2019 14:17:17.032 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+05-Sep-2019 14:17:17.435 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/cisnatural.war] has finished in [3,712] ms
+05-Sep-2019 14:17:17.435 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/host-manager]
+05-Sep-2019 14:17:17.448 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/host-manager] has finished in [13] ms
+05-Sep-2019 14:17:17.449 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/docs]
+05-Sep-2019 14:17:17.455 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/docs] has finished in [6] ms
+05-Sep-2019 14:17:17.456 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/ROOT]
+05-Sep-2019 14:17:17.463 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/ROOT] has finished in [7] ms
+05-Sep-2019 14:17:17.463 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/examples]
+05-Sep-2019 14:17:17.543 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/examples] has finished in [80] ms
+05-Sep-2019 14:17:17.543 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/manager]
+05-Sep-2019 14:17:17.552 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/tom/Documents/rh4n/realHTML4NaturalTomcatConnector/docker/testWorkspace/.naturalone/apache-tomcat/webapps/manager] has finished in [8] ms
+05-Sep-2019 14:17:17.553 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-28080"]
+05-Sep-2019 14:17:17.560 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3952 ms

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<natpage natsinglebyte="true" natkcheck="true"
+	xmlns:njx="http://www.softwareag.com/njx/njxMapConverter"
+	xmlns:bmobile="http://www.softwareag.com/njx/njxMobile">
+	<pagebody>
+		<bmobile:container takefullwidth="true">
+		</bmobile:container>
+	</pagebody>
+</natpage>
+
+

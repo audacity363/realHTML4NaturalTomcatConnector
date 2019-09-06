@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<natpage natsinglebyte="true" natkcheck="true" xmlns:njx="http://www.softwareag.com/njx/njxMapConverter">
+    <titlebar name="Message Retrieval" valueprop="titelText" align="left" closetitle="Exit the application" image="./images/Natural.png">
+    </titlebar>
+    <header align="left" nocellspacing="true">
+        <button name="Exit" method="onExit" width="80" align="left" valign="middle" title="Exit the application">
+        </button>
+        <hdist width="4">
+        </hdist>
+        <button name="Reset" method="onReset" invisiblemode="disabled" width="80" align="left" valign="middle" title="Reset all fields to initial state">
+        </button>
+        <hdist width="4">
+        </hdist>
+        <button name="Report" method="onReport" invisiblemode="disabled" width="80" align="left" valign="middle" title="Print/PDF preview">
+        </button>
+        <hdist width="4">
+        </hdist>
+    </header>
+    <pagebody takefullheight="true">
+        <vsplit height="100%" widthleftprop="widthLeft">
+            <splitcell takefullheight="true">
+                <rowscrollarea height="100%" takefullwidth="true" takefullheight="true">
+                    <itr takefullwidth="true" height="24" valign="middle" itrstyle="border: 1px solid #FFFFFF;">
+                        <label name="Message Specification" width="100%" invisiblemode="invisible" asplaintext="true" height="20" align="center" valign="middle" labelstyle="margin-left: 4px;font-weight: bold;background-color: #BBD8FF;">
+                        </label>
+                    </itr>
+                    <itr height="4">
+                    </itr>
+                    <itr valign="middle" itrstyle="border: 1px solid #FFFFFF;background-color: #DCEBFF;">
+                        <hdist width="1">
+                        </hdist>
+                        <label name="Message type:" width="120" asplaintext="true" valign="middle" labelstyle="margin-left: 4px;background-color: #DCEBFF;">
+                        </label>
+                        <combodyn2 valueprop="typeVal" validvaluesprop="typeArr" width="170" flush="server" flushmethod="onTypeSwitch" combostyle="background-color: #BBD8FF;" titleprop="typeToolTip">
+                        </combodyn2>
+                    </itr>
+                    <itr height="4">
+                    </itr>
+                    <itr valign="middle" itrstyle="border: 1px solid #FFFFFF;background-color: #DCEBFF;">
+                        <hdist width="1">
+                        </hdist>
+                        <label name="Language:" width="120" asplaintext="true" valign="middle" labelstyle="margin-left: 4px;background-color: #DCEBFF;">
+                        </label>
+                        <combodyn2 valueprop="languageVal" validvaluesprop="languageArr" width="270" flush="server" flushmethod="onNumber" combostyle="background-color: #BBD8FF;" titleprop="languageToolTip">
+                        </combodyn2>
+                    </itr>
+                    <itr height="4">
+                    </itr>
+                    <itr valign="middle" itrstyle="border: 1px solid #FFFFFF;background-color: #DCEBFF;">
+                        <hdist width="1">
+                        </hdist>
+                        <label name="Library:" width="120" asplaintext="true" valign="middle" labelstyle="margin-left: 4px;background-color: #DCEBFF;">
+                        </label>
+                        <field valueprop="fieldLibrary" flush="server" flushmethod="onLibrary" length="8" uppercase="true" valign="middle" fieldstyle="background-color: #FFFFFF;" title="Specify the library of the user defined message">
+                        </field>
+                    </itr>
+                    <itr height="4">
+                    </itr>
+                    <itr valign="middle" itrstyle="border: 1px solid #FFFFFF;background-color: #DCEBFF;">
+                        <hdist width="1">
+                        </hdist>
+                        <label name="Message number:" width="120" asplaintext="true" valign="middle" labelstyle="margin-left: 4px;background-color: #DCEBFF;">
+                        </label>
+                        <field valueprop="fieldNumber" flush="server" flushmethod="onNumber" length="4" uppercase="true" valign="middle" fieldstyle="background-color: #FFFFFF;" datatype="int" title="Specify the message number (1 - 9999)">
+                        </field>
+                        <hdist width="50">
+                        </hdist>
+                        <icon image="./images/Back.png" method="onPrevious" valign="middle" title="Show previous message">
+                        </icon>
+                        <icon image="./images/Run.png" method="onNext" valign="middle" title="Show next message">
+                        </icon>
+                    </itr>
+                    <vdist height="100%">
+                    </vdist>
+                </rowscrollarea>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <rowscrollarea height="100%" takefullwidth="true" takefullheight="true">
+                    <itr takefullwidth="true" height="24" valign="middle" itrstyle="border: 1px solid #FFFFFF;">
+                        <label name="Message" nameprop="headMessage" width="100%" invisiblemode="invisible" asplaintext="true" height="20" align="center" valign="middle" labelstyle="margin-left: 4px;font-weight: bold;background-color: #BBD8FF;">
+                        </label>
+                    </itr>
+                    <itr takefullwidth="true" align="left" valign="top" itrstyle="background-color: RGB(220, 235, 255);">
+                        <hdist width="1">
+                        </hdist>
+                        <ihtml valueprop="textMessage" valign="top" ihtmlstyle="background-color: RGB(220, 235, 255); margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; font-family: &quot;Courier New&quot;, Courier, Monospace;">
+                        </ihtml>
+                    </itr>
+                    <itr takefullwidth="true" height="24" valign="middle" itrstyle="border: 1px solid #FFFFFF;">
+                        <label name="Text" width="100%" invisiblemode="invisible" asplaintext="true" height="20" align="center" valign="middle" labelstyle="margin-left: 4px;font-weight: bold;background-color: #BBD8FF;">
+                        </label>
+                    </itr>
+                    <itr takefullwidth="true" align="left" valign="top" itrstyle="background-color: RGB(220, 235, 255);">
+                        <hdist width="1">
+                        </hdist>
+                        <ihtml valueprop="textText" valign="top" ihtmlstyle="background-color: RGB(220, 235, 255); margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; font-family: &quot;Courier New&quot;, Courier, Monospace;">
+                        </ihtml>
+                    </itr>
+                    <itr takefullwidth="true" height="24" valign="middle" itrstyle="border: 1px solid #FFFFFF;">
+                        <label name="Explanation" width="100%" invisiblemode="invisible" asplaintext="true" height="20" align="center" valign="middle" labelstyle="margin-left: 4px;font-weight: bold;background-color: #BBD8FF;">
+                        </label>
+                    </itr>
+                    <itr takefullwidth="true" align="left" valign="top" itrstyle="background-color: RGB(220, 235, 255);">
+                        <hdist width="1">
+                        </hdist>
+                        <ihtml valueprop="textExplanation" valign="top" ihtmlstyle="background-color: RGB(220, 235, 255); margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; font-family: &quot;Courier New&quot;, Courier, Monospace;">
+                        </ihtml>
+                    </itr>
+                    <itr takefullwidth="true" height="24" valign="middle" itrstyle="border: 1px solid #FFFFFF;">
+                        <label name="Action" width="100%" invisiblemode="invisible" asplaintext="true" height="20" align="center" valign="middle" labelstyle="margin-left: 4px;font-weight: bold;background-color: #BBD8FF;">
+                        </label>
+                    </itr>
+                    <itr takefullwidth="true" align="left" valign="top" itrstyle="background-color: RGB(220, 235, 255);">
+                        <hdist width="1">
+                        </hdist>
+                        <ihtml valueprop="textAction" valign="top" ihtmlstyle="background-color: RGB(220, 235, 255); margin-left: 4px; margin-right: 4px; margin-top: 2px; margin-bottom: 2px; font-family: &quot;Courier New&quot;, Courier, Monospace;">
+                        </ihtml>
+                    </itr>
+                    <vdist height="100%">
+                    </vdist>
+                </rowscrollarea>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+    <statusbar typeprop="statusType" shorttextprop="statusShort" longtextprop="statusLong">
+    </statusbar>
+</natpage>

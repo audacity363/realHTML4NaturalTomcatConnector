@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page darkbackground="true" model="com.softwareag.cis.editor.ViewEditorConfigAdapter" pagename="CIS_EDIT" popupheight="310" popupwidth="550" translationreference="editor">
+    <pagebody horizdist="false" takefullheight="true" vscroll="false">
+        <rowarea withbottomborder="false" withleftborder="false" withrightborder="false" withtoppadding="false">
+            <itr height="30" takefullwidth="true">
+                <hdist width="50%">
+                </hdist>
+                <button width="150" image="../HTMLBasedGUI/images/save.gif" method="onOK" textid="configSave">
+                </button>
+                <hdist width="50%">
+                </hdist>
+            </itr>
+        </rowarea>
+        <rowarea textid="configConfigFile" withbottomborder="false" withleftborder="false" withrightborder="false" withtoppadding="false">
+            <itr>
+                <label textid="configName" width="100">
+                </label>
+                <textout valueprop="fileName" width="400">
+                </textout>
+            </itr>
+            <itr>
+                <label textid="configDir" width="100">
+                </label>
+                <text displayonly="true" rows="3" valueprop="project" width="432" wrap="soft">
+                </text>
+            </itr>
+        </rowarea>
+        <rowdynavis valueprop="showCodeGenSettings">
+            <rowarea height="100%" textid="configCodeAssSettings" withbottomborder="false" withleftborder="false" withrightborder="false" withtoppadding="false">
+                <itr>
+                    <label textid="configCodeDir" width="150">
+                    </label>
+                    <field valueprop="sourceDir" width="380">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="configPrefix" width="150">
+                    </label>
+                    <field length="12" maxlength="9" valueprop="prefix">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="configSpacesPerTab" width="150">
+                    </label>
+                    <field datatype="int" length="2" maxlength="1" valueprop="tabWidth">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="configOneLine">
+                    </label>
+                    <hdist>
+                    </hdist>
+                    <checkbox valueprop="oneLine">
+                    </checkbox>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+            </rowarea>
+        </rowdynavis>
+        <rowdynavis height="100%" valueprop="showSourceDirectory">
+            <rowarea height="100%" textid="revec.rowarea0" withbottomborder="false" withleftborder="false" withrightborder="false" withtoppadding="false">
+                <itr>
+                    <label textid="configCodeDir" width="150">
+                    </label>
+                    <field valueprop="sourceDir" width="380">
+                    </field>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+            </rowarea>
+        </rowdynavis>
+        <rowdynavis height="100%" valueprop="showXMLDirectory">
+            <rowarea height="100%" textid="configXMLDirectorySettings" withbottomborder="false" withleftborder="false" withrightborder="false" withtoppadding="false">
+                <itr>
+                    <label textid="configXMLDir" width="150">
+                    </label>
+                    <field valueprop="xmlDir" width="380">
+                    </field>
+                </itr>
+                <vdist height="100%">
+                </vdist>
+            </rowarea>
+        </rowdynavis>
+        <vdist height="100%">
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

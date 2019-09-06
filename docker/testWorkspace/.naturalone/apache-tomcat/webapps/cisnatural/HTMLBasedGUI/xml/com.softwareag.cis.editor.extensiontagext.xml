@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionTagAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css" darkbackground="true">
+    <pagebody horizdist="false" takefullheight="true" paddingtop="5" paddingbottom="5">
+        <itr height="100%" width="100%">
+            <coltable0 width="100%" takefullheight="true">
+                <rowarea textid="exttagext.rowarea.properties" height="50%">
+                    <rowtablearea2 griddataprop="properties" rowcount="15" height="100%" width="100%" withborder="true" hscroll="true">
+                        <tr>
+                            <label textid="reete.label0" asheadline="true" height="15">
+                            </label>
+                            <label textid="label.name" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                            <label textid="label.datatype" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                            <label textid="label.presetvalue" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                            <label textid="label.showcodeass" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <str valueprop="selected">
+                                <checkbox valueprop="selected" flush="screen">
+                                </checkbox>
+                                <field valueprop="name" width="33%" noborder="true" transparentbackground="true">
+                                </field>
+                                <field valueprop="datatype" width="34%" noborder="true" transparentbackground="true">
+                                </field>
+                                <field valueprop="presetvalue" width="33%" noborder="true" transparentbackground="true">
+                                </field>
+                                <checkbox valueprop="useincodegenerator" width="140" align="center">
+                                </checkbox>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                    <itr>
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onPropertyAdd" titletextid="icon.label.add">
+                        </icon>
+                        <hdist>
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onPropertyRemove" titletextid="icon.label.remove">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+                <vdist height="5">
+                </vdist>
+                <rowarea textid="exttagext.rowarea.methods">
+                    <rowtablearea2 griddataprop="methods" rowcount="15" width="100%" withborder="true" hscroll="true">
+                        <tr>
+                            <label textid="reete.label1" asheadline="true" height="15">
+                            </label>
+                            <label textid="label.methodname" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                            <label textid="label.showcodeass" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <str valueprop="selected">
+                                <checkbox valueprop="selected" flush="screen">
+                                </checkbox>
+                                <field valueprop="name" width="100%" noborder="true" transparentbackground="true">
+                                </field>
+                                <checkbox valueprop="useincodegenerator" width="140" align="center">
+                                </checkbox>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                    <itr>
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onMethodAdd" titletextid="icon.label.add">
+                        </icon>
+                        <hdist width="5">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onMethodRemove" titletextid="icon.label.remove">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+                <vdist height="5">
+                </vdist>
+                <rowarea textid="exttagext.rowarea.javascript" foldedprop="jsFolded">
+                    <rowtablearea2 griddataprop="jsLibs" rowcount="3" width="100%" withborder="true" hscroll="true">
+                        <tr>
+                            <label textid="reete.label2" asheadline="true" height="15">
+                            </label>
+                            <label textid="label.source" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                            </label>
+                        </tr>
+                        <repeat>
+                            <str valueprop="selected">
+                                <checkbox valueprop="selected" flush="screen">
+                                </checkbox>
+                                <field valueprop="name" width="100%" noborder="true" transparentbackground="true">
+                                </field>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                    <itr>
+                        <hdist width="50%">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/new.gif" method="onJsLibAdd" titletextid="icon.label.add">
+                        </icon>
+                        <hdist width="5">
+                        </hdist>
+                        <icon image="../HTMLBasedGUI/images/remove.gif" method="onJsLibRemove" titletextid="icon.label.remove">
+                        </icon>
+                        <hdist width="50%">
+                        </hdist>
+                    </itr>
+                </rowarea>
+            </coltable0>
+            <hdist width="10">
+            </hdist>
+            <coldynavis valueprop="helpAreaVis" width="250" takefullheight="true">
+                <tr>
+                    <ihtml valueprop="tab4HTML" width="100%" height="100%">
+                    </ihtml>
+                </tr>
+            </coldynavis>
+            <coltable0 width="20">
+                <tr>
+                    <icon image="images/scrolllastpage.gif" method="onHidelHelp" titletextid="icon.label.hidehelp">
+                    </icon>
+                </tr>
+                <vdist>
+                </vdist>
+                <tr>
+                    <icon image="images/scrollfirstpage.gif" method="onShowHelp" titletextid="icon.label.showhelp">
+                    </icon>
+                </tr>
+            </coltable0>
+        </itr>
+    </pagebody>
+</page>

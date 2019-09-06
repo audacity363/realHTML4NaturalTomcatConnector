@@ -1,0 +1,18 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+xe.addNewMode;Create New Mode
+xe.btn.AddMode;Create New Mode...
+xe.btn.cancel;Cancel
+xe.btn.createExecute;Create
+xe.btn.removeMode;Remove Selected Mode...
+xe.btn.saveAndClose;Save and Close
+xe.createNewModeHelp;Each mode is represented by a directory within directory <application project>/xmldata.  Creating a new mode means to creat a new sub directory.
+xe.modeName;Mode name
+xe.msg.inputReferencedMode;Please enter a mode within the combo box
+xe.msg.modeAlreadyExists;The input is not correct. The mode already exists. Please correct
+xe.msg.modeCreated;Mode &1 successfully created on file system
+xe.msg.modeNameNotSet;Please input a name first
+xe.msg.referencedModeCycle;The input is not valid. The referenced mode &1 refrences this mode (cycle). Please correct 
+xe.popupTitle;Property Editor
+xe.referenceto;You either input the property's value here or you "just" refer to another mode's value. Do you want to input a property value here?
+xe.valueByReference;no - this mode's value is the same as defined in mode
+xe.valueByValue;yes - this mode's value is...

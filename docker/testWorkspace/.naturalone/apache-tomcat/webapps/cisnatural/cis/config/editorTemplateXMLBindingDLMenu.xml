@@ -1,0 +1,10 @@
+<xmldlmenu>
+	<dlmenunode name="File">
+	    <dlmenusubnode name="Save" method="onSave"/>
+	    <dlmenusubnode name="Close"/>
+	</dlmenunode>
+	<dlmenunode name="Edit">
+	    <dlmenusubnode name="Cut"/>
+	    <dlmenusubnode name="Paste"/>
+	</dlmenunode>
+</xmldlmenu>

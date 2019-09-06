@@ -1,0 +1,5 @@
+0001/** Program HELLO-W
+0002/**
+0003/** :author sag
+0004WRITE 'Hello World'
+0005END

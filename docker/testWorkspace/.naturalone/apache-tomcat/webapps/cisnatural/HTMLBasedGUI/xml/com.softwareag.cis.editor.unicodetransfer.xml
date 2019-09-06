@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.UnicodeTransfer" translationreference="CIS_TOOLS">
+    <titlebar textid="ut.pageTitle" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+    </header>
+    <pagebody>
+        <rowarea textid="ut.projectSelection">
+            <itr>
+                <label textid="ut.project" width="120">
+                </label>
+                <field valueprop="projectName" width="200" popupmethod="openIdValueCombo">
+                </field>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr>
+                <hdist width="120">
+                </hdist>
+                <button textid="ut.utf8Check" method="onCheckUTF8">
+                </button>
+            </itr>
+            <vdist height="5">
+            </vdist>
+            <itr>
+                <hdist width="120">
+                </hdist>
+                <label textid="ut.helpText" asplaintext="true">
+                </label>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr width="100%">
+                <textgridsss2 griddataprop="lines" rowcount="18" width="100%" selectprop="selected" singleselect="false" hscroll="true">
+                    <column textid="ut.check" property="utf8OK" width="60">
+                    </column>
+                    <column textid="ut.difference" property="difference" width="100">
+                    </column>
+                    <column textid="ut.file" property="absFileName" width="100%">
+                    </column>
+                </textgridsss2>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr>
+                <button textid="ut.convert" method="onConvertSelected">
+                </button>
+            </itr>
+        </rowarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>
