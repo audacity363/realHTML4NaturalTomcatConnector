@@ -1,5 +1,7 @@
 #!/bin/bash
 
+make all
+
 logfilename="/srv/rh4n/logs/rh4n_TESTLIB_TESTPROG_"`date +"%d.%m.%Y"`".log";
 
 docker build -t natural:rh4n -f ./docker/Dockerfile .
@@ -16,4 +18,4 @@ echo "==========================================================================
 docker exec rh4ntest cat /srv/apache-tomcat-9.0.24/logs/catalina.out
 docker exec rh4ntest cat $logfilename
 
-docker kill rh4ntest
+#docker kill rh4ntest
