@@ -186,6 +186,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         parms.loglevel = route.route.loglevel;
         parms.natparms = env.natparms;
         parms.natbinpath = env.natbinpath;
+        System.out.printf("Imported Natbin path: [%s]\n", parms.natbinpath);
         parms.natsrcpath = env.natsourcepath;
         parms.charEncoding = env.charEncoding;
         parms.environs = env.environvars.toArray(new EnvironmentVar[env.environvars.size()]);

@@ -8,12 +8,13 @@
 #include "rh4n.h"
 #include "rh4n_jni_javaParmReadout.h"
 
-int rh4nReadOutParms(JNIEnv *env, jobject jnatparams, RH4nProperties *properties, char *error_str) {
+int rh4nReadOutParms(JNIEnv *env, jobject jnatparams, RH4nProperties *properties, char **natbinpath, char *error_str) {
     struct javaParm parms[] = {
         {"reqType", "Ljava/lang/String;", rh4nParmReqTypeHandler},
         {"natLibrary", "Ljava/lang/String;", rh4nParmNatLibraryHandler},
         {"natProgram", "Ljava/lang/String;", rh4nParmNatProgramHandler},
         {"natparms", "Ljava/lang/String;", rh4nParmNatParmsHandler},
+        {"natbinpath", "Ljava/lang/String;", rh4nParmNatbinpathHandler },
         {"outputfile", "Ljava/lang/String;", rh4nParmOutputfileHandler},
         {"loglevel", "Ljava/lang/String;", rh4nParmLoglevelHandler},
         {"natsrcpath", "Ljava/lang/String;", rh4nParmNatSrcPathHandler},
@@ -21,11 +22,13 @@ int rh4nReadOutParms(JNIEnv *env, jobject jnatparams, RH4nProperties *properties
         {"errorRepresentation", "Ljava/lang/String;", rh4nParmErrorRepresentationHandler},
         {"username", "Ljava/lang/String;", rh4nParmUsernameHandler}
     };
+    int (*targethandler)(JNIEnv*, const char*, RH4nProperties*, char*);
     int i = 0, ret = 0;
     jclass jcrh4nparams;
     jfieldID jfid;
     jobject target;
     const char *strvalue = NULL;
+
 
     jcrh4nparams = (*env)->GetObjectClass(env, jnatparams);
     if(jcrh4nparams == NULL) {
@@ -52,7 +55,14 @@ int rh4nReadOutParms(JNIEnv *env, jobject jnatparams, RH4nProperties *properties
             return(RH4N_RET_JNI_ERR);
         }
 
-        if((ret = parms[i].handler(env, strvalue, properties, error_str)) != RH4N_RET_OK) {
+        if(strcmp(parms[i].jname, "natbinpath") == 0) {
+            //Special handler for the natbinpath beacause it doesn't have an entry in the properties
+            ret = parms[i].handler(env, strvalue, (RH4nProperties*)natbinpath, error_str);
+        } else {
+            ret = parms[i].handler(env, strvalue, properties, error_str);
+        }
+
+        if(ret != RH4N_RET_OK) {
             (*env)->ReleaseStringUTFChars(env, (jstring)target, strvalue);
             return(ret);
         }
@@ -253,6 +263,20 @@ int rh4nParmUsernameHandler(JNIEnv *env, const char *strvalue, RH4nProperties *p
     return(RH4N_RET_OK);
 }
 
+int rh4nParmNatbinpathHandler(JNIEnv *env, const char *strvalue, RH4nProperties *properties, char *error_str) {
+    char **target = (char**)properties;
+
+    if((*target = malloc((strlen(strvalue)+1)*sizeof(char))) == NULL) {
+        sprintf(error_str, "Could not allocate memory for \"natbinpath\"");
+        return(RH4N_RET_MEMORY_ERR);
+    }
+    memset(*target, 0x00, (strlen(strvalue)+1)*sizeof(char));
+
+    strcpy(*target, strvalue);
+
+    return(RH4N_RET_OK);
+}
+
 void rh4nPrintPropertiesStruct(RH4nProperties *properties) {
     if(properties == NULL) { return; }
 
@@ -284,3 +308,4 @@ void rh4nFreePropertiesStruct(RH4nProperties *properties) {
 void rh4nInitPropertiesStruct(RH4nProperties *properties) {
     memset(properties, 0x00, sizeof(RH4nProperties));
 }
+

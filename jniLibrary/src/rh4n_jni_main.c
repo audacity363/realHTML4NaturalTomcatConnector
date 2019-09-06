@@ -25,13 +25,13 @@ JNIEXPORT jint JNICALL Java_realHTML_tomcat_connector_JNINatural_jni_1printVersi
 
 JNIEXPORT jobject JNICALL Java_realHTML_tomcat_connector_JNINatural_jni_1callNatural
   (JNIEnv *env, jclass in_cls, jobject jnatparams, jobjectArray joenvirons, jobject bodyvars) {  
-        char error_str[2048];
+        char error_str[2048], *natbinpath = NULL;
         RH4nProperties props;
         RH4NEnvirons environs;
         int naturalret = 0;
 
         rh4nInitPropertiesStruct(&props);
-        if(rh4nReadOutParms(env, jnatparams, &props, error_str) != 0) {
+        if(rh4nReadOutParms(env, jnatparams, &props, &natbinpath, error_str) != 0) {
             printf("Error: [%s]\n", error_str);
             rh4nFreePropertiesStruct(&props);
             return(rh4nJNIcreateReturnObj(env, -1, error_str));
@@ -61,10 +61,11 @@ JNIEXPORT jobject JNICALL Java_realHTML_tomcat_connector_JNINatural_jni_1callNat
             rh4n_log_info(props.logging, "Finished parsing body variables");
         } else { rh4n_log_info(props.logging, "No body variables are provided"); }
 
-        naturalret = rh4nNaturalcreateProcess(&props, &environs, error_str);
+        naturalret = rh4nNaturalcreateProcess(&props, &environs, natbinpath, error_str);
 
         rh4nFreePropertiesStruct(&props);
         rh4nEnvironFree(&environs);
+        if(natbinpath) { free(natbinpath); }
         return(rh4nJNIcreateReturnObj(env, naturalret, ""));
   }
 

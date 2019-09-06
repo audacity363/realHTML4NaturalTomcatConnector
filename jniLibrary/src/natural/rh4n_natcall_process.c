@@ -10,28 +10,57 @@
 #include "natural/rh4n_natcall.h"
 #include "rh4n_utils.h"
 
-int rh4nNaturalcreateProcess(RH4nProperties *props, RH4NEnvirons *environs, char *error_str) {
+int rh4nNaturalcreateProcess(RH4nProperties *props, RH4NEnvirons *environs, char *natbinpath, char *error_str) {
     pid_t naturalpid = 0, receivedpid = 0;
-    int processret = 0;
+    int processret = 0, filenamelength = 0;
+    char *execpath = NULL, *propsFile = NULL;
+   
+    filenamelength = (strlen(natbinpath)+strlen(RH4N_NATCALLER_NAME)+2)*sizeof(char);
+    if((execpath = malloc(filenamelength)) == NULL) {
+        sprintf(error_str, "Could not allocated memory for \"execpath\"");
+        return(RH4N_RET_MEMORY_ERR);
+    }
+    memset(execpath, 0x00, filenamelength);
+    sprintf(execpath, "%s/%s", natbinpath, RH4N_NATCALLER_NAME);
+    //TODO: Check if the natcaller actually exists
+
+    filenamelength = (strlen(props->outputfile)+7)*sizeof(char);
+    if((propsFile = malloc(filenamelength)) == NULL) {
+        free(execpath);
+        sprintf(error_str, "Could not allocated memory for \"propsFile\" name");
+        return(RH4N_RET_MEMORY_ERR);
+    }
+    memset(propsFile, 0x00, filenamelength);
+    sprintf(propsFile, "%s.props", props->outputfile);
+
+    if((processret = rh4nUtilsDumpProperties(propsFile, props)) != RH4N_RET_OK)  {
+        free(execpath);
+        free(propsFile);
+        return(processret);
+    }
+
+    rh4n_log_debug(props->logging, "Calling natcaller on [%s]\n", execpath);
 
     rh4n_log_info(props->logging, "Create natural process");
     if((naturalpid = fork()) == -1) {
+        free(execpath);
+        free(propsFile);
         rh4n_log_error(props->logging, "Creating natural process failed - %s", strerror(errno));
         sprintf(error_str, "Could not create natural process. Fork failed - %s", strerror(errno));
         return(RH4N_RET_INTERNAL_ERR);
     }
 
     if(naturalpid == 0) {
-        int natret = 0;
-        natret = rh4nCallNatural(props, environs);
-        rh4n_log_debug(props->logging, "Exiting with status: %d", natret);
-        exit(natret);
+        int execret = execl(execpath, execpath, propsFile, NULL);
+        exit(execret);
     }
 
     rh4n_log_info(props->logging, "Waiting for Natural process. PID: [%d]", naturalpid);
     receivedpid = waitpid(naturalpid, &processret, 0x00);
     processret = WEXITSTATUS(processret);
     rh4n_log_info(props->logging, "PID [%d] exited with state [%d]", receivedpid, processret);
+    free(execpath);
+    free(propsFile);
 
     return(processret);
 }

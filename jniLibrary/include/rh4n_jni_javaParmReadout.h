@@ -2,7 +2,7 @@
 #define RH4NJNIPARMREADOUT
 
 //Public functions
-int rh4nReadOutParms(JNIEnv*, jobject, RH4nProperties*, char*);
+int rh4nReadOutParms(JNIEnv*, jobject, RH4nProperties*, char **, char*);
 void rh4nPrintPropertiesStruct(RH4nProperties*);
 void rh4nFreePropertiesStruct(RH4nProperties*);
 void rh4nInitPropertiesStruct(RH4nProperties*);
@@ -25,4 +25,7 @@ int rh4NUrlVariableHandler(JNIEnv*, jclass, jobject, RH4nProperties*, char*);
 int rh4nParmLogPathHandler(JNIEnv*, const char*, RH4nProperties*, char*);
 int rh4nParmErrorRepresentationHandler(JNIEnv*, const char*, RH4nProperties*, char*);
 int rh4nParmUsernameHandler(JNIEnv*, const char*, RH4nProperties*, char*);
+
+//Special handler
+int rh4nParmNatbinpathHandler(JNIEnv*, const char*, RH4nProperties*, char*);
 #endif

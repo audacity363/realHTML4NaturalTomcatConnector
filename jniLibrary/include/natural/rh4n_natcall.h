@@ -3,7 +3,7 @@
 
 //Public
 #ifdef RH4NENVIRON
-int rh4nNaturalcreateProcess(RH4nProperties*, RH4NEnvirons*, char*);
+int rh4nNaturalcreateProcess(RH4nProperties*, RH4NEnvirons*, char*, char*);
 #endif
 
 //Private
@@ -14,6 +14,8 @@ void rh4nlogNaturalError(RH4nProperties*, struct natural_exception);
 #ifdef RH4NENVIRON
 int rh4nCallNatural(RH4nProperties *props, RH4NEnvirons *environs);
 #endif
+
+#define RH4N_NATCALLER_NAME "realHTML4NaturalNatCaller"
 
 #define RH4N_TEMPLATE_NAT_JSON "{" \
                                "\"error\":true," \
