@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<natpage xmlns:njx="http://www.softwareag.com/njx/njxMapConverter" hotkeys="13;ENTR;112;PF1;113;PF2;114;PF3;115;PF4;116;PF5;117;PF6;118;PF7;119;PF8;120;PF9;121;PF10;122;PF11;123;PF12" natsource="$$NATSOURCE$$" natsinglebyte="true">
-	<titlebar name="$$TITLEVAR$$" align="center">
-	</titlebar>
-	<pagebody>
-		<njx:njxvariable name="MAPROOT"/>		
-	</pagebody>
-	<statusbar withdistance="false"/>
-</natpage>

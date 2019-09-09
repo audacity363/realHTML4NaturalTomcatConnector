@@ -1,7 +1,0 @@
-[09/05/2019 14:17:12.702]	Details set. Port number: 2800
-[09/05/2019 14:17:12.703]	Prepare start - check ini file. Port number: 2800
-[09/05/2019 14:17:12.703]	Prepare start - check if started. Port number: 2800
-[09/05/2019 14:17:12.704]	Prepare start - create folders. Port number: 2800
-[09/05/2019 14:17:12.705]	Prepare start - change LD_LIBRARY_PATH. Port number: 2800
-[09/05/2019 14:17:12.706]	Prepare start - ended. Port number: 2800
-[09/05/2019 14:17:12.809]	Natural RPC Server 'NATSRV2800' started. (Parameters: PARM=ONEPARM SRVNAME=NATSRV2800 SRVNODE=localhost:1971 SERVER=ON)

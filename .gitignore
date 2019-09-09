@@ -7,3 +7,4 @@ bin/*
 servlet/web/WEB-INF/lib/realHTMLconnector.jar
 docker/testWorkspace/.naturalone/log/*.log
 realHTML4NaturalCore/bin/realHTML4NaturalNatCaller
+cker/testWorkspace/.naturalone/*
