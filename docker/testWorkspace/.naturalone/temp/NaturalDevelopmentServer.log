@@ -1,4 +1,0 @@
-[09/05/2019 14:17:11.688]	Prepare start - change LD_LIBRARY_PATH. Port number: 0
-[09/05/2019 14:17:11.688]	Prepare start - ended. Port number: 0
-[09/05/2019 14:17:12.693]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
-[09/05/2019 14:17:12.694]	Listener has been started. Port number: 2800

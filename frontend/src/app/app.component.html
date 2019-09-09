@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">rH4N</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link">Home</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <button class="btn btn-primary mr-2">Save Config to File</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-primary">Load Config to File</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-4 col-xl-2 mt-2">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">Environments</h4>
+        </div>
+        <div class="card-body">
+            <p-listbox [options]="environments" [style]="{'width': '100%'}"></p-listbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

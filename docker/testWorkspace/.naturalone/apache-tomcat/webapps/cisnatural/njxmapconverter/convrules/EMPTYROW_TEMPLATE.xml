@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- if the empty rows should be skipped:            -->
-<!-- 1) remove/comment the label element             -->
-<!-- 2) uncomment the following line                 -->
-<!--  <empty/>  -->
-<label name=' ' width='100' asplaintext='true'/>
