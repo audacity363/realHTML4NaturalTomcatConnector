@@ -136,11 +136,22 @@ int handleBooleanEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[
 }
 
 int handleStringEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3]) {
-    const char *value = NULL;
+    char *value = NULL;
     int rc = 0;
 
-    if((value = (*env)->GetStringUTFChars(env, (jstring)target, NULL)) == NULL) {
+    
+
+    /*if((value = (*env)->GetStringUTFChars(env, (jstring)target, NULL)) == NULL) {
         rh4n_log_error(args.infos->logging, "String value is == NULL\n");
+        return(-1);
+    }*/
+
+    if((value = (*env)->GetByteArrayElements(env, (jbyteArray)target, NULL)) == NULL) {
+        rh4n_log_error(args.infos->logging, "String value is == NULL\n");
+        if((*env)->ExceptionOccurred(env)) {
+            rh4n_log_error(args.infos->logging, "ExceptionOccurred!");
+            (*env)->ExceptionDescribe(env);
+        }
         return(-1);
     }
 
@@ -149,7 +160,8 @@ int handleStringEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3
             if((rc = rh4nvarCreateNewString(args.var_anker, (char*)args.parent, (char*)args.varname, (char*)value)) != RH4N_RET_OK) {
                 rh4n_log_error(args.infos->logging, "Could not create String [%s].[%s]. Varlib return: %d", args.parent, 
                     args.varname, rc);
-                (*env)->ReleaseStringUTFChars(env, (jstring)target, value);
+                (*env)->ReleaseByteArrayElements(env, target, value, JNI_ABORT);
+                //(*env)->ReleaseStringUTFChars(env, (jstring)target, value);
                 return(rc);
             }
             break;
@@ -161,13 +173,15 @@ int handleStringEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3
                 rh4n_log_error(args.infos->logging, 
                     "Could not set set String array entry [%s].[%s] X: %d Y: %d Z: %d. Varlib return: %d", args.parent, 
                     args.varname, index[0], index[1], index[2], index[3], rc);
-                (*env)->ReleaseStringUTFChars(env, (jstring)target, value);
+                (*env)->ReleaseByteArrayElements(env, target, value, JNI_ABORT);
+                //(*env)->ReleaseStringUTFChars(env, (jstring)target, value);
                 return(rc);
             }
             
     }
 
-    (*env)->ReleaseStringUTFChars(env, (jstring)target, value);
+    (*env)->ReleaseByteArrayElements(env, target, value, JNI_ABORT);
+    //(*env)->ReleaseStringUTFChars(env, (jstring)target, value);
     return(RH4N_RET_OK);
 }
 

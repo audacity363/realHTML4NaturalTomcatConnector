@@ -4,9 +4,11 @@ make all
 
 logfilename="/srv/rh4n/logs/rh4n_TESTLIB_TESTPROG_"`date +"%d.%m.%Y"`".log";
 
-docker build -t natural:rh4n -f ./docker/Dockerfile .
+#docker rmi -f natural:rh4n
+#docker build -t natural:rh4n -f ./docker/Dockerfile .
 
 docker run --rm -d -p8080:8080 -p2700:2700 -v `pwd`/docker/fuser:/opt/softwareag/Natural/fuser --name rh4ntest natural:rh4n
+docker cp ./bin/realHTML4Natural.war rh4ntest:/srv/apache-tomcat-9.0.24/webapps/realHTML4Natural.war
 
 sleep 2
 

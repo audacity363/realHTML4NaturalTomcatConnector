@@ -76,15 +76,91 @@ int rh4nReadOutParms(JNIEnv *env, jobject jnatparams, RH4nProperties *properties
 }
 
 int rh4NUrlVariableHandler(JNIEnv *env, jclass jcrh4nparms, jobject jorh4nparms, RH4nProperties *properties, char *error_str) {
+    jfieldID jfvariables = NULL, jfkey = NULL, jfvalue = NULL;
+    jobject jovariables = NULL, joentry = NULL, jokey = NULL, jovalue = NULL;
+    jclass jcArrayList = NULL, jcUrlVariable;
+    jmethodID jmSize = NULL, jmGet = NULL;
+    jint arrayLength = 0;
+    jbyteArray bAkey = NULL, bAvalue = NULL;
+    int i = 0, rc = 0;
+    char *key = NULL, *value = NULL;
+
+
+    if((jfvariables = (*env)->GetFieldID(env, jcrh4nparms, "urlvars", "Ljava/util/ArrayList;")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jovariables = (*env)->GetObjectField(env, jorh4nparms, jfvariables)) == NULL) {
+        return(RH4N_RET_OK);
+    }
+
+    if((jcArrayList = (*env)->FindClass(env, "java/util/ArrayList")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jmSize = (*env)->GetMethodID(env, jcArrayList, "size", "()I")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jmGet = (*env)->GetMethodID(env, jcArrayList, "get", "(I)Ljava/lang/Object;")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jcUrlVariable = (*env)->FindClass(env, "realHTML/tomcat/connector/RH4NParams$UrlVariable")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jfkey = (*env)->GetFieldID(env, jcUrlVariable, "key", "[B")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    if((jfvalue = (*env)->GetFieldID(env, jcUrlVariable, "value", "[B")) == NULL) {
+        return(RH4N_RET_JNI_ERR);
+    }
+
+    rh4nvarInitList(&properties->urlvars);
+
+    arrayLength = (*env)->CallIntMethod(env, jovariables, jmSize);
+
+
+    for(; i < arrayLength; i++) {
+        if((joentry = (*env)->CallObjectMethod(env, jovariables, jmGet, i)) == NULL) {
+            return(RH4N_RET_JNI_ERR);
+        }
+
+        if((bAkey = (jbyteArray)(*env)->GetObjectField(env, joentry, jfkey)) == NULL) {
+            return(RH4N_RET_JNI_ERR);
+        }
+
+        if((bAvalue = (jbyteArray)(*env)->GetObjectField(env, joentry, jfvalue)) == NULL) {
+            return(RH4N_RET_JNI_ERR);
+        }
+
+        key = (*env)->GetByteArrayElements(env, bAkey, NULL);
+        value = (*env)->GetByteArrayElements(env, bAvalue, NULL);
+
+        if((rc = rh4nvarCreateNewString(&properties->urlvars, NULL, key, value)) != RH4N_RET_OK) {
+            sprintf(error_str, "Could not create new String [%s]. Varlib return: %d\n", key, rc);
+            rh4n_log_error(properties->logging, "%s", error_str);
+            (*env)->ReleaseByteArrayElements(env, bAkey, key, JNI_ABORT);
+            (*env)->ReleaseByteArrayElements(env, bAvalue, value, JNI_ABORT);
+            return(rc);
+        }
+        (*env)->ReleaseByteArrayElements(env, bAkey, key, JNI_ABORT);
+        (*env)->ReleaseByteArrayElements(env, bAvalue, value, JNI_ABORT);
+    }
+
+    return(RH4N_RET_OK);
+
+#if 0
     jfieldID jfnames = NULL, jfvalues = NULL;
-    jobject jonames = NULL, jovalues = NULL, joname = NULL, jovalue = NULL;
+    jbyteArray jonames = NULL, jovalues = NULL, joname = NULL, jovalue = NULL, keyEntry = NULL, valueEntry = NULL;
     jint jnameslength = 0, jvalueslength = 0;
 
     const char *cname = NULL, *cvalue = NULL;
     int i = 0, rc = 0;
 
-
-    if((jfnames = (*env)->GetFieldID(env, jcrh4nparms, "urlVarsKey", "[Ljava/lang/String;")) == NULL) {
+    if((jfnames = (*env)->GetFieldID(env, jcrh4nparms, "urlVarsKey", "[B")) == NULL) {
         sprintf(error_str, "Could not get field ID from field [urlVarsKey]");
         return(RH4N_RET_JNI_ERR);
     }
@@ -95,7 +171,7 @@ int rh4NUrlVariableHandler(JNIEnv *env, jclass jcrh4nparms, jobject jorh4nparms,
 
     }
 
-    if((jfvalues = (*env)->GetFieldID(env, jcrh4nparms, "urlVarsValue", "[Ljava/lang/String;")) == NULL) {
+    if((jfvalues = (*env)->GetFieldID(env, jcrh4nparms, "urlVarsValue", "[B")) == NULL) {
         sprintf(error_str, "Could not get field ID from field [urlVarsValue]");
         return(RH4N_RET_JNI_ERR);
     }
@@ -118,27 +194,39 @@ int rh4NUrlVariableHandler(JNIEnv *env, jclass jcrh4nparms, jobject jorh4nparms,
     //fprintf(stderr, "URL Var length: %d\n", jnameslength); fflush(stderr);
 
     for(; i < jnameslength; i++) {
-        if((joname = (*env)->GetObjectArrayElement(env, jonames, i)) == NULL) {
+        /*if((joname = (*env)->GetObjectArrayElement(env, jonames, i)) == NULL) {
             sprintf(error_str, "Could not get URLKey array element [%d]\n", i);
             return(RH4N_RET_JNI_ERR);
         }
         if((jovalue = (*env)->GetObjectArrayElement(env, jovalues, i)) == NULL) {
             sprintf(error_str, "Could not get URLValue array element [%d]\n", i);
             return(RH4N_RET_JNI_ERR);
-        }
+        }*/
 
-        if((cname = (*env)->GetStringUTFChars(env, (jstring)joname, NULL)) == NULL) {
+        if((joname = (*env)->GetByteArrayElement(env, jonames, i)) == NULL) {
+            sprintf(error_str, "Could not get URLKey array element [%d]\n", i);
+            return(RH4N_RET_JNI_ERR);
+        }
+        if((jovalue = (*env)->GetByteArrayElement(env, jovalues, i)) == NULL) {
+            sprintf(error_str, "Could not get URLValue array element [%d]\n", i);
+            return(RH4N_RET_JNI_ERR);
+        }
+    
+        keyEntry = (*env)->GetByteArrayElements(env, joname, 0);
+        valueEntry = (*env)->GetByteArrayElements(env, jovalue, 0);
+
+        /*if((cname = (*env)->GetStringUTFChars(env, (jstring)joname, NULL)) == NULL) {
             sprintf(error_str, "Could not get URLKey string from array element [%d]\n", i);
             return(RH4N_RET_JNI_ERR);
         }
         if((cvalue = (*env)->GetStringUTFChars(env, (jstring)jovalue, NULL)) == NULL) {
             sprintf(error_str, "Could not get URLValue string from array element [%d]\n", i);
             return(RH4N_RET_JNI_ERR);
-        } 
+        }*/
 
         //fprintf(stderr, "URLVar: Name: [%s] Value: [%s]\n", cname, cvalue); fflush(stderr);
 
-        if((rc = rh4nvarCreateNewString(&properties->urlvars, NULL, (char*)cname, (char*)cvalue)) != RH4N_RET_OK) {
+        if((rc = rh4nvarCreateNewString(&properties->urlvars, NULL, (char*)keyEntry, (char*)valueEntry)) != RH4N_RET_OK) {
             sprintf(error_str, "Could not create new String [%s]. Varlib return: %d\n", cname, rc);
             rh4n_log_error(properties->logging, "%s", error_str);
             (*env)->ReleaseStringUTFChars(env, (jstring)joname, cname);
@@ -150,7 +238,7 @@ int rh4NUrlVariableHandler(JNIEnv *env, jclass jcrh4nparms, jobject jorh4nparms,
         (*env)->ReleaseStringUTFChars(env, (jstring)jovalue, cvalue);
     }
 
-
+#endif
     return(RH4N_RET_OK);
 
 }

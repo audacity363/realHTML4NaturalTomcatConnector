@@ -1,5 +1,6 @@
 package realHTML.tomcat.JSONMatcher;
 
+import java.io.UnsupportedEncodingException;
 import com.eclipsesource.json.*;
 
 public class JSONObject {
@@ -14,7 +15,7 @@ public class JSONObject {
 		this.utils = new JSONUtils();
 	}
 	
-	public void createObjectSignature() throws JSONArrayException, JSONObjectException {
+	public void createObjectSignature() throws JSONArrayException, JSONObjectException, UnsupportedEncodingException {
 		this.signature = new LLHandler();
 		Types type;
 		String name;

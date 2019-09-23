@@ -1,6 +1,11 @@
 FROM store/softwareag/natural-ce:9.1.1
 user root
 
+RUN usermod -u 1000 sagadmin
+
+RUN find /opt -user 1724 -exec chown -h  sagadmin {} \;
+RUN find /home -user 1724 -exec chown -h  sagadmin {} \;
+
 RUN yum -y update && yum -y install java-1.8.0-openjdk
 RUN mkdir -p /srv/rh4n/logs
 
@@ -22,6 +27,8 @@ COPY ./docker/entrypoint.sh /srv/entrypoint.sh
 ENV ACCEPT_EULA=Y
 
 RUN chown -R sagadmin:sagadmin /srv/*
+
+RUN chown -R sagadmin:sagadmin /opt/softwareag/Natural/fuser
 
 user sagadmin
 

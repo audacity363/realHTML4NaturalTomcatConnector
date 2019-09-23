@@ -1,6 +1,7 @@
 package realHTML.tomcat.JSONMatcher;
 
 import java.util.LinkedList;
+import java.io.UnsupportedEncodingException;
 import com.eclipsesource.json.*;
 
 public class JSONParser {
@@ -19,7 +20,7 @@ public class JSONParser {
 		this.utils = new JSONUtils();
 	}
 	
-	public LLHandler run() throws JSONArrayException, TypeException, JSONObjectException {
+	public LLHandler run() throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException {
 		String name;
 		JsonValue jsonObject = Json.parse(this.json);
         
@@ -31,7 +32,7 @@ public class JSONParser {
         return(this.varlist);
 	}
 	
-	private void parseValue(JsonValue value, String name) throws JSONArrayException, TypeException, JSONObjectException {
+	private void parseValue(JsonValue value, String name) throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException  {
 		Types vartype;
 		JSONArray arrayhandler;
 		

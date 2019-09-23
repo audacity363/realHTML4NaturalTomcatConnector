@@ -68,8 +68,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         try {
             handleRequest(request, response);; } catch(ServletException e) {
             throw(e);
-        } catch(Exception e) {
-            throw(new ServletException("", e));
+        } catch(Exception e) { throw(new ServletException("", e));
         }
     }
 
@@ -95,9 +94,8 @@ public class RealHTMLHandler extends RealHTMLInit {
         parms.errorRepresentation = "JSON";
         //envvars = call_parms.enviromentvars;
 
-        parms = getQueryParms(request, parms);
-
         try {
+            parms = getQueryParms(request, parms);
             contentType = request.getContentType();
             if(contentType != null && contentType.equals("application/json")) {
                 bodyvars = getBodyParms(request);
@@ -105,6 +103,8 @@ public class RealHTMLHandler extends RealHTMLInit {
         } catch(Exception e) {
             throw(new ServletException(e));
         }
+
+        //parms.printUrlVariables();
             
         try {
             natret = bs.callNatural(parms, parms.environs, bodyvars);
@@ -193,19 +193,15 @@ public class RealHTMLHandler extends RealHTMLInit {
 
         HashMap<String, String> routeparms = route.getParms();
         if(routeparms.size() != 0) {
-            parms.urlVarsKey = new String[routeparms.size()];
-            parms.urlVarsValue = new String[routeparms.size()];
-
-            int i = 0;
-            for(String key: routeparms.keySet()) {
-                parms.urlVarsKey[i] = key;
-                parms.urlVarsValue[i++] = routeparms.get(key);
+            try {
+                for(String key: routeparms.keySet()) {
+                    parms.addUrlVariable(key, routeparms.get(key));
+                }
+            } catch(UnsupportedEncodingException e) {
+                throw(new ServletException(e));
             }
 
-        } else {
-            parms.urlVarsKey = null;
-            parms.urlVarsValue = null;
-        }
+        } 
 
         return(parms);
     }
@@ -224,40 +220,19 @@ public class RealHTMLHandler extends RealHTMLInit {
        return(false);
     }
 
-    private RH4NParams getQueryParms(HttpServletRequest request, RH4NParams parms) {
+    private RH4NParams getQueryParms(HttpServletRequest request, RH4NParams parms) throws UnsupportedEncodingException {
         Map urlparms;
-        int offset = 0, parmsize = 0;
-        String tmpkeys[], tmpvalues[];
+        int parmsize = 0;
 
         urlparms = request.getParameterMap();
-        if(urlparms.size() == 0) {
-            if(parms.urlVarsKey == null) {
-                parms.urlVarsKey = new String[0];
-                parms.urlVarsValue = new String[0];
-            }
+        parmsize = urlparms.size();
+        if(parmsize == 0) {
             return(parms);
         }
 
-        // Bullshit!!! offset it die länge des Arrays in parms
-        parmsize = urlparms.size();
-        if(parms.urlVarsKey != null) {
-            offset = parms.urlVarsKey.length;
-            tmpkeys = new String[offset+parmsize];
-            tmpvalues = new String[offset+parmsize];
-            System.arraycopy(parms.urlVarsKey, 0, tmpkeys, 0, offset);
-            System.arraycopy(parms.urlVarsValue, 0, tmpvalues, 0, offset);
-        } else {
-            tmpkeys = new String[parmsize];
-            tmpvalues = new String[parmsize];
-        }
-
         for(String key: (Set<String>)urlparms.keySet()) {
-            tmpkeys[offset] = key;
-            tmpvalues[offset++] = ((String[])urlparms.get(key))[0];
+            parms.addUrlVariable(key, ((String[])urlparms.get(key))[0]);
         }
-
-        parms.urlVarsKey = tmpkeys;
-        parms.urlVarsValue = tmpvalues;
 
         return(parms);
     }
@@ -270,22 +245,14 @@ public class RealHTMLHandler extends RealHTMLInit {
         LLHandler varlist = null;
         JSONParser jsonparser = null;
 
-        try {
-            br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-            if(br == null) {
-                return(null);
-            }
 
-            for(jsonChar = br.read(); jsonChar != -1; jsonChar = br.read()) {
-                jsonString += ((char)jsonChar);
-            }
-        } catch(IOException e) {
-            throw(e);
-        }
+        jsonString = IOUtils.toString(request.getReader());
 
         if(jsonString.length() == 0) {
             return(null);
         }
+
+        //System.out.printf("Trying to parse string: [%s]\n", jsonString);
 
         jsonparser = new JSONParser(jsonString);
         try {
@@ -302,15 +269,27 @@ public class RealHTMLHandler extends RealHTMLInit {
         throws Exception {
         File returnfile = null;
         FileReader filereader = null;
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        PrintWriter pw = null;
 
-        response.setContentType("text/html");
+        response.setContentType("application/json");
         response.setCharacterEncoding(encoding);
+
         try {
+            pw = response.getWriter();
             returnfile = new File(filepath);
-            filereader =  new FileReader(filepath);
-            IOUtils.copy(filereader, response.getOutputStream());
+            fis = new FileInputStream(returnfile);
+            isr = new InputStreamReader(fis, Charset.forName("ISO-8859-1"));
+
+            while(isr.ready()) {
+                pw.append((char)isr.read());
+            }
+
         } catch(Exception e) {
             throw(e);
+        } finally {
+            isr.close();
         }
 
         if(deletefile) {

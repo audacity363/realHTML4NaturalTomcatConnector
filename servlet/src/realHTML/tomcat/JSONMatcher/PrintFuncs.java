@@ -12,6 +12,7 @@ public class PrintFuncs {
 	public void printEntry(LLNode target, int level) { 	
     	printTabs(level); System.out.printf("Name: %s\n", target.name);
     	printTabs(level); System.out.printf("Type: %s\n", target.type.toString());
+        printTabs(level); System.out.printf("Java Type: %s\n", target.value.getClass().getName());
     	if (target.xlength != -1) { printTabs(level); System.out.printf("X Length: %s\n", target.xlength); }
     	if (target.ylength != -1) { printTabs(level); System.out.printf("Y Length: %s\n", target.ylength); }
     	if (target.zlength != -1) { printTabs(level); System.out.printf("Z Length: %s\n", target.zlength); }
@@ -21,6 +22,11 @@ public class PrintFuncs {
     		System.out.print("Value:");
     		switch (target.type) {
     			case STRING:
+                    for(int i = 0; i < ((byte[])target.value).length; i++) {
+                        System.out.printf("0x%x ", ((byte[])target.value)[i]);
+                    }
+                    System.out.println();
+                    break;
     			case BOOLEAN:
     			case INT:
     			case FLOAT:

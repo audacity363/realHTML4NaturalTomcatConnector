@@ -36,6 +36,9 @@ int getVarlist(JNIEnv *env, jobject jvarlist, RH4nVarList *varlist, char *error_
     }
 
     rc = printFork(env, infos, infos->anker, NULL, 0, varlist);
+    if(rc != 0) {
+        sprintf(error_msg, "Error: printFork retuened [%d] - when you see this something is fucked up really badly", rc);
+    }
 
     //printAllVarsToFile(var_anker, stdout);
 

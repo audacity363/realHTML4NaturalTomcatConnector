@@ -1,6 +1,7 @@
 package realHTML.tomcat.JSONMatcher;
 
 import java.util.LinkedList;
+import java.io.UnsupportedEncodingException;
 
 import com.eclipsesource.json.*;
 
@@ -40,7 +41,7 @@ public class JSONArray {
 		return(this.varlist);
 	}
 	
-	public void handleArray() throws JSONArrayException, TypeException, JSONObjectException {
+	public void handleArray() throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException {
 		ArrayType arraytype = getArrayDimensions();
 		
 		switch(arraytype) {
@@ -60,7 +61,7 @@ public class JSONArray {
 		}
 	}
 	
-	public void handleArray(Integer xindex) throws JSONArrayException, TypeException, JSONObjectException {
+	public void handleArray(Integer xindex) throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException {
 		ArrayType arraytype = getArrayDimensions();
 		
 		switch(arraytype) {
@@ -188,18 +189,18 @@ public class JSONArray {
 		return(vartype);
 	}
 	
-	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex) throws TypeException{
+	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex) throws TypeException, UnsupportedEncodingException {
 		this.varlist.editVar(parents, name, getValue(value, vartype), xindex);
 	}
 	
-	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex, Integer yindex) throws TypeException {
+	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex, Integer yindex) throws TypeException, UnsupportedEncodingException {
 		this.varlist.editVar(parents, name, getValue(value, vartype), xindex, yindex);
 	}
-	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex, Integer yindex, Integer zindex) throws TypeException {
+	private void saveValue(String parents[], String name, JsonValue value, Types vartype, Integer xindex, Integer yindex, Integer zindex) throws TypeException, UnsupportedEncodingException {
 		this.varlist.editVar(parents, name, getValue(value, vartype), xindex, yindex, zindex);
 	}
 	
-	private void handle1DArray(Integer xindex) throws JSONArrayException, TypeException, JSONObjectException {
+	private void handle1DArray(Integer xindex) throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException {
 		Types vartype = null;
 		int array_length = 0, i = 0;
 		Object[] val = null;
@@ -245,7 +246,7 @@ public class JSONArray {
 	}
 	
 	
-	private void handle1DObjectArray(Integer xlength) throws JSONArrayException, TypeException, JSONObjectException {
+	private void handle1DObjectArray(Integer xlength) throws JSONArrayException, TypeException, JSONObjectException, UnsupportedEncodingException {
 		LLHandler signature = null;
 		JSONObject objecthandler;
 		LLNode hptr;
@@ -329,7 +330,7 @@ public class JSONArray {
 		return;
 	}
 	
-	private void handle2DArray(Integer xindex) throws JSONArrayException, TypeException {
+	private void handle2DArray(Integer xindex) throws JSONArrayException, TypeException, UnsupportedEncodingException {
 		Types vartype = null;
 		int array_length = -1, x = 0, y = 0;
 		Object[][] val = null;
@@ -382,7 +383,7 @@ public class JSONArray {
 		
 	}
 	
-	private void handle3DArray() throws JSONArrayException, TypeException {
+	private void handle3DArray() throws JSONArrayException, TypeException, UnsupportedEncodingException {
 		Types vartype = null;
 		int y_array_length = -1, z_array_length = -1, x = 0, y = 0, z = 0;
 		Object[][][] val = null;
