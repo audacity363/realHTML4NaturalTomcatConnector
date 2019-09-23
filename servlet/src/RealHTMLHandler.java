@@ -272,6 +272,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         FileInputStream fis = null;
         InputStreamReader isr = null;
         PrintWriter pw = null;
+        String propsfile = filepath + ".props";
 
         response.setContentType("application/json");
         response.setCharacterEncoding(encoding);
@@ -293,6 +294,11 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
 
         if(deletefile) {
+            returnfile.delete();
+        }
+
+        returnfile = new File(propsfile);
+        if(returnfile.exists()) {
             returnfile.delete();
         }
     }
