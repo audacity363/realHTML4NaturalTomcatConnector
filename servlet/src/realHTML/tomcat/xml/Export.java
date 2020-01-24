@@ -52,7 +52,9 @@ public class Export {
 	}
 	
 	private Element envtoString(Document doc, String envname) throws EnvironmentException {
-		Element envElement, natsrcElement, natparmElement, encodingElement, natbinElement; 
+		Element envElement, natsrcElement, natparmElement, encodingElement, natbinElement, 
+                authServerElement, authHeaderFieldElement; 
+
 		Environment env = this.envs.getEnvironment(envname);
 		
 		envElement = doc.createElement("environment");
@@ -69,11 +71,19 @@ public class Export {
     
         encodingElement = doc.createElement("charencoding");
         encodingElement.setTextContent(env.charEncoding);
+
+        authServerElement = doc.createElement("authServer");
+        authServerElement.setTextContent(env.authServer);
+
+        authHeaderFieldElement = doc.createElement("authHeaderField");
+        authHeaderFieldElement.setTextContent(env.authHeaderField);
 		
 		envElement.appendChild(natsrcElement);
         envElement.appendChild(natbinElement);
 		envElement.appendChild(natparmElement);
-		
+        envElement.appendChild(authServerElement);
+        envElement.appendChild(authHeaderFieldElement);
+
 		envElement.appendChild(this.routestoString(doc, env.routing));
 		envElement.appendChild(this.environtoString(doc, env.environvars));
 		

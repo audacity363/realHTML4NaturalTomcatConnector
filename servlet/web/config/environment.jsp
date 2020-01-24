@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../css/treeview.css">
-<title>Insert title here</title>
+<title>Environment configuration</title>
 <style>
 	.container {
 		width: 100%
@@ -24,6 +24,10 @@
 <jsp:include page="messagebar.jsp"></jsp:include>
 <%
 	EnvironmentBuffer environments = EnvironmentBuffer.getEnvironmentsfromContext(application);
+	if(environments == null) {
+		response.sendRedirect("import");
+        return;
+	} 
 	String envname = request.getParameter("name");
 	
 	Environment environment = environments.getEnvironment(envname);
@@ -32,104 +36,135 @@
 	
 	RouteTree routetree = RouteSorting.sortRoutes(environment.routing);
 %>
-<h1>Environment: <% out.print(envname); %></h1>
-<form method="post" action="environment">
-	<label for="natparm">Natural Parms:</label>
-	<input type="text" name="natparm" value=<%= environment.natparms %>>
-    <br>
-    <label for="natbinpath">Natural bin Path</label>
-    <input type="text" name="natbinpath" value=<%= environment.natbinpath %>>
-	<br>
-	<label for="natsrc">Natural source Path:</label>
-	<input type="text" name="natsrc" value=<%= environment.natsourcepath %>>
-    <br>
-    <label for="charencoding">Character Encoding</label>
-    <input type="text" name="charencoding" value=<%= environment.charEncoding %>>
-	<br>
-	<input value=<%= envname %> name="envname" type="hidden">
-	<input value="post" name="_method" type="hidden">
-	<button type="submit">Save</button>
-</form>
-<form method="post" action="environment">
-	<input value=<%= envname %> name="envname" type="hidden">
-	<input value="delete" name="_method" type="hidden">
-	<button type="submit">Delete</button>
-</form>
-<h2>Routes</h2>
-<select id="viewchanger" onchange="changeView(this)">
-	<option value="tree" selected>Tree View</option>
-	<option value="list">List View</option>
-</select>
-<div id="treeview">
-	<button onClick="unfoldeverything()">Unfold everything</button>
-	<button onClick="collapseeverything()">Collapse everything</button>
-	<%
-		routetree.printHTML(out, envname, 0);
-	%>
-</div>
-<div id="listview" style="display: none">
-	<ul>
+    <h1>Environment: <% out.print(envname); %></h1>
+    <form method="post" action="environment">
+        <table>
+            <tr>
+                <td>Natural Parms:</td>
+                <td><input type="text" name="natparm" value="<%= environment.natparms %>"></td>
+            </tr>
+            <tr>
+                <td>Natural Bin Path:</td>
+                <td><input type="text" name="natbinpath" value="<%= environment.natbinpath %>"></td>
+            </tr>
+            <tr>
+                <td>Natural Src Path:</td>
+                <td><input type="text" name="natsrc" value="<%= environment.natsourcepath %>"></td>
+            </tr>
+            <tr>
+                <td>Character Encoding:</td>
+                <td><input type="text" name="charencoding" value="<%= environment.charEncoding %>"></td>
+            </tr>
+        </table>
+
+        <h2>Authentication</h2>
+        <table>
+            <tr>
+                <td>Target Server:</td>
+                <td><input type="text" name="authserver" value="<%= environment.authServer %>"></td>
+            </tr>
+            <tr>
+                <td>Header Field:</td>
+                <td><input type="text" name="authheaderfield" value="<%= environment.authHeaderField %>"></td>
+            </tr>
+        </table>
+        <input value="<%= envname %>" name="envname" type="hidden">
+        <input value="post" name="_method" type="hidden">
+        <br>
+        <button type="submit">Save</button>
+    </form>
+    <form method="post" action="environment" style="margin-top:5px">
+        <input value="<%= envname %>" name="envname" type="hidden">
+        <input value="delete" name="_method" type="hidden">
+        <button type="submit">Delete Environment</button>
+    </form>
+    <hr>
+
+    <h2>Routes</h2>
+    <select id="viewchanger" onchange="changeView(this)">
+        <option value="tree" selected>Tree View</option>
+        <option value="list">List View</option>
+    </select>
+    <div id="treeview">
+        <button onClick="unfoldeverything()">Unfold everything</button>
+        <button onClick="collapseeverything()">Collapse everything</button>
+        <%
+            routetree.printHTML(out, envname, 0);
+        %>
+    </div>
+    <div id="listview" style="display: none">
+	    <ul>
 	<%
 		for(int i = 0; i < routes.length; i++) {
 			out.print("<li><a href='route.jsp?id=" + i + "&name=" + envname + "'>" + routes[i] + "</a></li>");
 		}
 	%>
-	</ul>
-</div>
+	    </ul>
+    </div>
 	<form method="post" action="routes">
-		<label for="routelink">Route Template:</label>
-		<input type="text" name="routelink">
-		<br>
-		<label for="routelink">Natural Library:</label>
-		<input type="text" name="library">
-		<br>
-		<label for="routelink">Natural Program:</label>
-		<input type="text" name="program">
-		<br>
-		<label for="login">Login:</label>
-		<input type="checkbox" name="login">
-		<br>
-		<label for="login">Active:</label>
-		<input type="checkbox" name="active" checked>
-		<br>
-		<label for="loglevel">Loglevel:</label>
-		<select name="loglevel">
-			<option value="DEVELOP">Develop</option>
-			<option value="DEBUG">Debug</option>
-			<option value="INFO">Info</option>
-			<option value="WARN">Warning</option>
-			<option value="ERROR" selected>Error</option>
-			<option value="FATAL">Fatal</option>
-		</select> 
-		<br>
-		<input value=<%= envname %> name="_envname" type="hidden">
+        <table>
+            <tr>
+                <td>Route Template:</td>
+		        <td><input type="text" name="routelink"></td>
+            </tr>
+            <tr>
+                <td>Natural Library:</td>
+		        <td><input type="text" name="library"></td>
+            </tr>
+            <tr>
+                <td>Natural Program:</td>
+		        <td><input type="text" name="program"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center">Login: <input type="checkbox" name="login"></td>
+                <td style="text-align: center">Active: <input type="checkbox" name="active" checked></td>
+            </tr>
+            <tr>
+                <td>Loglevel:</td>
+                <td>
+                    <select name="loglevel" style="width: 100%">
+                        <option value="DEVELOP">Develop</option>
+                        <option value="DEBUG">Debug</option>
+                        <option value="INFO">Info</option>
+                        <option value="WARN">Warning</option>
+                        <option value="ERROR" selected>Error</option>
+                        <option value="FATAL">Fatal</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+		<input value="<%= envname %>" name="_envname" type="hidden">
 		<input value="put" name="_method" type="hidden">
 		<button type="submit">Add Route</button>
 	</form>
-<hr>
-<h2>Environment Variablen</h2>
-<ul>
+    <hr>
+    <h2>Environment Variablen</h2>
+    <ul>
 <%
 	for(int i = 0; i < environs.length; i++) {
 		out.print("<li><a href='environmentvar.jsp?envname=" + envname + "&environname=" + environs[i].name + "'>" + environs[i].name + "</a></li>");
 	}
 %>
-</ul>
-<form method="post" action="environmentvar">
-		<label for="varname">Variablename:</label>
-		<input type="text" name="varname">
-		<br>
-		<label for="content">Content:</label>
-		<input type="text" name="content">
-		<br>
-		<label for="append">Append?:</label>
-		<input type="checkbox" name="append">
-		<br>
-		<input value=<%= envname %> name="_envname" type="hidden">
-		<input value="put" name="_method" type="hidden">
-		<button type="submit">Add Environ</button>
-	</form>
-<hr>
+    </ul>
+    <form method="post" action="environmentvar">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="varname"></td>
+            </tr>
+            <tr>
+                <td>Value:</td>
+                <td><input type="text" name="content"></td>
+            </tr>
+            <tr>
+                <td>Append?:</td>
+                <td><input type="checkbox" name="append"></td>
+            </tr>
+        </table>
+        <input value=<%= envname %> name="_envname" type="hidden">
+        <input value="put" name="_method" type="hidden">
+        <button type="submit">Add Environ</button>
+    </form>
 </body>
 <script>
 	function changeView(target) {

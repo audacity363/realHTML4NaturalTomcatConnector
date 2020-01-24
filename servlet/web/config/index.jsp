@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>RealHTML4Natural Config</title>
 </head>
 <body>
 <jsp:include page="messagebar.jsp"></jsp:include>
@@ -16,7 +16,8 @@
 	EnvironmentBuffer environments = EnvironmentBuffer.getEnvironmentsfromContext(application);
 	if(environments == null) {
 		response.sendRedirect("import");
-	} else {
+	} 
+    else {
 		String[] envnames =  environments.getEnviromentNames();
 %>
 	<ul>
@@ -29,23 +30,30 @@
 <% } %>
 	<hr>
 	<form method="post" action="environment">
-		<label for="envname">Environment name:</label>
-		<input type="text" name="envname">
-		<br>
-		<label for="natparm">Natural Parameter:</label>
-		<input type="text" name="natparm">
-        <br>
-        <label for="natbinpath">Natural bin path:</label>
-        <input type="text" name="natbinpath">
-		<br>
-		<label for="natsrc">Natural SRC Path:</label>
-		<input type="text" name="natsrc">
-		<br>
-        <label for="charencoding">Character Encoding</label>
-        <input type="text" name="charencoding">
-        <br>
+        <table>
+            <tr>
+                <td>Environment name:</td>
+		        <td><input type="text" name="envname"></td>
+            </tr>
+            <tr>
+                <td>Natural Parms:</td>
+                <td><input type="text" name="natparm"></td>
+            </tr>
+            <tr>
+                <td>Natural Bin Path:</td>
+                <td><input type="text" name="natbinpath"></td>
+            </tr>
+            <tr>
+                <td>Natural Src Path:</td>
+                <td><input type="text" name="natsrc"></td>
+            </tr>
+            <tr>
+                <td>Character Encoding:</td>
+                <td><input type="text" name="charencoding"></td>
+            </tr>
+        </table>
 		<input value="put" name="_method" type="hidden">
-		<button type="submit">Add Env</button>
+		<button type="submit">Add Environment</button>
 	</form>
 </body>
 </html>

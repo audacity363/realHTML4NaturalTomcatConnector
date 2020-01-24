@@ -48,7 +48,8 @@ public class Import {
 		NodeList environmentsElements, tmpList;
 		Element targetElement, tmpElement;
 		
-		String envname, natsrc = "", natbinpath = "", natparms = "", encoding = "";
+		String envname, natsrc = "", natbinpath = "", natparms = "", encoding = "",
+                        authServer = "", authHeaderField = "";
 		
 		environmentsElements = doc.getElementsByTagName("environment");
 		for(int i = 0; i < environmentsElements.getLength(); i++) {
@@ -85,11 +86,27 @@ public class Import {
             } else {
                 encoding = "ISO-8859-1";
             }
+
+            tmpList = targetElement.getElementsByTagName("authServer");
+            if(tmpList.getLength() != 0) {
+                tmpElement = (Element)tmpList.item(0);
+                authServer = tmpElement.getTextContent();
+            } else {
+                authServer = "";
+            }
+
+            tmpList = targetElement.getElementsByTagName("authHeaderField");
+            if(tmpList.getLength() != 0) {
+                tmpElement = (Element)tmpList.item(0);
+                authHeaderField = tmpElement.getTextContent();
+            } else {
+                authHeaderField = "";
+            }
 			
-			envs.addEnviroment(envname, natparms, natsrc, natbinpath, encoding);
+			envs.addEnviroment(envname, natparms, natsrc, natbinpath, encoding, authServer, authHeaderField);
 			envs = this.readRoutes(targetElement, envname, envs);
 			envs = this.readEnvirons(targetElement, envname, envs);
-			envname = natsrc = natbinpath = natparms = "";
+			envname = natsrc = natbinpath = natparms = authServer = authHeaderField = "";
 		}
 		
 		return(envs);
