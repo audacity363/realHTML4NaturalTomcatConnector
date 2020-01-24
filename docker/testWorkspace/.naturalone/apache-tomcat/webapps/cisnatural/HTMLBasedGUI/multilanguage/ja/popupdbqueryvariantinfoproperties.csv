@@ -1,0 +1,29 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+ascending;昇順
+column; 列
+descending;降順
+errorDuplicateColumn;選択された列はすでに指定されています。 重複は許可されません。 修正してください。
+errorInvalidColumn;選択されたフィールドは、[<b>列の順序</b>]領域で指定されていない列を参照しています<b></b>。 修正してください。
+errorMessageHeader;例外が発生しました。
+errorNoColumnSpecified;レポートは1つ以上の列をもつ必要があります。 [列の順序]領域で列を指定してください。 修正してください。
+errorNullEntryBeforeColumns;選択された値以降の値が指定されました。 修正してください。
+groupcolumn; 列のグループ化
+maxRows;最大行数
+onLoadExecute;すぐに実行
+onOK;OK
+pdfGenWithFilterValues;フィルタ値の表示
+reportTitle;レポートのタイトル
+rowareaGeneralSettings;一般設定
+rowareaPDFSettings;PDF設定
+rowareaVariantSettings;バリアント
+sortcolumn; 列のソート
+successLinesReadFromDB;データベースから&1行が読み取られます
+title;レポートバリアントの編集 
+titleColumnGroupOrder;グループ化
+titleColumnOrder;列の順序
+titleColumnSortOrder;ソート順
+titleFilters;フィルタ
+titleGeneralSettings;一般
+titlePDFProperties;PDF設定
+variantName;バリアント名
+warningMoreColumnsExist;&1を超える行が選択と一致します。

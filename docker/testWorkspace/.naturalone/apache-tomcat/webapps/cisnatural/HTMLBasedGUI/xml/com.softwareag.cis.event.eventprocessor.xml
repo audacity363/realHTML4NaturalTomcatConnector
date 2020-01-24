@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.adapter.EventProcessorAdapter">
+    <titlebar name="Event Processor">
+    </titlebar>
+    <header withdistance="false">
+        <button name="Execute Event" method="onExecuteEvent">
+        </button>
+    </header>
+    <pagebody>
+        <rowarea name="Event Data">
+            <itr>
+                <label name="Event name" width="150">
+                </label>
+                <field valueprop="eventname" width="200">
+                </field>
+            </itr>
+            <itr>
+                <label name="Project name" width="150">
+                </label>
+                <field valueprop="projectname" width="200">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label name="Layout name" width="150">
+                </label>
+                <field valueprop="layoutname" width="200">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <label name="Layout names" width="150">
+                </label>
+                <field valueprop="layoutnames" width="200">
+                </field>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr>
+                <text valueprop="inputdata" width="350" height="200">
+                </text>
+            </itr>
+        </rowarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

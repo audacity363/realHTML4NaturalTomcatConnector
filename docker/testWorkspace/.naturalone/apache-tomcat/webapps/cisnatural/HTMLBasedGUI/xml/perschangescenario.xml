@@ -1,0 +1,10 @@
+<page model="com.softwareag.cis.pers.ChangeScenarioAdapter" pagename="perschangescenario" popupwidth="250" popupheight="200">
+    <pagebody horizdist="false" takefullheight="true">
+        <itr width="100%" height="100%" fixlayout="true">
+            <textgrid2 griddataprop="scenarios" width="100%" height="100%" selectprop="selected" singleselect="true" withselectioncolumn="true" withtitlerow="true" directselectmethod="onScenarioSelected" directselectevent="onclick">
+                <column textid="colScenario" property="name" width="100%">
+                </column>
+            </textgrid2>
+        </itr>
+    </pagebody>
+</page>

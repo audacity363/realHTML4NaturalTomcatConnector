@@ -4,5 +4,7 @@ DEFINE DATA LOCAL
 /* :CP
 /* <Natural Source Header
 1 json-output
-    2 msg (A) DYNAMIC
+    2 msg (A20)
+    2 msg-i (i4)
+    2 cmd (A) DYNAMIC
 END-DEFINE

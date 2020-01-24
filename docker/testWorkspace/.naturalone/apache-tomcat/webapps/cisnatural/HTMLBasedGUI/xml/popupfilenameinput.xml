@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.EditorFilenameInputAdapter6" translationreference="CIS_EDIT" popupwidth="700" popupheight="230">
+    <titlebar withclose="false" closetitletextid="closePage">
+        <button textid="fniTakeOver" method="onTakeOver">
+        </button>
+    </titlebar>
+    <pagebody takefullheight="true">
+        <vdist height="10">
+        </vdist>
+        <itr width="100%">
+            <coltable0 width="100">
+                <itr>
+                    <hdist width="20%">
+                    </hdist>
+                    <imageout valueprop="imageURL">
+                    </imageout>
+                    <hdist width="80%">
+                    </hdist>
+                </itr>
+            </coltable0>
+            <coltable0 width="100%">
+                <itr width="100%">
+                    <textout valueprop="infoText" width="100%">
+                    </textout>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr width="100%">
+                    <textout valueprop="fileExtensionInfo" width="100%">
+                    </textout>
+                </itr>
+            </coltable0>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr width="100%">
+            <hdist>
+            </hdist>
+            <label textid="fniFileName" width="100">
+            </label>
+            <hdist>
+            </hdist>
+            <filenameinput valueprop="fileName" width="100%" fieldstyle="color: #CCCCCC">
+            </filenameinput>
+            <hdist>
+            </hdist>
+        </itr>
+        <vdist height="50%">
+        </vdist>
+    </pagebody>
+    <statusbar>
+    </statusbar>
+</page>

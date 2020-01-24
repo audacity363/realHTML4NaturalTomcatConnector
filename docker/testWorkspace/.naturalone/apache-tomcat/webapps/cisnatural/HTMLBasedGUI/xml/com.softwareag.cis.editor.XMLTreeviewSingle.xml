@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.XMLTreeviewSingleAdapter" translationreference="editor">
+    <pagebody paddingbottom="5" paddingleft="5" paddingright="5" takefullheight="true">
+        <rowtablearea2 firstrowcolwidths="true" griddataprop="attributes" height="100%" rowcount="30" width="100%">
+            <tr>
+                <label asheadline="true" textid="rexmltvs.label0" width="50%">
+                </label>
+                <label asheadline="true" textid="rexmltvs.label1" width="50%">
+                </label>
+            </tr>
+            <repeat>
+                <str valueprop="selected">
+                    <field displayonly="true" noborder="true" valueprop="attribute" width="100%">
+                    </field>
+                    <field noborder="true" valueprop="attributeValue" width="100%">
+                    </field>
+                </str>
+            </repeat>
+        </rowtablearea2>
+    </pagebody>
+</page>

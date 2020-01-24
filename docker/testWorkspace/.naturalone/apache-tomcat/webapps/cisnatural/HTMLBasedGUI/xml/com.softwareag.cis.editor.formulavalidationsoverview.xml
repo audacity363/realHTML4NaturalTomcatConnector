@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.FormulaandRulesOverviewAdapter" translationreference="editor">
+    <pagebody vscroll="hidden" hscroll="hidden" horizdist="false" takefullheight="true">
+        <itr takefullwidth="true" height="100%">
+            <textgridsss2 griddataprop="overviewlines" rowcount="30" width="100%" height="100%" selectprop="selected" singleselect="true" onclickmethod="onLineSelected">
+                <column name="No." property="id" width="50" textstyleprop="style">
+                </column>
+                <column name="Field" property="valuepropName" width="200" textstyleprop="style">
+                </column>
+                <column name="Value" property="attribute" width="100%" textstyleprop="style">
+                </column>
+            </textgridsss2>
+        </itr>
+    </pagebody>
+</page>

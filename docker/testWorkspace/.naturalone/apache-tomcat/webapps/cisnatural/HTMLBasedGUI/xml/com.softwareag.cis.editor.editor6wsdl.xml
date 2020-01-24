@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.EditorModel6" translationreference="editor" popupwidth="1024" popupheight="768" imagestopreload="../HTMLBasedGUI/images/xmlclosed.gif;../HTMLBasedGUI/images/xmlopened.gif;../HTMLBasedGUI/images/xmlendnode.gif;../HTMLBasedGUI/images/fileclosed.gif;../HTMLBasedGUI/images/cut.gif;../HTMLBasedGUI/images/copy.gif;../HTMLBasedGUI/images/copyTop.gif;../HTMLBasedGUI/images/copyBottom.gif;../HTMLBasedGUI/images/moveTop.gif;../HTMLBasedGUI/images/moveBottom.gif;../HTMLBasedGUI/images/remove.gif;../HTMLBasedGUI/images/newTopSubNode.gif;../HTMLBasedGUI/images/newBottomSubNode.gif;../HTMLBasedGUI/images/newTopSideNode.gif;../HTMLBasedGUI/images/newBottomSideNode.gif;../HTMLBasedGUI/images/pasteTop.gif;../HTMLBasedGUI/images/pasteBottom.gif" helpid="EDITORHELP" ispopup="true">
+    <titlebar textid="ed6.titlebar" valueprop="titlebar" visibleprop="withTitlebar" closetitletextid="closePage">
+    </titlebar>
+   
+    <pagebody horizdist="false" takefullheight="true">
+         <rowdiv height="108" style="overflow-y:hidden;background-color: #C5E4FF">
+            <absicon image="images/toolbarproperties.gif" method="previewWithNewClasses" x="384" y="4" z="2" titletextid="ree6.absicon2">
+            </absicon>
+            <absicon image="images/distance.gif" method="ddd" x="405" y="6" z="2">
+            </absicon>
+            <absicon image="images/toolbarsave.gif" method="generateAndSave" x="416" y="4" z="2" titletextid="ree6.absicon3">
+            </absicon>
+            <innerdiv width="100%" height="108" zindex="1" left="0" top="0" style="background-color: #C0C0C0">
+        <rowtabarea height="108" openedindexprop="rowtab" leftindent="50" withleftborder="false" withrightborder="false" withtoppadding="false" tabpagepaddingleft="1" tabpagepaddingright="1" tabpagepaddingtop="1" tabpagepaddingbottom="1" stylevariant="VAR1" textid1="ree6.rowtabarea4" page1="idPage1" textid2="ree6.rowtabarea5" page2="idPage2" textid3="ree6.absicon2" page3="idPage3" textid4="ree6.rowtabarea6" page4="idPage4" textid5="ree6.rowtabarea7" page5="idPage5" name6="Extensions" page6="idPage6">
+            
+            <tabpage id="idPage1" takefullheight="true">
+                <itr height="100%" itrstyle="background-color: #F4FAFF">
+                    <colarea textid="ree6.colarea15" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="File" paddingleft="8" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <icon image="images/toolbarnewform.gif" method="newFile" comment="New Form" align="left" textid="ree6.icon1" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                            <hdist width="10">
+                            </hdist>
+                            <icon image="images/toolbaropen.gif" method="openFile" comment="Open" align="left" textid="ree6.icon7" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </tr>
+                        <vdist>
+                        </vdist>
+                        <tr>
+                            <icon image="images/toolbarsaveas.gif" method="saveLayoutAs" align="left" name="Save as" textid="ree6.icon5" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                            <hdist>
+                            </hdist>
+                            <hdist>
+                            </hdist>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea16" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Log" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <icon image="general/nothing.gif" method="viewProtocol" align="left" textid="menuViewProtocol" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                            <hdist width="10">
+                            </hdist>
+                            <icon image="general/nothing.gif" method="viewLog" align="left" textid="menuViewLog" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </tr>
+                        <vdist>
+                        </vdist>
+                        <tr>
+                            <icon image="general/nothing.gif" method="viewServerLog" textid="menuViewServerLog" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                            <hdist>
+                            </hdist>
+                            <hdist>
+                            </hdist>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea17" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Configuration" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <itr>
+                            <icon image="general/nothing.gif" method="viewXSD" comment="XML Schema (XSD)" textid="ree6.icon16" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist>
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="viewEditorConfig" comment="Preferences" textid="ree6.icon18" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+            </tabpage>
+            <tabpage id="idPage2" takefullheight="true">
+                <itr height="100%" itrstyle="background-color: #F4FAFF">
+                    <colarea textid="ree6.colarea19" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Clipboard" paddingleft="6" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <icon image="images/toolbarcut.gif" method="cut" align="center" titletextid="menuEditCut">
+                            </icon>
+                            <hdist width="5">
+                            </hdist>
+                            <icon image="images/toolbarcopy.gif" method="copy" titletextid="menuEditCopy">
+                            </icon>
+                            <hdist width="10">
+                            </hdist>
+                            <icon image="images/toolbarundo.gif" method="undo" titletextid="menuEditUndo" textid="menuEditUndo" textsize="1">
+                            </icon>
+                            <hdist width="10">
+                            </hdist>
+                            <icon image="images/toolbarpasteasfirst.gif" method="paste" textid="menuEditPasteAsFirst" textsize="1">
+                            </icon>
+                            <hdist width="5">
+                            </hdist>
+                        </tr>
+                        <tr>
+                            <icon image="images/toolbarremove.gif" method="removeNode" titletextid="menuEditDelete">
+                            </icon>
+                            <hdist>
+                            </hdist>
+                            <hdist>
+                            </hdist>
+                            <hdist>
+                            </hdist>
+                            <icon image="images/toolbarredo.gif" method="redo" titletextid="menuEditRedo" textid="menuEditRedo" textsize="1">
+                            </icon>
+                            <hdist>
+                            </hdist>
+                            <icon image="images/toolbarpasteaslast.gif" method="pasteBottom" textid="menuEditPasteAsLast" textsize="1">
+                            </icon>
+                            <hdist width="5">
+                            </hdist>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea20" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Text" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <coltable0>
+                                <itr>
+                                    <label textid="ree6.label3" width="40" comment="Font" asplaintext="true" labelstyle="font-size:10">
+                                    </label>
+                                    <field valueprop="fontFamily" width="120" flush="screen" fieldstyle="height: 18;font-size:9" popupmethod="openIdValueCombo" popupcombowidth="120" titletextid="ree6.field2">
+                                    </field>
+                                </itr>
+                                <itr>
+                                    <icon image="images/bold.gif" method="onBold" titletextid="ree6.iconBold">
+                                    </icon>
+                                    <icon image="images/italic.gif" method="onItalic" titletextid="ree6.iconItalic">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="images/alignLeft.gif" method="onLeftAlign" titletextid="ree6.iconAlignLeft">
+                                    </icon>
+                                    <icon image="images/alignCenter.gif" method="onCenterAlign" titletextid="ree6.iconAlignCenter">
+                                    </icon>
+                                    <icon image="images/alignRight.gif" method="onRightAlign" titletextid="ree6.iconAlignRight">
+                                    </icon>
+                                </itr>
+                                <vdist>
+                                </vdist>
+                            </coltable0>
+                            <hdist width="10">
+                            </hdist>
+                            <coltable0>
+                                <tr>
+                                    <label textid="ree6.label4" comment="Size" asplaintext="true" labelstyle="font-size:10">
+                                    </label>
+                                    <hdist width="3">
+                                    </hdist>
+                                    <field valueprop="font" width="50" flush="screen" fieldstyle="height: 18;font-size:9" popupmethod="openIdValueCombo" popupcombowidth="50" datatype="int" titletextid="ree6.field3">
+                                    </field>
+                                </tr>
+                                <tr>
+                                    <label textid="ree6.label6" comment="color" asplaintext="true" labelstyle="font-size:10">
+                                    </label>
+                                    <hdist>
+                                    </hdist>
+                                    <field valueprop="col" width="50" flush="server" bgcolorprop="col" fgcolorprop="col" fieldstyle="height: 18;font-size:9" datatype="color">
+                                    </field>
+                                </tr>
+                            </coltable0>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea21" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Attributes" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <itr>
+                            <icon image="general/nothing.gif" method="onPropertyEditor" comment="Property Editor" textid="ree6.icon22" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="2">
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onEventEditor" comment="Event Editor" textid="ree6.icon30" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea22" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Status" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <itr>
+                            <icon image="images/toolbarxml.gif" method="viewXML" textid="menuViewXML" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="2">
+                        </vdist>
+                        <itr>
+                            <icon image="images/toolbarresources.gif" method="viewEditorResources" textid="menuViewResources" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                </itr>
+            </tabpage>
+            <tabpage id="idPage3" takefullheight="true">
+                <itr height="100%" itrstyle="background-color: #F4FAFF">
+                    <colarea textid="ree6.absicon2" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Preview" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <radiobutton valueprop="previewWithRealAdapter" value="false" flush="server" comment="Screen Test Only" textid="ree6.radiobutton2" labelstyle="font-size:8">
+                            </radiobutton>
+                        </tr>
+                        <tr>
+                            <radiobutton valueprop="previewWithRealAdapter" value="true" flush="screen" comment="Run Application" textid="ree6.radiobutton3" labelstyle="font-size:8">
+                            </radiobutton>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ed6.rowarea.SWTConfig" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Preview Configuration" paddingleft="2" withcontenttoppadding="false" withcontentbottompadding="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr>
+                            <radiobutton valueprop="previewDefaultVisible" value="true" flush="server" comment="SWT Mode" align="center" textid="ed6.RadioBttn.PreviewModeSWT" labelstyle="font-size:8">
+                            </radiobutton>
+                        </tr>
+                        <tr>
+                            <radiobutton valueprop="previewDefaultVisible" value="false" flush="server" comment="HTML Mode" align="center" textid="ed6.RadioBttn.PreviewModeHTML" labelstyle="font-size:8">
+                            </radiobutton>
+                        </tr>
+                        <vdist height="100%">
+                        </vdist>
+                    </colarea>
+                </itr>
+            </tabpage>
+            <tabpage id="idPage4" takefullheight="true">
+                <itr height="100%" itrstyle="background-color: #F4FAFF">
+                    <colarea textid="ree6.colarea23" width="100" takefullheight="true" titlerowontop="false" withtoppadding="false" stylevariant="VAR1">
+                        <tr height="40">
+                            <icon image="../HTMLBasedGUI/images/toolbarbgimage.gif" method="onBackGround" colstyle="font-size:9px" textid="ree6.icon34" displaymenuindicator="true" nameposition="aside" textsize="1">
+                            </icon>
+                        </tr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>                                            
+                    <colarea textid="ree6.colarea25" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" withtoppadding="false" stylevariant="VAR1">
+                        <itr height="100%" valign="middle">
+                            <hdist width="10">
+                            </hdist>
+                            <icon image="../HTMLBasedGUI/images/ctrlHOTKEYS.gif" method="onHotkey" textid="ree6.icon38" displaymenuindicator="true" nameposition="aside">
+                            </icon>
+                        </itr>
+                    </colarea>
+                </itr>
+            </tabpage>
+            <tabpage id="idPage5" takefullheight="true">
+                <itr height="100%" itrstyle="background-color: #F4FAFF">
+                    <coldynavis valueprop="showCodeAssistant" width="100" takefullheight="true">
+                        <itr height="100%" itrstyle="padding-bottom:0">
+                            <colarea textid="ree6.colarea26a" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" paddingleft="2" withtoppadding="false" stylevariant="VAR1">
+                                <vdist height="2">
+                                </vdist>
+                                <itr>
+                                    <icon image="general/nothing.gif" method="onTab1" textid="ree6.icon40" textsize="1">
+                                    </icon>
+                                </itr>
+                            </colarea>
+                            <hdist width="2">
+                            </hdist>
+                        </itr>
+                    </coldynavis>
+                    <colarea textid="ree6.colarea26" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Data Binding" paddingleft="8" withtoppadding="false" stylevariant="VAR1">
+                        <vdist height="2">
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onTab3" comment="XML Binding" textid="ree6.icon41" textsize="1">
+                            </icon>
+                        </itr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea27" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Multilanguage Management" paddingleft="8" withtoppadding="false" stylevariant="VAR1">
+                        <vdist>
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onTab2" comment="Literal Assistant" textid="ree6.icon42" textsize="1">
+                            </icon>
+                        </itr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea28" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Formula Editor" paddingleft="8" withtoppadding="false" stylevariant="VAR1">
+                        <vdist>
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onFormulaOverview" textid="ree6.icon45" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="2">
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onFormula" comment="Formula" textid="ree6.icon43" textsize="1">
+                            </icon>
+                        </itr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea29" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" comment="Data Validation" paddingleft="8" withtoppadding="false" stylevariant="VAR1">
+                        <vdist>
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onValidationRulesOverView" textid="ree6.icon45" textsize="1">
+                            </icon>
+                        </itr>
+                        <vdist height="2">
+                        </vdist>
+                        <itr>
+                            <icon image="general/nothing.gif" method="onValidationRules" comment="Validation Rules" textid="ree6.icon44" textsize="1">
+                            </icon>
+                        </itr>
+                    </colarea>
+                    <hdist width="2">
+                    </hdist>
+                    <colarea textid="ree6.colarea30" width="100" takefullheight="true" titlerowontop="false" areastyle="font-size: 7; font-weight: bold" paddingleft="2" withtoppadding="false" stylevariant="VAR1">
+                        <tr height="20">
+                            <icon image="general/nothing.gif" method="openInNewBrowserWindow" name="Start in new window" nameposition="aside" textsize="1">
+                            </icon>
+                        </tr>
+                    </colarea>
+                </itr>
+            </tabpage>
+            <tabpage id="idPage5" takefullheight="true">
+                <tr>
+                    <colarea name="Editor Extensions" takefullheight="true" titlerowontop="false" paddingleft="2" withtoppadding="false" stylevariant="VAR1">
+                        <tr height="40">
+                            <iconlist iconlistprop="extensionICONLIST" vertical="false" cellspacing="3" textsize="1">
+                            </iconlist>
+                        </tr>
+                    </colarea>
+                    <hdist width="100%">
+                    </hdist>
+                </tr>
+            </tabpage>
+        </rowtabarea>
+        </innerdiv>
+        </rowdiv>
+        <vdist height="1" backgroundstyle="background-color: #F7F3EF">
+        </vdist>
+        <vsplit height="100%" widthleftprop="leftPartEditor6">
+            <splitcell takefullheight="true">
+                <vsplit height="100%" widthleftprop="widthViewControlsLayout" comment="widthViewControlsLayout" widthleft="415">
+                    <splitcell takefullheight="true">
+                                <itr width="100%">
+                                    <label textid="ed6.label.layout" width="100%" asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                                    </label>
+                                    <icon image="../HTMLBasedGUI/images/layoutMinimize.gif" method="onHideLayoutTree" colstyle="background-color: #C0C9DA" spanstyle="background-color: #C0C9DA">
+                                    </icon>
+                                </itr>
+                                <rowtablearea2 griddataprop="nodes" rowcount="30" height="100%" width="100%" withborder="false" hscroll="true" singleselect="false">
+                                    <tr>
+                                        <coltable0>
+                                            <vdist height="8">
+                                            </vdist>
+                                        </coltable0>
+                                    </tr>
+                                    <repeat>
+                                        <str valueprop="selected">
+                                            <treenode3 width="1000" withplusminus="true" imageprop="imageURL" singleselect="false" enabledrag="true" withtooltip="true">
+                                            </treenode3>
+                                        </str>
+                                    </repeat>
+                                    <tr>
+                                        <coltable0>
+                                            <vdist height="8">
+                                            </vdist>
+                                        </coltable0>
+                                    </tr>
+                                </rowtablearea2>
+                                <itr height="22" itrstyle="padding-top: 3px; padding-bottom: 4px" width="100%">
+                                    <hdist width="50%">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/arrowupfast.gif" method="moveUpTo1Pos" titletextid="ed6.icon.movenodefirst">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/arrowup.gif" method="moveNodeUp" withdistance="false" titletextid="ed6.icon.movenodeup">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/arrowdown.gif" method="moveNodeDown" withdistance="false" titletextid="ed6.icon.movenodedown">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/arrowdownfast.gif" method="moveDownToLastPos" titletextid="ed6.icon.movenodedownlast">
+                                    </icon>
+                                    <hdist width="50%">
+                                    </hdist>
+                                </itr>
+                                <itr width="100%">
+                                    <label textid="attributesEdit" width="100%" asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                                    </label>
+                                </itr>
+                                <rowtablearea2 griddataprop="attributes" rowcount="8" width="100%" withborder="true" hscroll="false" firstrowcolwidths="true">
+                                    <repeat>
+                                        <tr>
+                                            <field valueprop="attribute" width="50%" titleprop="tooltip" displayonly="true" noborder="true">
+                                            </field>
+                                            <field valueprop="cvalue" width="50%" noborder="true" popupmethod="openIdValueCombo" popupprop="popupAvailable" validationprop="regExp" validationuserhintprop="regExpFailureUserHint" helptext="attribute.html">
+                                            </field>
+                                        </tr>
+                                    </repeat>
+                                </rowtablearea2>
+                                <tabstrip2 tabstripprop="attributeCategories" align="left" scrollable="true">
+                                </tabstrip2>
+                                <vdist height="2">
+                                </vdist>
+
+                    </splitcell>
+                    <splitcell takefullheight="true">
+                        <itr takefullwidth="true" height="100%">
+                            <coltable0 width="100%" takefullheight="true">
+                                <itr width="100%">
+                                    <icon image="../HTMLBasedGUI/images/toggleleft.gif" method="onShowLayoutTree" visibleprop="widthLeftNotVisible" invisiblemode="invisible" colstyle="padding-left:3;background-color:#C0C9DA" spanstyle="background-color:#C0C9DA">
+                                    </icon>
+                                    <label textid="previewEdit" width="100%" asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                                    </label>
+                                    <icon image="../HTMLBasedGUI/images/layoutMinimize.gif" method="onViewPreviewMinimize" visibleprop="viewPreviewMinimizeVisible" invisiblemode="invisible" colstyle="background-color: #C0C9DA" spanstyle="background-color: #C0C9DA">
+                                    </icon>
+                                    <icon image="../HTMLBasedGUI/images/layoutMaximize.gif" method="onViewPreviewMaximize" visibleprop="viewPreviewMaximizeVisible" invisiblemode="invisible" colstyle="background-color: #C0C9DA" spanstyle="background-color: #C0C9DA">
+                                    </icon>
+                                </itr>
+                                <vdist height="5">
+                                </vdist>
+                                <itr takefullwidth="true" height="100%" fixlayout="true" visibleprop="previewDefaultVisible">
+                                    <hdist width="5">
+                                    </hdist>
+                                    <subcispage valueprop="subPageURL" refreshprop="refreshSubPage" width="100%" height="100%" borderwidth="1" sessionidprop="subPageSessionId" withownborder="false">
+                                    </subcispage>
+                                    <hdist width="5">
+                                    </hdist>
+                                </itr>
+                                <itr takefullwidth="true" height="100%" fixlayout="true" visibleprop="previewHTMLVisible">
+                                    <hdist width="5">
+                                    </hdist>
+                                    <subpage valueprop="subHTMLPreviewURL" height="100%" width="100%" pagestyle="border: 1px solid #808080" withownborder="false">
+                                    </subpage>
+                                    <hdist width="5">
+                                    </hdist>
+                                </itr>
+                                <vdist height="5">
+                                </vdist>
+                            </coltable0>
+                            <vline width="1" color="#808080">
+                            </vline>
+                            <hdist width="1">
+                            </hdist>
+                            <vline width="1" color="#808080">
+                            </vline>
+                            <coltable0 widthprop="viewControlsWidth" takefullheight="true" fixlayout="true" comment="width: 150">
+                                <itr width="100%">
+                                    <label textid="ed6.label.ctrls" width="100%" asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                                    </label>
+                                </itr>
+                                <buttonlist buttonlistprop="topButtons" buttonstyle="font-size:10px; height: 16">
+                                </buttonlist>
+                                <rowscrollarea height="100%" takefullwidth="true" takefullheight="true" areastyle="background-color: #FFFFFF">
+                                    <vdist>
+                                    </vdist>
+                                    <tr>
+                                        <hdist>
+                                        </hdist>
+                                        <coltable0 width="100%">
+                                            <iconlist iconlistprop="controlIcons" cellspacing="1" align="left" textsize="1">
+                                            </iconlist>
+                                        </coltable0>
+                                    </tr>
+                                    <vdist height="100%">
+                                    </vdist>
+                                </rowscrollarea>
+                                <buttonlist buttonlistprop="bottomButtons" buttonstyle="font-size:10px; height: 16">
+                                </buttonlist>
+                            </coltable0>
+                        </itr>
+                    </splitcell>
+                </vsplit>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr takefullwidth="true" itrstyle="background-color: #C0C9DA">
+                    <label textid="editor.label5" width="100%" asheadline="true" textalign="true" height="14" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold">
+                    </label>
+                    <hdist width="100%">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/tabstripscrollleft.gif" method="onWSDLPageWidthIncrease" valign="middle">
+                    </icon>
+                    <icon image="../HTMLBasedGUI/images/tabstripscrollright.gif" method="onWSDLPageWidthDecrease" valign="middle">
+                    </icon>
+                    <hdist width="20">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/wsdlpagedec.gif" method="onHideWSDLPage">
+                    </icon>
+                    <hdist width="5">
+                    </hdist>
+                </itr>            
+                <itr takefullwidth="true" height="100%">
+                    <subcispage2 subcispageprop="extensionPage" width="100%" height="100%" borderwidth="0">
+                    </subcispage2>
+                </itr>
+                <tabstrip2 tabstripprop="extensionStrip" align="left" scrollable="true">
+                </tabstrip2>
+            </splitcell>
+        </vsplit>
+        <itr height="0" visibleprop="changeHappened">
+        </itr>
+    </pagebody>
+    <statusbar typeprop="messageType" shorttextprop="messageShortText" longtextprop="messageLongText" withdistance="false">
+    </statusbar>
+    <hotkeys>
+        <hotkey keycode="83" ctrlkey="true" shiftkey="true" method="onSave">
+        </hotkey>
+        <hotkey keycode="116" ctrlkey="true" shiftkey="true" method="onPreview">
+        </hotkey>
+        <hotkey keycode="117" ctrlkey="true" shiftkey="true" method="previewWithNewClasses">
+        </hotkey>
+        <hotkey keycode="118" ctrlkey="true" shiftkey="true" method="generateAndSave">
+        </hotkey>
+    </hotkeys>
+</page>

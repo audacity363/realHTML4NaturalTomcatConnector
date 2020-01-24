@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.config.UserConfigFileManagerAdapter" translationreference="demos">
+    <titlebar valueprop="title" closetitletextid="closePage">
+        <helpicon helpid="userconfigurationmanager" titletextid="conFileMan.helpicon0">
+        </helpicon>
+    </titlebar>
+    <pagebody horizdist="false" takefullheight="true" paddingleft="5">
+        <vdist height="10">
+        </vdist>
+        <rowtabarea height="100%" openedindexprop="openedindex" openmethod="onOpenTab" name1="File Overview" page1="idOverview" name2="Edit &amp;amp; Compare" page2="idCompare" name3="Help" page3="idHelp">
+            <tabpage id="idOverview" takefullheight="true">
+                <vdist height="15">
+                </vdist>
+                <itr takefullwidth="true">
+                    <coltable0 width="500">
+                        <dlmenu menuprop="dlMenuData" align="left" onlyoneline="true">
+                        </dlmenu>
+                    </coltable0>
+                </itr>
+                <itr>
+                    <hdist width="30">
+                    </hdist>
+                </itr>
+                <vdist height="25">
+                </vdist>
+                <clienttree treecollectionprop="files" height="100%" withplusminus="true" singleselect="true" selectionvisible="true" imageopened="../HTMLBasedGUI/images/config.gif" imageclosed="../HTMLBasedGUI/images/config.gif" imageendnode="../HTMLBasedGUI/images/filelist.gif">
+                </clienttree>
+            </tabpage>
+            <tabpage id="idCompare" takefullheight="true">
+                <vdist height="8">
+                </vdist>
+                <itr height="100%" width="100%">
+                    <hdist>
+                    </hdist>
+                    <coltable0 width="50%" takefullheight="true">
+                        <rowarea textid="conFileMan.rowarea0" withtoppadding="false">
+                            <itr>
+                                <label textid="conFileMan.label0" width="150">
+                                </label>
+                                <hdist>
+                                </hdist>
+                                <field valueprop="configFileName" width="100%" popupmethod="openIdValueCombo" popupinputonly="true">
+                                </field>
+                                <hdist>
+                                </hdist>
+                            </itr>
+                            <itr>
+                                <label name="User Config File" width="150">
+                                </label>
+                                <hdist>
+                                </hdist>
+                                <field valueprop="userConfigFileName" width="100%" popupmethod="openIdValueCombo" popupinputonly="true">
+                                </field>
+                                <hdist>
+                                </hdist>
+                            </itr>
+                        </rowarea>
+                        <vdist height="10">
+                        </vdist>
+                        <itr>
+                            <textout valueprop="userConfigFileName" textcolor="#CC0000" textoutstyle="font-weight: bold">
+                            </textout>
+                        </itr>
+                        <itr height="100%" width="100%">
+                            <text valueprop="userConfig" width="100%" height="100%">
+                            </text>
+                        </itr>
+                    </coltable0>
+                    <hdist width="5">
+                    </hdist>
+                    <coltable0 width="50%" takefullheight="true">
+                        <vdist height="35">
+                        </vdist>
+                        <itr>
+                            <hdist width="30">
+                            </hdist>
+                            <button name="Save User Config File" method="onSaveCurrent">
+                            </button>
+                        </itr>
+                        <vdist height="25">
+                        </vdist>
+                        <itr>
+                            <label name="Default Configuration File" asplaintext="true" labelstyle="color:#CC0000; font-weight:bold">
+                            </label>
+                        </itr>
+                        <itr height="100%" width="100%">
+                            <text valueprop="configFile" width="100%" height="100%" displayonly="true">
+                            </text>
+                        </itr>
+                    </coltable0>
+                    <hdist>
+                    </hdist>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr width="100%">
+                    <hdist>
+                    </hdist>
+                    <button textid="conFileMan.button1" method="onDiff" image="../HTMLBasedGUI/images/search.gif" width="100%">
+                    </button>
+                    <hdist>
+                    </hdist>
+                </itr>
+            </tabpage>
+            <tabpage id="idHelp" takefullheight="true">
+                <itr takefullwidth="true" height="100%">
+                    <subpage valueprop="cfghelp" height="100%" width="100%">
+                    </subpage>
+                </itr>
+            </tabpage>
+        </rowtabarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

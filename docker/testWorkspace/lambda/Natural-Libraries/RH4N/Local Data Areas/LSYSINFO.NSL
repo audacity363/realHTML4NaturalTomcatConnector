@@ -1,0 +1,20 @@
+DEFINE DATA LOCAL
+/* >Natural Source Header 000000
+/* :Mode S
+/* :CP
+/* <Natural Source Header
+/** New Local Data Area LSYSINFO.
+/**
+/** :author tom
+1 sysinfos
+    2 datetime (A) DYNAMIC
+    2 natvers (A) DYNAMIC
+    2 os (A) DYNAMIC
+    2 osvers (A) DYNAMIC
+    2 hostname (A) DYNAMIC
+    2 hardware (A) DYNAMIC
+    2 library (A) DYNAMIC
+    2 program (A) DYNAMIC
+    2 user (A) DYNAMIC
+    2 msg (A) DYNAMIC
+END-DEFINE

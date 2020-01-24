@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.MFWorkplaceAdapter" occupiedimage="images/wpoccupied.gif" occupiedpixelheight="25" occupiedpixelwidth="17" contextmenumethod="reactOnContextMenuRequestTopicTree" comment="../cis/styles/CIS_DEV.css">
+    <pagebody vscroll="hidden" hscroll="hidden" horizdist="false" takefullheight="true">
+        <rowtablearea2 griddataprop="nodes" rowcount="60" height="100%" width="100%" withborder="false" hscroll="auto" vscroll="auto" oncontextmenumethod="reactOnContextMenuRequestTopicTree">
+            <vdist height="5">
+            </vdist>
+            <repeat>
+                <str>
+                    <hdist width="5">
+                    </hdist>
+                    <treenode3 width="100%" withplusminus="true" imageopened="../HTMLBasedGUI/images/fileclosed.gif" imageclosed="../HTMLBasedGUI/images/fileclosed.gif" imageendnode="../HTMLBasedGUI/images/page.gif" imageprop="imageOpened" singleselect="true" withlines="true" withtooltip="true" tooltipprop="tooltip" selectionstylevariant="VAR1">
+                    </treenode3>
+                </str>
+            </repeat>
+            <vdist height="5">
+            </vdist>
+        </rowtablearea2>
+    </pagebody>
+</page>

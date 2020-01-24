@@ -1,0 +1,16 @@
+Auto-generated text file from Localization Framework 5.4 Locale=en DO NOT EDIT BY HAND!;
+popupCloseAllWindows;Unsaved data will be lost. Do you really want to close all windows?
+mess.err.maxworkplaceactivities;The maximum number of open editors has been reached. Please close one or more editors and try again.
+mess.err.title;Message
+mess.noswitchback;Switching back is not allowed!
+mess.popupClosed;Popup menu was closed without any selection!
+mess.selecttree;is not possible. Either select all or no sub items of sub tree 
+mfwrkplace.dropicon0;Waste Basket
+mfwrkplace.dropicon1;Waste Basket
+onCloseAll;Close all Windows
+onTakeOut;Take out current page and launch it within Popup Window
+stripseltoleft;Scroll left
+stripseltoright;Scroll right
+wptitle.on0Size;Close Navigation Frame
+wptitle.onNormalSize;Reopen Navigation Frame
+wptitle.onCloseAll;Close All Workplace Windows

@@ -1,0 +1,10 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+btnCancel;キャンセル
+colId;値
+colName;説明
+examples;ワイルドカード"*"を使用できます(例:*green*、*green、gr*n)  
+firstChars;検索文字列
+msg.inputChars;最初に、検索文字列を入力してください
+msg.noMatch;'&1'に一致する結果がありません
+search;検索(~~e)
+title;有効な値の選択

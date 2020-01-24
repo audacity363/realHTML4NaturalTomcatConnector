@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cisfo:foppage pageheight="24.7cm" 
+                pagewidth="19cm"
+                margintop="1cm" 
+                marginbottom="1cm" 
+                marginleft="2cm" 
+                marginright="2cm"
+                headerheight="3cm" 
+                footerheight="3cm">
+
+	<!-- header -->
+	<cisfo:header>
+		<fo:block text-align="left" font-weight="bold" font-size="20pt">
+			Lieferbeleg
+			<cisfo:replace valueprop="receiptNr"/>
+		</fo:block>
+	    <cisfo:vdist height="0.2cm"/>
+		<fo:block text-align="right" font-weight="bold" font-size="8pt">
+			DIEHL AKO Stiftung u. Co. KG
+		</fo:block>
+	    <cisfo:vdist height="0.5cm"/>
+	    <cisfo:hline/>
+	</cisfo:header>
+
+	<!-- footer -->
+	<cisfo:footer>
+	    <cisfo:vdist/>
+	    <cisfo:hline/>
+	    <cisfo:vdist height="0.2cm"/>
+		<fo:block text-align="right" font-weight="bold" font-size="20pt">
+			Lieferbeleg
+			<cisfo:replace valueprop="receiptNr"/>
+		</fo:block>
+	</cisfo:footer>
+	
+	<!-- body -->
+	<cisfo:body>
+	    <cisfo:vdist height="2cm"/>
+        <cisfo:table columnwidths="5cm;5cm;5cm" >
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Bearbeiter</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Datum (Nachdruck)</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Datum</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="user"/></fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="reprintDate"/></fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="date"/></fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+        </cisfo:table>
+	    <cisfo:vdist height="1cm"/>
+        <cisfo:table columnwidths="5cm;5cm;5cm" >
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Auftragsnummer</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Sachnummer</fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-size="9pt">Auftragsmenge</fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+            <cisfo:tablerow>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="jobName"/></fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="itemNr"/></fo:block>
+                </cisfo:tablecell>
+                <cisfo:tablecell>
+        			<fo:block font-weight="bold"><cisfo:replace valueprop="plannedQty"/></fo:block>
+                </cisfo:tablecell>
+            </cisfo:tablerow>
+        </cisfo:table>
+	</cisfo:body>
+	    
+</cisfo:foppage>

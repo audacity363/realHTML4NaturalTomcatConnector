@@ -1,0 +1,38 @@
+[09/09/2019 14:02:40.454]	Prepare start - change LD_LIBRARY_PATH. Port number: 0
+[09/09/2019 14:02:40.455]	Prepare start - ended. Port number: 0
+[09/09/2019 14:02:41.466]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
+[09/09/2019 14:02:41.467]	Listener has been started. Port number: 2800
+[09/09/2019 20:07:17.485]	Natural Development Server (2800) stopped.
+[09/12/2019 10:08:17.038]	Details set. Port number: 0
+[09/12/2019 10:08:17.039]	Prepare start - check ini file. Port number: 0
+[09/12/2019 10:08:17.042]	Prepare start - check if started. Port number: 0
+[09/12/2019 10:08:17.042]	Prepare start - create folders. Port number: 0
+[09/12/2019 10:08:17.043]	Prepare start - change LD_LIBRARY_PATH. Port number: 0
+[09/12/2019 10:08:17.044]	Prepare start - ended. Port number: 0
+[09/12/2019 10:08:18.054]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
+[09/12/2019 10:08:18.062]	Listener has been started. Port number: 2800
+[09/24/2019 08:45:57.764]	Details set. Port number: 2800
+[09/24/2019 08:45:57.766]	Prepare start - check ini file. Port number: 2800
+[09/24/2019 08:45:57.767]	Prepare start - check if started. Port number: 2800
+[09/24/2019 08:45:57.767]	Prepare start - create folders. Port number: 2800
+[09/24/2019 08:45:57.768]	Prepare start - change LD_LIBRARY_PATH. Port number: 2800
+[09/24/2019 08:45:57.768]	Prepare start - ended. Port number: 2800
+[09/24/2019 08:45:58.779]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
+[09/24/2019 08:45:58.780]	Listener has been started. Port number: 2800
+[11/11/2019 12:13:33.239]	Details set. Port number: 2800
+[11/11/2019 12:13:33.243]	Prepare start - check ini file. Port number: 2800
+[11/11/2019 12:13:33.244]	Prepare start - check if started. Port number: 2800
+[11/11/2019 12:13:33.244]	Prepare start - create folders. Port number: 2800
+[11/11/2019 12:13:33.246]	Prepare start - change LD_LIBRARY_PATH. Port number: 2800
+[11/11/2019 12:13:33.247]	Prepare start - ended. Port number: 2800
+[11/11/2019 12:13:34.272]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
+[11/11/2019 12:13:34.274]	Listener has been started. Port number: 2800
+[11/13/2019 06:46:26.374]	Natural Development Server (2800) stopped.
+[11/13/2019 06:50:22.846]	Details set. Port number: 0
+[11/13/2019 06:50:22.848]	Prepare start - check ini file. Port number: 0
+[11/13/2019 06:50:22.848]	Prepare start - check if started. Port number: 0
+[11/13/2019 06:50:22.848]	Prepare start - create folders. Port number: 0
+[11/13/2019 06:50:22.850]	Prepare start - change LD_LIBRARY_PATH. Port number: 0
+[11/13/2019 06:50:22.850]	Prepare start - ended. Port number: 0
+[11/13/2019 06:50:23.861]	Natural Development Server (2800) started. (Parameters: -onert -q -p2800 PARM=ONEPARM DFS=(NATSRV2800,localhost:1971,L,,NOSERVDIR) WEBIO=ON -start=/opt/softwareag_complete/Designer/eclipse/./../../naturalone/natrun/bin/natrt)
+[11/13/2019 06:50:23.870]	Listener has been started. Port number: 2800

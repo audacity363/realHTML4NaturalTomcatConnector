@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.MFActivitiesAdapter" occupiedpixelheight="0" occupiedpixelwidth="0" translationreference="workplace">
+    <dlmenu menuprop="menuData">
+    </dlmenu>
+    <pagebody horizdist="false" hscroll="hidden" vscroll="hidden">
+        <itr itrclass="WORKPLACEBelowTitle" width="100%">
+            <coltable0>
+                <itr>
+                    <icon image="images/closecornersmall.gif" method="onCloseAll" titletextid="wrkplace.icon0" visibleprop="closeAllVisible">
+                    </icon>
+                </itr>
+            </coltable0>
+            <coltable0 width="100%">
+                <tabstrip align="right" selectedindexprop="selectedActivity" selectmethod="onSelectActivity" valueprop="activities">
+                </tabstrip>
+            </coltable0>
+        </itr>
+        <rowdiv divclass="WORKPLACEBelowTitle" height="100">
+        </rowdiv>
+    </pagebody>
+</page>

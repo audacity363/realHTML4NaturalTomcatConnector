@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.DocumentationAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="documentationMaintain.titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button image="../HTMLBasedGUI/images/edit.gif" method="onEdit" textidprop="documentationMaintain.button0" visibleprop="editVis">
+        </button>
+    </header>
+    <pagebody takefullheight="true">
+        <vsplit height="100%" widthleft="250">
+            <splitcell takefullheight="true">
+                <clienttree height="100%" selectionvisible="true" treecollectionprop="tree" withplusminus="true">
+                </clienttree>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr height="100%" width="100%">
+                    <subpage height="100%" scrolling="yes" valueprop="tagDescription" width="100%">
+                    </subpage>
+                </itr>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+</page>

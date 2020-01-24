@@ -1,0 +1,16 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+define data
+    parameter
+        1 http-req-type (A) DYNAMIC
+        1 rh4n-internals (B) DYNAMIC
+    local using mbnltest
+end-define
+
+call interface4 'rhgetbo' rh4n-internals 'input-grp@MBNLTEST' input-grp
+
+call interface4 'rhgenjs' rh4n-internals 'input-grp@MBNLTEST' input-grp
+
+END

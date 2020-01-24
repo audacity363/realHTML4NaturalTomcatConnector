@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.XMLTreeviewMultipleAdapter">
+    <pagebody horizdist="false" takefullheight="true">
+        <itr takefullwidth="true" height="100%" fixlayout="true">
+            <textgridsss2 griddataprop="multipleNodes" rowcount="15" width="100%" height="100%" hscroll="true" showemptylines="false">
+                <csvcolumn titlesprop="columnTitles" valuesprop="columnValues" widthsprop="columnWidths">
+                </csvcolumn>
+            </textgridsss2>
+        </itr>
+    </pagebody>
+</page>

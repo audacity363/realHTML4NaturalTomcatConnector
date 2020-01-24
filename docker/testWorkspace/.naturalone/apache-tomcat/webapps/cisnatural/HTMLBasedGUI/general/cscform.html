@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+  <form method="POST" action="../../servlet/Connector" id="ApperConnector" name="ApperConnector">
+    <input type="text" name="SESSIONID" id="SESSIONID" value="1234321">
+    <input type="text" name="PAGEINITPARAM" id="PAGEINITPARAM">
+    <textarea name="XML" id="XML"><model></model></textarea>
+    <input type="text" name="STAMP" id="STAMP" value="INIT">
+  </form>
+
+<script>
+if (parent.reactOnInit == undefined) alert("SEVERE PROBLEM:\nThe JS-libraries required by this page could not be loaded. This problem typically occurs when not having regenerated the layout definitions.");
+parent.reactOnInit();
+function submitPost() { document.getElementById("ApperConnector").submit(); }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="DummyAdapter" stylesheetfile="../cis/styles/CIS_DEV.css" translationreference="editor">
+    <pagebody takefullheight="true">
+        <tr height="100%">
+            <icon align="center" image="images/emptyfujitsu.gif" valign="middle">
+            </icon>
+            <hdist width="50">
+            </hdist>
+        </tr>
+        <vdist height="50">
+        </vdist>
+        <itr align="right" height="0" width="100%">
+            <label align="right" asplaintext="true" labelstyle="font-size: 11px; color: #A00000" textalign="right" textid="ribpmempty.label0">
+            </label>
+            <hdist width="10">
+            </hdist>
+        </itr>
+    </pagebody>
+</page>

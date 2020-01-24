@@ -1,23 +1,30 @@
-CC = /usr/vac/bin/xlc
+#CC = /usr/vac/bin/xlc
+CC = gcc
 AR = /usr/bin/ar
-JAR = /SAG/cjp/v16/bin/jar
-JAVAC = /SAG/cjp/v16/bin/javac
-JAVAH = /SAG/cjp/v16/bin/javah
+JAR = jar
+#JAR = /SAG/cjp/v16/bin/jar
+#JAVAC = /SAG/cjp/v16/bin/javac
+JAVAC = javac
+#JAVAH = /SAG/cjp/v16/bin/javah
+JAVAH = javah
 
 #XLC:
-LFLAGS1_SO = -G
-LFLAGS2_SO = 
-
-#GCC:
-#LFLAGS1_SO = -shared 
+#LFLAGS1_SO = -G
 #LFLAGS2_SO = 
 
+#GCC:
+LFLAGS1_SO = -shared 
+LFLAGS2_SO = 
 
-TOMCATCLASSPATH = /opt/tomcat/apache-tomcat-8.5.24/lib/servlet-api.jar:/opt/tomcat/apache-tomcat-8.5.24/lib/jsp-api.jar
-RH4NCLASSPATH = ./servlet/web/WEB-INF/lib/realHTMLconnector.jar:./servlet/web/WEB-INF/lib/minimal-json-0.9.5.jar:./servlet/web/WEB-INF/lib/commons-io-1.3.2.jar:./bin/servlet/lib
+TOMCAT_INSTALLATION = /home/tom/Documents/Java/apache-tomcat-9.0.16
+#TOMCAT_INSTALLATION = /opt/tomcat/apache-tomcat-8.5.24
+
+TOMCATCLASSPATH = $(TOMCAT_INSTALLATION)/lib/servlet-api.jar:$(TOMCAT_INSTALLATION)/lib/jsp-api.jar
+RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar:./java/Connector/WebContent/WEB-INF/lib/minimal-json-0.9.5.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
-JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
+#JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
+JNIINCLUDE = -I/usr/lib/jvm/java-8-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux
 
 
 INCLUDE = -I./realHTML4NaturalCore/include/ \
@@ -35,14 +42,14 @@ LIBS = -L./realHTML4NaturalCore/bin/libs \
 	   -lrh4njsongenerator -lcrypt
 
 #XLC:
-CARGS1 = -g -c -fpic $(INCLUDE)
-CARGS2 = 
-CARGS_SO = -c -g -fpic $(INCLUDE)
-
-#GCC:
 #CARGS1 = -g -c -fpic $(INCLUDE)
 #CARGS2 = 
 #CARGS_SO = -c -g -fpic $(INCLUDE)
+
+#GCC:
+CARGS1 = -g -c -fpic $(INCLUDE)
+CARGS2 = 
+CARGS_SO = -c -g -fpic $(INCLUDE)
 
 help:
 	@printf "Targets:\n"
@@ -66,8 +73,7 @@ help:
 	@printf "\t| jniheader                                                  |\n"
 	@printf "\t|   Generates JNI header file required by the JNI Library    |\n"
 	@printf "\t+------------------------------------------------------------+\n\n"
-	@printf "\tall: Compiles everything\n"
-
+	@printf "\tall: Compiles everything\n" 
 all: core jnilibrary tomcatconnector_warfile 
 	@printf "You find the binarys under ./bin\n"
 
@@ -78,7 +84,7 @@ core:
 #-------------------------| Tomcat Connector|----------------------------------
 #                         +-----------------+
 
-TOMCONNECTOR_SRC = ./servlet/src
+TOMCONNECTOR_SRC = ./java/Connector/src
 TOMCONNECTOR_LIB_BIN = ./bin/servlet/lib
 
 JAVA_JSON_PARSER_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/JSONMatcher
@@ -146,7 +152,7 @@ TOMCAT_SERVLETS = $(TOMCONNECTOR_SRC)/RealHTMLInit.java \
 
 TOMCAT_SERVLETS_BIN = ./bin/servlet/servlets
 
-WARFILE_PREFIX = ./servlet/web
+WARFILE_PREFIX = ./java/Connector/WebContent
 
 tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_pre
 	@printf "Compiling realHTML.servlet.exceptions\n"
@@ -174,7 +180,7 @@ tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_p
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_UTILS_PACKAGE)
 
 	@printf "Creating realHTMLconnector.jar\n"
-	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../servlet/web/WEB-INF/lib/realHTMLconnector.jar ./realHTML
+	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
 	
 tomcatconnector_package_pre:
 	@printf "Creating tomcatconnector package output folder\n"
@@ -205,7 +211,7 @@ tomcatconnector_servlet_clean:
 tomcatconnector_warfile: jnilibrary tomcatconnector_package tomcatconnector_servlet \
 						 tomcatconnector_warfile_pre tomcatconnector_warfile_clean
 	@printf "Creating realHTML4Natural.war\n"
-	@cd $(WARFILE_PREFIX); $(JAR) cvf ../../bin/realHTML4Natural.war .
+	@cd $(WARFILE_PREFIX); $(JAR) cvf ../../../bin/realHTML4Natural.war .
 
 tomcatconnector_warfile_pre:
 	@printf "Creating warfile output folder\n"

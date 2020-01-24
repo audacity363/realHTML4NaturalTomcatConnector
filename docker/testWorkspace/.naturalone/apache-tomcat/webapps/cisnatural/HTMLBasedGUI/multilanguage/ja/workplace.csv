@@ -1,0 +1,21 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+mfwrkplace.dropicon0;ごみ箱
+mfwrkplace.dropicon1;ごみ箱
+onCloseAll;すべてのウィンドウを閉じる
+onTakeOut;現在のページをポップアップウィンドウで開く
+stripseltoleft;左へスクロール
+stripseltoright;右へスクロール 
+wrkplace.icon0;すべてのウィンドウを閉じる
+wrkplace.titlebar0;ワークプレース    
+wrkplace.titlebar1;ワークプレース    
+wrkplace.titlebar2;ワークプレース    
+wrkplace.titlebar4;ワークプレース   
+closePage;ページを閉じる
+mess.err.maxworkplaceactivities;これ以上エディタを開くことはできません。エディタを閉じてもう一度実行してください。
+mess.err.title;メッセージ
+mess.noswitchback;スイッチバックはできません。
+mess.popupClosed;なにも選択されないでポップアップメニューが閉じられました。
+mess.selecttree;はできません。すべてを選択するか、サブツリーのサブアイテムをまったく選択しないかのどちらかにしてください。 
+mess.removeyesno;このファイルを削除してよろしいですか?
+mfwrkplace.rename;ページの名前を変更...
+mfwrkplace.remove;ファイルの削除...

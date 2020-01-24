@@ -1,0 +1,29 @@
+0010/*C               S                *  <SAG_Comment: Start of original source text.>                   DA:00.00ED:00.00PF:UNV:09010100
+0020/*C               S                *  <TBI=;>
+0030/*C               S                *  DEFINE DATA LOCAL
+0040/*C               S                *  /** New Local Data Area LSYSINFO.;
+0050/*C               S                *  /**;
+0060/*C               S                *  /** :author tom;
+0070/*C               S                *  /* TODO Enter your data definitions here;
+0080/*C               S                *  1 sysinfos;
+0090/*C               S                *  	2 os (A) DYNAMIC;
+0100/*C               S                *  	2 osvers (A) DYNAMIC;
+0110/*C               S                *  	2 hostname (A) DYNAMIC;
+0120/*C               S                *  	2 hardware (A) DYNAMIC;
+0130/*C               S                *  	2 library (A) DYNAMIC;
+0140/*C               S                *  	2 program (A) DYNAMIC;
+0150/*C               S                *  	2 user (A) DYNAMIC;
+0160/*C               S                *  END-DEFINE;
+0170/*C               S                *  <SAG_Comment: End of original source text.>
+0180/*C               O                */** New Local Data Area LSYSINFO.
+0190/*C               O                */**
+0200/*C               O                */** :author tom
+0210/*C               O     s here     */* TODO Enter your data definition
+0220/*C                     MIC < found*Error, after name > 	2 os (A) DYNA!
+0230/*C                                *	2 os (A) DYNAMIC
+0240/*C                                *	2 osvers (A) DYNAMIC
+0250/*C                                *	2 hostname (A) DYNAMIC
+0260/*C                                *	2 hardware (A) DYNAMIC
+0270/*C                                *	2 library (A) DYNAMIC
+0280/*C                                *	2 program (A) DYNAMIC
+0290/*C                                *	2 user (A) DYNAMIC

@@ -1,0 +1,26 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=en DO NOT EDIT BY HAND!;
+MsgUnsavedDataLost;Changed data will get lost. Do you really want to change the scenario?
+areaMaintenance;Visiblity
+areaStatusMaintenance;Edit Status
+btnBack;Close
+btnBackToEdit;Back
+btnChangeScenario;Change Scenario...
+btnNewProposal;New
+btnRemoveProposal;Remove
+btnRemoveValue;Clear
+btnSave;Save and Close
+columnText;Scenario
+lblAccessPath;Name
+lblEditStatus;Edit Status
+lblEditStatusDISPLAY;Display
+lblEditStatusINVISIBLE;Invisible
+lblIsInvisible;Invisible
+lblIsNotAssigned;Not personalized
+lblIsVisible;Visible
+lblScenario;Scenario:
+lblValue;Value
+lblVisibility;Visibility
+lblmultiscenariosave;Please specify scenario inside your scenario sequence for saving the data.
+tabFilter;Customized Layout
+tabProposal;Customized Proposals
+title;Personalization Filter

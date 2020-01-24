@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <var name="width" value="660" />
+    <var name="backgroundurl" value="images/multiline_bkgd.png" />
+    <var name="eventflag.small" value="images/flag.small.png" />
+    <var name="eventflag.medium" value="images/flag.medium.png" />
+    <var name="eventflag.large" value="images/flag.large.png" />
+</settings>

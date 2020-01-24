@@ -1,0 +1,10 @@
+<xmlmenu>
+	<menunode name="File">
+	    <menunode name="Save" method="onSave"/>
+	    <menunode name="Close"/>
+	</menunode>
+	<menunode name="Edit">
+	    <menunode name="Cut"/>
+	    <menunode name="Paste"/>
+	</menunode>
+</xmlmenu>

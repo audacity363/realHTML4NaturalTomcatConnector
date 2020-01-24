@@ -1,0 +1,12 @@
+0001define data
+0002    parameter
+0003        1 http-req-type (A) DYNAMIC
+0004        1 rh4n-internals (B) DYNAMIC
+0005    local using mbnltest
+0006end-define
+0007
+0008call interface4 'rhgetbo' rh4n-internals 'input-grp@MBNLTEST' input-grp
+0009
+0010call interface4 'rhgenjs' rh4n-internals 'input-grp@MBNLTEST' input-grp
+0011
+0012END

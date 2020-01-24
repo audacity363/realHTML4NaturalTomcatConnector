@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="DummyAdapter" translationreference="editor" darkbackground="true">
+    <titlebar name="Application Designer - Closed Page" closetitletextid="closePage">
+    </titlebar>
+    <pagebody>
+        <vdist height="70">
+        </vdist>
+        <itr>
+            <hdist width="20">
+            </hdist>
+        </itr>
+        <vdist height="40">
+        </vdist>
+        <itr>
+            <hdist width="200">
+            </hdist>
+            <icon image="images/acendprocess.gif" imagewidth="100" imageheight="250">
+            </icon>
+            <label name="Application has been Closed." width="100%" asplaintext="true" textalign="left" labelstyle="color:#000000;font-weight:bold;font-family:Verdana;font-size:18">
+            </label>
+        </itr>
+        <vdist height="20">
+        </vdist>
+        <itr>
+            <hdist width="20">
+            </hdist>
+            <label asplaintext="true">
+            </label>
+        </itr>
+        <itr>
+            <hdist width="20">
+            </hdist>
+            <label asplaintext="true">
+            </label>
+        </itr>
+        <vdist>
+        </vdist>
+    </pagebody>
+</page>

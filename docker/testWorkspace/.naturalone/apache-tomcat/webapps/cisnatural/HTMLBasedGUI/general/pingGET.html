@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ping</title>
+</head>
+
+<body>
+  <form method="GET" action="../../servlet/Ping" id="PING" name="PING">
+    <input type="edit" name="SESSIONTIMESTAMP" id="SESSIONTIMESTAMP" size="16" value="ABCDE">
+    <input type="button" onclick="submitPing();" value="Get">
+  </form>
+</body>
+
+</html>
+
+<script>
+function submitPing()
+{
+	var vDate = new Date();
+	var vs = vDate.getMinutes()+"/"+vDate.getSeconds()+"/"+vDate.getMilliseconds();
+	document.getElementById("SESSIONTIMESTAMP").value = vs;
+	document.getElementById("PING").submit();
+}
+</script>

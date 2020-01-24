@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.popups.PopupYesNoModel" translationreference="popups" popupwidth="310" popupheight="200">
+    <pagebody takefullheight="true">
+        <vdist height="5">
+        </vdist>
+        <itr width="100%" align="center">
+            <textout valueprop="question" width="100%" height="100" align="center">
+            </textout>
+        </itr>
+        <vdist height="5">
+        </vdist>
+        <itr align="center">
+            <button textid="btnYes" method="reactOnYes">
+            </button>
+            <hdist width="10">
+            </hdist>
+            <button textid="btnNo" method="reactOnNo">
+            </button>
+        </itr>
+        <vdist height="5">
+        </vdist>
+    </pagebody>
+</page>

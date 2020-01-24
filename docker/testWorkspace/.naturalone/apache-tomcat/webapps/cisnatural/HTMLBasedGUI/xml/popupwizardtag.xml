@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page darkbackground="true" ispopup="true" model="com.softwareag.cis.popups.PopupWizardModel" popupheight="520" popupwidth="500" titletextid="popupwiz.page2" translationreference="popups">
+    <pagebody horizdist="false" hscroll="auto" takefullheight="true" vscroll="auto">
+        <rowtable0 height="100%">
+            <vdist backgroundstyle="background-color: #FFFFFF" height="7">
+            </vdist>
+            <itr itrstyle="background-color: #FFFFFF">
+                <hdist width="10px">
+                </hdist>
+                <coltable0 width="100%">
+                    <itr fixlayout="true" height="25" width="100%">
+                        <textout height="20" textsize="4" valueprop="actRange" width="100%">
+                        </textout>
+                    </itr>
+                    <itr fixlayout="true" height="36" width="100%">
+                        <textout height="24" valueprop="actRangeShortDesc" width="100%">
+                        </textout>
+                    </itr>
+                </coltable0>
+                <hdist width="10px">
+                </hdist>
+                <coltable0 takefullheight="true" width="61">
+                    <itr height="100%" width="100%">
+                        <imageout valueprop="rangeImage">
+                        </imageout>
+                    </itr>
+                </coltable0>
+                <hdist width="10px">
+                </hdist>
+            </itr>
+            <vdist backgroundstyle="background-color: #FFFFFF" height="2">
+            </vdist>
+            <vdist backgroundstyle="background-color: #808080" height="1px">
+            </vdist>
+            <itr height="100%">
+                <hdist width="10px">
+                </hdist>
+                <coltable0 takefullheight="true" width="100%">
+                    <vdist height="10px">
+                    </vdist>
+                    <rowtablearea2 firstrowcolwidths="true" griddataprop="attrLines" rowcount="10" tablestyle="background-color: #F7F3EF" vscroll="auto" width="100%" withborder="false">
+                        <repeat>
+                            <tr visibleprop="lineVisible">
+                                <methodlink linkstyle="text-decoration: none; color: #000000" method="onAttributeClick" valueprop="attribute" width="150">
+                                </methodlink>
+                                <field helpid="attribute.html" popupmethod="openIdValueCombo" popupprop="popupAvailable" statusprop="attrValueStatus" valueprop="value" width="100%">
+                                </field>
+                            </tr>
+                        </repeat>
+                    </rowtablearea2>
+                    <vdist height="10px">
+                    </vdist>
+                    <rowscrollarea height="100%" takefullwidth="true">
+                        <tr>
+                            <ihtml valueprop="attributeDescription">
+                            </ihtml>
+                        </tr>
+                    </rowscrollarea>
+                    <vdist height="10px">
+                    </vdist>
+                </coltable0>
+                <hdist width="10px">
+                </hdist>
+                <coltable0 tablestyle="border-left: 1px #808080 solid" takefullheight="true" width="130">
+                    <rowtablearea2 griddataprop="tagRange" height="100%" rowcount="8" vscroll="auto" width="100%" withborder="false">
+                        <vdist backgroundstyle="background-color: #FFFFFF" height="10px">
+                        </vdist>
+                        <repeat>
+                            <str valueprop="selected">
+                                <hdist width="10">
+                                </hdist>
+                                <methodlink linkstyle="text-decoration: none; color: #000000; " method="onTagRangeClick" valign="middle" valueprop="tagRangeValue" width="100%">
+                                </methodlink>
+                                <hdist width="10">
+                                </hdist>
+                            </str>
+                        </repeat>
+                    </rowtablearea2>
+                </coltable0>
+            </itr>
+            <vdist backgroundstyle="background-color: #808080" height="1px">
+            </vdist>
+            <vdist height="5px">
+            </vdist>
+            <itr height="30" width="100%">
+                <hdist width="100%">
+                </hdist>
+                <button invisiblemode="disabled" method="onBack" textid="backBttn" visibleprop="backSelectable" width="50">
+                </button>
+                <hdist>
+                </hdist>
+                <button invisiblemode="disabled" method="onNext" textid="nextBttn" visibleprop="nextSelectable" width="50">
+                </button>
+                <hdist width="10">
+                </hdist>
+                <icon image="../HTMLBasedGUI/images/distance.gif">
+                </icon>
+                <hdist width="10">
+                </hdist>
+                <button method="onSave" textid="finishBttn" width="50">
+                </button>
+                <hdist>
+                </hdist>
+                <button method="onQuit" textid="cancelBttn" width="50">
+                </button>
+                <hdist width="13">
+                </hdist>
+            </itr>
+            <vdist height="5px">
+            </vdist>
+        </rowtable0>
+    </pagebody>
+</page>

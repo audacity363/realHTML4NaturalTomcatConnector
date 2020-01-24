@@ -1,5 +1,166 @@
 #!/bin/bash
 
+TOMCATVERSION="9.0.27";
+
+function buildRh4n {
+    make all
+    if [[ $? -ne 0 ]]; then
+        exit 1;
+    fi
+}
+
+function rebuildDockerImage {
+    docker rmi -f natural:rh4n
+    if [[ $? -ne 0 ]]; then
+        exit 1;
+    fi
+
+    docker build -t natural:rh4n -f ./docker/Dockerfile .
+    if [[ $? -ne 0 ]]; then
+        exit 1;
+    fi
+}
+
+
+#$1 = url 
+function callGetTest {
+    curl  --header "Content-Type: application/json" $1
+}
+
+#$1 = url
+#$2 = body data
+function callPostTest {
+    curl  --header "Content-Type: application/json" -X POST --data $2 -o /tmp/testoutput.html $1
+    google-chrome --incognito --app=file:///tmp/testoutput.html
+}
+
+function showCatalinaLog {
+    docker exec rh4ntest cat /srv/apache-tomcat-$TOMCATVERSION/logs/catalina.out
+}
+
+#$1 = library
+#$2 = program
+#$3 = tail?
+function showProgramLog {
+    logfilename="/srv/rh4n/logs/rh4n_$1_$2_"`date +"%d.%m.%Y"`".log";
+
+    if [[ $3 = "true" ]]; then
+        docker exec -it rh4ntest tail -f $logfilename
+    else
+        docker exec rh4ntest cat $logfilename
+    fi
+}
+
+function runDockerContainer {
+    docker ps | grep rh4ntest 2>&1 1>/dev/null
+    if [[ $? -eq 0 ]]; then
+        docker kill rh4ntest
+    fi
+
+    docker run --rm -d -p8080:8080 -p2700:2700 -v `pwd`/docker/fuser:/opt/softwareag/Natural/fuser --name rh4ntest natural:rh4n
+    if [[ $? -ne 0 ]]; then
+        exit 1;
+    fi
+
+    docker cp ./bin/realHTML4Natural.war rh4ntest:/srv/apache-tomcat-$TOMCATVERSION/webapps/realHTML4Natural.war
+    docker cp ./realHTML4NaturalCore/bin/librealHTML4Natural.so rh4ntest:/srv/rh4n/librealHTML4Natural.so
+}
+
+
+GETURL="http://localhost:8080/realHTML4Natural/nat/test/help";
+GETLIB="TESTLIB";
+GETPROG="TESTPROG";
+POSTURL="http://localhost:8080/realHTML4Natural/nat/test/mbn";
+POSTLIB="TESTLIB";
+POSTPROG="MBNSTEST";
+POSTDATA="{}";
+
+POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+    key="$1";
+    case $key in
+        --url)
+            GETURL=POSTURL="$2";
+            shift; shift;
+            ;;
+        --gurl)
+            GETURL="$2";
+            shift; shift;
+            ;;
+        --purl)
+            POSTURL="$2";
+            shift; shift;
+            ;;
+        --lib):
+            GETLIB=POSTLIB="$2";
+            shift; shift;
+            ;;
+        --glib)
+            GETLIB=POSTLIB="$2";
+            shift; shift;
+            ;;
+        --plib)
+            GETLIB=POSTLIB="$2";
+            shift; shift;
+            ;;
+        --prog):
+            GETLIB=POSTLIB="$2";
+            shift; shift;
+            ;;
+        --gprog)
+            GETLIB="$2";
+            shift; shift;
+            ;;
+        --pprog)
+            POSTLIB="$2";
+            shift; shift;
+            ;;
+        --data)
+            POSTDATA="$2";
+            shift; shift;
+            ;;
+        *)
+            POSITIONAL+=("$1");
+            shift;
+            ;;
+    esac
+done
+
+set -- "${POSITIONAL[@]}";
+
+if [[ $# -eq 0 ]]; then
+    buildRh4n;
+    runDockerContainer;
+    callPostTest $POSTURL $POSTDATA;
+    showCatalinaLog
+    showProgramLog $POSTLIB $POSTPROG "false";
+    exit 0;
+fi
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        showCatalinaLog)
+            showCatalinaLog 
+            shift;
+            ;;
+        buildDockerImage)
+            rebuildDockerImage;
+            shift;
+            ;;
+        runDockerContainer)
+            runDockerContainer;
+            shift
+            ;;
+        *)
+            echo "Usage: $0 showCatalinaLog|buildDockerImage"
+            shift;
+            ;;
+    esac
+done
+
+exit 0
+
 make all
 
 logfilename="/srv/rh4n/logs/rh4n_TESTLIB_TESTPROG_"`date +"%d.%m.%Y"`".log";
@@ -7,8 +168,8 @@ logfilename="/srv/rh4n/logs/rh4n_TESTLIB_TESTPROG_"`date +"%d.%m.%Y"`".log";
 #docker rmi -f natural:rh4n
 #docker build -t natural:rh4n -f ./docker/Dockerfile .
 
-docker run --rm -d -p8080:8080 -p2700:2700 -v `pwd`/docker/fuser:/opt/softwareag/Natural/fuser --name rh4ntest natural:rh4n
-docker cp ./bin/realHTML4Natural.war rh4ntest:/srv/apache-tomcat-9.0.24/webapps/realHTML4Natural.war
+docker cp ./bin/realHTML4Natural.war rh4ntest:/srv/apache-tomcat-9.0.27/webapps/realHTML4Natural.war
+docker cp ./realHTML4NaturalCore/bin/librealHTML4Natural.so rh4ntest:/srv/rh4n/librealHTML4Natural.so
 
 sleep 2
 
@@ -17,7 +178,7 @@ echo "==========================================================================
 curl http://localhost:8080/realHTML4Natural/nat/test/help
 echo "============================================================================="
 
-docker exec rh4ntest cat /srv/apache-tomcat-9.0.24/logs/catalina.out
+docker exec rh4ntest cat /srv/apache-tomcat-9.0.27/logs/catalina.out
 docker exec rh4ntest cat $logfilename
 
 #docker kill rh4ntest

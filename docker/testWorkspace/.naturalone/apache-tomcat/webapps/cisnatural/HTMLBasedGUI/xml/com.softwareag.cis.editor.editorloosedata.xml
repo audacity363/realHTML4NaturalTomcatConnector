@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.LooseDataModel" translationreference="CIS_EDIT" popupwidth="350px" popupheight="150px">
+    <pagebody vscroll="false" pageheightminus="74" verticalscrollbar="true">
+        <vdist height="10">
+        </vdist>
+        <itr width="100%">
+            <hdist width="50%">
+            </hdist>
+            <label textid="loosedataQuestion" width="290" asplaintext="true" height="50">
+            </label>
+            <hdist width="50%">
+            </hdist>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr width="100%">
+            <hdist width="50%">
+            </hdist>
+            <button textid="loosedataSave" method="saveData">
+            </button>
+            <hdist>
+            </hdist>
+            <button textid="loosedataLoose" method="looseData">
+            </button>
+            <hdist>
+            </hdist>
+            <icon image="../HTMLBasedGUI/images/distance.gif">
+            </icon>
+            <hdist>
+            </hdist>
+            <button textid="loosedataCancel" method="goBack">
+            </button>
+            <hdist width="50%">
+            </hdist>
+        </itr>
+        <vdist height="10">
+        </vdist>
+    </pagebody>
+</page>

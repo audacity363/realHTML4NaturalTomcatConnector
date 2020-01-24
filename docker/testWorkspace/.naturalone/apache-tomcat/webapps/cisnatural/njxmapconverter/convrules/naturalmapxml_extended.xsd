@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ================================================================ -->
+<!--                EXTENDED MAPXML SCHEMA                                                                   -->
+<!--    The first step during map conversion is identifying grid and sequence areas. These       -->
+<!--    areas can be converted to Application Designer complex controls like grids.                -->
+<!--    The following XML Schema describes a Natural mapxml after this area identification     -->
+<!--    step.                                                                                                                     -->
+<!--    All conversion rules must be based on this schema. The conversion rules use XPATH  -->
+<!--    expressions in the conversion rules. In NJX12 the following XPATH expressions           -->
+<!--    are supported:                                                                                                        -->
+<!--    1)  On elements with the exception of <row> and children of <row> all XPATH             -->
+<!--         expressions supported by the Software AG SDO implementation can used.           -->
+<!--    2)  For the <row> element and all the children of row the followoing XPATH                  -->
+<!--         expressions are supported:                                                                                -->
+<!--         a) XPATH expressions for children of row starting with /                                        -->
+<!--             Examples: //ifAD  //emptyArea                                                                       -->
+<!--         b) some supported "shortcuts": ifField ltLiteral gridArea sequenceArea                  -->
+<!--             Examples: gridArea//gridHeader gridArea//ifField                                             -->
+<!--                                                                                                                              -->
+<!-- ================================================================ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:me="http://www.softwareag.com/nat/mapxml4sdo" targetNamespace="http://www.softwareag.com/nat/mapxml4sdo" elementFormDefault="qualified">
+	<xs:include schemaLocation="mapiffield.xsd"/>
+	<xs:include schemaLocation="mapltliteral.xsd"/>
+	<xs:include schemaLocation="mapdffield.xsd"/>
+	<xs:include schemaLocation="mapareas.xsd"/>
+	<xs:element name="map">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="identity" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="idDBID" type="xs:int" minOccurs="0"/>
+							<xs:element name="idFNR" type="xs:int" minOccurs="0"/>
+							<xs:element name="idLibrary" type="xs:string" minOccurs="0"/>
+							<xs:element name="idName" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="mpParms" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="mpAD" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpAL" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpCD" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpDF" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpDL" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpEM" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpFL" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpIP" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="mpLS" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpMC" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpMS" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="mpNL" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpPC" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpPM" type="xs:string" minOccurs="0"/>
+							<xs:element name="mpPS" type="xs:int" minOccurs="0"/>
+							<xs:element name="mpSG" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="mpZP" type="xs:boolean" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="define" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="me:dfField" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="input" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ipParms" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ipAD" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipAL" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipBX" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipCD" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipCV" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipCVIndex" minOccurs="0" maxOccurs="3">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ipCVOffset" type="xs:int"/>
+													<xs:element name="ipCVBaseIndex" type="xs:int" minOccurs="0"/>
+													<xs:element name="ipCVBaseField" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ipDC" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipDF" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipDL" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipDY" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipEM" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipFL" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipHE" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipIP" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="ipLS" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipMC" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipMS" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="ipNL" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipPC" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipPM" type="xs:string" minOccurs="0"/>
+										<xs:element name="ipPS" type="xs:int" minOccurs="0"/>
+										<xs:element name="ipSG" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="ipZP" type="xs:boolean" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="row" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:choice maxOccurs="unbounded">
+											<xs:element ref="me:ltLiteral"/>
+											<xs:element ref="me:ifField"/>
+											<xs:element ref="me:gridArea"/>
+											<xs:element ref="me:sequenceArea"/>
+											<xs:element ref="me:emptyArea"/>
+										</xs:choice>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

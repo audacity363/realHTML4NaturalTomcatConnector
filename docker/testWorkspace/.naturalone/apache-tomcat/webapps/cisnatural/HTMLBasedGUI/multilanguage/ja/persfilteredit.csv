@@ -1,0 +1,26 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+MsgUnsavedDataLost;変更されたデータは失われます。 シナリオを変更しますか。
+areaMaintenance;表示
+areaStatusMaintenance;状態の編集
+btnBack;閉じる
+btnBackToEdit;戻る
+btnChangeScenario;シナリオの変更...
+btnNewProposal;新規
+btnRemoveProposal;削除
+btnRemoveValue;クリア
+btnSave;保存して閉じる
+columnText;シナリオ
+lblAccessPath;名前
+lblEditStatus;状態の編集
+lblEditStatusDISPLAY;表示
+lblEditStatusINVISIBLE;非表示
+lblIsInvisible;非表示
+lblIsNotAssigned;非パーソナル化
+lblIsVisible;表示
+lblScenario;シナリオ:
+lblValue;値
+lblVisibility;表示
+lblmultiscenariosave;データを保存するシナリオをシナリオシーケンス内に指定してください。
+tabFilter;カスタマイズされたレイアウト
+tabProposal;カスタマイズされた提案
+title;パーソナライズフィルタ

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<natpage xmlns:njx="http://www.softwareag.com/njx/njxMapConverter" natsource="$$NATSOURCE$$" natsinglebyte="true">
+	<titlebar name="$$TITLEVAR$$" align="center">
+    </titlebar>
+	<pagebody>
+		<njx:njxvariable name="MAPROOT"/>
+		<itr>
+		   <njx:njxvariable name="BUTTONVAR"/>
+		</itr>		
+	</pagebody>
+	<statusbar withdistance="false"/>
+</natpage>

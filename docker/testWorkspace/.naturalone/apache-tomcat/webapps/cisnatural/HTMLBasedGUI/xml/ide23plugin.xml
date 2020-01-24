@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfpage separation="rows" sizing="79,*,20" border="0" frameborder="false">
+    <mfhtmlframe target="top" url="workplace/wp23headeride.html" resizable="false" scrolling="false">
+    </mfhtmlframe>
+    <mfframeset target="middle" separation="cols" sizing="35,*,30" border="0" frameborder="false">
+        <mfhtmlframe target="left" url="workplace/wp23aroundleft.html" resizable="false" scrolling="false">
+        </mfhtmlframe>
+        <mfcisframe target="center" cisurl="../HTMLBasedGUI/MFIDE23.html&amp;amp;hideProjectTree=1" withborder="false" withownborder="false" marginwidth="0">
+        </mfcisframe>
+        <mfhtmlframe target="right" url="workplace/wp23aroundright.html" resizable="false" scrolling="false">
+        </mfhtmlframe>
+    </mfframeset>
+    <mfhtmlframe target="bottom" url="workplace/wp23aroundbottom.html" resizable="false" scrolling="false">
+    </mfhtmlframe>
+</mfpage>

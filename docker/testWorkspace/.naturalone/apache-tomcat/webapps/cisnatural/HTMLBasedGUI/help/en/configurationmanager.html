@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body style="font-size: 12px; font-family: Verdana">
+
+<h2>CIS Configuration Files/ Upgrade Procedure&nbsp;</h2>
+<h3><b>Motivation</b></h3>
+<p>CIS Server comes along wit a set of configuration files.</p>
+<p><b>Configuration Files</b></p>
+<ul>
+  <li>softwareag/config/cisconfig.xml</li>
+  <li>softwareag/config/controllibraries.xml</li>
+  <li>softwareag/config/controlwizard.xml</li>
+  <li>softwareag/config/editortemplates.xml</li>
+  <li>softwareag/config/startapps.xml</li>
+  <li>WEB-INF/web.xml</li>
+</ul>
+<p>After installation of a CIS Server build the files contain the default
+configuration settings. Typically you change one or more settings over time
+(e.g. you change parameter session timeout in file cisconfig). Problem: you
+loose this changes if you (re-)install a CIS Server build over the existing
+installation. </p>
+<h3>The former upgrade procedure</h3>
+<p>Up to release 2.5 there was no secure (re-)installation over an existing
+installation. The standard work around: you&nbsp; did not (re-)install a CIS Server
+build over an existing installation. The new build was installed into a separate
+directory with a certain take over procedure (copy/ paste) of the new resources
+into the existing installation. With that procedure two new problems were coming
+up: </p>
+<ol>
+  <li>No Complete Take Over<br>
+    Sometimes only parts of the new CIS Server resources were took over. With
+    that you got a buggy mix out of the new and old CIS Server build. <br>
+  </li>
+  <li>No Take Over of new Configuration Settings<br>
+    CIS may update the configuration files. Especially if you install a new
+    release there is a high change that our configuration files has changed.
+    For example: with release 2.5 we added a servlet &quot;<font SIZE="2">StartMessagePage&quot;</font>.
+    This servlet must be registered within your web.xml. Often the configuration
+    updates were not take over to the existing installation.</li>
+</ol>
+<h3>Configuration Manager</h3>
+<p>The Configuration Manager is a tool to ensure a secure upgrade of an existing
+CIS Server installation. Use the Configuration Manager to directly install a new
+build over an existing installation. We recommend making you familiar with
+this upgrade procedure on a dummy installation first. Please follow the
+following instruction closely:</p>
+<h4><b>Step 1: Create Safety Copies</b></h4>
+<p>Before installation of the new build create a safety copy of each
+configuration file. Use menu item &quot;File -&gt; Create Safety Copies&quot;
+within the drop down menu inside the page header. </p>
+<p align="center"><br>
+<img border="0" src="configmgr_saftey.gif"><br>
+<br>
+<b>Create Safety Copies</b> </p>
+<p>The name of a safety copy is built out of the name of the origin file plus an
+additional extension (timestamp of creation). The safety copy is stored within
+the directory of the origin file. The File Overview Screen will show the new
+copies at once. Shutdown your application server.</p>
+<h4><b>Step 2: Install new build</b></h4>
+<p>Extract the new build over the existing installation. Your config files are
+replaced by the CIS ones. The safety copies will still exist.<br>
+</p>
+<h4><b>Step 3: Merge Current File with Safety Copy</b></h4>
+<p>For each configuration file check if there are differences between the
+current file and the safety copy. If there are differences: the safety copy
+contains your settings - the current file contains the CIS ones. Now take
+over your settings into the current configuration file (file merge). The
+Configuration Manager supports this step (certainly you can use your own file
+merge tool). Within the File Overview click the safety copy with the right mouse
+button. A popup menu appears. </p>
+<p align="center"><img border="0" src="configmgr_fileoverview.gif"><br>
+<br>
+<b>Switch to File Compare Screen</b></p>
+<p>Select &quot;Compare&quot; to switch into the File Compare Screen. At the left hand you see the current file - at the right hand the safety
+copy. To see differences click button &quot;View Differences&quot; at the
+bottom of the page. A file diff popup appears.</p>
+<p align="center"><img border="0" src="configmgr_diff.gif" width="610" height="84"><br>
+<br>
+<b>File Diff Popup</b></p>
+<p align="left">The file diff popup just highlights differences (you see the default
+session timeout is 1 hour, your old configuration was 2 hours). To take over your
+settings close the popup. The current file content (left hand) is changeable.
+Take over your settings (change value to back to 7200) and save. </p>
+<p align="center"><img border="0" src="configmgr_savecurrent.gif" width="471" height="198"><br>
+<br>
+<b>Save Current Configuration File</b> </p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

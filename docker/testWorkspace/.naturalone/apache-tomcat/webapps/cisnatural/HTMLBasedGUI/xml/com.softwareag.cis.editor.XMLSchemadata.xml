@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.XMLSchemaDataAdapter" translationreference="editor">
+    <pagebody horizdist="false" takefullheight="true">
+        <rowarea withleftborder="false" withrightborder="false" withtopborder="false" withtoppadding="false">
+            <rowdynavis valueprop="showUseInPage">
+                <tr>
+                    <label asplaintext="true" textid="rexmlsd.label24" width="70">
+                    </label>
+                    <field statusprop="schemaStatus" valueprop="schema" width="100%">
+                    </field>
+                </tr>
+                <tr>
+                    <hdist>
+                    </hdist>
+                    <button invisiblemode="disabled" method="onLoadSchema" textid="rexmlsd.button6" visibleprop="loadButtonStatus">
+                    </button>
+                </tr>
+                <vdist height="8">
+                </vdist>
+                <vdist height="8">
+                </vdist>
+            </rowdynavis>
+        </rowarea>
+        <vdist height="4">
+        </vdist>
+        <rowtablearea2 firstrowcolwidths="true" griddataprop="lines" height="100%" rowcount="40" width="100%" withborder="false">
+            <repeat>
+                <str valueprop="selected">
+                    <treenode3 enabledrag="false" imageclosed="../HTMLBasedGUI/images/xmlclosed.gif" imageopened="../HTMLBasedGUI/images/xmlopened.gif" width="100%">
+                        <dropicon draginfoprop="dragInfo" imageprop="dragimage" invisiblemode="invisible" visibleprop="dragIconVisible">
+                        </dropicon>
+                    </treenode3>
+                    <hdist>
+                    </hdist>
+                </str>
+            </repeat>
+        </rowtablearea2>
+        <rowarea withbottomborder="false" withleftborder="false" withrightborder="false">
+            <tr>
+                <label asplaintext="true" textid="rexmlsd.label25" width="70">
+                </label>
+                <field displayonly="true" noborder="true" valueprop="nodeName" width="100%">
+                </field>
+            </tr>
+            <vdist height="2">
+            </vdist>
+            <tr>
+                <label asplaintext="true" textid="rexmlsd.label26">
+                </label>
+                <field displayonly="true" noborder="true" valueprop="nodeType" width="100%">
+                </field>
+            </tr>
+            <tr>
+                <label asplaintext="true" textid="rexmlsd.label27">
+                </label>
+                <field displayonly="true" noborder="true" valueprop="elementType" width="100%">
+                </field>
+            </tr>
+            <vdist height="2">
+            </vdist>
+            <itr takefullwidth="true">
+                <textgrid2 directselectevent="ondblclick" directselectmethod="onNodeControlSelected" griddataprop="nodeControlsTextgrid" height="100" selectprop="selected" singleselect="true" width="100%" withselectioncolumn="false" withtitlerow="false">
+                    <column imageprop="controlIconTextgrid" textid="wsdldataadpt.column0" width="100" withsorticon="false">
+                    </column>
+                    <column property="controlTextTextgrid" textid="wsdldataadpt.column1" width="100%" withsorticon="false">
+                    </column>
+                </textgrid2>
+            </itr>
+        </rowarea>
+    </pagebody>
+</page>

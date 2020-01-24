@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.EditorFileInputToolbarwithTreeAdapter" translationreference="CIS_EDIT">
+    <pagebody takefullheight="true">
+        <rowtablearea2 griddataprop="fileNameInputTree" rowcount="25" height="100%" width="100%" withborder="false" vscroll="auto" firstrowcolwidths="true" withblockscrolling="false">
+            <repeat>
+                <tr height="100%">
+                    <treenode3 width="100%" withplusminus="true">
+                    </treenode3>
+                </tr>
+            </repeat>
+        </rowtablearea2>
+        <vdist>
+        </vdist>
+        <hline height="1">
+        </hline>
+        <vdist>
+        </vdist>
+        <itr align="center" valign="middle">
+            <coldynavis valueprop="showCheckBox" width="100" takefullheight="true">
+                <itr>
+                    <checkbox valueprop="showAll" flushmethod="onShowAll">
+                    </checkbox>
+                    <label textid="pfnitPopup.showallfile" asplaintext="true" nowrap="true">
+                    </label>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+            </coldynavis>
+            <coldynavis valueprop="showButton" width="100" takefullheight="true">
+                <itr>
+                    <button textid="pfnitPopup.cancel" method="onCancel">
+                    </button>
+                </itr>
+            </coldynavis>
+        </itr>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

@@ -1,0 +1,16 @@
+Auto-generated text file from Localization Framework 5.4 Locale=de DO NOT EDIT BY HAND!;
+popupCloseAllWindows;Ungesicherte Daten werden verloren gehen. Wollen Sie wirklich alle Fenster beenden?
+mess.err.maxworkplaceactivities;Die maximal zulässige Anzahl geöffneter Editoren wurde erreicht. Schließen Sie mindestens einen Editor, und versuchen Sie es erneut.
+mess.err.title;Meldung
+mess.noswitchback;Zurückgehen ist nicht erlaubt!!
+mess.popupClosed;Popup menu wurde ohne Selektion geschlossen!
+mess.selecttree;ist nicht möglich. Selektieren Sie entweder alle oder keinen Unterknoten. 
+mfwrkplace.dropicon0;Papierkorb
+mfwrkplace.dropicon1;Papierkorb
+onCloseAll;Alle Fenster schliessen
+onTakeOut;Die aktuelle Seite in einem Popup starten
+stripseltoleft;Nach links Scrollen
+stripseltoright;Nach rechts Scrollen
+wptitle.on0Size;Navigationsleiste schließen
+wptitle.onNormalSize;Navigationsleiste öffnen
+wptitle.onCloseAll;Alle Fenster im Workspace schließen 

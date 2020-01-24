@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.admin.EditorExtensionDatatypeAdapter" translationreference="editor" stylesheetfile="../cis/styles/CIS_DEFAULT.css" darkbackground="true">
+    <pagebody horizdist="false" takefullheight="true" paddingleft="10" paddingright="10" paddingtop="10" paddingbottom="10">
+        <vdist height="5">
+        </vdist>
+        <itr height="100%" width="100%">
+            <coltable0 width="100%" takefullheight="true">
+                <rowtablearea2 griddataprop="datatypes" rowcount="30" height="100%" width="100%" withborder="true" hscroll="true">
+                    <tr>
+                        <label textid="reedt.label1" asheadline="true" height="15">
+                        </label>
+                        <label textid="label.Id" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                        </label>
+                        <label textid="label.descr" asheadline="true" height="15" labelstyle="padding-top: 1px;padding-left: 2px; font-size: 10px; font-weight: bold">
+                        </label>
+                    </tr>
+                    <repeat>
+                        <str valueprop="selected">
+                            <checkbox valueprop="selected" flush="server">
+                            </checkbox>
+                            <field valueprop="id" width="50%" noborder="true">
+                            </field>
+                            <field valueprop="value" width="50%" noborder="true">
+                            </field>
+                        </str>
+                    </repeat>
+                </rowtablearea2>
+                <itr width="100%">
+                    <hdist width="50%">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/new.gif" method="onDatatypeAdd" titletextid="icon.label.add">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/remove.gif" method="onDatatypeRemove" titletextid="icon.label.remove">
+                    </icon>
+                    <hdist width="50%">
+                    </hdist>
+                </itr>
+            </coltable0>
+            <hdist width="10">
+            </hdist>
+            <coldynavis valueprop="helpAreaVis" width="250" takefullheight="true">
+                <itr height="100%" width="100%">
+                    <ihtml valueprop="tabPageHTML">
+                    </ihtml>
+                </itr>
+            </coldynavis>
+            <coltable0 width="20">
+                <tr>
+                    <icon image="images/scrolllastpage.gif" method="onHidelHelp" titletextid="icon.label.hidehelp">
+                    </icon>
+                </tr>
+                <vdist>
+                </vdist>
+                <tr>
+                    <icon image="images/scrollfirstpage.gif" method="onShowHelp" titletextid="icon.label.showhelp">
+                    </icon>
+                </tr>
+            </coltable0>
+        </itr>
+        <vdist height="5">
+        </vdist>
+    </pagebody>
+</page>

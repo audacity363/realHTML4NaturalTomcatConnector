@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizardconfig>
+
+    <!-- CISFO:BARCODE2 -->
+    <tag name="cisfo:barcode2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfobarcode2tag">
+        <range name="Basic" descriptionid="wzcisfobarcode2rangebasic">
+            <attribute name="valueprop" descriptionid="barcode_attr_valueprop" modus="obligatory"/>
+            <attribute name="barcodetype" descriptionid="barcode_attr_barcodetype"/>
+            <attribute name="height" descriptionid="barcode_attr_height"/>
+            <attribute name="humandreadable" descriptionid="barcode_attr_humandreadable"/>
+            <attribute name="modulewidth" descriptionid="barcode_attr_modulewidth"/>
+            <attribute name="quitezone" descriptionid="barcode_attr_quitezone"/>
+        </range>
+        <range name="Special" descriptionid="wzcisfobarcode2rangespecial">
+            <attribute name="checksummode" descriptionid="barcode_attr_checksummode"/>
+            <attribute name="igw" descriptionid="barcode_attr_igw"/>
+            <attribute name="widefactor" descriptionid="barcode_attr_widefactor"/>
+        </range>
+        <range name="POSTNET" descriptionid="wzcisfobarcode2rangepostnet">
+            <attribute name="baselinealignment" descriptionid="barcode_attr_baselinealignment"/>
+            <attribute name="shortbarheight" descriptionid="barcode_attr_shortbarheight"/>
+            <attribute name="tallbarheight" descriptionid="barcode_attr_tallbarheight"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:BODY2 -->
+    <tag name="cisfo:body2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfobody2tag">
+        <range name="Color" descriptionid="wzcisfobody2rangebasis">
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:CELLTEXT2 -->
+    <tag name="cisfo:celltext2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfocelltext2tag">
+        <range name="Basis" descriptionid="wzcisfo2textrangebasis">
+            <attribute name="text" descriptionid="_attr_text"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="columnsspanned" descriptionid="_attr_columnsspanned"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="rowsspanned" descriptionid="_attr_rowsspanned"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:COLTABLE2 -->
+    <tag name="cisfo:coltable2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfocoltable2tag">
+        <range name="Basis" descriptionid="wzcisfo2tablerangebasis">
+            <attribute name="columnwidths" descriptionid="_attr_columnwidths" modus="obligatory"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:FOOTER2 -->
+    <tag name="cisfo:footer2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfofooter2tag">
+        <range name="Color" descriptionid="wzcisfofooter2rangebasis">
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:FOPPAGE2 -->
+    <tag name="cisfo:foppage2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfofoppage2tag">
+        <range name="Basis" descriptionid="wzcisfofoppage2rangebasis">
+            <attribute name="objectclass" descriptionid="foppage_attr_objectclass" modus="sometimesobligatory"/>
+            <attribute name="project" descriptionid="foppage_attr_project" modus="sometimesobligatory"/>
+            <attribute name="translationreference" descriptionid="foppage_attr_translationreference" modus="sometimesobligatory"/>
+            <attribute name="pageheight" descriptionid="foppage_attr_pageheight"/>
+            <attribute name="pagewidth" descriptionid="foppage_attr_pagewidth"/>
+            <attribute name="headerheight" descriptionid="foppage_attr_headerheight"/>
+            <attribute name="footerheight" descriptionid="foppage_attr_footerheight"/>
+            <attribute name="columncount" descriptionid="foppage_attr_columncount"/>
+            <attribute name="columngap" descriptionid="foppage_attr_columngap"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfofoppage2rangemargin">
+            <attribute name="margintop" descriptionid="foppage_attr_margintop"/>
+            <attribute name="marginbottom" descriptionid="foppage_attr_marginbottom"/>
+            <attribute name="marginleft" descriptionid="foppage_attr_marginleft"/>
+            <attribute name="marginright" descriptionid="foppage_attr_marginright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:HDIST2 -->
+    <tag name="cisfo:hdist2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfohdist2tag">
+        <range name="Basis" descriptionid="wzcisfohdist2rangebasis">
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="columnsspanned" descriptionid="_attr_columnsspanned"/>
+            <attribute name="rowsspanned" descriptionid="_attr_rowsspanned"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:HEADER2 -->
+    <tag name="cisfo:header2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfoheader2tag">
+        <range name="Color" descriptionid="wzcisfoheader2rangebasis">
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:HEADLINE2 -->
+    <tag name="cisfo:headline2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+        <range name="Basic" descriptionid="_desc_basic">
+        </range>
+    </tag>
+
+    <!-- CISFO:HLINE2 -->
+    <tag name="cisfo:hline2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="cisfohline2">
+        <range name="Basic" descriptionid="cisfohline2_desc_basic">
+            <attribute name="height" descriptionid="cisfohline2_attr_height"/>
+            <attribute name="color" descriptionid="cisfohline2_attr_color"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:IFOP2 -->
+    <tag name="cisfo:ifop2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+        <range name="Basic" descriptionid="_desc_basic">
+            <attribute name="valueprop" descriptionid="cisfo:ifop2_attr_valueprop"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:IMAGE2 -->
+    <tag name="cisfo:image2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfobimage2tag">
+        <range name="Basic" descriptionid="_desc_basic">
+            <attribute name="image" descriptionid="image2_attr_image"/>
+            <attribute name="valueprop" descriptionid="image2_attr_valueprop"/>
+            <attribute name="width" descriptionid="image2_attr_width"/>
+            <attribute name="height" descriptionid="image2_attr_height"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:LISTBLOCK2 -->
+    <tag name="cisfo:listblock2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfolistblock2tag">
+        <range name="Color" descriptionid="wzcisfolistblock2rangebasis">
+            <attribute name="distancebetweenstarts" descriptionid="wzcisfolistblock2attrdistancebetweenstarts"/>
+            <attribute name="startindent" descriptionid="listblock_attr_startindent"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:LISTBLOCKITEM2 -->
+    <tag name="cisfo:listblockitem2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfolistblockitem2tag">
+        <range name="Color" descriptionid="wzcisfolistblockitem2rangebasis">
+            <attribute name="listitemlabel" descriptionid="wzcisfolistblockitem2attrlistitemlabel"/>
+            <attribute name="listitemblock" descriptionid="listblockitem_attr_listitemblock"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:NEWPAGE2 -->
+    <tag name="cisfo:newpage2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfonewpage2tag">
+        <range name="Basic" descriptionid="_desc_basic">
+        </range>
+    </tag>
+
+    <!-- CISFO:PAGENUMBER2 -->
+    <tag name="cisfo:pagenumber2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfopagenumber2tag">
+        <range name="Basic" descriptionid="_desc_basic">
+            <attribute name="withtotalpagenumber" descriptionid="cisfo:pagenumber2_attr_withtotalpagenumber"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="separator" descriptionid="pagenumber2_attr_separator"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:REPEAT2 -->
+    <tag name="cisfo:repeat2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+        <range name="Basic" descriptionid="_desc_basic">
+        </range>
+    </tag>
+
+    <!-- CISFO:REPLACE2 -->
+    <tag name="cisfo:replace2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisforeplace2tag">
+        <range name="Basis" descriptionid="wzcisfo2replacerangebasis">
+            <attribute name="valueprop" descriptionid="_attr_replacevalueprop" modus="obligatory"/>
+            <attribute name="datatype" descriptionid="_attr_datatype"/>
+            <attribute name="decimaldigitsprop" descriptionid="_attr_decimaldigitsprop"/>
+            <attribute name="booleantextprop" descriptionid="_attr_booleantextprop" />
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="columnsspanned" descriptionid="_attr_columnsspanned"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="rowsspanned" descriptionid="_attr_rowsspanned"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:REPORT2 -->
+    <tag name="cisfo:report2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+        <range name="Basic" descriptionid="_desc_basic">
+            <attribute name="reportprop" descriptionid="cisfo:report2_attr_reportprop"/>
+            <attribute name="width" descriptionid="cisfo:report2_attr_width"/>
+            <attribute name="height" descriptionid="cisfo:report2_attr_height"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:ROW2 -->
+    <tag name="cisfo:row2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+    </tag>
+
+    <!-- CISFO:ROWTABLE2 -->
+    <tag name="cisfo:rowtable2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisforowtable2tag">
+        <range name="Basis" descriptionid="wzcisfo2tablerangebasis">
+            <attribute name="columnwidths" descriptionid="_attr_columnwidths" modus="obligatory"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:ROWTABLEAREA2 -->
+    <tag name="cisfo:rowtablearea2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisforowtablearea2tag">
+        <range name="Basis" descriptionid="wzcisforowtablearea2rangebasis">
+            <attribute name="columnwidths" descriptionid="_attr_columnwidths" modus="obligatory"/>
+            <attribute name="gridprop" descriptionid="_attr_gridprop" modus="obligatory"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:ROWTEXTBLOCK2 -->
+    <tag name="cisfo:rowtextblock2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisforowtextblock2tag">
+        <range name="Basis" descriptionid="wzcisfo2textrangebasis">
+            <attribute name="text" descriptionid="_attr_text"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:STYLE2 -->
+    <tag name="cisfo:style2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfostyle2tag">
+        <range name="Basis" descriptionid="wzcisfostyle2rangebasis">
+            <attribute name="stylename" descriptionid="style_attr_stylename" modus="obligatory"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="columnsspanned" descriptionid="_attr_columnsspanned"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="rowsspanned" descriptionid="_attr_rowsspanned"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:STYLECLASSES2 -->
+    <tag name="cisfo:styleclasses2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizardtag.html" multilanguagefile="popupwizard_cisfo2">
+        <range name="Basic" descriptionid="_desc_basic">
+        </range>
+    </tag>
+
+    <!-- CISFO:TEXT2 -->
+    <tag name="cisfo:text2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfotext2tag">
+        <range name="Basis" descriptionid="wzcisfo2textrangebasis">
+            <attribute name="text" descriptionid="_attr_text"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:TEXTBLOCK2 -->
+    <tag name="cisfo:textblock2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfotextblock2tag">
+        <range name="Basis" descriptionid="wzcisfo2textrangebasis">
+            <attribute name="text" descriptionid="_attr_text"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:TEXTGRID2 -->
+    <tag name="cisfo:textgrid2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfotextgrid2tag">
+        <range name="Basis" descriptionid="wzcisfotextgrid2rangebasis">
+            <attribute name="gridprop" descriptionid="_attr_gridprop" modus="obligatory"/>
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:TEXTGRIDCOLUMN2 -->
+    <tag name="cisfo:textgridcolumn2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfotextgridcolumn2tag">
+        <range name="Basis" descriptionid="wzcisfotextgridcolumn2rangebasis">
+            <attribute name="title" descriptionid="textgridcolumn_attr_tagtitle" modus="obligatory"/>
+            <attribute name="textid" descriptionid="_attr_textid"/>
+            <attribute name="width" descriptionid="textgridcolumn_attr_tagwidth" modus="obligatory"/>
+            <attribute name="valueprop" descriptionid="textgridcolumn_attr_valueprop" modus="obligatory"/>
+            <attribute name="datatype" descriptionid="_attr_datatype"/>
+            <attribute name="decimaldigitsprop" descriptionid="_attr_decimaldigitsprop"/>
+            <attribute name="booleantextprop" descriptionid="_attr_booleantextprop" />
+            <attribute name="stylenameprop" descriptionid="textgridcolumn_attr_styleprop"/>
+            <attribute name="backgroundcolor" descriptionid="_attr_backgroundcolor"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Border" descriptionid="wzcisfo2rangeborder">
+            <attribute name="bordercolor" descriptionid="_attr_bordercolor"/>
+            <attribute name="borderstyle" descriptionid="_attr_borderstyle"/>
+            <attribute name="borderwidth" descriptionid="_attr_borderwidth"/>
+            <attribute name="bordertopcolor" descriptionid="_attr_bordertopcolor"/>
+            <attribute name="bordertopstyle" descriptionid="_attr_bordertopstyle"/>
+            <attribute name="bordertopwidth" descriptionid="_attr_bordertopwidth"/>
+            <attribute name="borderleftcolor" descriptionid="_attr_borderleftcolor"/>
+            <attribute name="borderleftstyle" descriptionid="_attr_borderleftstyle"/>
+            <attribute name="borderleftwidth" descriptionid="_attr_borderleftwidth"/>
+            <attribute name="borderbottomcolor" descriptionid="_attr_borderbottomcolor"/>
+            <attribute name="borderbottomstyle" descriptionid="_attr_borderbottomstyle"/>
+            <attribute name="borderbottomwidth" descriptionid="_attr_borderbottomwidth"/>
+            <attribute name="borderrightcolor" descriptionid="_attr_borderrightcolor"/>
+            <attribute name="borderrightstyle" descriptionid="_attr_borderrightstyle"/>
+            <attribute name="borderrightwidth" descriptionid="_attr_borderrightwidth"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:TEXTREPLACE2 -->
+    <tag name="cisfo:textreplace2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfotextreplace2tag">
+        <range name="Basis" descriptionid="wzcisfo2replacerangebasis">
+            <attribute name="valueprop" descriptionid="_attr_replacevalueprop" modus="obligatory"/>
+            <attribute name="datatype" descriptionid="_attr_datatype"/>
+            <attribute name="decimaldigitsprop" descriptionid="_attr_decimaldigitsprop"/>
+            <attribute name="booleantextprop" descriptionid="_attr_booleantextprop" />
+            <attribute name="stylename" descriptionid="_attr_stylename"/>
+            <attribute name="color" descriptionid="_attr_color"/>
+            <attribute name="textalign" descriptionid="_attr_textalign"/>
+            <attribute name="textdecoration" descriptionid="_attr_textdecoration"/>
+        </range>
+        <range name="Font" descriptionid="wzcisfo2rangefont">
+            <attribute name="fontfamily" descriptionid="_attr_fontfamily"/>
+            <attribute name="fontsize" descriptionid="_attr_fontsize"/>
+            <attribute name="fontstyle" descriptionid="_attr_fontstyle"/>
+            <attribute name="fontvariant" descriptionid="_attr_fontvariant"/>
+            <attribute name="fontweight" descriptionid="_attr_fontweight"/>
+        </range>
+        <range name="Margin" descriptionid="wzcisfo2rangemargin">
+            <attribute name="margin" descriptionid="_attr_margin"/>
+            <attribute name="margintop" descriptionid="_attr_margintop"/>
+            <attribute name="marginleft" descriptionid="_attr_marginleft"/>
+            <attribute name="marginbottom" descriptionid="_attr_marginbottom"/>
+            <attribute name="marginright" descriptionid="_attr_marginright"/>
+        </range>
+        <range name="Padding" descriptionid="wzcisfo2rangepadding">
+            <attribute name="padding" descriptionid="_attr_padding"/>
+            <attribute name="paddingtop" descriptionid="_attr_paddingtop"/>
+            <attribute name="paddingleft" descriptionid="_attr_paddingleft"/>
+            <attribute name="paddingbottom" descriptionid="_attr_paddingbottom"/>
+            <attribute name="paddingright" descriptionid="_attr_paddingright"/>
+        </range>
+    </tag>
+
+    <!-- CISFO:VDIST2 -->
+    <tag name="cisfo:vdist2" wizardclass="com.softwareag.cis.popups.PopupWizardModel" wizardpage="popupwizard.html" multilanguagefile="popupwizard_cisfo2" descriptionid="wzcisfovdist2tag">
+        <range name="Basic" descriptionid="_desc_basic">
+            <attribute name="height" descriptionid="_attr_height"/>
+        </range>
+    </tag>
+
+</wizardconfig>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.TraceRecordAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="tr.recordperformance" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button textid="btn.exit" method="endProcess">
+        </button>
+    </header>
+    <pagebody horizdist="false" takefullheight="true">
+        <rowarea textid="tr.rowarea.record" height="100%" withleftborder="false" withrightborder="false">
+            <itr>
+                <label textid="tr.label.inthecisconf" width="100%" asplaintext="true">
+                </label>
+            </itr>
+            <vdist height="10">
+            </vdist>
+            <itr width="100%">
+                <label textid="tr.label.tracedir" width="200">
+                </label>
+                <field valueprop="traceDirectory" width="100%" displayonly="true" validation="[0-9A-Za-z \/:]+" validationuserhint="valid file names, e.g. c:/temp/trace/ or /temp/trace/">
+                </field>
+            </itr>
+            <itr width="100%">
+                <label textid="tr.label.tracename" width="200">
+                </label>
+                <field valueprop="traceName" width="100%" validation="[0-9A-Za-z _]+" validationuserhint="Alphanumeric name, without &amp;quot;strance&amp;quot; characters.">
+                </field>
+            </itr>
+            <vdist height="5">
+            </vdist>
+            <itr>
+                <hdist width="200">
+                </hdist>
+                <button textid="tr.btn.startrecord" method="onStartRecording" visibleprop="startRecordingVisible">
+                </button>
+                <button textid="tr.btn.stoprecord" method="onStopRecording" visibleprop="stopRecordingVisible">
+                </button>
+            </itr>
+            <vdist height="20">
+            </vdist>
+            <rowdynavis valueprop="stopRecordingVisible">
+                <itr width="100%">
+                    <label textid="tr.label.nextrequ" width="200">
+                    </label>
+                    <field valueprop="comment" width="100%">
+                    </field>
+                    <hdist width="10">
+                    </hdist>
+                    <button textid="btn.set" method="onSetComment" width="80">
+                    </button>
+                </itr>
+                <itr width="100%">
+                    <hdist width="200">
+                    </hdist>
+                    <textout valueprop="comment" width="100%">
+                    </textout>
+                </itr>
+                <vdist height="10">
+                </vdist>
+            </rowdynavis>
+            <itr height="100%" fixlayout="true" width="100%">
+                <textgrid2 griddataprop="recordedFiles" width="100%" height="100%" selectprop="selected">
+                    <column textid="tr.txtgrid2.clm.file" property="name" width="100%">
+                    </column>
+                </textgrid2>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr width="100%">
+                <hdist width="100%">
+                </hdist>
+                <button textid="btn.removeselfile" method="onRemoveSelectedFiles" image="../HTMLBasedGUI/images/remove.gif" width="210">
+                </button>
+            </itr>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+    <timer intervalprop="refreshInterval" method="onRefresh">
+    </timer>
+</page>

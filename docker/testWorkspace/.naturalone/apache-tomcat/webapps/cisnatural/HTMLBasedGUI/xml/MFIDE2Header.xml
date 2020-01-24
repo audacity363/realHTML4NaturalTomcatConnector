@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.workplace.MFHeaderAdapter" translationreference="CIS_TOOLS" darkbackground="true">
+    <pagebody vscroll="hidden" hscroll="hidden" horizdist="false" takefullheight="true">
+        <vdist>
+        </vdist>
+        <itr takefullwidth="true" height="100%">
+            <hdist>
+            </hdist>
+            <coltable0 width="100%">
+                <itr>
+                    <hdist width="12">
+                    </hdist>
+                    <methodlink method="addHTMLPageToWorkplace;http://www#softwareag#com;Software AG" valueprop="homeLink" linkstyle="color: #808080; text-decoration: none; font-weight: bold">
+                    </methodlink>
+                    <hdist width="20">
+                    </hdist>
+                    <methodlink method="showPageInWorkplace;##/HTMLBasedGUI/com#softwareag#cis#workplace#about2#html;About" valueprop="aboutLink" linkstyle="color: #808080; text-decoration: none; font-weight: bold">
+                    </methodlink>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <itr>
+                    <hdist width="11">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/fav_monitoring.gif" method="showPageInWorkplace;com#softwareag#cis#admin#monitoring#html;Monitoring" titletextid="mfideHeader.icon0">
+                    </icon>
+                    <hdist width="6">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/distance.gif" valign="middle" titletextid="mfd2Header.icon13">
+                    </icon>
+                    <hdist width="6">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/fav_naviminus.gif" method="on0Size" titletextid="mfideHeader.icon6">
+                    </icon>
+                    <hdist width="6">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/fav_naviplus.gif" method="onNormalSize" titletextid="mfideHeader.icon7">
+                    </icon>
+                    <hdist width="6">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/fav_closeall.gif" method="closeAllActivities" titletextid="mfideHeader.icon8">
+                    </icon>
+                </itr>
+            </coltable0>
+            <coltable0 takefullheight="true">
+                <tr height="100%">
+                    <icon image="../HTMLBasedGUI/images/cai.gif" align="center">
+                    </icon>
+                    <hdist width="40">
+                    </hdist>
+                </tr>
+            </coltable0>
+        </itr>
+    </pagebody>
+</page>

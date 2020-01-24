@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Dynamic extension of editor.xml file.
+-->
+
+<controllibrary>
+  <editor>
+
+  <!--
+  *****************************************************************************
+  * DATATYPEs
+  *****************************************************************************
+  -->
+
+  <!-- DEMO:COUNT -->
+  <datatype name="demo:count">
+    <value id="1st" name="First"/>
+    <value id="2nd" name="Second"/>
+    <value id="3rd" name="Third"/>
+  </datatype>
+
+  <!-- DEMO:DLFDATATYPE -->
+  <datatype name="demo:dlfdatatype">
+    <value id="default" name="Default Value"/>
+    <value id="language" name="DLField with Language Code Value Help"/>
+    <value id="country" name="DLField with Country Code Value Help"/>
+  </datatype>
+
+
+  <!--
+  *****************************************************************************
+  * TAGs
+  *****************************************************************************
+  -->
+
+  <!-- DEMO:DEMOCONTROL -->
+  <tag name="demo:democontrol">
+    <attribute name="text" datatype="demo:count"/>
+    <taginstance>
+    </taginstance>
+  </tag>
+  <tagsubnodeextension control="itr" newsubnode="demo:democontrol"/>
+  <tagsubnodeextension control="tr" newsubnode="demo:democontrol"/>
+
+  <!-- DEMO:DEMOCONTROLDYN -->
+  <tag name="demo:democontroldyn">
+    <attribute name="textprop"/>
+    <taginstance>
+    </taginstance>
+  </tag>
+  <tagsubnodeextension control="itr" newsubnode="demo:democontroldyn"/>
+  <tagsubnodeextension control="tr" newsubnode="demo:democontroldyn"/>
+
+  <!-- DEMO:ADDRESSFO -->
+  <tag name="demo:addressfo">
+    <attribute name="valueprop" datatype="property"/>
+    <taginstance>
+    </taginstance>
+  </tag>
+
+  <!-- DEMO:FPOINTSPREAD -->
+  <tag name="demo:fpointspread">
+    <attribute name="spreadprop" datatype="property"/>
+    <attribute name="height" datatype="height"/>
+    <attribute name="width" datatype="width"/>
+    <taginstance>
+    </taginstance>
+  </tag>
+  <tagsubnodeextension control="itr" newsubnode="demo:fpointspread"/>
+
+  <!-- DEMO:DLFIELD -->
+  <tag name="demo:dlfield">
+    <attribute name="name"/>
+    <attribute name="width" datatype="width"/>
+    <attribute name="valueprop" datatype="property"/>
+    <attribute name="datatype" datatype="demo:dlfdatatype"/>
+    <taginstance>
+        <coltable0 width="$width$">
+        <tr>
+        <label name="$name$" width="100%" asplaintext="true">
+        </label>
+        </tr>
+        <tr>
+        <field valueprop="$valueprop$.fieldValue" popupmethod="openIdValueCombo" popupprop="$valueprop$.hasPopupHelp" width="100%">
+        </field>
+        </tr>
+        </coltable0>
+    </taginstance>
+    <protocolitem>
+        <addproperty name="$valueprop$" datatype="DLFIELDInfo" useincodegenerator="true"/>
+        <addproperty name="$valueprop$.fieldValue" datatype="String"/>
+        <addproperty name="$valueprop$.hasPopupHelp" datatype="boolean"/>
+        <addproperty name="$valueprop$.fieldDatatype" datatype="String" presetvalue="$datatype$"/>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="itr" newsubnode="demo:dlfield"/>
+  <tagsubnodeextension control="tr" newsubnode="demo:dlfield"/>
+
+  <!-- DEMO:ADDRESSROWAREA2 -->
+  <tag name="demo:addressrowarea2">
+    <attribute name="addressprop" mandatory="true"/>
+    <taginstance>
+    </taginstance>
+    <protocolitem>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="pagebody" newsubnode="demo:addressrowarea2"/>
+
+  <!-- DEMO:ADDRESSROWAREA3 -->
+  <tag name="demo:addressrowarea3">
+    <attribute name="addressprop" mandatory="true"/>
+    <taginstance>
+        <rowarea name="Address">
+        <itr>
+        <label name="First Name" width="100">
+        </label>
+        <field valueprop="$addressprop$.firstName" width="150">
+        </field>
+        </itr>
+        <itr>
+        <label name="Last Name" width="100">
+        </label>
+        <field valueprop="$addressprop$.lastName" width="150">
+        </field>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr>
+        <label name="Street" width="100">
+        </label>
+        <field valueprop="$addressprop$.street" width="300">
+        </field>
+        </itr>
+        <itr>
+        <label name="Town" width="100">
+        </label>
+        <field valueprop="$addressprop$.zipCode" width="50">
+        </field>
+        <hdist width="5">
+        </hdist>
+        <field valueprop="$addressprop$.town" width="245">
+        </field>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr>
+        <hdist width="100">
+        </hdist>
+        <button name="Clear" method="$addressprop$.clearAddress">
+        </button>
+        </itr>
+        </rowarea>
+    </taginstance>
+    <protocolitem>
+        <addproperty name="$addressprop$" datatype="ADDRESSInfo" useincodegenerator="true"/>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="pagebody" newsubnode="demo:addressrowarea3"/>
+
+  <!-- DEMO:MSSPREAD -->
+  <tag name="demo:msspread">
+    <taginstance>
+    </taginstance>
+    <protocolitem>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="rowarea" newsubnode="demo:msspread"/>
+
+  <!-- DEMO:ROW -->
+  <tag name="demo:row">
+    <taginstance>
+        <itr>
+        </itr>
+    </taginstance>
+    <protocolitem>
+    </protocolitem>
+  </tag>
+
+  <!-- DEMO:INCLUDEHTML -->
+  <tag name="demo:includehtml">
+    <attribute name="fileref" datatype="String"/>
+    <taginstance>
+    </taginstance>
+    <protocolitem>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="pagebody" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="rowarea" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="itr" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="tr" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="colarea" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="coltable0" newsubnode="demo:includehtml"/>
+  <tagsubnodeextension control="cellspan" newsubnode="demo:includehtml"/>
+
+   <!-- NATPAGE -->
+  <tag name="natpage">
+    <taginstance>
+        <page model="DummyAdapter">
+             <areasubcontrols>
+                 <!-- Sub controls will be inserted here! -->
+             </areasubcontrols>
+        </page>
+    </taginstance>
+  </tag>  
+
+  </editor>
+</controllibrary>

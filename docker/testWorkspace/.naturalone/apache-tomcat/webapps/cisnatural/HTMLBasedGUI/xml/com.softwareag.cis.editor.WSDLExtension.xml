@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.extension.wsdl.WSDLExtensionAdapter" translationreference="CIS_Tools">
+    <pagebody vscroll="hidden" horizdist="false" takefullheight="true">
+        <rowtable0 tablestyle="background-color: #deebf7">
+            <vdist height="5">
+            </vdist>
+            <rowdynavis valueprop="showUseInPage">
+                <itr fixlayout="true" visibleprop="isXCIPage">
+                    <hdist width="5">
+                    </hdist>
+                    <label textid="wsdldataadpt.labelRef" width="90" asplaintext="true">
+                    </label>
+                    <field valueprop="wsdlRef" width="100%" flush="server" flushmethod="onWsdlRefChanged" popupmethod="openIdValueCombo">
+                    </field>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <itr fixlayout="true">
+                    <hdist width="5">
+                    </hdist>
+                    <label textid="wsdldataadpt.label0" width="90" asplaintext="true">
+                    </label>
+                    <field valueprop="wsdl" width="100%" statusprop="wsdlStatus">
+                    </field>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <vdist height="5">
+                </vdist>
+                <itr>
+                    <hdist width="95">
+                    </hdist>
+                    <hdist>
+                    </hdist>
+                    <button textid="wsdldataadpt.button0" method="onLoadWSDL" visibleprop="loadButtonStatus" invisiblemode="invisible">
+                    </button>
+                </itr>
+                <itr>
+                </itr>
+                <vdist height="5">
+                </vdist>
+                <itr>
+                    <hdist width="5">
+                    </hdist>
+                    <label textid="wsdldataadpt.label1" width="90" asplaintext="true">
+                    </label>
+                    <combodyn2 valueprop="service" validvaluesprop="serviceItems" width="100%" flush="server" statusprop="serviceStatus" renderasfield="true">
+                    </combodyn2>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <itr>
+                    <hdist width="5">
+                    </hdist>
+                    <label textid="wsdldataadpt.label2" width="90" asplaintext="true">
+                    </label>
+                    <combodyn2 valueprop="port" validvaluesprop="portItems" width="100%" flush="server" statusprop="portStatus" renderasfield="true">
+                    </combodyn2>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <itr>
+                    <hdist width="5">
+                    </hdist>
+                    <label textid="wsdldataadpt.label3" width="90" asplaintext="true">
+                    </label>
+                    <combodyn2 valueprop="operation" validvaluesprop="operationItems" width="100%" flush="server" statusprop="operationStatus" renderasfield="true">
+                    </combodyn2>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <vdist height="5">
+                </vdist>
+                <itr>
+                    <hdist width="95">
+                    </hdist>
+                    <button textid="wsdldataadpt.button1" method="onUseInPage" visibleprop="loadButtonStatus" invisiblemode="invisible">
+                    </button>
+                </itr>
+                <vdist height="5">
+                </vdist>
+            </rowdynavis>
+            <rowdynavis valueprop="showChangeWSDL">
+                <itr takefullwidth="true">
+                    <hdist width="5">
+                    </hdist>
+                    <field valueprop="pageWSDLData" width="100%" statusprop="wsdlStatus" displayonly="true" noborder="true">
+                    </field>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+                <vdist>
+                </vdist>
+                <itr>
+                    <hdist width="5">
+                    </hdist>
+                    <button textid="wsdldataadpt.button2" method="onChangeWSDL">
+                    </button>
+                    <hdist width="5">
+                    </hdist>
+                </itr>
+            </rowdynavis>
+            <vdist height="4">
+            </vdist>
+        </rowtable0>
+        <hline>
+        </hline>
+        <rowtablearea2 griddataprop="operationData" rowcount="20" height="100%" width="100%" withborder="false" firstrowcolwidths="true">
+            <repeat>
+                <str valueprop="selected" showifempty="false">
+                    <treenode3 width="100%" withplusminus="true" imageopened="../HTMLBasedGUI/general/nothing.gif" imageclosed="../HTMLBasedGUI/general/nothing.gif" imageendnode="../HTMLBasedGUI/general/nothing.gif" enabledrag="false">
+                        <dropicon imageprop="dragimage" draginfoprop="dragInfo" invisiblemode="invisible" imagewidth="20" imageheight="20">
+                        </dropicon>
+                    </treenode3>
+                </str>
+            </repeat>
+        </rowtablearea2>
+        <hline>
+        </hline>
+        <vdist height="4" backgroundstyle="background-color: #F0FFF0">
+        </vdist>
+        <itr takefullwidth="100%" itrstyle="background-color: #F0FFF0">
+            <hdist width="5">
+            </hdist>
+            <coltable0 width="100%">
+                <itr>
+                    <label textid="wsdldataadpt.label4" width="90" asplaintext="true">
+                    </label>
+                    <field valueprop="nodeName" width="100%" displayonly="true" noborder="true">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="wsdldataadpt.label5" width="90" asplaintext="true">
+                    </label>
+                    <field valueprop="nodeType" width="100%" displayonly="true" noborder="true">
+                    </field>
+                </itr>
+                <itr>
+                    <label textid="wsdldataadpt.label6" width="90" asplaintext="true">
+                    </label>
+                    <field valueprop="elementType" width="100%" displayonly="true" noborder="true">
+                    </field>
+                </itr>
+                <vdist height="2">
+                </vdist>
+                <itr takefullwidth="true">
+                    <textgrid2 griddataprop="nodeControlsTextgrid" width="100%" height="80" selectprop="selected" singleselect="true" withselectioncolumn="false" withtitlerow="false" directselectmethod="onNodeControlSelected" directselectevent="ondblclick">
+                        <column textid="wsdldataadpt.column0" width="70" align="center" imageprop="controlIconTextgrid" withsorticon="false">
+                        </column>
+                        <column textid="wsdldataadpt.column1" property="controlTextTextgrid" width="100%" withsorticon="false">
+                        </column>
+                    </textgrid2>
+                </itr>
+            </coltable0>
+            <hdist width="5">
+            </hdist>
+        </itr>
+        <vdist height="5">
+        </vdist>
+    </pagebody>
+</page>

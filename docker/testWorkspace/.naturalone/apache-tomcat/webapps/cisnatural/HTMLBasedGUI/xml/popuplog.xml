@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page ispopup="true" model="com.softwareag.cis.popups.PopupLogModel" popupheight="408" popupwidth="396" titletextid="popuplog.lpage1" translationreference="popups">
+    <pagebody hscroll="auto" takefullheight="true" vscroll="auto">
+        <rowarea height="100%" textid="popuplog.lrowarea1">
+            <itr height="100%" width="100%">
+                <text cols="58" height="100%" rows="22" valueprop="log" width="100%">
+                </text>
+            </itr>
+            <vdist>
+            </vdist>
+            <vdist>
+            </vdist>
+            <itr align="center">
+                <button method="reactOnOK" textid="popuplog.lbutton1" withtd="false">
+                </button>
+            </itr>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+</page>

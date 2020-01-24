@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+
+This is the page which represents the menu on the left side inside the
+Casabac workplace. You can start pages inside the workplace by calling
+the JavaScript methods inside the page:
+
+. Use "openWorkPage(url,text)" in order to open a new Casabac page.
+. Use "openHTMLPage(url,text)" in order to opene a normal HTML page.
+
+The "text" will be passed to the workplace management and will be displayes
+inside the page overview as abbrevaition of the page.
+
+IN ORDER TO BUILD YOUR OWN WORKPLACE:
+
+. Make a copy of this page.
+. Modify the config file /config/workplace.xml in order to point to your
+  own page.
+
+Please have a look in the page below to see how to easily place JavaScript calls
+as a link: just write "javascript:....") as URL.
+
+The page layout of the menu page is completely up to you! You can place
+calls behind normal text links - as shown below. Or you can place them
+behind images etc.
+
+-->
+
+
+<html>
+
+<head>
+<style>
+    .links { color: #000000; text-decoration: none }
+</style>
+
+  <title>Menupage</title>
+  <link id="casabacstylesheet" rel="stylesheet" type="text/css" href="/HTMLBasedGUI/general/layout.css">
+<script language="JavaScript" fptype="dynamicanimation">
+<!--
+function dynAnimation() {}
+function clickSwapImg() {}
+//-->
+</script>
+<script language="JavaScript1.2" fptype="dynamicanimation" src="animate.js">
+</script>
+</head>
+
+<body class="PAGEBody" onload="dynAnimation()">
+<span style="font-size: 12px">
+
+
+<div style="width:100%; background-color: #F3F3E3;padding:3">
+<p>
+<b>Development</b><br>
+&nbsp;&nbsp;<a href="javascript:showWorkPage('com.softwareag.cis.editor.projectmgr.html','Application Projects');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Project Manager</a><a><br>
+&nbsp;&nbsp;<a href="javascript:openWorkPage('com.softwareag.cis.editor.editorgenerate.html','Layout Manager');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Layout Manager</a><a><br>
+&nbsp;&nbsp;<a href="javascript:openWorkPage('com.softwareag.cis.editor.editor2.html','Layout Painter');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Layout Painter</a><a><br>
+&nbsp;&nbsp;<a href="javascript:openWorkPage('com.softwareag.cis.editor.editortranslate.html','Literal Translator');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Literal Translator</a><br>
+&nbsp;&nbsp;<a href="javascript:openWorkPage('/casabacdemos/StyleSheetCreator.html','Style Sheet Editor');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Style Sheet Editor</a><br>
+</p>
+</div>
+
+<p></p>
+<div style="width:100%; background-color: #F3F3E3;padding:3">
+<p>
+<b>Documentation</b><br>
+&nbsp;&nbsp;<a href="javascript:showHTMLPage('documentation/Casabac10Slides.pdf','10 Slides');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">10 Slides</a><br>
+&nbsp;&nbsp;<a href="javascript:showHTMLPage('documentation/CasabacWhitePaper.pdf','White Paper');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">White Paper</a><br>
+&nbsp;&nbsp;<a href="javascript:showHTMLPage('documentation/CasabacDevelopersGuide.pdf','Developers Guide');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Developers Guide</a><br>
+&nbsp;&nbsp;<a href="javascript:showHTMLPage('documentation/javadoc/overview-tree.html','Java Doc');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Java Doc</a><br>
+</p>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="width:100%; background-color: #D9D9C9;padding:3">
+<p>
+<b>System</b><br>
+&nbsp;&nbsp;</a><a href="javascript:showWorkPage('com.softwareag.cis.workplace.logon.html','Log on');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Log on</a><br>
+&nbsp;&nbsp;</a><a href="javascript:showWorkPage('/casabacdemos/SwitchStyleSheet.html','Select Style Sheet');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Select Style Sheet</a><br>
+&nbsp;&nbsp;<a href="javascript:showWorkPage('com.softwareag.cis.admin.monitoring.html','Monitoring');" class="links" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Monitoring</a><br>
+&nbsp;&nbsp;<a href="/index.html" class="links" target="_top" dynamicanimation="fpAnimformatRolloverFP1" fprolloverstyle="color: #FF6666" onmouseover="rollIn(this)" onmouseout="rollOut(this)" language="Javascript1.2">Log off</a><br>
+</p>
+</div>
+
+
+</span>
+</body>
+
+</html>
+
+
+<!--
+*******************************************************************************
+This JavaScript part must be part of your menupage. It provides for
+JavaScript functions with which you can manipulate the workplace (e.g.
+opening of pages).
+*******************************************************************************
+-->
+
+<script language="JavaScript">
+  // --------------------------------------------------------------------------
+  // SHOWWORKPAGE - opens a new Casabac page if "pagename" is not shown yet;
+  // If it is already shown then the workplace switches to the page
+  // --------------------------------------------------------------------------
+  function showWorkPage(pageFileName,pageName)
+  {
+    if (parent.csciframe.checkIO() == false) { return; }
+    parent.csciframe.setPropertyValue("newPageName",pageName);
+    parent.csciframe.setPropertyValue("newPageFileName",pageFileName);
+    parent.csciframe.invokeMethodInModel("showPage");
+  }
+
+  // --------------------------------------------------------------------------
+  // SHOWWORKPAGENONAVIGATIONBUFFER
+  // Similar to "SHOWWORKPAGE" method, difference is: the page which is
+  // passed is always shown  - even if the user in the already opened page
+  // has navigated to a different page in the meantime.
+  // --------------------------------------------------------------------------
+  function showWorkPageNoNavigationBuffer(pageFileName,pageName)
+  {
+    parent.csciframe.setPropertyValue("alwaysShowFirstPage","true");
+  	showWorkPage(pageFileName,pageName);
+  }
+
+  // --------------------------------------------------------------------------
+  // SHOWHTMLPAGE - opens a new HTML page if "pagename" is not shown yet;
+  // If it is already shown then the wokrplace switches to this page
+  // --------------------------------------------------------------------------
+  function showHTMLPage(pageFileName,pageName)
+  {
+    if (parent.csciframe.checkIO() == false) { return; }
+    parent.csciframe.setPropertyValue("newPageName",pageName);
+    parent.csciframe.setPropertyValue("htmlPageFileName",pageFileName);
+    parent.csciframe.invokeMethodInModel("showHTMLPage");
+  }
+
+  //---------------------------------------------------------------------------
+  // OPENWORKPAGE - opens a new Casabac page.
+  //---------------------------------------------------------------------------
+  function openWorkPage(pageFileName,pageName)
+  {
+    if (parent.csciframe.checkIO() == false) { return; }
+    parent.csciframe.setPropertyValue("newPageName",pageName);
+    parent.csciframe.setPropertyValue("newPageFileName",pageFileName);
+    parent.csciframe.invokeMethodInModel("addNewPage");
+  }
+  // --------------------------------------------------------------------------
+  // OPENHTMLPAGE - opens a new HTML pages
+  // --------------------------------------------------------------------------
+  function openHTMLPage(pageFileName,pageName)
+  {
+    if (parent.csciframe.checkIO() == false) { return; }
+    parent.csciframe.setPropertyValue("newPageName",pageName);
+    parent.csciframe.setPropertyValue("htmlPageFileName",pageFileName);
+    parent.csciframe.invokeMethodInModel("addNewHTMLPage");
+  }
+
+  // --------------------------------------------------------------------------
+  // LOGOFF
+  // --------------------------------------------------------------------------
+  function logoff()
+  {
+      parent.csciframe.removeSession();
+      parent.document.location = "/HTMLBasedGUI/workplace/thankyou.html";
+  }
+</script>

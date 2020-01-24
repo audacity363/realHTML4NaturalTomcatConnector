@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfpage separation="rows" sizing="40,*,10,15" border="0" frameborder="false" framespacing="0">
+    <mfhtmlframe target="AAA" url="../HTMLBasedGUI/workplace/header2.html" withborder="false" scrolling="false">
+    </mfhtmlframe>
+    <mfframeset target="CCC" separation="cols" sizing="10,*,3" border="0">
+        <mfhtmlframe target="BBB" url="/HTMLBasedGUI/workplace/grayblank.html">
+        </mfhtmlframe>
+        <mfcisframe target="TOPWORKPLACE" cisurl="/HTMLBasedGUI/com.softwareag.cis.workplace.MFInner.html">
+        </mfcisframe>
+        <mfhtmlframe target="BBB" url="../HTMLBasedGUI/workplace/grayblank.html">
+        </mfhtmlframe>
+    </mfframeset>
+    <mfhtmlframe target="EEE" url="../HTMLBasedGUI/workplace/grayblank.html" withborder="false" scrolling="false">
+    </mfhtmlframe>
+    <mfhtmlframe target="FFFF" url="../HTMLBasedGUI/workplace/footer2.html" withborder="false" scrolling="false">
+    </mfhtmlframe>
+</mfpage>

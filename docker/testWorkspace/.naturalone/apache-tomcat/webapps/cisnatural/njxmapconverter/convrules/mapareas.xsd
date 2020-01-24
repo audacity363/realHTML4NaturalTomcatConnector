@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:me="http://www.softwareag.com/nat/mapxml4sdo" targetNamespace="http://www.softwareag.com/nat/mapxml4sdo" elementFormDefault="qualified">
+   <xs:include schemaLocation="mapiffield.xsd"/>
+	<xs:include schemaLocation="mapltliteral.xsd"/>
+	<xs:element name="emptyArea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eaRow" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sequenceArea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startCol" type="xs:int"/>
+				<xs:element name="sequenceName"/>
+				<!-- Hint: The MapConverter currently uses an index of -1 to for sequences with same value -->
+				<!--         an alternative definition coult be to add another type like repeatArea.                   -->
+				<xs:element name="index" type="xs:int"/>
+				<xs:element name="count" type="xs:int"/>
+				<xs:element ref="me:ifField" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gridArea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startRow" type="xs:int"/>
+				<xs:element name="startCol" type="xs:int"/>
+				<xs:element name="rowCount" type="xs:int"/>
+				<xs:element name="colCount" type="xs:int"/>
+				<xs:element name="gridName" type="xs:string"/>
+				<xs:element name="gridHeader" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="hdName"/>
+							<xs:element name="propName"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="me:sequenceArea" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

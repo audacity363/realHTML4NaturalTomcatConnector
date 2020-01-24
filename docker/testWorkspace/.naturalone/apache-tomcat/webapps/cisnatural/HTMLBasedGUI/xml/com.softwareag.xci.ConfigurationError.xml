@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="DummyAdapter" translationreference="editor">
+    <titlebar textid="rxcicfe.titlebar1" closetitletextid="closePage">
+    </titlebar>
+    <pagebody>
+        <vdist height="50">
+        </vdist>
+        <itr>
+            <hdist width="20">
+            </hdist>
+            <label textid="rxcicfe.label2" asplaintext="true" textalign="center">
+            </label>
+        </itr>
+        <vdist height="10">
+        </vdist>
+        <itr>
+            <hdist width="40">
+            </hdist>
+            <icon image="images/acconfigurationerror.gif">
+            </icon>
+        </itr>
+        <vdist height="20">
+        </vdist>
+        <itr>
+            <hdist width="20">
+            </hdist>
+            <label textid="rxcicfe.label3" asplaintext="true">
+            </label>
+        </itr>
+        <itr>
+            <hdist width="20">
+            </hdist>
+            <label textid="rxcicfe.label5" asplaintext="true">
+            </label>
+        </itr>
+        <vdist>
+        </vdist>
+    </pagebody>
+</page>

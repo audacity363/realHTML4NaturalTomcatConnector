@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.zzz.ServerInfoModel" translationreference="ServerAdmin">
+    <header withdistance="false">
+        <button method="refresh" textid="refresh">
+        </button>
+    </header>
+    <pagebody hscroll="auto" takefullheight="true" vscroll="auto">
+        <rowarea textid="memoryArea">
+            <tr>
+                <label textid="usedMemory" width="150">
+                </label>
+                <field displayonly="true" valueprop="usedMemory">
+                </field>
+            </tr>
+            <tr>
+                <label textid="processMemory" width="150">
+                </label>
+                <field displayonly="true" valueprop="totalMemory">
+                </field>
+                <hdist>
+                </hdist>
+                <button method="collectGarbage" textid="collectGarbage">
+                </button>
+            </tr>
+        </rowarea>
+        <rowarea fixlayout="true" height="100%" textid="sessionsArea">
+            <itr fixlayout="true" height="100%" width="100%">
+                <textgrid arrayprop="sessions" height="100%" hscroll="true" selectprop="selected" valueprop="sessions" width="100%">
+                    <column property="info" textid="client" width="15%">
+                    </column>
+                    <column property="sessionId" textid="sessionId" width="15%">
+                    </column>
+                    <column property="logonTime" textid="loggedOnFor" width="30%">
+                    </column>
+                    <column property="lastActivityTime" textid="lastActivitySince" width="30%">
+                    </column>
+                    <column property="justProcessing" textid="monit_column1" width="70">
+                    </column>
+                    <column property="numberOfProcesses" textid="noInteractionProcesses" width="10%">
+                    </column>
+                </textgrid>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr>
+                <button method="remove" textid="remove">
+                </button>
+                <hdist>
+                </hdist>
+                <button method="removeTEMPSessions" textid="removeTEMP">
+                </button>
+            </itr>
+        </rowarea>
+        <rowarea textid="systemmgmtArea">
+            <itr>
+                <label textid="lblClassloader" width="150">
+                </label>
+                <button method="createNewClassLoader" textid="createClassLoaderButton">
+                </button>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr>
+                <label textid="lblbTextBuffer" width="150">
+                </label>
+                <button method="refreshTextBuffers" textid="mlrefresh">
+                </button>
+                <hdist>
+                </hdist>
+                <button method="refreshAccessPathBuffer" textid="accpathrefresh">
+                </button>
+            </itr>
+            <vdist>
+            </vdist>
+            <itr>
+                <label textid="lblDebugMode" width="150">
+                </label>
+                <radiobutton flush="server" value="false" valueprop="debugMode">
+                </radiobutton>
+                <label asplaintext="true" textid="lblDebugModeFalse">
+                </label>
+                <hdist width="10">
+                </hdist>
+                <radiobutton flush="server" value="true" valueprop="debugMode">
+                </radiobutton>
+                <label asplaintext="true" textid="lblDebugModeTrue">
+                </label>
+                <hdist width="10">
+                </hdist>
+                <button method="showServerLog" textid="showServerLog">
+                </button>
+            </itr>
+        </rowarea>
+        <vdist>
+        </vdist>
+    </pagebody>
+    <statusbar longtextprop="messageLongText" shorttextprop="messageShortText" typeprop="messageType" withdistance="false">
+    </statusbar>
+</page>

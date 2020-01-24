@@ -1,0 +1,27 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+/** New Subprogram SSYSINFO.
+/**
+/** :author tom
+define data
+    parameter 
+        1 reqType (A) DYNAMIC
+        1 rh4n-internals (B) DYNAMIC
+    local using lsysinfo
+end-define
+
+compress *datx *timx into sysinfos.datetime
+sysinfos.natvers := *natvers
+sysinfos.os := *os
+sysinfos.osvers := *osvers
+sysinfos.hostname := *hostname
+sysinfos.hardware := *hardware
+sysinfos.library := *library-id
+sysinfos.program := *program
+sysinfos.user := *user
+sysinfos.msg := 'Hello World Natural AK'
+
+call interface4 'rhgenjs' rh4n-internals 'sysinfos@LSYSINFO' sysinfos 
+END

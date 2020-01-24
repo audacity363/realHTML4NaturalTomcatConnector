@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.DocumentationAdapter" translationreference="CIS_TOOLS">
+    <titlebar textid="documentation.titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <itr takefullwidth="true" height="35" comment="Heute ist Freitag" itrstyle="background-color: #EDEDE4">
+        <hdist width="100%">
+        </hdist>
+        <label name="Select your Application:" width="180" asplaintext="true">
+        </label>
+        <radiobutton valueprop="selectedProj" value="1" flush="server" name="Application Designer">
+        </radiobutton>
+        <radiobutton valueprop="selectedProj" value="2" flush="server" name="Application Composer">
+        </radiobutton>
+        <radiobutton valueprop="selectedProj" value="3" flush="server" name="Natural for AJAX">
+        </radiobutton>
+        <hdist width="10">
+        </hdist>
+    </itr>
+    <pagebody takefullheight="true">
+        <vsplit height="100%" widthleftprop="widthLeft" widthleft="250">
+            <splitcell takefullheight="true">
+                <clienttree treecollectionprop="tree" height="100%" withplusminus="true" singleselect="false" selectionvisible="true">
+                </clienttree>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr>
+                </itr>
+                <itr height="100%" width="100%">
+                    <subpage valueprop="tagDescription" height="100%" width="100%" scrolling="yes">
+                    </subpage>
+                </itr>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+</page>

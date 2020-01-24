@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Dynamic extension of editor.xml file.
+-->
+
+<controllibrary>
+  <editor>
+
+  <!--
+  *****************************************************************************
+  * DATATYPEs
+  *****************************************************************************
+  -->
+
+
+  <!--
+  *****************************************************************************
+  * TAGs
+  *****************************************************************************
+  -->
+
+  <!-- QUADRANTPLOT -->
+  <tag name="quadrantplot" blacklist="xcipage;natpage">
+    <attribute name="quadrantplotprop" mandatory="true"/>
+    <attribute name="height" datatype="height" defaultvalue="300"/>
+    <protocolitem>
+        <addproperty name="$quadrantplotprop$" datatype="QUADRANTPLOTInfo" useincodegenerator="true"/>
+        <addproperty name="$quadrantplotprop$.html" datatype="String"/>
+    </protocolitem>
+  </tag>
+  <tagsubnodeextension control="itr" newsubnode="quadrantplot"/>
+
+  <taggroupsubnodeextension group="Controls" newsubnode="quadrantplot"/>
+
+  </editor>
+</controllibrary>

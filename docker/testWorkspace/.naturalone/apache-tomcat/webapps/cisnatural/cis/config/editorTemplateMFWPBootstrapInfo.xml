@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfwpbootstrapinfo defaultcontentpage="/HTMLBasedGUI/empty.html"
+         synchtabnavigation="true"
+         workplacestylesheet="../cis/styles/CIS_DEFAULT.css"
+         mfworkplaceeventlistener="com.softwareag.cis.workplace.MFCustomEventListener"
+         targetnameofresizableleftpart="AVAILABLEACTIVITIES" >
+   <mfwptopic name="My TOPIC">
+       <mfwpopencispage name="Hello World" activityurl="../cisdemos/DEMO_HelloWorld.html">
+       </mfwpopencispage>
+   </mfwptopic>
+</mfwpbootstrapinfo>

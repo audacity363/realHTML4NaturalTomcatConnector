@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dynamic extension of editor.xml file. -->
+<controllibrary>
+	<editor>
+	    <datatype name="labelstype">
+			<value id="" name="Labels" />
+			<value id="label1;label2;label3" name="example" />
+		</datatype>
+		
+        <datatype name="rcharttype">
+            <value id="" name="rcharttype" />
+			<value id="bar" name="Bar Chart" />
+			<value id="horizontalBar" name="Horizontal Bar Chart" />
+			<value id="line" name="Line Chart" />
+		</datatype>
+		
+		<datatype name="rpietype">
+		    <value id="" name="rpietype" />
+			<value id="pie" name="Pie Chart" />
+			<value id="doughnut" name="Doughnut Chart" />
+		</datatype>
+		
+		<datatype name="barpercentagetype">
+		     <value id="" name="(Default 0.9)" />
+		     <value id="0.4" name="thin" />
+		     <value id="0.5" name="thin" />
+		     <value id="0.7" name="medium" />
+		     <value id="0.8" name="medium" />
+		     <value id="0.9" name="(Default)" />
+		     <value id="1.0" name="no space between bars" />		     
+		</datatype>
+		
+		<datatype name="barthicknesstype">
+		     <value id="" name="(Default)" />
+		     <value id="20" name="thin bars" />
+		     <value id="30" name="thin bars" />
+		     <value id="40" name="medium bars" />
+		     <value id="50" name="thick bars" />
+		     <value id="60" name="thick bars" />		     
+		</datatype>
+		
+		<datatype name="categorypercentagetype">
+		     <value id="" name="(Default 0.8)" />
+		     <value id="0.5" name="thin" />
+		     <value id="0.6" name="medium" />
+		     <value id="0.7" name="medium" />
+		     <value id="0.8" name="(Default)" />
+		     <value id="0.9" name="thick" />
+		     <value id="1.0" name="no space between bars" />	     
+		</datatype>
+		
+		<datatype name="chartcolortype" >
+		     <value id="" name="(Default)" />
+		     <value id="#ffff00" name="yellow" />
+		     <value id="rgb(255, 255, 0)" name="yellow" />
+		     <value id="hsl(60, 100%, 50%)" name="yellow" />		     
+		</datatype>
+		
+		<datatype name="chartborderwidth" >
+		     <value id="" name="(Default)" />
+		     <value id="2" name="width in pixel" />
+		     <value id="4" name="width in pixel" />
+		     <value id="6" name="width in pixel" />		     
+		</datatype>
+		
+		<datatype name="chartborderwidthtype" >
+		     <value id="" name="(Default)" />
+		     <value id="2" name="width in pixel" />
+		     <value id="4" name="width in pixel" />
+		     <value id="6" name="width in pixel" />		     
+		</datatype>
+		
+		<datatype name="chartradiustype" >
+		     <value id="" name="(Default)" />
+		     <value id="7" name="medium" />
+		     <value id="15" name="large" />
+		</datatype>
+		
+		<datatype name="chartborderdashtype" >
+		     <value id="" name="(Default)" />
+		     <value id="10;2" name="example" />
+		</datatype>
+		
+		<datatype name="chartpointtype" >
+		     <value id="" name="(Default)" />
+		     <value id="circle" name="circle" />
+		     <value id="triangle" name="triangle" />
+		     <value id="rect" name="rect" />
+		     <value id="rectRounded" name="rectRounded" />
+		     <value id="rectRot" name="rectRot" />
+		     <value id="cross" name="cross" />
+		     <value id="crossRot" name="crossRot" />
+		     <value id="star" name="star" />
+		     <value id="line" name="line" />
+		     <value id="dash" name="dash" />
+		</datatype>
+		
+		<datatype name="cutoutpercentagetype" >
+		     <value id="" name="(Default)" />
+		     <value id="50" name="dougnut" />
+		     <value id="0" name="pie" />
+		</datatype>
+		
+		<datatype name="circumferencetype" >
+		     <value id="" name="(Default)" />
+		     <value id="2" name="" />
+		     <value id="6" name="" />
+		</datatype>
+		
+		<datatype name="rotationtype" >
+		     <value id="" name="(Default)" />
+		     <value id="-0.5" name="" />
+		     <value id="-2" name="" />
+		</datatype>
+		
+		<datatype name="showpos" >
+		     <value id="" name="(Default)" />
+		     <value id="inside" name="inside bar" />
+		     <value id="outside" name="outside bar" />
+		</datatype>
+
+		<!-- ***************************************************************************** 
+			* TAGs ***************************************************************************** -->
+		<tag name="rchart" helptext="Responsive Chart">
+			<attribute name="xaxisscalelabel" datatype="string" />
+			<attribute name="xaxisscaletextid" datatype="textid" />
+			<attribute name="yaxisscalelabel" datatype="string" />
+			<attribute name="yaxisscaletextid" datatype="textid" />
+		    <attribute name="rcharttype" datatype="rcharttype" />
+		    <attribute name="rcharttypeprop" datatype="property" />
+		    <attribute name="labels" datatype="string" />
+		    <attribute name="labelstextid" datatype="textid" />
+		    <attribute name="labelsprop" datatype="labelstype" />
+			<attribute name="valueprop" datatype="property" modus="obligatory"/>
+			<attribute name="style" datatype="string" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="selectedlabelprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="changeindexprop" datatype="property" />
+			<attribute name="stackedxaxis" datatype="boolean" />
+			<attribute name="stackedyaxis" datatype="boolean" />
+			<attribute name="xaxisbarthickness" datatype="barthicknesstype" />
+			<attribute name="xaxisbarpercentage" datatype="barpercentagetype" />
+			<attribute name="xaxiscategorypercentage" datatype="categorypercentagetype" />
+			<attribute name="yaxisbarthickness"  datatype="barthicknesstype" />
+			<attribute name="showvalueinchart" datatype="boolean" />
+			<attribute name="showvaluefontfamily" datatype="fontfamily" />
+			<attribute name="showvaluefontstyle" datatype="fontstyle" />
+			<attribute name="showvaluefontsize" datatype="int" />
+			<attribute name="showvaluefontcolor" datatype="color" />
+			<attribute name="showvaluepos" datatype="showpos" />
+			<attribute name="showtooltip" datatype="boolean" />			
+			<attribute name="showlines" datatype="boolean" />
+			<attribute name="testtoolid" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ************** RESPONSIVE CHART DATA ******************************************** -->
+		<tag name="rchartdata" helptext="Responsive Chart Data">
+		    <attribute name="valueprop" datatype="property" modus="obligatory"/>
+		    <attribute name="visibleprop" datatype="property" />
+			<attribute name="label" datatype="string" />
+			<attribute name="labeltextid" datatype="textid" />
+			<attribute name="labelprop" datatype="property"/>
+			<attribute name="datatype" datatype="datatype" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="backgroundcolor" datatype="chartcolortype" />
+			<attribute name="backgroundcolorprop" datatype="property" />
+			<attribute name="borderwidth" datatype="chartborderwidthtype" />
+			<attribute name="borderwidthprop" datatype="property" />
+			<attribute name="bordercolor" datatype="chartcolortype" />
+			<attribute name="bordercolorprop" datatype="property" />
+			<attribute name="onclickmethod" datatype="method" />
+			<attribute name="legendclickmethod" datatype="method" />
+			<!--  BAR Chart -->
+			<attribute name="hoverbackgroundcolor" datatype="chartcolortype" />
+			<attribute name="hoverbackgroundcolorprop" datatype="property" />
+			<attribute name="hoverborderwidth" datatype="chartborderwidthtype" />
+			<attribute name="hoverborderwidthprop" datatype="property" />
+			<attribute name="hoverbordercolor" datatype="chartcolortype" />
+			<attribute name="hoverbordercolorprop" datatype="property" />
+			<!--  LINE Chart -->
+			<attribute name="borderdash" datatype="chartborderdashtype" />
+			<attribute name="borderdashprop" datatype="property" />
+			<attribute name="pointbordercolor" datatype="chartcolortype" />
+			<attribute name="pointbordercolorprop" datatype="property" />
+			<attribute name="pointbackgroundcolor" datatype="chartcolortype" />
+			<attribute name="pointbackgroundcolorprop" datatype="property" />
+			<attribute name="pointborderwidth" datatype="chartborderwidthtype" />
+			<attribute name="pointborderwidthprop" datatype="property" />
+			<attribute name="pointradius" datatype="chartradiustype" />
+			<attribute name="pointradiusprop" datatype="property" />
+			<attribute name="pointhoverradius" datatype="chartradiustype" />
+			<attribute name="pointhoverradiusprop" datatype="property" />
+			<attribute name="pointhitradius" datatype="chartradiustype" />
+			<attribute name="pointhitradiusprop" datatype="property" />
+			<attribute name="pointhoverbackgroundcolor" datatype="chartcolortype" />
+			<attribute name="pointhoverbackgroundcolorprop" datatype="property" />
+			<attribute name="pointhoverbordercolor" datatype="chartcolortype" />
+			<attribute name="pointhoverbordercolorprop" datatype="property" />
+			<attribute name="pointhoverborderwidth" datatype="chartborderwidthtype" />
+			<attribute name="pointhoverborderwidthprop" datatype="property" />
+			<attribute name="pointstyle" datatype="chartpointtype" />
+			<attribute name="pointstyleprop" datatype="property" />
+			<attribute name="steppedline" datatype="boolean" />
+			<attribute name="steppedlineprop" datatype="property" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		
+		<tag name="rpiechart" helptext="Responsive Pie Chart">
+			<attribute name="rcharttype" datatype="rpietype" />
+		    <attribute name="rcharttypeprop" datatype="property" />
+		    <attribute name="labels" datatype="labelstype" />
+		    <attribute name="labelstextid" datatype="textid" />
+		    <attribute name="labelsprop" datatype="string" />
+		    <attribute name="showvalueinchart" datatype="boolean" />
+		    <attribute name="showvaluefontfamily" datatype="fontfamily" />
+			<attribute name="showvaluefontstyle" datatype="fontstyle" />
+			<attribute name="showvaluefontsize" datatype="int" />
+			<attribute name="showvaluefontcolor" datatype="color" />
+			<attribute name="showpercentage" datatype="boolean" />	
+			<attribute name="showtooltip" datatype="boolean" />	
+		    <attribute name="data" datatype="string" />
+			<attribute name="dataprop" datatype="property" />
+			<attribute name="datavisibleprop" datatype="property" />
+			<attribute name="style" datatype="string" />
+			<attribute name="styleclasses" datatype="string" />
+			<attribute name="selectedlabelprop" datatype="property" />
+			<attribute name="comment" inputtype="multiline" />
+			<attribute name="changeindexprop" datatype="property" />
+			<attribute name="backgroundcolor" datatype="chartcolortype" />
+			<attribute name="backgroundcolorprop" datatype="property" />
+			<attribute name="borderwidth" datatype="chartborderwidthtype" />
+			<attribute name="borderwidthprop" datatype="property" />
+			<attribute name="bordercolor" datatype="chartcolortype" />
+			<attribute name="bordercolorprop" datatype="property" />
+			<attribute name="onclickmethod" datatype="method" />
+			<attribute name="hoverbackgroundcolor" datatype="chartcolortype" />
+			<attribute name="hoverbackgroundcolorprop" datatype="property" />
+			<attribute name="hoverborderwidth" datatype="chartborderwidthtype" />
+			<attribute name="hoverborderwidthprop" datatype="property" />
+			<attribute name="hoverbordercolor" datatype="chartcolortype" />
+			<attribute name="hoverbordercolorprop" datatype="property" />
+			<attribute name="cutoutpercentage" datatype="cutoutpercentagetype" />
+			<attribute name="cutoutpercentageprop" datatype="property" />
+			<attribute name="rotation" datatype="rotationtype" />
+			<attribute name="rotationprop" datatype="property" />
+			<attribute name="circumference" datatype="circumferencetype" />
+			<attribute name="circumferenceprop" datatype="property" />
+			<attribute name="animaterotate" datatype="boolean" />
+			<attribute name="animaterotateprop" datatype="property" />
+			<attribute name="animatescale" datatype="boolean" />
+			<attribute name="animatescaleprop" datatype="property" />
+			<attribute name="legendclickmethod" datatype="method" />
+			<attribute name="testtoolid" />
+			<taginstance>
+			</taginstance>
+			<protocolitem>
+			</protocolitem>
+		</tag>
+		<!-- ========================================================================== -->
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="rchart" />
+		<tagsubnodeextension control="bmobile:col"
+			newsubnode="rpiechart" />
+		<tagsubnodeextension control="rchart"
+			newsubnode="rchartdata" />
+		<!-- ========================================================================== -->
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="rchart" />
+		<taggroupsubnodeextension group="Responsive Maps/Charts"
+			newsubnode="rpiechart" />
+	</editor>
+</controllibrary>

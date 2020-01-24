@@ -1,0 +1,46 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+area.level;Level
+area.time;Zeit
+filterD;Level DEBUG (D)
+filterE;Level ERROR (E)
+filterI;Level INFO (I)
+filterNo;Filter zurücksetzen
+firstRequest;Erste Abfrage anzeigen
+label.directoryname;Verzeichnis
+label.fileName;Dateiname
+lastRequest;Letzte Abfrage anzeigen
+lblDebugModeFalse;Normaler Modus
+lblDebugModeTrue;Debug Modus
+nextRequest;Nächste Abfrage anzeigen
+previousRequest;Letzte Abfrage anzeigen
+rowarea.file;Log
+rowarea.fileinfo;Info
+secondspart1;Auf den Letzten beschränken
+secondspart2;Sekunden.
+serverlog.button.clear;Log-Datei löschen
+serverlog.button.filter;Filter anwenden...
+serverlog.button.filterall;Keinen
+serverlog.button.filterdebug;Nur Debug-Info
+serverlog.button.filtererror;Nur Fehler
+serverlog.button.filterinfo;Nur Info-Angaben
+serverlog.button.refresh;Datei neu laden
+servlog.button0;Suchen
+servlog.label0;Log Modus
+sl.debug;Debug Level (Vollständig)
+sl.direction;Richtung
+sl.down;Runter (Strg+g)
+sl.errors;Probleme (Level E und W)
+sl.level;Level
+sl.lineNo;Zeilennummer
+sl.message;Nachricht
+sl.request;Abfrage
+sl.search;Suche
+sl.searchFor;Suchen nach
+sl.short;Kurz (nur Level I)
+sl.timestamp;Timestamp
+sl.up;Hoch (Strg-Shift-g)
+tab.filter;Anzeigen
+tab.info;Datei-Info
+tab.search;Suche
+title;CIS Laufzeit Log
+servlog.label1; 

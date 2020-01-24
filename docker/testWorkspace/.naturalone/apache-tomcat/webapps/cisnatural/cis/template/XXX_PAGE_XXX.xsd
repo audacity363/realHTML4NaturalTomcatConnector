@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.softwareag.com/xci/XXX_APP_NAME_XXX/XXX_PAGE_XXX"
+           xmlns:pg="http://www.softwareag.com/xci/XXX_APP_NAME_XXX/XXX_PAGE_XXX"
+           xmlns:ht="http://www.softwareag.com/xci/xciHeaderTrailer" 
+           xmlns:dt="http://www.softwareag.com/xci/xciDataTypes" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://www.softwareag.com/xci/xciDataTypes" schemaLocation="xciDataTypes.xsd"/>
+<xs:import namespace="http://www.softwareag.com/xci/xciHeaderTrailer" schemaLocation="xciHeaderTrailer.xsd"/>
+<!-- Natural Adapter: XXX_NATINFO_XXX -->
+  XXXX_INCLUDE_COMPLEX_TYPE_XXX
+  <xs:element name="xdo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ht:header"/>
+        <xs:element name="data" type="pg:dataType"/>
+        <xs:element ref="ht:trailer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

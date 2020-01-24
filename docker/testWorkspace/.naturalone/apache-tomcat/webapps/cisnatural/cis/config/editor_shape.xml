@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controllibrary>
+  <editor>
+
+    <!-- shape -->
+	<tag name="shape" blacklist="xcipage;natpage">
+      <attribute name="shapeprop"/>
+      <attribute name="height" datatype="height"/>
+      <attribute name="descriptionheight" datatype="height"/>
+    </tag>
+    <tagsubnodeextension control="colarea" newsubnode="shape"/>
+    <tagsubnodeextension control="coldynavis" newsubnode="shape"/>
+    <tagsubnodeextension control="coltable0" newsubnode="shape"/>
+    <tagsubnodeextension control="dynavis" newsubnode="shape"/>
+    <tagsubnodeextension control="innerdiv" newsubnode="shape"/>
+    <tagsubnodeextension control="pagebody" newsubnode="shape"/>
+    <tagsubnodeextension control="rowarea" newsubnode="shape"/>
+    <tagsubnodeextension control="rowdynavis" newsubnode="shape"/>
+    <tagsubnodeextension control="rowscrollarea" newsubnode="shape"/>
+    <tagsubnodeextension control="rowtable0" newsubnode="shape"/>
+    <tagsubnodeextension control="splitcell" newsubnode="shape"/>
+    <tagsubnodeextension control="tabpage" newsubnode="shape"/>
+
+  </editor>
+</controllibrary>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.attributeCompareFileSelect" translationreference="CIS_EDIT">
+    <pagebody horizdist="false" takefullheight="true">
+        <rowarea height="100%" withbottomborder="false" withleftborder="false" withrightborder="false" withtopborder="false" withtoppadding="false">
+            <vdist height="50%">
+            </vdist>
+            <itr>
+                <hdist width="10px">
+                </hdist>
+                <label textid="attribCompSav.label0" width="80">
+                </label>
+                <field popupmethod="openIdValueCombo" valueprop="wizardConfigFileName" width="100%">
+                </field>
+            </itr>
+            <vdist height="50%">
+            </vdist>
+            <itr align="center">
+                <button method="onWizardFileSelected" textid="attribCompSav.button0">
+                </button>
+            </itr>
+            <vdist height="8">
+            </vdist>
+        </rowarea>
+    </pagebody>
+</page>

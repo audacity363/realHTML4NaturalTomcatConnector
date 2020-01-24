@@ -157,6 +157,7 @@ int handleStringEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3
 
     switch(args.vartype) {
         case JVAR_STRING:
+            rh4n_log_develop(args.infos->logging, "God String: [%s]\n", (char*)value);
             if((rc = rh4nvarCreateNewString(args.var_anker, (char*)args.parent, (char*)args.varname, (char*)value)) != RH4N_RET_OK) {
                 rh4n_log_error(args.infos->logging, "Could not create String [%s].[%s]. Varlib return: %d", args.parent, 
                     args.varname, rc);
@@ -193,7 +194,7 @@ int handleBytesEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3]
     memset(hexbuffer, 0x00, sizeof(hexbuffer));
     
     length = (*env)->GetArrayLength(env, (jarray)target);
-    rh4n_log_debug(args.infos->logging, "Length of ByteArray: [%d]", length);
+    //rh4n_log_debug(args.infos->logging, "Length of ByteArray: [%d]", length);
 
     buffer = malloc(length+1);
     memset(buffer, 0x00, length);
@@ -204,7 +205,7 @@ int handleBytesEntry(JNIEnv *env, HandlerArgs args, jobject target, int index[3]
     for(; i < length; i++) {
         sprintf(hexbuffer+i*5, "0x%02x ", buffer[i]);
     }
-    rh4n_log_debug(args.infos->logging, "Converted Value: [%s]", hexbuffer);
+    //rh4n_log_debug(args.infos->logging, "Converted Value: [%s]", hexbuffer);
 
 
     if((rc = rh4nvarCreateNewString(args.var_anker, (char*)args.parent, (char*)args.varname, buffer)) != RH4N_RET_OK) {

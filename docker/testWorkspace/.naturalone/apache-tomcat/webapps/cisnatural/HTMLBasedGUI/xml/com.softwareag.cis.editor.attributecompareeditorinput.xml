@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.editor.AttributeCompareEditorInput" translationreference="CIS_EDIT">
+    <pagebody horizdist="false" takefullheight="true">
+        <itr fixlayout="true" height="15" width="100%">
+            <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attribCompEdIn.label0" width="100%">
+            </label>
+        </itr>
+        <vdist height="50%">
+        </vdist>
+        <itr align="center">
+            <label textid="attribCompEdIn.label1" width="80">
+            </label>
+            <field popupmethod="openIdValueHelp" popupprop="valueHelpAvailable" valueprop="name" width="200">
+            </field>
+            <hdist width="5">
+            </hdist>
+            <button method="onOK" textid="attribCompEdIn.button0">
+            </button>
+        </itr>
+        <vdist height="50%">
+        </vdist>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

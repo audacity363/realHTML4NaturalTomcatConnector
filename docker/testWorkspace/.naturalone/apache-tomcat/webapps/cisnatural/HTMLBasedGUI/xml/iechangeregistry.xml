@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="DummyAdapter" translationreference="demos">
+    <titlebar textid="iechangereg.titlebar0" closetitletextid="closePage">
+    </titlebar>
+    <header withdistance="false">
+        <button textid="iechangereg.button0">
+        </button>
+    </header>
+    <pagebody>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

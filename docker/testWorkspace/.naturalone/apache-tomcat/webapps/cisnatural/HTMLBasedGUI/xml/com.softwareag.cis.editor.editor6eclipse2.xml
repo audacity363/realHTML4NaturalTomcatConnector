@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page helpid="EDITORHELP" imagestopreload="../HTMLBasedGUI/images/xmlclosed.gif;../HTMLBasedGUI/images/xmlopened.gif;../HTMLBasedGUI/images/xmlendnode.gif;../HTMLBasedGUI/images/fileclosed.gif;../HTMLBasedGUI/images/cut.gif;../HTMLBasedGUI/images/copy.gif;../HTMLBasedGUI/images/copyTop.gif;../HTMLBasedGUI/images/copyBottom.gif;../HTMLBasedGUI/images/moveTop.gif;../HTMLBasedGUI/images/moveBottom.gif;../HTMLBasedGUI/images/remove.gif;../HTMLBasedGUI/images/newTopSubNode.gif;../HTMLBasedGUI/images/newBottomSubNode.gif;../HTMLBasedGUI/images/newTopSideNode.gif;../HTMLBasedGUI/images/newBottomSideNode.gif;../HTMLBasedGUI/images/pasteTop.gif;../HTMLBasedGUI/images/pasteBottom.gif" ispopup="true" model="com.softwareag.cis.editor.EditorModel6" popupheight="768" popupwidth="1024" translationreference="editor">
+    <pagebody horizdist="false" takefullheight="true">
+        <vdist backgroundstyle="background-color: #F7F3EF" height="1">
+        </vdist>
+        <vsplit height="100%" widthleft="355">
+            <splitcell takefullheight="true">
+                <itr fixlayout="true" height="100%">
+                    <coltable0 fixlayout="true" takefullheight="true" width="80">
+                        <itr width="100%">
+                            <label asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="ed6.label.ctrls" width="100%">
+                            </label>
+                        </itr>
+                        <buttonlist buttonlistprop="topButtons" buttonstyle="font-size:10px; height: 16">
+                        </buttonlist>
+                        <rowscrollarea areastyle="background-color: #FFFFFF" height="100%" takefullheight="true" takefullwidth="true">
+                            <vdist>
+                            </vdist>
+                            <tr>
+                                <hdist>
+                                </hdist>
+                                <coltable0 width="100%">
+                                    <iconlist align="left" cellspacing="1" iconlistprop="controlIcons" textsize="1">
+                                    </iconlist>
+                                </coltable0>
+                            </tr>
+                            <vdist height="100%">
+                            </vdist>
+                        </rowscrollarea>
+                        <buttonlist buttonlistprop="bottomButtons" buttonstyle="font-size:10px; height: 16">
+                        </buttonlist>
+                    </coltable0>
+                    <vline color="#808080" width="1">
+                    </vline>
+                    <hdist width="1">
+                    </hdist>
+                    <vline color="#808080" width="1">
+                    </vline>
+                    <coltable0 fixlayout="true" takefullheight="true" width="100%">
+                        <hsplit height="100%" heighttop="75%">
+                            <splitcell takefullheight="true">
+                                <itr width="100%">
+                                    <label asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="ed6.label.layout" width="100%">
+                                    </label>
+                                </itr>
+                                <itr height="22" itrstyle="background-color: #E0E0E0; padding-top: 3px; padding-bottom: 4px">
+                                    <hdist width="50%">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/arrowupfast.gif" method="moveUpTo1Pos" titletextid="ed6.icon.movenodefirst">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/arrowup.gif" method="moveNodeUp" titletextid="ed6.icon.movenodeup" withdistance="false">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/arrowdown.gif" method="moveNodeDown" titletextid="ed6.icon.movenodedown" withdistance="false">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/arrowdownfast.gif" method="moveDownToLastPos" titletextid="ed6.icon.movenodedownlast">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/distance.gif" titletextid="ed6.icon.movedownlast">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/cut.gif" method="cut" titletextid="icontTitleCut">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/copy.gif" method="copy" titletextid="iconTitleCopy">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/pasteTop.gif" method="paste" titletextid="ed6.icon.pasteasfirst">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/pasteBottom.gif" method="pasteBottom" titletextid="ed6.icon.pasteaslast">
+                                    </icon>
+                                    <hdist width="15">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/remove.gif" method="removeNode" titletextid="iconTitleRemove">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/distance.gif">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/helpiconsmall.gif" method="onWizard" titletextid="ed6.icon.openwiz">
+                                    </icon>
+                                    <hdist width="50%">
+                                    </hdist>
+                                </itr>
+                                <rowtablearea2 griddataprop="nodes" height="100%" hscroll="true" rowcount="30" singleselect="false" width="100%" withborder="false">
+                                    <tr>
+                                        <coltable0>
+                                            <vdist height="8">
+                                            </vdist>
+                                        </coltable0>
+                                    </tr>
+                                    <repeat>
+                                        <str valueprop="selected">
+                                            <treenode3 enabledrag="true" imageprop="imageURL" singleselect="false" width="100%" withplusminus="true" withtooltip="true">
+                                            </treenode3>
+                                        </str>
+                                    </repeat>
+                                    <tr>
+                                        <coltable0>
+                                            <vdist height="8">
+                                            </vdist>
+                                        </coltable0>
+                                    </tr>
+                                </rowtablearea2>
+                            </splitcell>
+                            <splitcell takefullheight="true">
+                                <rowarea foldable="false" textid="ed6.rowarea.SWTConfig" visibleprop="showPluginConfig" withleftborder="false" withrightborder="false">
+                                    <tr>
+                                        <label asplaintext="true" textid="ed6.label.swtPreviewMode" width="100">
+                                        </label>
+                                        <radiobutton align="left" flush="server" textid="ed6.RadioBttn.withRealAdapter" value="true" valueprop="previewDefaultVisible">
+                                        </radiobutton>
+                                    </tr>
+                                    <tr>
+                                        <hdist>
+                                        </hdist>
+                                        <radiobutton align="left" flush="server" textid="ed6.RadioBttn.withDummyAdapter" value="false" valueprop="previewDefaultVisible">
+                                        </radiobutton>
+                                    </tr>
+                                    <hline>
+                                    </hline>
+                                    <tr>
+                                        <label asplaintext="true" textid="ed6.label.swtPreviewAdapter">
+                                        </label>
+                                        <radiobutton align="left" flush="server" textid="ed6.RadioBttn.PreviewModeSWT" value="true" valueprop="previewWithRealAdapter">
+                                        </radiobutton>
+                                    </tr>
+                                    <tr>
+                                        <hdist>
+                                        </hdist>
+                                        <radiobutton align="left" flush="server" textid="ed6.RadioBttn.PreviewModeHTML" value="false" valueprop="previewWithRealAdapter">
+                                        </radiobutton>
+                                    </tr>
+                                </rowarea>
+                                <itr height="15" width="100%">
+                                    <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attributes" width="100%">
+                                    </label>
+                                </itr>
+                                <itr itrstyle="background-color: #E0E0E0">
+                                    <hdist width="100%">
+                                    </hdist>
+                                    <icon image="images/undo.gif" method="undo" titletextid="editor.icon24" valign="middle">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/redo.gif" method="redo" titletextid="editor.icon25" valign="middle">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/distance.gif">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="images/refresh.gif" method="onPluginPreview" titletextid="buttonPreview" valign="middle">
+                                    </icon>
+                                    <hdist>
+                                    </hdist>
+                                    <icon image="images/refreshcl.gif" method="previewWithNewClasses" titletextid="buttonPreviewNewClasses" valign="middle">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="../HTMLBasedGUI/images/distance.gif">
+                                    </icon>
+                                    <hdist width="10">
+                                    </hdist>
+                                    <icon image="images/config.gif" method="onPluginShowConfig" titletextid="ed6.icon.swtConfig" valign="middle">
+                                    </icon>
+                                    <hdist width="30">
+                                    </hdist>
+                                </itr>
+                                <rowtablearea2 firstrowcolwidths="true" griddataprop="attributes" height="100%" hscroll="false" rowcount="30" width="100%" withborder="true">
+                                    <repeat>
+                                        <tr>
+                                            <field displayonly="true" noborder="true" valueprop="attribute" width="50%">
+                                            </field>
+                                            <field helptext="attribute.html" noborder="true" popupmethod="openIdValueCombo" popupprop="popupAvailable" validationprop="regExp" validationuserhintprop="regExpFailureUserHint" valueprop="cvalue" width="50%">
+                                            </field>
+                                        </tr>
+                                    </repeat>
+                                </rowtablearea2>
+                                <tabstrip2 align="left" scrollable="true" tabstripprop="attributeCategories">
+                                </tabstrip2>
+                                <vdist height="2">
+                                </vdist>
+                            </splitcell>
+                        </hsplit>
+                    </coltable0>
+                </itr>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr width="100%">
+                    <label asheadline="true" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="preview" width="100%">
+                    </label>
+                </itr>
+                <itr fixlayout="true" height="100%" takefullwidth="true" visibleprop="previewDefaultVisible">
+                    <subcispage borderwidth="0" height="100%" refreshprop="refreshSubPage" rowspan="50" sessionidprop="subPageSessionId" valueprop="subPageURL" width="100%">
+                    </subcispage>
+                </itr>
+                <itr fixlayout="true" height="100%" takefullwidth="true" visibleprop="previewHTMLVisible">
+                    <subpage height="100%" valueprop="subHTMLPreviewURL" width="100%">
+                    </subpage>
+                </itr>
+                <hline color="#C0C0C0" height="1">
+                </hline>
+                <tabstrip align="left" selectedindexprop="selectedTabIndex" selectmethod="onTabSelected" valueprop="tabs">
+                </tabstrip>
+                <vdist height="2">
+                </vdist>
+            </splitcell>
+        </vsplit>
+        <itr height="0" visibleprop="changeHappened">
+        </itr>
+    </pagebody>
+    <statusbar longtextprop="messageLongText" shorttextprop="messageShortText" typeprop="messageType" withdistance="false">
+    </statusbar>
+    <hotkeys>
+        <hotkey ctrlkey="true" keycode="83" method="onSave" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="116" method="onPreview" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="117" method="previewWithNewClasses" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="118" method="generateAndSave" shiftkey="true">
+        </hotkey>
+    </hotkeys>
+</page>

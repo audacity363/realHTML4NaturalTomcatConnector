@@ -1,0 +1,22 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=ja DO NOT EDIT BY HAND!;
+NULL;Null
+advancedSelection;詳細選択
+buttonOK;OK
+buttonReset;リセット
+clearLines;クリア
+moreLines;行の追加
+operator;演算子
+title;オプションの選択
+value1;値
+value2; の値
+=;完全一致
+>;大なり
+>=;大なりイコール
+>>;指定範囲内
+~;あいまい一致
+<;小なり
+<=;小なりイコール
+!=;完全一致以外
+!>>;指定範囲以外
+!~;あいまい一致以外
+NOT NULL;非空値

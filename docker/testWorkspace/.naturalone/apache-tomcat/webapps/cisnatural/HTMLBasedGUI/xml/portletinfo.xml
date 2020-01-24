@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page model="com.softwareag.cis.test.PortletInfoAdapter">
+    <titlebar name="Portlet Information">
+    </titlebar>
+    <header withdistance="false">
+        <button name="Refresh" method="onRefresh">
+        </button>
+    </header>
+    <pagebody>
+        <rowarea name="Portlet Request">
+            <itr takefullwidth="true">
+                <label name="Portlet Request" width="120">
+                </label>
+                <field valueprop="portletRequest" width="100%">
+                </field>
+            </itr>
+        </rowarea>
+        <rowarea name="Portlet Session">
+            <itr takefullwidth="true">
+                <label name="Portlet Session" width="120">
+                </label>
+                <text valueprop="portletSession" width="100%" height="100">
+                </text>
+            </itr>
+        </rowarea>
+        <rowarea name="Portlet Session">
+            <itr takefullwidth="true">
+                <label name="Portlet Config" width="120">
+                </label>
+                <text valueprop="portletConfig" width="100%" height="100">
+                </text>
+            </itr>
+        </rowarea>
+    </pagebody>
+    <statusbar withdistance="false">
+    </statusbar>
+</page>

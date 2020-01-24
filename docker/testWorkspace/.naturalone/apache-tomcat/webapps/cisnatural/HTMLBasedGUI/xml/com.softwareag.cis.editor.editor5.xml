@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page helpid="EDITORHELP" imagestopreload="../HTMLBasedGUI/images/xmlclosed.gif;../HTMLBasedGUI/images/xmlopened.gif;../HTMLBasedGUI/images/xmlendnode.gif;../HTMLBasedGUI/images/fileclosed.gif;../HTMLBasedGUI/images/cut.gif;../HTMLBasedGUI/images/copy.gif;../HTMLBasedGUI/images/copyTop.gif;../HTMLBasedGUI/images/copyBottom.gif;../HTMLBasedGUI/images/moveTop.gif;../HTMLBasedGUI/images/moveBottom.gif;../HTMLBasedGUI/images/remove.gif;../HTMLBasedGUI/images/newTopSubNode.gif;../HTMLBasedGUI/images/newBottomSubNode.gif;../HTMLBasedGUI/images/newTopSideNode.gif;../HTMLBasedGUI/images/newBottomSideNode.gif;../HTMLBasedGUI/images/pasteTop.gif;../HTMLBasedGUI/images/pasteBottom.gif" ispopup="true" model="com.softwareag.cis.editor.EditorModel5" popupheight="768" popupwidth="1024" stylesheetfile="../cis/styles/CIS_LP.css" translationreference="editor">
+    <titlebar valueprop="titlebar" visibleprop="withTitlebar" closetitletextid="closePage">
+    </titlebar>
+    <header align="left" withdistance="false">
+        <menu menucollectionprop="headerMenu">
+        </menu>
+        <hdist width="125">
+        </hdist>
+        <icon image="images/distance.gif" valign="middle">
+        </icon>
+        <icon image="images/save.gif" method="onSave" titletextid="editor.icon0" valign="middle">
+        </icon>
+        <hdist width="20">
+        </hdist>
+        <icon image="images/distance.gif" valign="middle">
+        </icon>
+        <icon image="images/refresh.gif" method="onPreview" titletextid="buttonPreview" valign="middle">
+        </icon>
+        <icon image="images/refreshcl.gif" method="previewWithNewClasses" titletextid="buttonPreviewNewClasses" valign="middle">
+        </icon>
+        <icon image="images/refreshdummy.gif" method="onPreviewWithDummyAdapter" titletextid="buttonPreviewDummy" valign="middle" visibleprop="dummyPreviewVisible">
+        </icon>
+        <hdist width="15">
+        </hdist>
+        <icon image="images/page.gif" method="generateAndSave" titletextid="buttonPublish" valign="middle">
+        </icon>
+    </header>
+    <pagebody aeb="true" horizdist="false" takefullheight="true">
+        <vdist backgroundstyle="background-color: #F7F3EF" height="1">
+        </vdist>
+        <vsplit height="100%" widthleft="285">
+            <splitcell takefullheight="true">
+                <itr fixlayout="true" height="15" width="100%">
+                    <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="editor.label0" width="100%">
+                    </label>
+                </itr>
+                <rowtablearea2 griddataprop="nodes" height="100%" hscroll="true" rowcount="30" singleselect="false" width="100%" withborder="false">
+                    <tr>
+                        <coltable0>
+                            <vdist height="8">
+                            </vdist>
+                        </coltable0>
+                    </tr>
+                    <repeat>
+                        <str valueprop="selected">
+                            <hdist width="5">
+                            </hdist>
+                            <treenode3 enabledrag="true" imageclosed="images/xmlclosed.gif" imageendnode="images/xmlendnode.gif" imageopened="images/xmlopened.gif" singleselect="false" width="1000" withlines="true" withplusminus="true" withtooltip="true">
+                            </treenode3>
+                        </str>
+                    </repeat>
+                    <tr>
+                        <coltable0>
+                            <vdist height="8">
+                            </vdist>
+                        </coltable0>
+                    </tr>
+                </rowtablearea2>
+                <itr height="22" itrstyle="padding-top: 3px; padding-bottom: 4px">
+                    <hdist width="20%">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/arrowupfast.gif" method="moveUpTo1Pos" titletextid="editor.icon1">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="images/arrowup.gif" method="moveNodeUp" titletextid="editor.icon2" withdistance="false">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="images/arrowdown.gif" method="moveNodeDown" titletextid="editor.icon3" withdistance="false">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/arrowdownfast.gif" method="moveDownToLastPos" titletextid="editor.icon4">
+                    </icon>
+                    <hdist width="10">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/distance.gif">
+                    </icon>
+                    <hdist width="10">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/cut.gif" method="cut" titletextid="icontTitleCut">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/copy.gif" method="copy" titletextid="iconTitleCopy">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/pasteTop.gif" method="paste" titletextid="editor.icon5">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/pasteBottom.gif" method="pasteBottom" titletextid="editor.icon6">
+                    </icon>
+                    <hdist width="15">
+                    </hdist>
+                    <icon image="../HTMLBasedGUI/images/remove.gif" method="removeNode" titletextid="iconTitleRemove">
+                    </icon>
+                    <hdist width="20%">
+                    </hdist>
+                </itr>
+                <itr fixlayout="true" height="15" width="100%">
+                    <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textid="attributes" width="100%">
+                    </label>
+                </itr>
+                <rowtablearea2 firstrowcolwidths="true" griddataprop="attributes" hscroll="false" rowcount="6" width="100%" withborder="true">
+                    <repeat>
+                        <tr>
+                            <textout textoutstyle="padding-left: 2px" valueprop="attribute" width="50%">
+                            </textout>
+                            <field helptext="attribute.html" noborder="true" popupmethod="openIdValueCombo" popupprop="popupAvailable" validationprop="regExp" validationuserhintprop="regExpFailureUserHint" valueprop="value" width="50%">
+                            </field>
+                        </tr>
+                    </repeat>
+                </rowtablearea2>
+                <vdist height="1">
+                </vdist>
+                <itr width="100%">
+                    <hdist width="100%">
+                    </hdist>
+                    <icon image="images/wizard.gif" imageinactive="images/wizardinactive.gif" method="onWizard" titletextid="editor.icon7" visibleprop="wizardVisible">
+                    </icon>
+                    <hdist>
+                    </hdist>
+                </itr>
+            </splitcell>
+            <splitcell takefullheight="true">
+                <itr fixlayout="true" height="100%" width="100%">
+                    <coltable0 fixlayout="true" takefullheight="true" width="75">
+                        <vdist backgroundstyle="background-color: #7C7E85" height="8">
+                        </vdist>
+                        <itr itrstyle="background-color: #7C7E85">
+                            <hdist width="50%">
+                            </hdist>
+                            <icon image="images/addtreeBEFORE.gif" method="onControlsBefore" titletextid="editor.icon8">
+                            </icon>
+                            <icon image="images/addtreeFIRST.gif" method="onControlsFirst" titletextid="editor.icon9">
+                            </icon>
+                            <hdist width="50%">
+                            </hdist>
+                        </itr>
+                        <itr itrstyle="background-color: #7C7E85">
+                            <hdist width="50%">
+                            </hdist>
+                            <icon image="images/addtreeAFTER.gif" method="onControlsBehind" titletextid="editor.icon10">
+                            </icon>
+                            <icon image="images/addtreeLAST.gif" method="onControlsLast" titletextid="editor.icon11">
+                            </icon>
+                            <hdist width="50%">
+                            </hdist>
+                        </itr>
+                        <itr itrstyle="background-color: #7C7E85" width="100%">
+                            <textout textoutstyle="color: #FFFFFF; font-size: 10px; font-weight: bold; padding-left: 3px" valueprop="iconsHeadline" width="100%">
+                            </textout>
+                        </itr>
+                        <vdist backgroundstyle="background-color: #F7F3EF" height="1">
+                        </vdist>
+                        <vdist backgroundstyle="background-color: #808080" height="1">
+                        </vdist>
+                        <rowscrollarea areastyle="overflow-x: hidden" height="100%" takefullwidth="true">
+                            <vdist height="3">
+                            </vdist>
+                            <iconlist cellspacing="0" iconlistprop="controlIcons" tablestyle="width: 100%">
+                            </iconlist>
+                            <vdist height="100%">
+                            </vdist>
+                        </rowscrollarea>
+                    </coltable0>
+                    <coltable0 fixlayout="true" tablestyle="border-left: 1px solid #808080; border-right: 1px solid #808080; background-color: #F3F7EF" takefullheight="true" width="3">
+                    </coltable0>
+                    <coltable0 fixlayout="true" takefullheight="true" width="100%">
+                        <itr fixlayout="true" height="15" width="100%">
+                            <label asheadline="true" height="16" labelstyle="padding-left: 2px; font-size: 10px; font-weight: bold" textalign="true" textid="preview" width="100%">
+                            </label>
+                        </itr>
+                        <vdist height="1">
+                        </vdist>
+                        <itr fixlayout="true" height="100%" width="100%">
+                            <subcispage borderwidth="1" height="100%" pagestyle="border-top: 0px; border-left: 0px; border-right: 0px; border-bottom: 1px solid #808080" refreshprop="refreshSubPage" rowspan="50" sessionidprop="subPageSessionId" valueprop="subPageURL" width="100%">
+                            </subcispage>
+                        </itr>
+                        <tabstrip align="left" selectedindexprop="selectedTabIndex" selectmethod="onTabSelected" valueprop="tabs">
+                        </tabstrip>
+                        <vdist height="2">
+                        </vdist>
+                    </coltable0>
+                </itr>
+            </splitcell>
+        </vsplit>
+    </pagebody>
+    <statusbar longtextprop="messageLongText" shorttextprop="messageShortText" typeprop="messageType" withdistance="false">
+    </statusbar>
+    <hotkeys>
+        <hotkey ctrlkey="true" keycode="83" method="onSave" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="116" method="onPreview" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="117" method="previewWithNewClasses" shiftkey="true">
+        </hotkey>
+        <hotkey ctrlkey="true" keycode="118" method="generateAndSave" shiftkey="true">
+        </hotkey>
+    </hotkeys>
+</page>

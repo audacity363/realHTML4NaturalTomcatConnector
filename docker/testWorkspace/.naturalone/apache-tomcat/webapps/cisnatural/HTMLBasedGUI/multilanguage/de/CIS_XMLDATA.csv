@@ -1,0 +1,18 @@
+Auto-generated text file from Localization Framework 7.7.9.36 Version=trunk Locale=de DO NOT EDIT BY HAND!;
+xe.addNewMode;Neuen Modus erstellen
+xe.btn.AddMode;Neuen Modus erstellen...
+xe.btn.cancel;Abbrechen
+xe.btn.createExecute;Erstellen
+xe.btn.removeMode;Ausgewählten Modus entfernen...
+xe.btn.saveAndClose;Speichern und Schließen
+xe.createNewModeHelp;Jeder Modus wird durch ein Unterverzeichnis in <anwendungsprojekt>/xmldata repräsentiert. Einen neuen Modus zu erstellen bedeutet ein neues Unterverzeichnis zu erstellen.
+xe.modeName;Name des Modus
+xe.msg.inputReferencedMode;Bitte geben Sie einen Modus in die ComboBox ein
+xe.msg.modeAlreadyExists;Die Eingabe ist ungültig. Der Modus existiert bereits. Bitte korrigieren Sie dies
+xe.msg.modeCreated;Der Modus &1 wurde erfolgreich auf dem Dateisystem erstellt
+xe.msg.modeNameNotSet;Bitte geben Sie zunächst einen Namen ein
+xe.msg.referencedModeCycle;Die Eingabe ist ungültig. Der referenzierte Modus &1 referenziert diesen Modus (Schleife). Bitte korrigieren Sie dies 
+xe.popupTitle;Eigenschaftseditor
+xe.referenceto;Sie können entweder einen Wert für die Eigenschaft angeben oder "nur" den Wert eines anderen Modus referenzieren. Wollen Sie einen Wert eingeben?
+xe.valueByReference;Nein - der Wert dieses Modus ist der selbe, der im Modus definiert wurde
+xe.valueByValue;Ja - der Wert dieses Modus ist...
