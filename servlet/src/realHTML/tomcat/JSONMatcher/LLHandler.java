@@ -379,7 +379,7 @@ public class LLHandler {
         System.out.println(); */
 
         byte[] tmp = new byte[value.length()+1];
-        //System.arraycopy(tmp1, 0, tmp, 0, value.length());
+        System.arraycopy(tmp1, 0, tmp, 0, value.length());
         //Append a null byte for the c world
         tmp[tmp.length-1] = 0x00;
         //System.out.print("Add string; ");

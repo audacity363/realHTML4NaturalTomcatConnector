@@ -13,6 +13,10 @@
 <jsp:include page="messagebar.jsp"></jsp:include>
 <%
 	EnvironmentBuffer environments = EnvironmentBuffer.getEnvironmentsfromContext(application);
+	if(environments == null) {
+		response.sendRedirect("import");
+        return;
+	} 
 	String envname = request.getParameter("envname");
 	String environname = request.getParameter("environname");
 	
