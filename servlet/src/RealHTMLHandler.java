@@ -19,7 +19,13 @@ import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentBuffer;
 import realHTML.tomcat.environment.EnvironmentVar;
 
+import realHTML.auth.oauth.RealHTMLOAuth;
+import realHTML.auth.exceptions.AuthException;
+
 import org.apache.commons.io.*;
+
+import com.eclipsesource.json.JsonObject;
+
 
 public class RealHTMLHandler extends RealHTMLInit {
     private JNILoader bs;
@@ -30,15 +36,39 @@ public class RealHTMLHandler extends RealHTMLInit {
         this.bs = new JNILoader();
     }
 
+    public void handleAuthError(AuthException authex, HttpServletResponse response) throws ServletException {
+        response.setStatus(authex.getHttpStatus());
+        try {
+            response.getOutputStream().print(authex.getMessage());
+        } catch(Exception e) {
+            throw(new ServletException("", e));
+        }
+    }
+
+    public void handleError(Exception ex, HttpServletResponse response) throws ServletException {
+        response.setStatus(500);
+
+        JsonObject root = new JsonObject();
+        root.add("status", 500);
+        root.add("message", ex.getMessage());
+
+        try {
+            response.getOutputStream().print(root.toString());
+        } catch(Exception e) {
+            throw new ServletException("", e);
+        }
+
+    }
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
         try {
             handleRequest(request, response);
         } catch(ServletException e) {
-            throw(e);
-        } catch(Exception e) {
-            throw(new ServletException("", e));
-        }
+            handleError(e, response);
+        } catch(AuthException e) {
+            handleAuthError(e, response);
+        } 
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -46,9 +76,9 @@ public class RealHTMLHandler extends RealHTMLInit {
         try {
             handleRequest(request, response);
         } catch(ServletException e) {
-            throw(e);
-        } catch(Exception e) {
-            throw(new ServletException("", e));
+            handleError(e, response);
+        } catch(AuthException e) {
+            handleAuthError(e, response);
         }
     }
 
@@ -57,33 +87,36 @@ public class RealHTMLHandler extends RealHTMLInit {
         try {
             handleRequest(request, response);
         } catch(ServletException e) {
-            throw(e);
-        } catch(Exception e) {
-            throw(new ServletException("", e));
+            handleError(e, response);
+        } catch(AuthException e) {
+            handleAuthError(e, response);
         }
     }
 
     public void doDelete(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
         try {
-            handleRequest(request, response);; } catch(ServletException e) {
-            throw(e);
-        } catch(Exception e) { throw(new ServletException("", e));
+            handleRequest(request, response);
+        } catch(ServletException e) {
+            handleError(e, response);
+        } catch(AuthException e) {
+            handleAuthError(e, response);
         }
     }
 
-    private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, AuthException {
         RH4NParams parms = new RH4NParams();
         LLHandler bodyvars = null;
         String contentType;
         Environ envvars[] = null;
         RH4NReturn natret = null;
 
+        parms = getRoute(request, response);
+        if(parms == null) {
+            return;
+        }
+
         try {
-            parms = getRoute(request, response);
-            if(parms == null) {
-                return;
-            }
             parms.outputfile = createTmpFile();
         } catch(Exception e) {
             throw(new ServletException(e));
@@ -139,7 +172,7 @@ public class RealHTMLHandler extends RealHTMLInit {
     }
 
     private RH4NParams getRoute(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException {
+        throws ServletException, AuthException {
         String environment, path;
         int index = 0;
         RH4NParams parms = new RH4NParams();
@@ -174,9 +207,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
 
         if(route.route.login) {
-            if(!checkLogin(request, response)) { return(null); }
-            session = request.getSession();
-            parms.username = (String)session.getAttribute("username");
+            parms.username = checkLogin(request, env.authServer, env.authHeaderField);
         } else {
             parms.username = "";
         }
@@ -206,18 +237,18 @@ public class RealHTMLHandler extends RealHTMLInit {
         return(parms);
     }
 
-    private Boolean checkLogin(HttpServletRequest request, HttpServletResponse response) {
-       HttpSession session = null;
-
-       session = request.getSession();
-
-       if(!session.isNew()) {
-           return(true);
-       }
-
-       response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-       session.invalidate();
-       return(false);
+    private String checkLogin(HttpServletRequest request, String target, String headerField) throws ServletException, AuthException {
+        String token = request.getHeader(headerField);
+        if(token == null) {
+            throw new AuthException("{\"message\":\"token is missing\",\"status\":400}", 400);
+        }
+        try {
+            return RealHTMLOAuth.checkLogin(target, headerField, token);
+        } catch(AuthException e) {
+            throw(e);
+        } catch (Exception e) {
+            throw(new ServletException("", e));
+        }
     }
 
     private RH4NParams getQueryParms(HttpServletRequest request, RH4NParams parms) throws UnsupportedEncodingException {

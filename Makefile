@@ -1,23 +1,23 @@
-CC = /usr/bin/gcc
+CC = /usr/vac/bin/xlc
 AR = /usr/bin/ar
-JAR = /usr/bin/jar
-JAVAC = /usr/bin/javac
-JAVAH = /usr/bin/javah 
+JAR = /SAG/cjp/v16/bin/jar
+JAVAC = /SAG/cjp/v16/bin/javac
+JAVAH = /SAG/cjp/v16/bin/javah
 
 #XLC:
-#LFLAGS1_SO = -G
-#LFLAGS2_SO = 
-
-#GCC:
-LFLAGS1_SO = -shared 
+LFLAGS1_SO = -G
 LFLAGS2_SO = 
 
+#GCC:
+#LFLAGS1_SO = -shared 
+#LFLAGS2_SO = 
 
-TOMCATCLASSPATH = /home/tom/Documents/Java/apache-tomcat-9.0.16/lib/*
+
+TOMCATCLASSPATH = /opt/tomcat/apache-tomcat-8.5.24/lib/servlet-api.jar:/opt/tomcat/apache-tomcat-8.5.24/lib/jsp-api.jar
 RH4NCLASSPATH = ./servlet/web/WEB-INF/lib/realHTMLconnector.jar:./servlet/web/WEB-INF/lib/minimal-json-0.9.5.jar:./servlet/web/WEB-INF/lib/commons-io-1.3.2.jar:./bin/servlet/lib
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
-JNIINCLUDE = -I/usr/lib/jvm/java-8-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux/
+JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
 
 
 INCLUDE = -I./realHTML4NaturalCore/include/ \
@@ -35,14 +35,14 @@ LIBS = -L./realHTML4NaturalCore/bin/libs \
 	   -lrh4njsongenerator -lcrypt
 
 #XLC:
-#CARGS1 = -g -c -fpic $(INCLUDE)
-#CARGS2 = 
-#CARGS_SO = -c -g -fpic $(INCLUDE)
-
-#GCC:
 CARGS1 = -g -c -fpic $(INCLUDE)
 CARGS2 = 
 CARGS_SO = -c -g -fpic $(INCLUDE)
+
+#GCC:
+#CARGS1 = -g -c -fpic $(INCLUDE)
+#CARGS2 = 
+#CARGS_SO = -c -g -fpic $(INCLUDE)
 
 help:
 	@printf "Targets:\n"
@@ -129,6 +129,10 @@ JAVA_GUI_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/gui
 JAVA_GUI_PACKAGE = $(JAVA_GUI_PACKAGE_SRC)/RouteTree.java \
 				   $(JAVA_GUI_PACKAGE_SRC)/RouteSorting.java
 
+JAVA_AUTH_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/auth
+JAVA_AUTH_PACKAGE = $(JAVA_AUTH_PACKAGE_SRC)/exceptions/AuthException.java \
+					$(JAVA_AUTH_PACKAGE_SRC)/oauth/RealHTMLOAuth.java
+
 TOMCAT_SERVLETS = $(TOMCONNECTOR_SRC)/RealHTMLInit.java \
 				  $(TOMCONNECTOR_SRC)/RealHTMLHandler.java \
 				  $(TOMCONNECTOR_SRC)/RealHTMLLogin.java \
@@ -147,18 +151,28 @@ WARFILE_PREFIX = ./servlet/web
 tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_pre
 	@printf "Compiling realHTML.servlet.exceptions\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_UTILS_EXCEPTIONS)
+
 	@printf "Compiling realHTML.tomcat.JSONMatcher\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_JSON_PARSER)
+
 	@printf "Compiling realHTML.tomcat.routing\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_ROUTING_PACKAGE)
+
 	@printf "Compiling realHTML.tomcat.environment\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_ENVIRONMENT_PACKAGE)
+
 	@printf "Compiling realHTML.tomcat.xml\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_XML_PACKAGE)
+
 	@printf "Compiling realHTML.tomcat.gui\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_GUI_PACKAGE)
+
+	@printf "Compiling realHTML.auth\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_AUTH_PACKAGE)
+
 	@printf "Compiling realHTML.tomcat.connector\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_UTILS_PACKAGE)
+
 	@printf "Creating realHTMLconnector.jar\n"
 	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../servlet/web/WEB-INF/lib/realHTMLconnector.jar ./realHTML
 	

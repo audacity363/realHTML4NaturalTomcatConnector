@@ -11,8 +11,11 @@ public class Environment {
     public String charEncoding;
 	public ArrayList<EnvironmentVar> environvars;
 	public Routing routing;
+
+    public String authServer;
+    public String authHeaderField;
 	
-	public Environment(String natparms, String natsrc, String natbinpath, String charencoding) {
+	public Environment(String natparms, String natsrc, String natbinpath, String charencoding, String authServer, String authHeaderField) {
 		this.natparms = natparms;
 		this.natsourcepath = natsrc;
         this.charEncoding = charencoding;
@@ -20,6 +23,9 @@ public class Environment {
 
 		this.routing = new Routing();
 		this.environvars = new ArrayList<EnvironmentVar>();
+
+        this.authServer = authServer;
+        this.authHeaderField = authHeaderField;
 	}
 	
 	public EnvironmentVar getEnvironmentVar(String name) {
