@@ -44,6 +44,5 @@ public enum Types {
 		}
 		
 		return(UNKNOWN);
-	}
-	
+	}	
 }

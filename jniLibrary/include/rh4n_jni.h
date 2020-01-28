@@ -19,3 +19,7 @@ struct naturalparms *getParmByName(struct naturalparms *parms, int length, char 
 char *OpenLib(void **shLib, char *name);
 void CloseLib(void **shLib);
 int getVarlist(JNIEnv *env, jobject varlist, RH4nVarList *target, char *error_msg, RH4nLogrule*);
+
+
+void rh4n_jni_utils_throwJNIException(JNIEnv *env, int errorno, const char *errorstr);
+

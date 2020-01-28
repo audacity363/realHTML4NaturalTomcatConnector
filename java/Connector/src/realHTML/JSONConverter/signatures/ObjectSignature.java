@@ -1,5 +1,6 @@
 package realHTML.JSONConverter.signatures;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -175,13 +176,13 @@ public class ObjectSignature {
 		return(null);
 	}
 	
-	public void fillValues(JSONObject root) {
+	public void fillValues(JSONObject root) throws UnsupportedEncodingException {
 		List<String> pointer = new ArrayList<String>();
 		
 		this.fillValues(this.head, pointer, root);
 	}
 	
-	private void fillValues(ObjectSignatureNode hptr, List<String> pointer, JSONObject root) {
+	private void fillValues(ObjectSignatureNode hptr, List<String> pointer, JSONObject root) throws UnsupportedEncodingException {
 		Integer arrindex[] = {0, 0, 0};
 		Object value = null;
 		
@@ -203,7 +204,7 @@ public class ObjectSignature {
 		}
 	}
 	
-	private void fillArray(ObjectSignatureNode target, List<String> pointer, int dim, Integer index[], JSONObject root) {
+	private void fillArray(ObjectSignatureNode target, List<String> pointer, int dim, Integer index[], JSONObject root) throws UnsupportedEncodingException {
 		Object value = null;
 		
 		this.dim++;
@@ -227,7 +228,7 @@ public class ObjectSignature {
 		this.dim--;
 	}
 	
-	private void fillObjectArray(ObjectSignatureNode target, List<String> pointer, int dim, Integer index[], JSONObject root) {
+	private void fillObjectArray(ObjectSignatureNode target, List<String> pointer, int dim, Integer index[], JSONObject root) throws UnsupportedEncodingException {
 		this.dim++;
 		for(index[dim-1] = 0; index[dim-1] < target.orignalarrsig.length[dim-1]; index[dim-1]++) {
 			

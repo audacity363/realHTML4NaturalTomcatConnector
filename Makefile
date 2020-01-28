@@ -35,11 +35,12 @@ INCLUDE = -I./realHTML4NaturalCore/include/ \
 		  -I./realHTML4NaturalCore/libs/rh4n_ldaparser/include/ \
 		  -I./realHTML4NaturalCore/libs/rh4n_var2name/include/ \
 		  -I./jniLibrary/include/ \
+		  -I./jniLibrary/libs/rh4n_jni_jsonconverter/include \
 		  $(JNIINCLUDE)
 
-LIBS = -L./realHTML4NaturalCore/bin/libs \
-	   -ldl -lrh4nutils -lrh4nlogging -lrh4nvar2name -lrh4nvars -lrh4nldaparser \
-	   -lrh4njsongenerator -lcrypt
+LIBS = -L./realHTML4NaturalCore/bin/libs -L./bin/libs \
+	   -ldl -lrh4njnijsonconverter -lrh4nutils -lrh4nlogging -lrh4nvar2name -lrh4nvars -lrh4nldaparser \
+	   -lrh4njsongenerator -lcrypt -lrh4nlogging
 
 #XLC:
 #CARGS1 = -g -c -fpic $(INCLUDE)
@@ -266,3 +267,63 @@ jnilibrary_clean:
 	@rm -f $(JNI_BIN)/*.o
 	@printf "Cleaning librealHTMLConnector.so\n"
 	@rm -f ./bin/librealHTMLConnector.so
+
+
+
+#                         +-----------------+
+#-------------------------| new JNI library |----------------------------------
+#                         +-----------------+
+
+JNI_LIBOUTPUT = ./bin/libs
+
+JNI_LIB_JSONCONVERTER_BIN = ./bin/libs/jsonconverter
+JNI_LIB_JSONCONVERTER_SRC = ./jniLibrary/libs/rh4n_jni_jsonconverter/src
+JNI_LIB_JSONCONVERTER_OBJS = rh4n_jni_jsonconverter.o \
+							 rh4n_jni_jsonconverter_init.o \
+							 rh4n_jni_jsonconverter_array.o \
+							 rh4n_jni_jsonconverter_valueHandling.o
+JNI_LIB_JSONCONVERTER = librh4njnijsonconverter.a
+
+jni_jsonconverter: jni_jsonconverter_clean jni_jsonconverter_pre $(JNI_LIB_JSONCONVERTER_OBJS)
+	@printf "Creating $(JNI_LIBOUTPUT)/$(JNI_LIB_JSONCONVERTER)\n"
+	@$(AR) -cr $(JNI_LIBOUTPUT)/$(JNI_LIB_JSONCONVERTER) $(JNI_LIB_JSONCONVERTER_BIN)/*.o
+	@printf "Done compiling and linking jni jsonconverter\n"
+
+$(JNI_LIB_JSONCONVERTER_OBJS):
+	@printf "CC $(JNI_LIB_JSONCONVERTER_SRC)/$*.c => $(JNI_LIB_JSONCONVERTER_BIN)/$*.o\n"
+	@$(CC) $(CARGS_SO) -o $(JNI_LIB_JSONCONVERTER_BIN)/$*.o $(JNI_LIB_JSONCONVERTER_SRC)/$*.c 
+
+jni_jsonconverter_pre:
+	@printf "Creating jsonconverter output folder\n"
+	@mkdir -p $(JNI_LIB_JSONCONVERTER_BIN)
+	@mkdir -p $(JNI_LIBOUTPUT)
+
+jni_jsonconverter_clean:
+	@printf "Cleaning jni jsonconverter library\n"
+	@rm -f $(LIBOUTPUT)/$(JNI_LIB_JSONCONVERTER)
+	@printf "Cleaning jni jsonconverter objects\n"
+	@rm -f $(JNI_LIB_JSONCONVERTER_BIN)/*.o
+
+JNI_WS_BIN = ./bin/ws/
+JNI_WS_SRC = ./jniLibrary/src
+JNI_WS_OBJS = rh4n_jni_test_jsonconverter.o \
+			  rh4n_jni_utils.o
+
+jniWSLibrary: core jni_jsonconverter jniWSLibrary_clean jniWSLibrary_pre $(JNI_WS_OBJS)
+	@printf "Linking librealHTMLWSconnector.so\n"
+	@$(CC) $(LFLAGS1_SO) $(JNI_WS_BIN)/*.o $(LIBS) -o ./bin/librealHTMLWSconnector.so
+
+$(JNI_WS_OBJS):
+	@printf "CC $(JNI_WS_SRC)/json/$*.c => $(JNI_WS_BIN)/$*.o\n"
+	@$(CC) $(CARGS_SO) -o $(JNI_WS_BIN)/$*.o $(JNI_WS_SRC)/$*.c
+
+jniWSLibrary_pre:
+	@printf "Creating jniWSlib output folder\n"
+	@mkdir -p $(JNI_WS_BIN)
+
+jniWSLibrary_clean:
+	@printf "Cleaning jniWSLibrary objects\n"
+	@rm -f $(JNI_WS_BIN)/*.o
+	@printf "Cleaning librealHTMLWSConnector.so\n"
+	@rm -f ./bin/librealHTMLWSConnector.so
+

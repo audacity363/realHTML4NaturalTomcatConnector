@@ -1,5 +1,6 @@
 package realHTML.JSONConverter.signatures;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class ObjectSignatureNode {
@@ -18,9 +19,9 @@ public class ObjectSignatureNode {
 	
 	public Object value = null;
 	 
-	public ObjectSignatureNode next;
-	public ObjectSignatureNode nextlvl;
-	public ObjectSignatureNode prev;
+	public ObjectSignatureNode next = null;
+	public ObjectSignatureNode nextlvl = null;
+	public ObjectSignatureNode prev = null;
 	
 	public Boolean equals(ObjectSignatureNode target) {
 		if(!this.name.equals(target.name)) {
@@ -53,10 +54,10 @@ public class ObjectSignatureNode {
 			var = new String("");
 			break;
 		case BOOLEAN:
-			var = new Boolean(false);
+			var = false;
 			break;
 		case FLOAT:
-			var = new Double(0);
+			var = 0.0;
 			break;
 		case ARRAY:
 			var = this.initArray(1, arrsig);
@@ -99,17 +100,21 @@ public class ObjectSignatureNode {
 		return(retstr);
 	}
 	
-	public void setValue(Object value) {
+	public void setValue(Object value) throws UnsupportedEncodingException {
+		if(value instanceof String) {
+			System.out.printf("Is String: %s\n", value);
+			value = this.convertStringtoByteArray((String)value);
+		}
 		this.value = value;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void setValue(Object value, int index[]) {
+	public void setValue(Object value, int index[]) throws UnsupportedEncodingException {
 		this.setValue(value, (ArrayList<Object>)this.value, index, 1);
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void setValue(Object value, ArrayList<Object> target, int index[], int curdim) {
+	private void setValue(Object value, ArrayList<Object> target, int index[], int curdim) throws UnsupportedEncodingException{
 		Object hptr = null;
 	
 		if(curdim != this.arrsig.dimensions) {
@@ -117,6 +122,26 @@ public class ObjectSignatureNode {
 			this.setValue(value, (ArrayList<Object>)hptr, index, curdim+1);
 			return;
 		}
+		
+		if(value instanceof String) {
+			value = this.convertStringtoByteArray((String)value);
+		}
 		target.set(index[curdim-1], value);
 	}
+	
+	private byte[] convertStringtoByteArray(String value) throws UnsupportedEncodingException {
+		byte[] encodedBytes = value.getBytes("ISO-8859-1");
+		byte[] completeString = new byte[value.length()+1];
+		
+		System.arraycopy(encodedBytes, 0, completeString, 0, value.length());
+		completeString[value.length()] = 0x00;
+		
+		System.out.print("Add string; ");
+        for(int i = 0; i < completeString.length; i++) {
+            System.out.printf("0x%x ", completeString[i]);
+        }
+        System.out.println();
+		
+		return(completeString);
+ 	}
 }
