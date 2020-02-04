@@ -113,6 +113,15 @@ public class ObjectSignatureNode {
 		this.setValue(value, (ArrayList<Object>)this.value, index, 1);
 	}
 	
+	public void setValue(Object[] values) throws UnsupportedEncodingException {
+		ArrayList<Object> convertedValues = new ArrayList<Object>();
+		
+		for(int i = 0; i < values.length; i++) {
+			convertedValues.add(this.convertStringtoByteArray((String)values[i]));
+		}
+		this.value = convertedValues;
+	}
+	
 	@SuppressWarnings("unchecked")
 	private void setValue(Object value, ArrayList<Object> target, int index[], int curdim) throws UnsupportedEncodingException{
 		Object hptr = null;

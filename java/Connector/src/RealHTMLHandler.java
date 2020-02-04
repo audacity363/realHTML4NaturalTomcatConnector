@@ -6,18 +6,16 @@ import java.util.*;
 import java.nio.charset.Charset;
 
 import realHTML.servlet.exceptions.*;
-import realHTML.tomcat.connector.RH4NParams;
-import realHTML.tomcat.connector.RH4NReturn;
-import realHTML.tomcat.connector.Environ;
-import realHTML.tomcat.connector.JNILoader;
 
-import realHTML.tomcat.JSONMatcher.*;
 import realHTML.tomcat.routing.PathTemplate;
 import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentBuffer;
-import realHTML.tomcat.environment.EnvironmentVar;
 
 import realHTML.auth.oauth.RealHTMLOAuth;
+import realHTML.jni.JNI;
+import realHTML.jni.SessionInformations;
+import realHTML.JSONConverter.JSONConverter;
+import realHTML.JSONConverter.signatures.ObjectSignature;
 import realHTML.auth.exceptions.AuthException;
 
 import org.apache.commons.io.*;
@@ -26,12 +24,17 @@ import com.eclipsesource.json.JsonObject;
 
 
 public class RealHTMLHandler extends RealHTMLInit {
-    private JNILoader bs;
+	private class RouteInformations {
+		public Environment env;
+		public PathTemplate route;
+	}
+	
+    private JNI bs;
 
     public void init() throws ServletException {
         super.init();
 
-        this.bs = new JNILoader();
+        this.bs = new JNI();
     }
 
     public void handleAuthError(AuthException authex, HttpServletResponse response) throws ServletException {
@@ -103,30 +106,44 @@ public class RealHTMLHandler extends RealHTMLInit {
     }
 
     private void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, AuthException {
-        RH4NParams parms = new RH4NParams();
-        LLHandler bodyvars = null;
-        String contentType;
-        Environ envvars[] = null;
-        RH4NReturn natret = null;
+        SessionInformations session = null;
+        RouteInformations activatedRoute = null;
+        String contentType, httpMethod;
+        ObjectSignature urlvars = null, bodyvars = null;
+        HashMap<String, String> routeparms;
+        int natret;
 
-        parms = getRoute(request, response);
-        if(parms == null) {
-            return;
+        activatedRoute = this.getRouteInformations(request, response);
+        session = new SessionInformations(activatedRoute.env, activatedRoute.route.route);
+        
+        if(activatedRoute.route.route.login) {
+            session.username = checkLogin(request, activatedRoute.env.authServer, activatedRoute.env.authHeaderField);
+        } else {
+            session.username = "";
         }
 
         try {
-            parms.outputfile = createTmpFile();
+            session.outputfile = createTmpFile();
         } catch(Exception e) {
             throw(new ServletException(e));
         }
 
-        parms.reqType = request.getMethod();
-        parms.logpath = this.logpath;
-        parms.errorRepresentation = "JSON";
-        //envvars = call_parms.enviromentvars;
+        httpMethod = request.getMethod();
+        session.logpath = this.logpath;
 
         try {
-            parms = getQueryParms(request, parms);
+            urlvars = getQueryParms(request);
+            routeparms = activatedRoute.route.getParms();
+            if(routeparms.size() > 0) {
+            	if(urlvars == null) {
+            		urlvars = new ObjectSignature();
+            	}
+            	
+            	for(String key: routeparms.keySet()) {
+            		urlvars.addAtEnd(key).setValue(routeparms.get(key));
+            	}
+            } 
+            
             contentType = request.getContentType();
             if(contentType != null && contentType.equals("application/json")) {
                 bodyvars = getBodyParms(request);
@@ -134,16 +151,14 @@ public class RealHTMLHandler extends RealHTMLInit {
         } catch(Exception e) {
             throw(new ServletException(e));
         }
-
-        //parms.printUrlVariables();
             
         try {
-            natret = bs.callNatural(parms, parms.environs, bodyvars);
-            if(natret.natprocess_ret < 0) {
-                sendErrorMessage(response, natret.error_msg);
+            natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.natbinpath, null, urlvars, bodyvars);
+            if(natret < 0) {
+                sendErrorMessage(response, "");
                 return;
             }
-            deliverFile(response, parms.outputfile, true, parms.charEncoding);
+            deliverFile(response, session.outputfile, true, activatedRoute.env.charEncoding);
 
         } catch(Exception e) {
             throw(new ServletException(e));
@@ -169,15 +184,12 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    private RH4NParams getRoute(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException, AuthException {
+    private RouteInformations getRouteInformations(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException {
         String environment, path;
         int index = 0;
-        RH4NParams parms = new RH4NParams();
-        HttpSession session = null;
         EnvironmentBuffer envs;
-        Environment env;
-        PathTemplate route;
+        RouteInformations infos = new RouteInformations();
 
         path = request.getRequestURI().substring((request.getContextPath() + "/nat").length());
         if(path.length() == 1) {
@@ -194,45 +206,17 @@ public class RealHTMLHandler extends RealHTMLInit {
 
         envs = EnvironmentBuffer.getEnvironmentsfromContext(getServletContext());
         try {
-            env = envs.getEnvironment(environment);
+            infos.env = envs.getEnvironment(environment);
         } catch(Exception e) {
             throw(new ServletException(e));
         }
 
-        route = env.routing.getRoute(path);
-        if(route == null) {
+        infos.route = infos.env.routing.getRoute(path);
+        if(infos.route == null) {
             throw(new ServletException("Unkown Route"));
         }
-
-        if(route.route.login) {
-            parms.username = checkLogin(request, env.authServer, env.authHeaderField);
-        } else {
-            parms.username = "";
-        }
-
-        parms.natLibrary = route.route.natLibrary;
-        parms.natProgram = route.route.natProgram;
-        parms.loglevel = route.route.loglevel;
-        parms.natparms = env.natparms;
-        parms.natbinpath = env.natbinpath;
-        //System.out.printf("Imported Natbin path: [%s]\n", parms.natbinpath);
-        parms.natsrcpath = env.natsourcepath;
-        parms.charEncoding = env.charEncoding;
-        parms.environs = env.environvars.toArray(new EnvironmentVar[env.environvars.size()]);
-
-        HashMap<String, String> routeparms = route.getParms();
-        if(routeparms.size() != 0) {
-            try {
-                for(String key: routeparms.keySet()) {
-                    parms.addUrlVariable(key, routeparms.get(key));
-                }
-            } catch(UnsupportedEncodingException e) {
-                throw(new ServletException(e));
-            }
-
-        } 
-
-        return(parms);
+        
+        return(infos);
     }
 
     private String checkLogin(HttpServletRequest request, String target, String headerField) throws ServletException, AuthException {
@@ -249,55 +233,46 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    private RH4NParams getQueryParms(HttpServletRequest request, RH4NParams parms) throws UnsupportedEncodingException {
-        Map urlparms;
-        int parmsize = 0;
+    private ObjectSignature getQueryParms(HttpServletRequest request) throws UnsupportedEncodingException {
+        Map<String, String[]> urlparms;
+        String[] values;
+        ObjectSignature urlvars = new ObjectSignature();
 
         urlparms = request.getParameterMap();
-        parmsize = urlparms.size();
-        if(parmsize == 0) {
-            return(parms);
+        if(urlparms.size() == 0) {
+            return(null);
         }
 
-        for(String key: (Set<String>)urlparms.keySet()) {
-            parms.addUrlVariable(key, ((String[])urlparms.get(key))[0]);
+        for(String key: urlparms.keySet()) {
+        	values = urlparms.get(key);
+        	if(values.length == 1) {
+        		urlvars.addAtEnd(key).setValue(values);
+        	} else {
+        		urlvars.addAtEnd(key).setValue(values[0]);
+        	}
         }
 
-        return(parms);
+        return(urlvars);
     }
 
-    private LLHandler getBodyParms(HttpServletRequest request) 
+    private ObjectSignature getBodyParms(HttpServletRequest request) 
         throws IOException, Exception {
         String jsonString = "";
-        int jsonChar = 0;
-        BufferedReader br = null;
-        LLHandler varlist = null;
-        JSONParser jsonparser = null;
-
+        JSONConverter bodyvars;
 
         jsonString = IOUtils.toString(request.getReader());
 
         if(jsonString.length() == 0) {
             return(null);
         }
-
-        //System.out.printf("Trying to parse string: [%s]\n", jsonString);
-
-        jsonparser = new JSONParser(jsonString);
-        try {
-            varlist = jsonparser.run();
-            //varlist.printList();
-        } catch(Exception e) {
-            throw(e);
-        }
-
-        return(varlist);
+        
+        bodyvars = new JSONConverter(jsonString);
+        return(bodyvars.parse());
     }
 
     private void deliverFile(HttpServletResponse response, String filepath, Boolean deletefile, String encoding) 
         throws Exception {
         File returnfile = null;
-        FileReader filereader = null;
         FileInputStream fis = null;
         InputStreamReader isr = null;
         PrintWriter pw = null;

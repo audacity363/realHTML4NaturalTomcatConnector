@@ -1,5 +1,8 @@
 package realHTML.jni;
 
+import realHTML.tomcat.environment.Environment;
+import realHTML.tomcat.routing.Route;
+
 public class SessionInformations {
 	public String natlibrary;
 	public String natprogram;
@@ -9,4 +12,17 @@ public class SessionInformations {
 	public String loglevel;
 	public String username;
 	public String outputfile;
+	
+	public SessionInformations() {
+		
+	}
+	
+	public SessionInformations(Environment env, Route route) {
+		this.natlibrary = route.natLibrary;
+		this.natprogram = route.natProgram;
+		this.loglevel = route.loglevel;
+		
+		this.natparms = env.natparms;
+		this.natsrcpath = env.natsourcepath;
+	}
 }
