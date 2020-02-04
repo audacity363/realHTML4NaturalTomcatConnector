@@ -13,5 +13,5 @@ public class EnvironmentVar {
         this.name = name;
         this.value = value;
         this.append = append;
-}
+    }
 }

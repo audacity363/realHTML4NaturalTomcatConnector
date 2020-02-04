@@ -44,9 +44,9 @@ void rh4n_jni_jsonconverter_handleString(RH4nJsonConverterArguments_t *args, job
 
     if(index == NULL) {
         printf("Create String with: [%s]\n", value);
-        ret = rh4nvarCreateNewString_m(args->varlist, args->namestack.names, args->currentName, value);
+        ret = rh4nvarCreateNewString_m(args->varlist, (const char**)args->namestack.names, args->currentName, value);
     } else {
-        ret = rh4nvarSetStringArrayEntry_m(args->varlist, args->namestack.names, args->currentName, index, value);
+        ret = rh4nvarSetStringArrayEntry_m(args->varlist, (const char**)args->namestack.names, args->currentName, index, value);
     }
 
     if(ret != RH4N_RET_OK) {
@@ -62,9 +62,9 @@ void rh4n_jni_jsonconverter_handleInt(RH4nJsonConverterArguments_t *args, jobjec
     if((*(args->env))->ExceptionCheck(args->env)) { return; }
 
     if(index == NULL) {
-        ret = rh4nvarCreateNewInt_m(args->varlist, args->namestack.names, args->currentName, value);
+        ret = rh4nvarCreateNewInt_m(args->varlist, (const char**)args->namestack.names, args->currentName, value);
     } else {
-        ret = rh4nvarSetIntArrayEntry_m(args->varlist, args->namestack.names, args->currentName, index, value);
+        ret = rh4nvarSetIntArrayEntry_m(args->varlist, (const char**)args->namestack.names, args->currentName, index, value);
     }
 
     if(ret != RH4N_RET_OK) {
@@ -80,9 +80,9 @@ void rh4n_jni_jsonconverter_handleBoolean(RH4nJsonConverterArguments_t *args, jo
     if((*(args->env))->ExceptionCheck(args->env)) { return; }
 
     if(index == NULL) {
-        ret = rh4nvarCreateNewBool_m(args->varlist, args->namestack.names, args->currentName, value);
+        ret = rh4nvarCreateNewBool_m(args->varlist, (const char**)args->namestack.names, args->currentName, value);
     } else {
-        ret = rh4nvarSetBoolArrayEntry_m(args->varlist, args->namestack.names, args->currentName, index, value);
+        ret = rh4nvarSetBoolArrayEntry_m(args->varlist, (const char**)args->namestack.names, args->currentName, index, value);
     }
 
     if(ret != RH4N_RET_OK) {
@@ -99,9 +99,9 @@ void rh4n_jni_jsonconverter_handleFloat(RH4nJsonConverterArguments_t *args, jobj
     if((*(args->env))->ExceptionCheck(args->env)) { return; }
 
     if(index == NULL) {
-        ret = rh4nvarCreateNewFloat_m(args->varlist, args->namestack.names, args->currentName, value);
+        ret = rh4nvarCreateNewFloat_m(args->varlist, (const char**)args->namestack.names, args->currentName, value);
     } else {
-        ret = rh4nvarSetIntArrayEntry_m(args->varlist, args->namestack.names, args->currentName, index, value);
+        ret = rh4nvarSetIntArrayEntry_m(args->varlist, (const char**)args->namestack.names, args->currentName, index, value);
     }
 
     if(ret != RH4N_RET_OK) {

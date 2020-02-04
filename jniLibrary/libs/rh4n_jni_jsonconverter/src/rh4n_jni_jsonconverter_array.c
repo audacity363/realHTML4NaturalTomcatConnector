@@ -59,16 +59,16 @@ void rh4n_jni_jsonconverter_dumpArray(RH4nJsonConverterArguments_t *args, jobjec
 
     switch(arrsig.vartype) {
         case RH4NJNIVARTYPEINT:
-            ret = rh4nvarCreateNewIntArray_m(args->varlist, args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
+            ret = rh4nvarCreateNewIntArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
             break;
         case RH4NJNIVARTYPEBOOLEAN:
-            ret = rh4nvarCreateNewBoolArray_m(args->varlist, args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
+            ret = rh4nvarCreateNewBoolArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
             break;
         case RH4NJNIVARTYPESTRING:
-            ret = rh4nvarCreateNewStringArray_m(args->varlist, args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
+            ret = rh4nvarCreateNewStringArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
             break;
         case RH4NJNIVARTYPEFLOAT:
-            ret = rh4nvarCreateNewFloatArray_m(args->varlist, args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
+            ret = rh4nvarCreateNewFloatArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
             break;
         default:
             rh4n_jni_utils_throwJNIException(args->env, -1, "Could not create new array - unkown vartype");

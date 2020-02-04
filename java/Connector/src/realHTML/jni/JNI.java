@@ -1,16 +1,27 @@
 package realHTML.jni;
 
-import org.apache.tomcat.jni.Library;
+import realHTML.JSONConverter.signatures.ObjectSignature;
+
+//import org.apache.tomcat.jni.Library;
 
 import realHTML.jni.exceptions.NoClientException;
 import realHTML.jni.natural.Message;
+import realHTML.tomcat.environment.EnvironmentVar;
 
 public class JNI {
 
 	static {
 		System.out.println("Loading so with Library");
-		Library.load("/home/tom/Documents/Java/websockets/c/librealHTMLconnector.so");
+		//Library.load("/home/tom/Documents/Java/websockets/c/librealHTMLconnector.so");
+		System.load(System.getProperty("user.dir") + "/../../bin/librealHTMLWSconnector.so");
 	}
+	
+	native int jni_startNaturalPlain(SessionInformations infos, String httpMethod, String naturalbinpath, EnvironmentVar[] environs, ObjectSignature urlvars, ObjectSignature bodyvars);
+	
+	public int startNaturalPlain(SessionInformations infos, String httpMethod, String naturalbinpath, EnvironmentVar[] environs, ObjectSignature urlvars, ObjectSignature bodyvars) {
+		return(this.jni_startNaturalPlain(infos, httpMethod, naturalbinpath, environs, urlvars, bodyvars));
+	}
+	
 	
 	public native int jni_createUDS_Server(String path, Boolean blocking);
 	public native int jni_waitForClient(String path, int serverFD) throws NoClientException;

@@ -7,9 +7,7 @@ JAR = jar
 JAVAC = javac
 #JAVAH = /SAG/cjp/v16/bin/javah
 JAVAH = javah
-
-#XLC:
-#LFLAGS1_SO = -G
+#XLC: #LFLAGS1_SO = -G
 #LFLAGS2_SO = 
 
 #GCC:
@@ -34,12 +32,13 @@ INCLUDE = -I./realHTML4NaturalCore/include/ \
 		  -I./realHTML4NaturalCore/libs/rh4n_jsongenerator/include/ \
 		  -I./realHTML4NaturalCore/libs/rh4n_ldaparser/include/ \
 		  -I./realHTML4NaturalCore/libs/rh4n_var2name/include/ \
+		  -I./realHTML4NaturalCore/libs/rh4n_messaging/include/ \
 		  -I./jniLibrary/include/ \
 		  -I./jniLibrary/libs/rh4n_jni_jsonconverter/include \
 		  $(JNIINCLUDE)
 
 LIBS = -L./realHTML4NaturalCore/bin/libs -L./bin/libs \
-	   -ldl -lrh4njnijsonconverter -lrh4nutils -lrh4nlogging -lrh4nvar2name -lrh4nvars -lrh4nldaparser \
+	   -ldl -lrh4nmessaging -lrh4njnijsonconverter -lrh4nutils -lrh4nlogging -lrh4nvar2name -lrh4nvars -lrh4nldaparser \
 	   -lrh4njsongenerator -lcrypt -lrh4nlogging
 
 #XLC:
@@ -306,7 +305,11 @@ jni_jsonconverter_clean:
 
 JNI_WS_BIN = ./bin/ws/
 JNI_WS_SRC = ./jniLibrary/src
-JNI_WS_OBJS = rh4n_jni_test_jsonconverter.o \
+JNI_WS_OBJS = rh4n_jni_plain_main.o \
+			  rh4n_jni_test_jsonconverter.o \
+			  rh4n_jni_dumpSessionInformations.o \
+			  rh4n_jni_dumpEnvirons.o \
+			  rh4n_jni_callNatural.o \
 			  rh4n_jni_utils.o
 
 jniWSLibrary: core jni_jsonconverter jniWSLibrary_clean jniWSLibrary_pre $(JNI_WS_OBJS)

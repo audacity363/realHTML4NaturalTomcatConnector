@@ -29,5 +29,7 @@ JNIEXPORT void JNICALL Java_Test_devDumpJSONConverterValues(JNIEnv *env, jclass 
     RH4nProperties props; memset(&props, 0x00, sizeof(props));
     rh4njsonPrintJSON(&varlist, fileno(stdout), &props);
 
+    printf("\nDump to file: %d\n", rh4nvarDumpToFile(&varlist, "/tmp/testvars"));
+    printf("strerror: %s\n", strerror(errno));
     printf("Alles in Ordnung\n");
 }

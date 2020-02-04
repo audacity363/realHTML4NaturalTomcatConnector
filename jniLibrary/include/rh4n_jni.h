@@ -1,25 +1,37 @@
+#ifndef RH4NJNI
+#define RH4NJNI
+
 #define NATPARMSCOUNT 7
 
-#define RH4N_CLASS_STRING "Ljava/lang/String;"
-
-struct naturalparms {
-    char *jname;
-    char *jtype;
-    jobject target;
-    void *value;
-    int array_length;
-    int (*handler)(JNIEnv*, jobject, struct naturalparms*);
-    void *(*getter)(JNIEnv*, struct naturalparms*, int);
+struct rh4n_jni_environ {
+    char *name;
+    char *value;
+    uint8_t append;
 };
 
-int callNatural(JNIEnv *env, struct naturalparms *parms, int length, char *error, FILE*, char***, int, RH4nVarList);
-void debugFileprint(FILE *logfile, char *format, ...);
-char *natErrno2Str(int naterrno);
-struct naturalparms *getParmByName(struct naturalparms *parms, int length, char *searchname);
-char *OpenLib(void **shLib, char *name);
-void CloseLib(void **shLib);
-int getVarlist(JNIEnv *env, jobject varlist, RH4nVarList *target, char *error_msg, RH4nLogrule*);
+typedef struct {
+    uint32_t length;
+    struct rh4n_jni_environ *environs;
+} rh4n_jni_environs;
+
+struct rh4n_jni_environProperties{
+    jclass cEnviromentVar;
+    jfieldID fname;
+    jfieldID fvalue;
+    jfieldID fappend;
+};
 
 
 void rh4n_jni_utils_throwJNIException(JNIEnv *env, int errorno, const char *errorstr);
+void rh4n_jni_dumpSessionInformations(JNIEnv *env, jobject osessionInformations, RH4nProperties *props);
 
+void rh4n_jni_dumpEnviromentVariables(JNIEnv *env, jobjectArray oenvirons, rh4n_jni_environs *environs);
+void rh4n_jni_dumpEnviromentVariable(JNIEnv *env, jobject otarget, struct rh4n_jni_environ *environ, struct rh4n_jni_environProperties *props);
+void rh4n_jni_getEnviromentVarProperties(JNIEnv *env, struct rh4n_jni_environProperties *props);
+
+void rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, RH4nProperties *props);
+pid_t startNatural(JNIEnv *env, const char *udsServerPath, const char *realHTMLexe, int, RH4nProperties *props);
+void rh4n_jni_killChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props);
+void rh4n_jni_waitForChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props, uint8_t *childExit);
+
+#endif

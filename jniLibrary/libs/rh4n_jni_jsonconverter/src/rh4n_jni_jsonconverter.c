@@ -77,7 +77,7 @@ void rh4n_jni_jsonconverter_dumpObjectSignatureNode(RH4nJsonConverterArguments_t
             if((*(args->env))->ExceptionCheck(args->env)) { return; }
             
             if(onextlvl != NULL) {
-                if((ret = rh4nvarCreateNewGroup_m(args->varlist, args->namestack.names, name)) != RH4N_RET_OK) {
+                if((ret = rh4nvarCreateNewGroup_m(args->varlist, (const char**)args->namestack.names, name)) != RH4N_RET_OK) {
                     (*(args->env))->ReleaseStringUTFChars(args->env, (jstring)oname, name);
                     rh4n_jni_utils_throwJNIException(args->env, ret, "Could not create new group in varlist");
                     return;
