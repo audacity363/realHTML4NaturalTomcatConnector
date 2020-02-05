@@ -9,9 +9,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/tom/Documents/Java/apache-tomcat-9.0.16/lib/json-20180813.jar"/>
-	<classpathentry kind="lib" path="/home/tom/Documents/Java/apache-tomcat-9.0.16/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="/home/tom/Documents/Java/apache-tomcat-9.0.16/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/home/tom/Documents/Java/apache-tomcat-9.0.16/lib/websocket-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

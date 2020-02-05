@@ -1,3 +1,4 @@
+package realHTML.tomcat.gui;
 
 
 import java.io.FileNotFoundException;
@@ -6,12 +7,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.xml.sax.SAXException;
-
-import realHTML.servlet.exceptions.EnvironmentException;
-import realHTML.servlet.exceptions.XMLException;
+import realHTML.handler.plain.RealHTMLInit;
 import realHTML.tomcat.environment.EnvironmentBuffer;
 import realHTML.tomcat.xml.Import;
 

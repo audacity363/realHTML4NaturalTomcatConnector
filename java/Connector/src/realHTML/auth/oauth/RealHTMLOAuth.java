@@ -5,9 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.eclipsesource.json.Json;
-import com.eclipsesource.json.JsonObject;
-import com.eclipsesource.json.JsonValue;
+import org.json.JSONObject;
 
 import realHTML.auth.exceptions.AuthException;
 
@@ -19,7 +17,7 @@ public class RealHTMLOAuth {
         String inputLine, username;
         StringBuffer content = new StringBuffer();
         int httpStatus;
-        JsonObject root;
+        JSONObject root;
 
         try {
             targeturl = new URL(target);
@@ -51,8 +49,8 @@ public class RealHTMLOAuth {
             throw new AuthException(content.toString(), httpStatus);
         }
 
-        root = Json.parse(content.toString()).asObject();
-        username = root.getString("username", null);
+        root = new JSONObject(content.toString());
+        username = root.optString("username",  null);
 
         return username;
     }

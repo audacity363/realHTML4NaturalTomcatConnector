@@ -7,6 +7,7 @@ JAR = jar
 JAVAC = javac
 #JAVAH = /SAG/cjp/v16/bin/javah
 JAVAH = javah
+
 #XLC: #LFLAGS1_SO = -G
 #LFLAGS2_SO = 
 
@@ -14,11 +15,7 @@ JAVAH = javah
 LFLAGS1_SO = -shared 
 LFLAGS2_SO = 
 
-TOMCAT_INSTALLATION = /home/tom/Documents/Java/apache-tomcat-9.0.16
-#TOMCAT_INSTALLATION = /opt/tomcat/apache-tomcat-8.5.24
-
-TOMCATCLASSPATH = $(TOMCAT_INSTALLATION)/lib/servlet-api.jar:$(TOMCAT_INSTALLATION)/lib/jsp-api.jar
-RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar:./java/Connector/WebContent/WEB-INF/lib/minimal-json-0.9.5.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar
+RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/json-20180813.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-api-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-core-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-web-2.3.jar:./java/Connector/WebContent/WEB-INF/lib/servlet-api.jar:./java/Connector/WebContent/WEB-INF/lib/jsp-api.jar
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
 #JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
@@ -74,7 +71,7 @@ help:
 	@printf "\t|   Generates JNI header file required by the JNI Library    |\n"
 	@printf "\t+------------------------------------------------------------+\n\n"
 	@printf "\tall: Compiles everything\n" 
-all: core jnilibrary tomcatconnector_warfile 
+all: core jniLibrary tomcatconnector_warfile 
 	@printf "You find the binarys under ./bin\n"
 
 core:
@@ -87,67 +84,77 @@ core:
 TOMCONNECTOR_SRC = ./java/Connector/src
 TOMCONNECTOR_LIB_BIN = ./bin/servlet/lib
 
-JAVA_JSON_PARSER_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/JSONMatcher
-JAVA_JSON_PARSER =  $(JAVA_JSON_PARSER_SRC)/JSONArrayException.java \
-					$(JAVA_JSON_PARSER_SRC)/JSONObjectException.java \
-					$(JAVA_JSON_PARSER_SRC)/TypeException.java \
-					$(JAVA_JSON_PARSER_SRC)/Types.java \
-					$(JAVA_JSON_PARSER_SRC)/ArrayType.java \
-					$(JAVA_JSON_PARSER_SRC)/JSONUtils.java \
-					$(JAVA_JSON_PARSER_SRC)/LLNode.java \
-					$(JAVA_JSON_PARSER_SRC)/LLHandler.java \
-					$(JAVA_JSON_PARSER_SRC)/JSONObject.java \
-					$(JAVA_JSON_PARSER_SRC)/JSONArray.java \
-					$(JAVA_JSON_PARSER_SRC)/PrintFuncs.java \
-					$(JAVA_JSON_PARSER_SRC)/JSONParser.java
+JAVA_REALHTML_AUTH_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/auth/exceptions
+JAVA_REALHTML_AUTH_EXCEPTIONS = $(JAVA_REALHTML_AUTH_EXCEPTIONS_SRC)/AuthException.java
 
-JAVA_UTILS_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/connector
-JAVA_UTILS_PACKAGE = $(JAVA_UTILS_PACKAGE_SRC)/Environ.java \
-					 $(JAVA_UTILS_PACKAGE_SRC)/RH4NReturn.java \
-					 $(JAVA_UTILS_PACKAGE_SRC)/RH4NParams.java \
-					 $(JAVA_UTILS_PACKAGE_SRC)/JNINatural.java \
-					 $(JAVA_UTILS_PACKAGE_SRC)/JNILoader.java \
-					 $(JAVA_UTILS_PACKAGE_SRC)/RH4NCallParms.java 
+JAVA_REALHTML_AUTH_OAUTH_SRC = $(TOMCONNECTOR_SRC)/realHTML/auth/oauth
+JAVA_REALHTML_AUTH_OAUTH = $(JAVA_REALHTML_AUTH_OAUTH_SRC)/RealHTMLOAuth.java
 
-JAVA_UTILS_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/servlet/exceptions
-JAVA_UTILS_EXCEPTIONS = $(JAVA_UTILS_EXCEPTIONS_SRC)/RouteException.java \
-						$(JAVA_UTILS_EXCEPTIONS_SRC)/EnvironmentException.java \
-						$(JAVA_UTILS_EXCEPTIONS_SRC)/EnvironmentVarException.java \
-						$(JAVA_UTILS_EXCEPTIONS_SRC)/XMLException.java
+JAVA_REALHTML_JSONCONVERTER_UTILS_SRC = $(TOMCONNECTOR_SRC)/realHTML/JSONConverter/utils
+JAVA_REALHTML_JSONCONVERTER_UTILS = $(JAVA_REALHTML_JSONCONVERTER_UTILS_SRC)/NameStack.java
 
-JAVA_ROUTING_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/routing
-JAVA_ROUTING_PACKAGE = $(JAVA_ROUTING_PACKAGE_SRC)/Route.java \
-					   $(JAVA_ROUTING_PACKAGE_SRC)/PathType.java \
-					   $(JAVA_ROUTING_PACKAGE_SRC)/PathEntry.java \
-					   $(JAVA_ROUTING_PACKAGE_SRC)/PathTemplate.java \
-					   $(JAVA_ROUTING_PACKAGE_SRC)/Routing.java 
+JAVA_REALHTML_JSONCONVERTER_SIGNATURES_SRC = $(TOMCONNECTOR_SRC)/realHTML/JSONConverter/signatures
+JAVA_REALHTML_JSONCONVERTER_SIGNATURES = $(JAVA_REALHTML_JSONCONVERTER_SIGNATURES_SRC)/Types.java \
+										 $(JAVA_REALHTML_JSONCONVERTER_SIGNATURES_SRC)/ArraySignature.java \
+										 $(JAVA_REALHTML_JSONCONVERTER_SIGNATURES_SRC)/ObjectSignatureNode.java \
+										 $(JAVA_REALHTML_JSONCONVERTER_SIGNATURES_SRC)/ObjectSignature.java
 
-JAVA_ENVIRONMENT_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/environment
-JAVA_ENVIRONMENT_PACKAGE = $(JAVA_ENVIRONMENT_PACKAGE_SRC)/EnvironmentVar.java \
-						   $(JAVA_ENVIRONMENT_PACKAGE_SRC)/Environment.java \
-						   $(JAVA_ENVIRONMENT_PACKAGE_SRC)/EnvironmentBuffer.java
+JAVA_REALHTML_JSONCONVERTER_SRC = $(TOMCONNECTOR_SRC)/realHTML/JSONConverter
+JAVA_REALHTML_JSONCONVERTER = $(JAVA_REALHTML_JSONCONVERTER_SRC)/Rh4nArray.java \
+							  $(JAVA_REALHTML_JSONCONVERTER_SRC)/Rh4nObjectArray.java \
+							  $(JAVA_REALHTML_JSONCONVERTER_SRC)/Rh4nObject.java \
+							  $(JAVA_REALHTML_JSONCONVERTER_SRC)/JSONConverter.java
 
-JAVA_XML_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/xml
-JAVA_XML_PACKAGE = $(JAVA_XML_PACKAGE_SRC)/Export.java \
-				   $(JAVA_XML_PACKAGE_SRC)/Import.java
+JAVA_REALHTML_JNI_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/jni/exceptions
+JAVA_REALHTML_JNI_EXCEPTIONS = $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/JNIException.java \
+							   $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/NoClientException.java
 
-JAVA_GUI_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/gui
-JAVA_GUI_PACKAGE = $(JAVA_GUI_PACKAGE_SRC)/RouteTree.java \
-				   $(JAVA_GUI_PACKAGE_SRC)/RouteSorting.java
+JAVA_REALHTML_JNI_NATURAL_SRC = $(TOMCONNECTOR_SRC)/realHTML/jni/natural
+JAVA_REALHTML_JNI_NATURAL = $(JAVA_REALHTML_JNI_NATURAL_SRC)/ChildInformations.java \
+							$(JAVA_REALHTML_JNI_NATURAL_SRC)/Message.java \
+							$(JAVA_REALHTML_JNI_NATURAL_SRC)/MessageType.java
 
-JAVA_AUTH_PACKAGE_SRC = $(TOMCONNECTOR_SRC)/realHTML/auth
-JAVA_AUTH_PACKAGE = $(JAVA_AUTH_PACKAGE_SRC)/exceptions/AuthException.java \
-					$(JAVA_AUTH_PACKAGE_SRC)/oauth/RealHTMLOAuth.java
+JAVA_REALHTML_JNI_SRC = $(TOMCONNECTOR_SRC)/realHTML/jni
+JAVA_REALHTML_JNI = $(JAVA_REALHTML_JNI_SRC)/SessionInformations.java \
+					$(JAVA_REALHTML_JNI_SRC)/ChildProcess.java \
+					$(JAVA_REALHTML_JNI_SRC)/JNI.java
 
-TOMCAT_SERVLETS = $(TOMCONNECTOR_SRC)/RealHTMLInit.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLHandler.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLLogin.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLLogout.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLLoadConfig.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLManageEnvironment.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLManageEnvironmentVars.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLManageRoute.java \
-				  $(TOMCONNECTOR_SRC)/RealHTMLSaveConfig.java
+JAVA_REALHTML_TOMCAT_ROUTING_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/routing
+JAVA_REALHTML_TOMCAT_ROUTING = $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Route.java \
+							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathType.java \
+							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathTemplate.java \
+							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathEntry.java \
+							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Routing.java
+
+JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/servlet/exceptions
+JAVA_REALHTML_SERVLET_EXCEPTIONS = $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/EnvironmentException.java \
+								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/EnvironmentVarException.java \
+								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/RouteException.java \
+								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/XMLException.java 
+
+JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/environment
+JAVA_REALHTML_TOMCAT_ENVIRONMENT = $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/EnvironmentVar.java \
+								   $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/Environment.java \
+								   $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/EnvironmentBuffer.java
+
+
+JAVA_REALHTML_HANDLER_PLAIN_SRC = $(TOMCONNECTOR_SRC)/realHTML/handler/plain
+JAVA_REALHTML_HANDLER_PLAIN = $(JAVA_REALHTML_HANDLER_PLAIN_SRC)/RealHTMLInit.java \
+							  $(JAVA_REALHTML_HANDLER_PLAIN_SRC)/RealHTMLHandler.java
+
+JAVA_REALHTML_TOMCAT_GUI_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/gui
+JAVA_REALHTML_TOMCAT_GUI = $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RouteSorting.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RouteTree.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLLoadConfig.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageEnvironment.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageEnvironmentVars.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageRoute.java \
+						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLSaveConfig.java
+
+
+JAVA_REALHTML_TOMCAT_XML_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/xml
+JAVA_REALHTML_TOMCAT_XML = $(JAVA_REALHTML_TOMCAT_XML_SRC)/Export.java \
+						   $(JAVA_REALHTML_TOMCAT_XML_SRC)/Import.java 
 
 
 TOMCAT_SERVLETS_BIN = ./bin/servlet/servlets
@@ -155,29 +162,47 @@ TOMCAT_SERVLETS_BIN = ./bin/servlet/servlets
 WARFILE_PREFIX = ./java/Connector/WebContent
 
 tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_pre
-	@printf "Compiling realHTML.servlet.exceptions\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_UTILS_EXCEPTIONS)
+	@printf "Compiling realHTML.auth.exceptions\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_AUTH_EXCEPTIONS)
 
-	@printf "Compiling realHTML.tomcat.JSONMatcher\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_JSON_PARSER)
+	@printf "Compiling realHTML.auth.oauth\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_AUTH_OAUTH)
+
+	@printf "Compiling realHTML.JSONConverter.utils\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JSONCONVERTER_UTILS)
+
+	@printf "Compiling realHTML.JSONConverter.signatures\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JSONCONVERTER_SIGNATURES)
+
+	@printf "Compiling realHTML.JSONConverter\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JSONCONVERTER)
+
+	@printf "Compiling realHTML.servlet.exceptions\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_SERVLET_EXCEPTIONS)
 
 	@printf "Compiling realHTML.tomcat.routing\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_ROUTING_PACKAGE)
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_ROUTING)
 
 	@printf "Compiling realHTML.tomcat.environment\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_ENVIRONMENT_PACKAGE)
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_ENVIRONMENT)
+
+	@printf "Compiling realHTML.jni.exceptions\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JNI_EXCEPTIONS)
+
+	@printf "Compiling realHTML.jni.natural\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JNI_NATURAL)
+
+	@printf "Compiling realHTML.jni\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JNI)
 
 	@printf "Compiling realHTML.tomcat.xml\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_XML_PACKAGE)
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_XML)
+
+	@printf "Compiling realHTML.handler.plain\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_HANDLER_PLAIN)
 
 	@printf "Compiling realHTML.tomcat.gui\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_GUI_PACKAGE)
-
-	@printf "Compiling realHTML.auth\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_AUTH_PACKAGE)
-
-	@printf "Compiling realHTML.tomcat.connector\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_UTILS_PACKAGE)
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_GUI)
 
 	@printf "Creating realHTMLconnector.jar\n"
 	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
@@ -192,23 +217,7 @@ tomcatconnector_package_clean:
 	@printf "Cleaning realHTMLconnector.jar\n"
 	@rm -f ./servlet/web/WEB-INF/lib/realHTMLconnector.jar
 
-tomcatconnector_servlet: tomcatconnector_package tomcatconnector_servlet_clean tomcatconnector_servlet_pre
-	@printf "Compiling servlets\n"
-	@$(JAVAC) -d $(TOMCAT_SERVLETS_BIN) -cp $(CLASSPATH) $(TOMCAT_SERVLETS)
-	@printf "Copying servlet classes into warfile\n"
-	@cp $(TOMCAT_SERVLETS_BIN)/*.class $(WARFILE_PREFIX)/WEB-INF/classes/
-
-tomcatconnector_servlet_pre:
-	@printf "Creating servlets output folder\n"
-	@mkdir -p $(TOMCAT_SERVLETS_BIN)
-
-tomcatconnector_servlet_clean:
-	@printf "Cleaning servlets\n"
-	@rm -rf $(TOMCAT_SERVLETS_BIN)
-	@printf "Cleaning servlets in warfile\n"
-	@rm -f $(WARFILE_PREFIX)/WEB-INF/classes/*.class
-
-tomcatconnector_warfile: jnilibrary tomcatconnector_package tomcatconnector_servlet \
+tomcatconnector_warfile: jniLibrary tomcatconnector_package \
 						 tomcatconnector_warfile_pre tomcatconnector_warfile_clean
 	@printf "Creating realHTML4Natural.war\n"
 	@cd $(WARFILE_PREFIX); $(JAR) cvf ../../../bin/realHTML4Natural.war .
@@ -223,54 +232,6 @@ tomcatconnector_warfile_clean:
 
 #                         +-----------------+
 #-------------------------|   JNI library   |----------------------------------
-#                         +-----------------+
-
-JNI_JSON_HANDLERS = json_utils.o plain_handlers.o 1d_handlers.o \
-					2d_handlers.o 3d_handlers.o handlers.o json_main.o
-
-JNI_NAT_HANDLERS = rh4n_nat_parmgeneration.o rh4n_natcall_process.o rh4n_nat_errorhandling.o
-
-JNI_MEMBER = rh4n_jni_main.o rh4n_jni_passwd.o rh4n_jni_javaParmReadout.o rh4n_jni_environ.o
-
-JNI_BIN = ./bin/jnilib
-JNI_SRC = ./jniLibrary/src
-
-jnilibrary: core jniheader jnilibrary_clean jnilibrary_pre $(JNI_JSON_HANDLERS) $(JNI_NAT_HANDLERS) $(JNI_MEMBER)
-	@printf "Linking librealHTMLconnector.so\n"
-	@$(CC) $(LFLAGS1_SO) $(JNI_BIN)/*.o $(LIBS) -o ./bin/librealHTMLconnector.so
-
-$(JNI_MEMBER):
-	@printf "CC $(JNI_SRC)/$*.c => $(JNI_BIN)/$*.o\n"
-	@$(CC) $(CARGS_SO) -o $(JNI_BIN)/$*.o $(JNI_SRC)/$*.c
-
-$(JNI_JSON_HANDLERS):
-	@printf "CC $(JNI_SRC)/json/$*.c => $(JNI_BIN)/$*.o\n"
-	@$(CC) $(CARGS_SO) -o $(JNI_BIN)/$*.o $(JNI_SRC)/json/$*.c
-
-$(JNI_NAT_HANDLERS):
-	@printf "CC $(JNI_SRC)/natural/$*.c => $(JNI_BIN)/$*.o\n"
-	@$(CC) $(CARGS_SO) -o $(JNI_BIN)/$*.o $(JNI_SRC)/natural/$*.c
-
-jniheader: tomcatconnector_package
-	@printf "Generating JNI headerfile\n"
-	@cd $(TOMCONNECTOR_LIB_BIN); $(JAVAH) -jni \
-		-o ../../../jniLibrary/include/realHTML_tomcat_connector_JNINatural.h \
-		realHTML.tomcat.connector.JNINatural
-
-jnilibrary_pre:
-	@printf "Creating jnilib output folder\n"
-	@mkdir -p $(JNI_BIN)
-
-jnilibrary_clean:
-	@printf "Cleaning jnilibrary objects\n"
-	@rm -f $(JNI_BIN)/*.o
-	@printf "Cleaning librealHTMLConnector.so\n"
-	@rm -f ./bin/librealHTMLConnector.so
-
-
-
-#                         +-----------------+
-#-------------------------| new JNI library |----------------------------------
 #                         +-----------------+
 
 JNI_LIBOUTPUT = ./bin/libs
@@ -303,30 +264,30 @@ jni_jsonconverter_clean:
 	@printf "Cleaning jni jsonconverter objects\n"
 	@rm -f $(JNI_LIB_JSONCONVERTER_BIN)/*.o
 
-JNI_WS_BIN = ./bin/ws/
-JNI_WS_SRC = ./jniLibrary/src
-JNI_WS_OBJS = rh4n_jni_plain_main.o \
+JNI_BIN = ./bin/ws/
+JNI_SRC = ./jniLibrary/src
+JNI_OBJS = rh4n_jni_plain_main.o \
 			  rh4n_jni_test_jsonconverter.o \
 			  rh4n_jni_dumpSessionInformations.o \
 			  rh4n_jni_dumpEnvirons.o \
 			  rh4n_jni_callNatural.o \
 			  rh4n_jni_utils.o
 
-jniWSLibrary: core jni_jsonconverter jniWSLibrary_clean jniWSLibrary_pre $(JNI_WS_OBJS)
-	@printf "Linking librealHTMLWSconnector.so\n"
-	@$(CC) $(LFLAGS1_SO) $(JNI_WS_BIN)/*.o $(LIBS) -o ./bin/librealHTMLWSconnector.so
+jniLibrary: core jni_jsonconverter jniLibrary_clean jniLibrary_pre $(JNI_OBJS)
+	@printf "Linking librealHTMLconnector.so\n"
+	@$(CC) $(LFLAGS1_SO) $(JNI_BIN)/*.o $(LIBS) -o ./bin/librealHTMLWSconnector.so
 
-$(JNI_WS_OBJS):
-	@printf "CC $(JNI_WS_SRC)/json/$*.c => $(JNI_WS_BIN)/$*.o\n"
-	@$(CC) $(CARGS_SO) -o $(JNI_WS_BIN)/$*.o $(JNI_WS_SRC)/$*.c
+$(JNI_OBJS):
+	@printf "CC $(JNI_SRC)/json/$*.c => $(JNI_BIN)/$*.o\n"
+	@$(CC) $(CARGS_SO) -o $(JNI_BIN)/$*.o $(JNI_SRC)/$*.c
 
-jniWSLibrary_pre:
-	@printf "Creating jniWSlib output folder\n"
-	@mkdir -p $(JNI_WS_BIN)
+jniLibrary_pre:
+	@printf "Creating jnilib output folder\n"
+	@mkdir -p $(JNI_BIN)
 
-jniWSLibrary_clean:
+jniLibrary_clean:
 	@printf "Cleaning jniWSLibrary objects\n"
-	@rm -f $(JNI_WS_BIN)/*.o
+	@rm -f $(JNI_BIN)/*.o
 	@printf "Cleaning librealHTMLWSConnector.so\n"
 	@rm -f ./bin/librealHTMLWSConnector.so
 

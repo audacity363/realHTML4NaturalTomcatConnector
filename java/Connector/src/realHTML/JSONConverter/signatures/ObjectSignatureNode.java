@@ -64,6 +64,14 @@ public class ObjectSignatureNode {
 			break;
 		case OBJECT:
 			var = null;
+		case INT:
+			break;
+		case NULL:
+			break;
+		case UNKNOWN:
+			break;
+		default:
+			break;
 		}
 		
 		return var;

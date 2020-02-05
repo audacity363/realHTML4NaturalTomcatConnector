@@ -1,3 +1,4 @@
+package realHTML.handler.plain;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,11 +20,15 @@ import realHTML.JSONConverter.signatures.ObjectSignature;
 import realHTML.auth.exceptions.AuthException;
 
 import org.apache.commons.io.*;
-
-import com.eclipsesource.json.JsonObject;
+import org.json.JSONObject;
 
 
 public class RealHTMLHandler extends RealHTMLInit {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1076903443567066328L;
+
 	private class RouteInformations {
 		public Environment env;
 		public PathTemplate route;
@@ -49,9 +54,9 @@ public class RealHTMLHandler extends RealHTMLInit {
     public void handleError(Exception ex, HttpServletResponse response) throws ServletException {
         response.setStatus(500);
 
-        JsonObject root = new JsonObject();
-        root.add("status", 500);
-        root.add("message", ex.getMessage());
+        JSONObject root = new JSONObject();
+        root.append("status", 500);
+        root.append("message", ex.getMessage());
 
         try {
             response.getOutputStream().print(root.toString());

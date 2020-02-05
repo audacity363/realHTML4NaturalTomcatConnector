@@ -1,18 +1,12 @@
+package realHTML.handler.plain;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.xml.sax.SAXException;
-
-import realHTML.servlet.exceptions.EnvironmentException;
-import realHTML.servlet.exceptions.XMLException;
 import realHTML.tomcat.environment.EnvironmentBuffer;
 import realHTML.tomcat.xml.Import;
-import realHTML.tomcat.connector.JNILoader;
 
 public class RealHTMLInit extends HttpServlet {
 

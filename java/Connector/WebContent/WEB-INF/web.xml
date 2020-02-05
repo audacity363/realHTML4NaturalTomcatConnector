@@ -7,37 +7,16 @@
     <!-- Main handler which handles requests to natural -->
     <servlet>
         <servlet-name>realHTMLServlet</servlet-name>
-        <servlet-class>RealHTMLHandler</servlet-class>
+        <servlet-class>realHTML.handler.plain.RealHTMLHandler</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>realHTMLServlet</servlet-name>
         <url-pattern>/nat/*</url-pattern>
     </servlet-mapping>
-
-    <!-- Login handler. Creates a new session -->
-    <servlet>
-        <servlet-name>realHTMLLogin</servlet-name>
-        <servlet-class>RealHTMLLogin</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>realHTMLLogin</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-
-    <!-- Logout handler. Destroys a existing session -->
-    <servlet>
-        <servlet-name>realHTMLLogout</servlet-name>
-        <servlet-class>RealHTMLLogout</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>realHTMLLogout</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-    
     
     <servlet>
 		<servlet-name>LoadConfig</servlet-name>
-		<servlet-class>RealHTMLLoadConfig</servlet-class>
+		<servlet-class>realHTML.tomcat.gui.RealHTMLLoadConfig</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoadConfig</servlet-name>
@@ -46,7 +25,7 @@
 	
 	<servlet>
 		<servlet-name>SaveConfig</servlet-name>
-		<servlet-class>RealHTMLSaveConfig</servlet-class>
+		<servlet-class>realHTML.tomcat.gui.RealHTMLSaveConfig</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SaveConfig</servlet-name>
@@ -55,7 +34,7 @@
 	
 	<servlet>
 		<servlet-name>ManageEnvironmentVars</servlet-name>
-		<servlet-class>RealHTMLManageEnvironmentVars</servlet-class>
+		<servlet-class>realHTML.tomcat.gui.RealHTMLManageEnvironmentVars</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ManageEnvironmentVars</servlet-name>
@@ -64,7 +43,7 @@
 	
 	<servlet>
 		<servlet-name>ManageEnvironment</servlet-name>
-		<servlet-class>RealHTMLManageEnvironment</servlet-class>
+		<servlet-class>realHTML.tomcat.gui.RealHTMLManageEnvironment</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ManageEnvironment</servlet-name>
@@ -73,7 +52,7 @@
 	
 	<servlet>
 		<servlet-name>ManageRoute</servlet-name>
-		<servlet-class>RealHTMLManageRoute</servlet-class>
+		<servlet-class>realHTML.tomcat.gui.RealHTMLManageRoute</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ManageRoute</servlet-name>

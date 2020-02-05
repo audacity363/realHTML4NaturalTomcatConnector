@@ -1,3 +1,4 @@
+package realHTML.tomcat.gui;
 
 
 import java.io.IOException;
@@ -6,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import realHTML.handler.plain.RealHTMLInit;
 import realHTML.tomcat.environment.EnvironmentBuffer;
 
 public class RealHTMLManageEnvironmentVars extends RealHTMLInit {
