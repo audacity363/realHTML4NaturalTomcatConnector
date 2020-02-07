@@ -1,25 +1,30 @@
-#CC = /usr/vac/bin/xlc
-CC = gcc
-AR = /usr/bin/ar
-JAR = jar
-#JAR = /SAG/cjp/v16/bin/jar
-#JAVAC = /SAG/cjp/v16/bin/javac
-JAVAC = javac
-#JAVAH = /SAG/cjp/v16/bin/javah
-JAVAH = javah
+CC = /usr/vac/bin/xlc
+#CC = gcc
 
-#XLC: #LFLAGS1_SO = -G
-#LFLAGS2_SO = 
+AR = /usr/bin/ar
+
+#JAR = jar
+JAR = /usr/java8_64/bin/jar
+
+JAVAC = /usr/java8_64/bin/javac
+#JAVAC = javac
+
+JAVAH = /usr/java8_64/bin/javah
+#JAVAH = javah
+
+#XLC: 
+LFLAGS1_SO = -G
+LFLAGS2_SO = 
 
 #GCC:
-LFLAGS1_SO = -shared 
-LFLAGS2_SO = 
+#LFLAGS1_SO = -shared 
+#LFLAGS2_SO = 
 
 RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/json-20180813.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-api-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-core-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-web-2.3.jar:./java/Connector/WebContent/WEB-INF/lib/servlet-api.jar:./java/Connector/WebContent/WEB-INF/lib/jsp-api.jar
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
-#JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
-JNIINCLUDE = -I/usr/lib/jvm/java-8-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux
+JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
+#JNIINCLUDE = -I/usr/lib/jvm/java-8-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux
 
 
 INCLUDE = -I./realHTML4NaturalCore/include/ \
@@ -39,14 +44,14 @@ LIBS = -L./realHTML4NaturalCore/bin/libs -L./bin/libs \
 	   -lrh4njsongenerator -lcrypt -lrh4nlogging
 
 #XLC:
-#CARGS1 = -g -c -fpic $(INCLUDE)
-#CARGS2 = 
-#CARGS_SO = -c -g -fpic $(INCLUDE)
-
-#GCC:
 CARGS1 = -g -c -fpic $(INCLUDE)
 CARGS2 = 
 CARGS_SO = -c -g -fpic $(INCLUDE)
+
+#GCC:
+#CARGS1 = -g -c -fpic $(INCLUDE)
+#CARGS2 = 
+#CARGS_SO = -c -g -fpic $(INCLUDE)
 
 help:
 	@printf "Targets:\n"
@@ -275,7 +280,7 @@ JNI_OBJS = rh4n_jni_plain_main.o \
 
 jniLibrary: core jni_jsonconverter jniLibrary_clean jniLibrary_pre $(JNI_OBJS)
 	@printf "Linking librealHTMLconnector.so\n"
-	@$(CC) $(LFLAGS1_SO) $(JNI_BIN)/*.o $(LIBS) -o ./bin/librealHTMLWSconnector.so
+	@$(CC) $(LFLAGS1_SO) $(JNI_BIN)/*.o $(LIBS) -o ./bin/librealHTMLconnector.so
 
 $(JNI_OBJS):
 	@printf "CC $(JNI_SRC)/json/$*.c => $(JNI_BIN)/$*.o\n"
@@ -288,6 +293,20 @@ jniLibrary_pre:
 jniLibrary_clean:
 	@printf "Cleaning jniWSLibrary objects\n"
 	@rm -f $(JNI_BIN)/*.o
-	@printf "Cleaning librealHTMLWSConnector.so\n"
-	@rm -f ./bin/librealHTMLWSConnector.so
+	@printf "Cleaning librealHTMLConnector.so\n"
+	@rm -f ./bin/librealHTMLConnector.so
 
+jniLibrary_tests: jniLibrary jniLibrary_tests_clean jniLibrary_tests_pre
+	@printf "Building Test.java\n"
+	@$(JAVAC) -d bin/tests/ -cp $(CLASSPATH) java/Connector/src/Test.java
+
+jniLibrary_tests_pre:
+	@printf "Creating jniLibrary tests output folder\n"
+	@mkdir -p ./bin/tests
+
+jniLibrary_tests_clean:
+	@printf "Cleaning jniLibrary tests\n"
+	@rm -rf ./bin/tests
+
+jniLibrary_tests_run: jniLibrary_tests
+	@/usr/java8_64/bin/java -Djava.library.path=./bin/ -cp bin/tests:bin/servlet/lib Test

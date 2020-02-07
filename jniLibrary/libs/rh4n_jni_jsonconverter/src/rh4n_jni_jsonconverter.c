@@ -60,8 +60,6 @@ void rh4n_jni_jsonconverter_dumpObjectSignatureNode(RH4nJsonConverterArguments_t
         vartype = (*(args->env))->CallIntMethod(args->env, ovartype, args->props.mTypes_getNumberRep);
         if((*(args->env))->ExceptionCheck(args->env)) { return; }
 
-        printf("God name: [%s] with vartype: [%d]\n", name, vartype);
-
         ovalue = (*(args->env))->GetObjectField(args->env, node, args->props.fObjectSignature_value);
         if(ovalue == NULL && vartype != RH4NJNIVARTYPEOBJECT) {
             if((*(args->env))->ExceptionCheck(args->env)) { return; }

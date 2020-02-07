@@ -30,8 +30,16 @@ void rh4n_jni_dumpEnviromentVariable(JNIEnv *env, jobject otarget, struct rh4n_j
 void rh4n_jni_getEnviromentVarProperties(JNIEnv *env, struct rh4n_jni_environProperties *props);
 
 void rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, RH4nProperties *props);
-pid_t startNatural(JNIEnv *env, const char *udsServerPath, const char *realHTMLexe, int, RH4nProperties *props);
+pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *realHTMLexe, int, RH4nProperties *props);
 void rh4n_jni_killChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props);
 void rh4n_jni_waitForChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props, uint8_t *childExit);
+
+#ifndef __xlc__
+int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, char *udsServerPath, RH4nProperties *props);
+#define rh4n_jni_waitForUDSServer(env, udsServerPath, props) rh4n_jni_waitForUDSServer_gnu(env, udsServerPath, props)
+#else
+int rh4n_jni_waitForUDSServer_xlc(JNIEnv *env, char *udsServerPath, RH4nProperties *props);
+#define rh4n_jni_waitForUDSServer(env, udsServerPath, props) rh4n_jni_waitForUDSServer_xlc(env, udsServerPath, props)
+#endif
 
 #endif

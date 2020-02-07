@@ -8,10 +8,6 @@ import realHTML.tomcat.environment.EnvironmentVar;
 
 public class Test {
 	
-	static {
-		System.load(System.getProperty("user.dir") + "/../../bin/librealHTMLWSconnector.so");
-	}
-	
 //	public static native int devDumpJSONConverterValues(ObjectSignature sig);
 //	public static native void arrayTest(int[] arr);
 //	public static native int startPlainNatural(SessionInformations sessionInformations, String httpMethod, String natbin, ObjectSignature urlvars, ObjectSignature bodyvars);
@@ -35,13 +31,13 @@ public class Test {
 		SessionInformations infos = new SessionInformations();
 		infos.natlibrary = "LIB1"; infos.natprogram ="PROG1";
 		infos.natsrcpath = "/tmp/natsrc"; infos.natparms = "etid=$$";
-		infos.loglevel = "DEVELOP"; infos.logpath = "/tmp/";
+		infos.loglevel = "DEVELOP"; infos.logpath = "";
 		infos.outputfile = "/tmp/outputfile";
 		infos.username = "";
 		
 		
 		
 		
-		jniloader.startNaturalPlain(infos, "GET", "/tmp/natbin/", testvars, null, null);
+		jniloader.startNaturalPlain(infos, "GET", "/SAG/nat/v63140/bin/", testvars, null, null);
 	}
 }

@@ -16,7 +16,10 @@ import realHTML.auth.oauth.RealHTMLOAuth;
 import realHTML.jni.JNI;
 import realHTML.jni.SessionInformations;
 import realHTML.JSONConverter.JSONConverter;
+import realHTML.JSONConverter.signatures.ArraySignature;
 import realHTML.JSONConverter.signatures.ObjectSignature;
+import realHTML.JSONConverter.signatures.ObjectSignatureNode;
+import realHTML.JSONConverter.signatures.Types;
 import realHTML.auth.exceptions.AuthException;
 
 import org.apache.commons.io.*;
@@ -115,7 +118,6 @@ public class RealHTMLHandler extends RealHTMLInit {
         RouteInformations activatedRoute = null;
         String contentType, httpMethod;
         ObjectSignature urlvars = null, bodyvars = null;
-        HashMap<String, String> routeparms;
         int natret;
 
         activatedRoute = this.getRouteInformations(request, response);
@@ -137,17 +139,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         session.logpath = this.logpath;
 
         try {
-            urlvars = getQueryParms(request);
-            routeparms = activatedRoute.route.getParms();
-            if(routeparms.size() > 0) {
-            	if(urlvars == null) {
-            		urlvars = new ObjectSignature();
-            	}
-            	
-            	for(String key: routeparms.keySet()) {
-            		urlvars.addAtEnd(key).setValue(routeparms.get(key));
-            	}
-            } 
+            urlvars = getQueryParms(request, activatedRoute.route);
             
             contentType = request.getContentType();
             if(contentType != null && contentType.equals("application/json")) {
@@ -238,22 +230,43 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    private ObjectSignature getQueryParms(HttpServletRequest request) throws UnsupportedEncodingException {
+    private ObjectSignature getQueryParms(HttpServletRequest request, PathTemplate route) throws UnsupportedEncodingException {
         Map<String, String[]> urlparms;
+        HashMap<String, String> routeparms;
         String[] values;
         ObjectSignature urlvars = new ObjectSignature();
+        ObjectSignatureNode target = null;
 
         urlparms = request.getParameterMap();
-        if(urlparms.size() == 0) {
+        routeparms = route.getParms();
+        
+        if(urlparms.size() == 0 && routeparms.size() == 0) {
             return(null);
         }
 
-        for(String key: urlparms.keySet()) {
-        	values = urlparms.get(key);
-        	if(values.length == 1) {
-        		urlvars.addAtEnd(key).setValue(values);
-        	} else {
-        		urlvars.addAtEnd(key).setValue(values[0]);
+        if(urlparms.size() > 0) {
+	        for(String key: urlparms.keySet()) {
+	        	target = urlvars.addAtEnd(key);
+	        	values = urlparms.get(key);
+	        	if(values.length == 1) {
+	        		target.setValue(values[0]);
+	        		target.vartype = Types.STRING;
+	        	} else {
+	        		target.setValue(values);
+	        		target.vartype = Types.ARRAY;
+	        		target.arrsig = new ArraySignature();
+	        		target.arrsig.dimensions = 1;
+	        		target.arrsig.length[0] = values.length;
+	        		target.arrsig.vartype = Types.STRING;
+	        	}
+	        }
+        }
+        
+        if(routeparms.size() > 0) {
+        	for(String key: routeparms.keySet()) {
+        		target = urlvars.addAtEnd(key);
+        		target.vartype = Types.STRING;
+        		target.setValue(routeparms.get(key));
         	}
         }
 

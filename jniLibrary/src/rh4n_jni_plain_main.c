@@ -67,5 +67,7 @@ JNIEXPORT int JNICALL Java_realHTML_jni_JNI_jni_1startNaturalPlain(JNIEnv *env, 
 
     rh4n_jni_startupNatural(env, onatbin, &props);
 
+    rh4nUtilsFreeProperties(&props);
+
     return(0);
 }

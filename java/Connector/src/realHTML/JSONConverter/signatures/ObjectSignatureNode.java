@@ -110,7 +110,7 @@ public class ObjectSignatureNode {
 	
 	public void setValue(Object value) throws UnsupportedEncodingException {
 		if(value instanceof String) {
-			System.out.printf("Is String: %s\n", value);
+			//System.out.printf("Is String: %s\n", value);
 			value = this.convertStringtoByteArray((String)value);
 		}
 		this.value = value;
@@ -153,11 +153,11 @@ public class ObjectSignatureNode {
 		System.arraycopy(encodedBytes, 0, completeString, 0, value.length());
 		completeString[value.length()] = 0x00;
 		
-		System.out.print("Add string; ");
-        for(int i = 0; i < completeString.length; i++) {
-            System.out.printf("0x%x ", completeString[i]);
-        }
-        System.out.println();
+		//System.out.print("Add string; ");
+        //for(int i = 0; i < completeString.length; i++) {
+            //System.out.printf("0x%x ", completeString[i]);
+        //}
+        //System.out.println();
 		
 		return(completeString);
  	}

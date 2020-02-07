@@ -36,14 +36,13 @@ void rh4n_jni_jsonconverter_handleString(RH4nJsonConverterArguments_t *args, job
     char *value = NULL;
     int ret = 0;
 
-    if((value = (*(args->env))->GetByteArrayElements(args->env, (jbyteArray)ovalue, NULL)) == NULL) {
+    if((value = (char*)(*(args->env))->GetByteArrayElements(args->env, (jbyteArray)ovalue, NULL)) == NULL) {
         if((*(args->env))->ExceptionCheck(args->env)) { return; }
         rh4n_jni_utils_throwJNIException(args->env, -1, "Bytearray returned NULL");
         return;
     }
 
     if(index == NULL) {
-        printf("Create String with: [%s]\n", value);
         ret = rh4nvarCreateNewString_m(args->varlist, (const char**)args->namestack.names, args->currentName, value);
     } else {
         ret = rh4nvarSetStringArrayEntry_m(args->varlist, (const char**)args->namestack.names, args->currentName, index, value);

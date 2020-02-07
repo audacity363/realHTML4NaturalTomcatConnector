@@ -13,7 +13,8 @@ public class JNI {
 	static {
 		System.out.println("Loading so with Library");
 		//Library.load("/home/tom/Documents/Java/websockets/c/librealHTMLconnector.so");
-		System.load(System.getProperty("user.dir") + "/../../bin/librealHTMLWSconnector.so");
+		//System.load(System.getProperty("user.dir") + "/../../bin/librealHTMLWSconnector.so");
+        System.loadLibrary("realHTMLconnector");
 	}
 	
 	native int jni_startNaturalPlain(SessionInformations infos, String httpMethod, String naturalbinpath, EnvironmentVar[] environs, ObjectSignature urlvars, ObjectSignature bodyvars);
