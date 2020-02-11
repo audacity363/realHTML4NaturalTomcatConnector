@@ -70,6 +70,9 @@ void rh4n_jni_jsonconverter_dumpArray(RH4nJsonConverterArguments_t *args, jobjec
         case RH4NJNIVARTYPEFLOAT:
             ret = rh4nvarCreateNewFloatArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
             break;
+        case RH4NJNIVARTYPENULL:
+            ret = rh4nvarCreateNewNullArray_m(args->varlist, (const char**)args->namestack.names, args->currentName, arrsig.dimensions, arrsig.length);
+            break;
         default:
             rh4n_jni_utils_throwJNIException(args->env, -1, "Could not create new array - unkown vartype");
             printf("Vartype: [%d]\n", arrsig.vartype);
@@ -77,6 +80,10 @@ void rh4n_jni_jsonconverter_dumpArray(RH4nJsonConverterArguments_t *args, jobjec
     }
     if(ret != RH4N_RET_OK) {
         rh4n_jni_utils_throwJNIException(args->env, ret, "Could not create new array");
+        return;
+    }
+
+    if(arrsig.vartype == RH4NJNIVARTYPENULL) {
         return;
     }
 

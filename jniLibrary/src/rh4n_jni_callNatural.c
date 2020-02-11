@@ -168,7 +168,7 @@ int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, const char *udsServerPath, RH4nPr
     const struct inotify_event *event;
     time_t start = 0, now = 0;
 
-    if((watchfd = inotify_init1(IN_NONBLOCKING)) < 0) {
+    if((watchfd = inotify_init1(IN_NONBLOCK)) < 0) {
         rh4n_log_fatal(props->logging, "Could not init inotify - %s", strerror(errno));
         return(-1);
     }
@@ -205,7 +205,7 @@ int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, const char *udsServerPath, RH4nPr
                 }
 
                 for(eventptr = buff; eventptr < buff + len; eventptr += sizeof(struct inotify_event) + event->len) {
-                    event = (const struct inotify_event*)ptr;
+                    event = (const struct inotify_event*)eventptr;
 
                     if(event->len) {
                         rh4n_log_debug(props->logging, "File %s was newly created", event->name);

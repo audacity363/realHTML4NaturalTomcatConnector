@@ -17,6 +17,9 @@ public class Rh4nArray {
 		ArraySignature arrsig = new ArraySignature();
 		
 		arrsig = this._getSignature(this.target, arrsig, 1);
+		if(arrsig.length[arrsig.dimensions-1] == 0) {
+			arrsig.vartype = Types.NULL;
+		}
 		
 		return(arrsig);
 	}
