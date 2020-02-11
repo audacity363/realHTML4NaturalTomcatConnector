@@ -113,7 +113,16 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
 
     if(naturalPID == 0) {
         close(udsServer);
-        execl(realHTMLexe, realHTMLexe, udsServerPath, (char*)NULL);
+        const char *loggingstr = rh4nLoggingGetLevelStr(props->i_loglevel);
+        const char* execargs[] = {
+            realHTMLexe,
+            "-L", props->natlibrary,
+            "-P", props->natprogram,
+            "-l", loggingstr,
+            udsServerPath,
+            NULL
+        };
+        execv(realHTMLexe, execargs);
         fprintf(stderr, "Something went totally wrong - %s", strerror(errno));
         exit(errno);
     }
