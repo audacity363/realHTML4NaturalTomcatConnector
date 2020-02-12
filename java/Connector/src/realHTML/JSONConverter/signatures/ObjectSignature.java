@@ -194,6 +194,9 @@ public class ObjectSignature {
 				this.fillObjectArray(hptr, pointer, 1, arrindex, root);				
 			} else if(hptr.originalvartype == Types.ARRAY) {
 				this.fillArray(hptr, pointer, 1, arrindex, root);
+			} else if(hptr.vartype == Types.ARRAY && hptr.originalvartype != Types.ARRAY ) {
+				value = root.query(new JSONPointer(pointer));
+				hptr.setValue(value, this.index);
 			} else {
 				value = root.query(new JSONPointer(pointer));
 				logging.debug("Name: {}, Value: [{}]", pointer.toString(), value);

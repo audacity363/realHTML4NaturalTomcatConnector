@@ -51,7 +51,7 @@ public class ObjectSignatureNode {
 		
 		switch(vartype) {
 		case STRING:
-			var = new String("");
+			var = new byte[1];
 			break;
 		case BOOLEAN:
 			var = false;
