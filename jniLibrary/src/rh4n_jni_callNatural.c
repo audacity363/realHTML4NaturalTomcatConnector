@@ -138,32 +138,37 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
         return(0);
     }
 
-    rh4n_log_debug(props->logging, "Sending SessionInformations");
+    rh4n_log_debug(props->logging, "Sending SessionInformations to socket %d", udsClient);
     if(rh4n_messaging_sendSessionInformations(udsClient, props) < 0) {
+        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
+        close(udsClient);
         rh4n_jni_killChild(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send session informations to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending session informations");
 
-    rh4n_log_debug(props->logging, "Sending url variables");
+    rh4n_log_debug(props->logging, "Sending url variables to socket %d", udsClient);
     if(rh4n_messaging_sendVarlist(udsClient, &props->urlvars, props) < 0) {
+        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
+        close(udsClient);
         rh4n_jni_killChild(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send url variables to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending url variables");
 
-    rh4n_log_debug(props->logging, "Sending body variables");
+    rh4n_log_debug(props->logging, "Sending body variables to socet %d", udsClient);
     if(rh4n_messaging_sendVarlist(udsClient, &props->bodyvars, props) < 0) {
+        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
+        close(udsClient);
         rh4n_jni_killChild(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send body variables to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending body variables");
 
-    close(udsClient);
-    
+    rh4n_log_develop(props->logging, "Closing socket %d - closeret: %d", udsClient, close(udsClient));
     return(naturalPID);
 }
 
@@ -176,6 +181,8 @@ int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, const char *udsServerPath, RH4nPr
     struct pollfd fds[1];
     const struct inotify_event *event;
     time_t start = 0, now = 0;
+
+    socketFilename = basename(udsServerPath);
 
     if((watchfd = inotify_init1(IN_NONBLOCK)) < 0) {
         rh4n_log_fatal(props->logging, "Could not init inotify - %s", strerror(errno));
