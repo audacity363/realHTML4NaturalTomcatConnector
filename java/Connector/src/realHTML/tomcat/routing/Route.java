@@ -2,6 +2,7 @@ package realHTML.tomcat.routing;
 
 public class Route {
 
+	public int id;
 	public String natLibrary;
 	public String natProgram;
 	public Boolean login;

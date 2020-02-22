@@ -12,6 +12,7 @@ public class Routing {
 	public void addRoute(String template, Route route) {
 		PathTemplate newroute = new PathTemplate(template, route);
 		newroute.parseTemplate();
+		newroute.route.id = this.templates.size();
 		this.templates.add(newroute);
 	}
 	
