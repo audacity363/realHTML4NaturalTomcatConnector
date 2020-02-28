@@ -1,30 +1,30 @@
-CC = /usr/vac/bin/xlc
-#CC = gcc
+#CC = /usr/vac/bin/xlc
+CC = gcc
 
 AR = /usr/bin/ar
 
-#JAR = jar
-JAR = /usr/java8_64/bin/jar
+JAR = jar
+#JAR = /usr/java8_64/bin/jar
 
-JAVAC = /usr/java8_64/bin/javac
-#JAVAC = javac
+#JAVAC = /usr/java8_64/bin/javac
+JAVAC = javac
 
-JAVAH = /usr/java8_64/bin/javah
-#JAVAH = javah
+#JAVAH = /usr/java8_64/bin/javah
+JAVAH = javah
 
 #XLC: 
-LFLAGS1_SO = -G
-LFLAGS2_SO = 
-
-#GCC:
-#LFLAGS1_SO = -shared 
+#LFLAGS1_SO = -G
 #LFLAGS2_SO = 
 
-RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/json-20180813.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-api-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-core-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-web-2.3.jar:./java/Connector/WebContent/WEB-INF/lib/servlet-api.jar:./java/Connector/WebContent/WEB-INF/lib/jsp-api.jar
+#GCC:
+LFLAGS1_SO = -shared 
+LFLAGS2_SO = 
+
+RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/json-20180813.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-api-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-core-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-web-2.3.jar:./java/Connector/WebContent/WEB-INF/lib/servlet-api.jar:./java/Connector/WebContent/WEB-INF/lib/jsp-api.jar:./java/Connector/WebContent/WEB-INF/lib/websocket-api.jar
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
-JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
-#JNIINCLUDE = -I/usr/lib/jvm/java-8-openjdk-amd64/include/ -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux
+#JNIINCLUDE = -I/usr/java8_64/include/ -I/usr/java8_64/include//linux/
+JNIINCLUDE = -I/usr/lib/jvm/java/include/ -I/usr/lib/jvm/java/include/linux/
 
 
 INCLUDE = -I./realHTML4NaturalCore/include/ \
@@ -44,14 +44,14 @@ LIBS = -L./realHTML4NaturalCore/bin/libs -L./bin/libs \
 	   -lrh4njsongenerator -lcrypt -lrh4nlogging
 
 #XLC:
-CARGS1 = -g -c -fpic $(INCLUDE)
-CARGS2 = 
-CARGS_SO = -c -g -fpic $(INCLUDE)
-
-#GCC:
 #CARGS1 = -g -c -fpic $(INCLUDE)
 #CARGS2 = 
 #CARGS_SO = -c -g -fpic $(INCLUDE)
+
+#GCC:
+CARGS1 = -g -c -fpic $(INCLUDE)
+CARGS2 = 
+CARGS_SO = -c -g -fpic $(INCLUDE)
 
 help:
 	@printf "Targets:\n"
@@ -74,8 +74,7 @@ help:
 	@printf "\t|                                                            |\n"
 	@printf "\t| jniheader                                                  |\n"
 	@printf "\t|   Generates JNI header file required by the JNI Library    |\n"
-	@printf "\t+------------------------------------------------------------+\n\n"
-	@printf "\tall: Compiles everything\n" 
+	@printf "\t+------------------------------------------------------------+\n\n" @printf "\tall: Compiles everything\n" 
 all: core jniLibrary tomcatconnector_warfile 
 	@printf "You find the binarys under ./bin\n"
 
@@ -112,7 +111,8 @@ JAVA_REALHTML_JSONCONVERTER = $(JAVA_REALHTML_JSONCONVERTER_SRC)/Rh4nArray.java 
 
 JAVA_REALHTML_JNI_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/jni/exceptions
 JAVA_REALHTML_JNI_EXCEPTIONS = $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/JNIException.java \
-							   $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/NoClientException.java
+							   $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/NoClientException.java \
+							   $(JAVA_REALHTML_JNI_EXCEPTIONS_SRC)/SocketClosedException.java
 
 JAVA_REALHTML_JNI_NATURAL_SRC = $(TOMCONNECTOR_SRC)/realHTML/jni/natural
 JAVA_REALHTML_JNI_NATURAL = $(JAVA_REALHTML_JNI_NATURAL_SRC)/ChildInformations.java \
@@ -156,11 +156,16 @@ JAVA_REALHTML_TOMCAT_GUI = $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RouteSorting.java \
 						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageRoute.java \
 						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLSaveConfig.java
 
-
 JAVA_REALHTML_TOMCAT_XML_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/xml
 JAVA_REALHTML_TOMCAT_XML = $(JAVA_REALHTML_TOMCAT_XML_SRC)/Export.java \
 						   $(JAVA_REALHTML_TOMCAT_XML_SRC)/Import.java 
 
+JAVA_REALHTML_HANDLER_WS_SRC = $(TOMCONNECTOR_SRC)/realHTML/handler/ws
+JAVA_REALHTML_HANDLER_WS = $(JAVA_REALHTML_HANDLER_WS_SRC)/WSThread.java \
+						   $(JAVA_REALHTML_HANDLER_WS_SRC)/WSMessageDecoder.java \
+						   $(JAVA_REALHTML_HANDLER_WS_SRC)/ConnectionPool.java \
+						   $(JAVA_REALHTML_HANDLER_WS_SRC)/WSHandler.java \
+						   $(JAVA_REALHTML_HANDLER_WS_SRC)/WSConfig.java 
 
 TOMCAT_SERVLETS_BIN = ./bin/servlet/servlets
 
@@ -208,6 +213,9 @@ tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_p
 
 	@printf "Compiling realHTML.tomcat.gui\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_GUI)
+
+	@printf "Compiling realHTML.handler.ws\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_HANDLER_WS)
 
 	@printf "Creating realHTMLconnector.jar\n"
 	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
@@ -276,7 +284,11 @@ JNI_OBJS = rh4n_jni_plain_main.o \
 			  rh4n_jni_dumpSessionInformations.o \
 			  rh4n_jni_dumpEnvirons.o \
 			  rh4n_jni_callNatural.o \
-			  rh4n_jni_utils.o
+			  rh4n_jni_utils.o \
+			  rh4n_jni_childProcess.o \
+			  rh4n_jni_getChildProcessStatus.o \
+			  rh4n_jni_checkForNewMessage.o \
+			  rh4n_jni_recvMessage.o
 
 jniLibrary: core jni_jsonconverter jniLibrary_clean jniLibrary_pre $(JNI_OBJS)
 	@printf "Linking librealHTMLconnector.so\n"
@@ -309,4 +321,8 @@ jniLibrary_tests_clean:
 	@rm -rf ./bin/tests
 
 jniLibrary_tests_run: jniLibrary_tests
-	@/usr/java8_64/bin/java -Djava.library.path=./bin/ -cp bin/tests:bin/servlet/lib Test
+	#@/usr/java8_64/bin/java -Djava.library.path=./bin/ -cp bin/tests:bin/servlet/lib Test
+	java -Djava.library.path=./bin/ -Dlog4j.configurationFile=java/Connector/properties/log4j2.xml -cp $(CLASSPATH):bin/tests:bin/servlet/lib Test
+
+testWS:
+	@wscat -c ws://localhost:8080/realHTML4Natural/ws/path2

@@ -29,3 +29,24 @@ void rh4n_jni_utils_throwJNIException(JNIEnv *env, int errorno, const char *erro
     (*env)->Throw(env, (jthrowable)ojniexception);
     return;
 }
+
+void rh4n_jni_utils_throwSocketClosedException(JNIEnv *env) {
+    jclass csocketclosedexception = NULL;
+    jmethodID mconstructor = NULL;
+    jobject osocketclosedexception = NULL;
+
+    if((csocketclosedexception = (*env)->FindClass(env, "realHTML/jni/exceptions/SocketClosedException")) == NULL) {
+        printf("Could not find SocketClosedException\n"); fflush(stdout);
+        return;
+    }
+
+    if((mconstructor = (*env)->GetMethodID(env, csocketclosedexception, "<init>", "()V")) == NULL) { 
+        printf("Could not find constructor for SocketClosedException\n"); fflush(stdout);
+        return;
+    }
+
+    osocketclosedexception = (*env)->NewObject(env, csocketclosedexception, mconstructor);
+
+    (*env)->Throw(env, (jthrowable)osocketclosedexception);
+    return;
+}

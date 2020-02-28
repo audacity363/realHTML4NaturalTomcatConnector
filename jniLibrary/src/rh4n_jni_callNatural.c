@@ -3,9 +3,9 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <time.h>
+#include <sys/types.h>
+#include <signal.h>
 
 #ifndef __xlc__
 #include <poll.h>
@@ -23,19 +23,17 @@
 
 #define RH4N_CLIENT_TIMEOUT 5
 
-void rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, RH4nProperties *props) {
-    int udsServer = 0;
-    uint32_t realHTMLexeLength = 0;
-    uint8_t childStatus = 0;
+pid_t rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, int *udsClient, RH4nProperties *props) {
+    uint32_t realHTMLexeLength = 0; uint8_t childStatus = 0;
     const char *natbinpath = NULL;
     char *realHTMLexe = NULL, *udsServerPath = NULL, errorstr[500];
     pid_t naturalProcess = 0;
     
     if(onatbinpath == NULL || (natbinpath = (*env)->GetStringUTFChars(env, (jstring)onatbinpath, NULL)) == NULL) {
         rh4n_jni_utils_throwJNIException(env, -1, "Field \"naturalbinpath\" is NULL");
-        return;
+        return(0);
     }
-    if((*env)->ExceptionCheck(env)) { return; }
+    if((*env)->ExceptionCheck(env)) { return(0); }
 
     if(natbinpath[strlen(natbinpath)-1] != '/') {
         realHTMLexeLength = strlen(natbinpath)+strlen(RH4N_NATCALLER)+2;
@@ -45,7 +43,7 @@ void rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, RH4nProperties *p
 
     if((realHTMLexe = calloc(realHTMLexeLength, sizeof(char))) == NULL) {
         (*env)->ReleaseStringUTFChars(env, onatbinpath, natbinpath); rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for realHTML4NaturalNatCaller exec path");
-        return;
+        return(0);
     }
 
     strcpy(realHTMLexe, natbinpath);
@@ -60,50 +58,37 @@ void rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, RH4nProperties *p
 
     if(access(realHTMLexe, X_OK) < 0) {
         sprintf(errorstr, "could not locate %s - %s", realHTMLexe, strerror(errno));
-        rh4n_jni_utils_throwJNIException(env, -1, errorstr);
-        return;
+        rh4n_jni_utils_throwJNIException(env, -1, errorstr); return(0);
     }
 
 
     if((udsServerPath = calloc(strlen(props->outputfile)+2, sizeof(char))) == NULL) {
         free(realHTMLexe);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for realHTML4NaturalNatCaller exec path");
-        return;
+        return(0);
     }
     sprintf(udsServerPath, "%s.soc", props->outputfile);
     rh4n_log_develop(props->logging, "God udServerPath: [%s]", udsServerPath);
 
-    naturalProcess = rh4n_jni_startNatural(env, udsServerPath, realHTMLexe, udsServer, props);
+    naturalProcess = rh4n_jni_startNatural(env, udsServerPath, realHTMLexe, udsClient, props);
     if((*env)->ExceptionCheck(env)) { 
-        unlink(udsServerPath);
         free(udsServerPath);
         free(realHTMLexe);
-        return; 
-    }
-
-    rh4n_jni_waitForChild(env, naturalProcess, props, &childStatus);
-    if((*env)->ExceptionCheck(env)) {
-        free(udsServerPath);
-        free(realHTMLexe);
-        return;
+        return(0); 
     }
 
     free(realHTMLexe);
     free(udsServerPath);
 
-    if(childStatus != 0) {
-        rh4n_log_warn(props->logging, "Child exited with status %d", childStatus);
-        rh4n_jni_utils_throwJNIException(env, childStatus, "Child exited with status != 0");
-    }
-
-    return;
+    return naturalProcess;
 }
 
-pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *realHTMLexe, int udsServer, RH4nProperties *props) {
+pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe, int *pudsClient, RH4nProperties *props) {
     pid_t naturalPID = 0;
     char errorstr[500];
     uint8_t i = 0;
     int udsClient = 0;
+    pid_t threadID = getpid();
 
     if((naturalPID = fork()) < 0) {
         sprintf(errorstr, "Could not fork - %s", strerror(errno));
@@ -112,16 +97,19 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
     }
 
     if(naturalPID == 0) {
-        close(udsServer);
-        const char *loggingstr = rh4nLoggingGetLevelStr(props->i_loglevel);
-        const char* execargs[] = {
+        char *loggingstr = (char*)rh4nLoggingGetLevelStr(props->i_loglevel);
+        char* const execargs[] = {
             realHTMLexe,
             "-L", props->natlibrary,
             "-P", props->natprogram,
-            "-l", loggingstr,
+           "-l", loggingstr,
             udsServerPath,
             NULL
         };
+
+
+        //printf("setpgid() - %d\n", setpgid(getpid(), threadID));
+
         execv(realHTMLexe, execargs);
         fprintf(stderr, "Something went totally wrong - %s", strerror(errno));
         exit(errno);
@@ -142,7 +130,7 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
     if(rh4n_messaging_sendSessionInformations(udsClient, props) < 0) {
         rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
         close(udsClient);
-        rh4n_jni_killChild(env, naturalPID, props);
+        rh4n_jni_childProcess_kill(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send session informations to client");
         return(0);
     }
@@ -152,7 +140,7 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
     if(rh4n_messaging_sendVarlist(udsClient, &props->urlvars, props) < 0) {
         rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
         close(udsClient);
-        rh4n_jni_killChild(env, naturalPID, props);
+        rh4n_jni_childProcess_kill(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send url variables to client");
         return(0);
     }
@@ -162,20 +150,25 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, const char *udsServerPath, const char *
     if(rh4n_messaging_sendVarlist(udsClient, &props->bodyvars, props) < 0) {
         rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
         close(udsClient);
-        rh4n_jni_killChild(env, naturalPID, props);
+        rh4n_jni_childProcess_kill(env, naturalPID, props);
         rh4n_jni_utils_throwJNIException(env, -1, "Could not send body variables to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending body variables");
 
-    rh4n_log_develop(props->logging, "Closing socket %d - closeret: %d", udsClient, close(udsClient));
+    if(props->mode == 0) {
+        close(udsClient);
+    } else if(props->mode == 1) { 
+        *pudsClient = udsClient;
+    }
+
     return(naturalPID);
 }
 
 
 //On AIX there is no function like inotify so we need to poll if the socket file is available. It's not a great solution but it works...
 #ifndef __xlc__
-int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, const char *udsServerPath, RH4nProperties *props) {
+int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, char *udsServerPath, RH4nProperties *props) {
     char *socketFilename = NULL, buff[4096], *eventptr = NULL, errorstr[1024];
     int watchfd = 0, pollNum = 0, len = 0;
     struct pollfd fds[1];
@@ -251,7 +244,7 @@ int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, const char *udsServerPath, RH4nPr
 
 # else
 
-int rh4n_jni_waitForUDSServer_xlc(JNIEnv *env, const char *udsServerPath, RH4nProperties *props) {
+int rh4n_jni_waitForUDSServer_xlc(JNIEnv *env, char *udsServerPath, RH4nProperties *props) {
     time_t start = 0, now = 0;
     int accessRet = 0;
     char errorstr[1024];
@@ -272,46 +265,5 @@ int rh4n_jni_waitForUDSServer_xlc(JNIEnv *env, const char *udsServerPath, RH4nPr
     rh4n_jni_utils_throwJNIException(env, errno, errorstr);
     rh4n_log_fatal(props->logging, "%s", errorstr);
     return(-1);
-
 }
 #endif
-
-void rh4n_jni_killChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props) {
-    int wstatus = 0;
-    char errorstr[500];
-
-    waitpid(naturalProcess, &wstatus, WNOHANG);
-    if(WIFSTOPPED(wstatus)) {
-        rh4n_log_warn(props->logging, "Child already exited with status %d", WEXITSTATUS(wstatus));
-        return;
-    }
-   
-    rh4n_log_info(props->logging, "Killing child %d", naturalProcess);
-    if(kill(naturalProcess, SIGKILL) < 0) {
-        sprintf(errorstr, "Could not kill child %d - %s", naturalProcess, strerror(errno));
-        rh4n_log_error(props->logging, errorstr);
-        rh4n_jni_utils_throwJNIException(env, errno, errorstr);
-        return;
-    }
-    
-    rh4n_jni_waitForChild(env, naturalProcess, props, NULL);
-    return;
-}
-
-void rh4n_jni_waitForChild(JNIEnv *env, pid_t naturalProcess, RH4nProperties *props, uint8_t *childExit) {
-    int wstatus = 0;
-
-    rh4n_log_info(props->logging, "Waiting for %d to exit", naturalProcess);
-    if(waitpid(naturalProcess, &wstatus, 0) < 0) {
-        rh4n_log_fatal(props->logging, "Could not wait for child - %s", strerror(errno));
-        rh4n_jni_utils_throwJNIException(env, errno, "Could not wait for child");
-        return;
-    }
-    
-    if(childExit != NULL) {
-        *childExit = WEXITSTATUS(wstatus);
-    }
-
-    rh4n_log_debug(props->logging, "Child %d exited with status %d", naturalProcess, WEXITSTATUS(wstatus));
-    return;
-}

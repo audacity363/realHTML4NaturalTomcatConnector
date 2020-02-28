@@ -12,6 +12,7 @@ public class SessionInformations {
 	public String loglevel;
 	public String username;
 	public String outputfile;
+	public int mode; //0 == plain; 1 == ws
 	
 	public SessionInformations() {
 		

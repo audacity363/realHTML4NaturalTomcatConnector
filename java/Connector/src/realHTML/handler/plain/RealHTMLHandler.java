@@ -13,6 +13,7 @@ import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentBuffer;
 
 import realHTML.auth.oauth.RealHTMLOAuth;
+import realHTML.jni.ChildProcess;
 import realHTML.jni.JNI;
 import realHTML.jni.SessionInformations;
 import realHTML.JSONConverter.JSONConverter;
@@ -118,7 +119,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         RouteInformations activatedRoute = null;
         String contentType, httpMethod;
         ObjectSignature urlvars = null, bodyvars = null;
-        int natret;
+        ChildProcess natret;
 
         activatedRoute = this.getRouteInformations(request, response);
         session = new SessionInformations(activatedRoute.env, activatedRoute.route.route);
@@ -148,11 +149,14 @@ public class RealHTMLHandler extends RealHTMLInit {
         } catch(Exception e) {
             throw(new ServletException(e));
         }
+        
+        session.mode = 0;
             
         try {
             natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.natbinpath, null, urlvars, bodyvars);
-            if(natret < 0) {
-                sendErrorMessage(response, "");
+            System.out.println("Naturalret: " + natret.toString());
+            if(natret.exitCode != 0 ) {
+                sendErrorMessage(response, natret.reason);
                 return;
             }
             deliverFile(response, session.outputfile, true, activatedRoute.env.charEncoding);

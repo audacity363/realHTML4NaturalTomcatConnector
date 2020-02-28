@@ -80,7 +80,7 @@ public class WSConfig implements ServerApplicationConfig {
 		Route testroute = new Route("LIB1", "PROG1", false, "DEBUG", true);
 		routing.addRoute("/path1/:parm1", testroute);
 		
-		testroute = new Route("LIB1", "PROG2", false, "DEBUG", true);
+		testroute = new Route("RH4N", "WSTEST", false, "DEBUG", true);
 		routing.addRoute("/path2", testroute);
 		
 		testroute = new Route("LIB1", "PROG3", false, "DEBUG", true);
