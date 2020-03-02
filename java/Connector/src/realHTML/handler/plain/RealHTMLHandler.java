@@ -154,7 +154,6 @@ public class RealHTMLHandler extends RealHTMLInit {
             
         try {
             natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.natbinpath, null, urlvars, bodyvars);
-            System.out.println("Naturalret: " + natret.toString());
             if(natret.exitCode != 0 ) {
                 sendErrorMessage(response, natret.reason);
                 return;
