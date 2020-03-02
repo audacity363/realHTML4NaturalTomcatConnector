@@ -137,7 +137,7 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
     rh4n_log_debug(props->logging, "Done sending session informations");
 
     rh4n_log_debug(props->logging, "Sending url variables to socket %d", udsClient);
-    if(rh4n_messaging_sendVarlist(udsClient, &props->urlvars, props) < 0) {
+    if(rh4n_messaging_sendVarlist(udsClient, &props->urlvars, props) != 0) {
         rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
         close(udsClient);
         rh4n_jni_childProcess_kill(env, naturalPID, props);
@@ -147,7 +147,7 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
     rh4n_log_debug(props->logging, "Done sending url variables");
 
     rh4n_log_debug(props->logging, "Sending body variables to socet %d", udsClient);
-    if(rh4n_messaging_sendVarlist(udsClient, &props->bodyvars, props) < 0) {
+    if(rh4n_messaging_sendVarlist(udsClient, &props->bodyvars, props) != 0) {
         rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
         close(udsClient);
         rh4n_jni_childProcess_kill(env, naturalPID, props);
