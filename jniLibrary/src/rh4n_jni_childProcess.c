@@ -28,7 +28,7 @@ void rh4n_jni_childProcess_kill(JNIEnv *env, pid_t naturalProcess, RH4nPropertie
         return;
     }
     
-    rh4n_jni_waitForChild(env, naturalProcess, props, NULL);
+    rh4n_jni_childProcess_wait(env, naturalProcess, props, NULL);
     return;
 }
 
@@ -36,7 +36,7 @@ void rh4n_jni_childProcess_wait(JNIEnv *env, pid_t naturalProcess, RH4nPropertie
     int wstatus = 0;
 
     rh4n_log_info(props->logging, "Waiting for %d to exit", naturalProcess);
-    printf("Get status of pid - WAIT: [%d]\n", naturalProcess);
+    rh4n_log_develop(props->logging, "Get Status of pid - waitpid(blocking): [%d]", naturalProcess);
     if(waitpid(naturalProcess, &wstatus, 0) < 0) {
         rh4n_log_fatal(props->logging, "Could not wait for child - %s", strerror(errno));
         rh4n_jni_utils_throwJNIException(env, errno, "Could not wait for child");
