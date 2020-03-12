@@ -154,10 +154,6 @@ public class RealHTMLHandler extends RealHTMLInit {
             
         try {
             natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.natbinpath, null, urlvars, bodyvars);
-            if(natret.exitCode != 0 ) {
-                sendErrorMessage(response, natret.reason);
-                return;
-            }
             deliverFile(response, session.outputfile, true, activatedRoute.env.charEncoding);
 
         } catch(Exception e) {
