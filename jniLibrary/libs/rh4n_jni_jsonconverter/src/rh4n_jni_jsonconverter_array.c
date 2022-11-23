@@ -26,27 +26,40 @@ void rh4n_jni_jsonconverter_getArraySignature(RH4nJsonConverterArguments_t *args
     }
 
     arrsig->vartype = (*(args->env))->CallIntMethod(args->env, ovartype, args->props.mTypes_getNumberRep);
-    if((*(args->env))->ExceptionCheck(args->env)) { return; }
+    if((*(args->env))->ExceptionCheck(args->env)) { 
+        (*(args->env))->DeleteLocalRef(args->env, ovartype);
+        (*(args->env))->DeleteLocalRef(args->env, oarraysignature);
+        return; 
+    }
+    (*(args->env))->DeleteLocalRef(args->env, ovartype);
 
-    printf("God vartype from array signature: [%d]\n", arrsig->vartype);
 
     arrsig->dimensions = (*(args->env))->GetShortField(args->env, oarraysignature, args->props.fArraySignature_dimensions);
-    if((*(args->env))->ExceptionCheck(args->env)) { return; }
+    if((*(args->env))->ExceptionCheck(args->env)) { 
+        (*(args->env))->DeleteLocalRef(args->env, oarraysignature);
+        return; 
+    }
 
     if((olength = (*(args->env))->GetObjectField(args->env, oarraysignature, args->props.fArraySignature_length)) == NULL) {
+        (*(args->env))->DeleteLocalRef(args->env, oarraysignature);
         if((*(args->env))->ExceptionCheck(args->env)) { return; }
         rh4n_jni_utils_throwJNIException(args->env, -1, "Field \"length\" in ArraySignature is null");
         return;
     }
 
     if((length = (*(args->env))->GetIntArrayElements(args->env, olength, NULL)) == NULL) {
+        (*(args->env))->DeleteLocalRef(args->env, oarraysignature);
+        (*(args->env))->DeleteLocalRef(args->env, olength);
         if((*(args->env))->ExceptionCheck(args->env)) { return; }
         rh4n_jni_utils_throwJNIException(args->env, -1, "Field \"length\" in ArraySignature is null");
         return;
     }
 
     memcpy(arrsig->length, length, sizeof(int32_t)*3);
+
     (*(args->env))->ReleaseIntArrayElements(args->env, olength, length, JNI_ABORT);
+    (*(args->env))->DeleteLocalRef(args->env, olength);
+    (*(args->env))->DeleteLocalRef(args->env, oarraysignature);
 }
 
 void rh4n_jni_jsonconverter_dumpArray(RH4nJsonConverterArguments_t *args, jobject node, jobject ovalue) {
@@ -104,14 +117,16 @@ void rh4n_jni_jsonconverter_dumpArrayEntry(RH4nJsonConverterArguments_t *args, j
 
         if(curdim < arrsig->dimensions) {
             rh4n_jni_jsonconverter_dumpArrayEntry(args, entry, arrsig, index, curdim+1);
+            (*(args->env))->DeleteLocalRef(args->env, entry);
+
             if((*(args->env))->ExceptionCheck(args->env)) { return; }
             continue;
         }
 
         rh4n_jni_jsonconverter_handleValue(args, arrsig->vartype, entry, index);
+        (*(args->env))->DeleteLocalRef(args->env, entry);
     }
     index[curdim-1] = -1;
-
 }
 
 

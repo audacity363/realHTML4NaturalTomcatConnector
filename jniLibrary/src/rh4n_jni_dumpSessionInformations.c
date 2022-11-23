@@ -33,6 +33,7 @@ void rh4n_jni_dumpSessionInformations(JNIEnv *env, jobject osessionInformations,
 
     for(; i < sizeof(lookup)/sizeof(struct dumpSessionInformationsLookup); i++) {
         if((targetField = (*env)->GetFieldID(env, cSessionInformations, lookup[i].name, lookup[i].javaType)) == NULL) {
+            (*env)->DeleteLocalRef(env, cSessionInformations);
             sprintf(errorstr, "Could not find field \"%s\" in class realHTML/jni/SessionInformations", lookup[i].name);
             rh4n_jni_utils_throwJNIException(env, -1, errorstr);
             return;
@@ -43,8 +44,13 @@ void rh4n_jni_dumpSessionInformations(JNIEnv *env, jobject osessionInformations,
         } else if(strcmp(lookup[i].javaType, "I") == 0) {
             rh4n_jni_dumpSessionInformations_handleInt(env, osessionInformations, targetField, &lookup[i]);
         }
-        if((*env)->ExceptionCheck(env)) { return; } 
+        if((*env)->ExceptionCheck(env)) { 
+            (*env)->DeleteLocalRef(env, cSessionInformations);
+            return; 
+        } 
     }
+
+    (*env)->DeleteLocalRef(env, cSessionInformations);
 }
 
 void rh4n_jni_dumpSessionInformations_handleString(JNIEnv *env, jobject osessionInformations, jfieldID targetField, struct dumpSessionInformationsLookup *lookupEntry) {
@@ -61,16 +67,21 @@ void rh4n_jni_dumpSessionInformations_handleString(JNIEnv *env, jobject osession
 
     if((javaValue = (*env)->GetStringUTFChars(env, (jstring)otargetData, NULL)) == NULL)  {
         sprintf(errorstr, "String in field \"%s\" in class realHTML/jni/SessionInformations is NULL", lookupEntry->name);
+        (*env)->DeleteLocalRef(env, otargetData);
         rh4n_jni_utils_throwJNIException(env, -1, errorstr);
         return;
     }
-    if((*env)->ExceptionCheck(env)) { return; }
+    if((*env)->ExceptionCheck(env)) { 
+        (*env)->DeleteLocalRef(env, otargetData);
+        return; 
+    }
 
     if(lookupEntry->length > 0) {
         if(strlen(javaValue) >= lookupEntry->length) {
             sprintf(errorstr, "String in field \"%s\" in class realHTML/jni/SessionInformations exceeds it's max length [%ld/%d]", lookupEntry->name, strlen(javaValue)+1, lookupEntry->length);
             rh4n_jni_utils_throwJNIException(env, -1, errorstr);
             (*env)->ReleaseStringUTFChars(env, otargetData, javaValue);
+            (*env)->DeleteLocalRef(env, otargetData);
             return;
         }
 
@@ -80,6 +91,7 @@ void rh4n_jni_dumpSessionInformations_handleString(JNIEnv *env, jobject osession
             sprintf(errorstr, "Could not allocate memory for field \"%s\" in class realHTML/jni/SessionInformations", lookupEntry->name);
             rh4n_jni_utils_throwJNIException(env, -1, errorstr);
             (*env)->ReleaseStringUTFChars(env, otargetData, javaValue);
+            (*env)->DeleteLocalRef(env, otargetData);
             return;
         }
 
@@ -88,6 +100,7 @@ void rh4n_jni_dumpSessionInformations_handleString(JNIEnv *env, jobject osession
     }
 
     (*env)->ReleaseStringUTFChars(env, otargetData, javaValue);
+    (*env)->DeleteLocalRef(env, otargetData);
 }
 
 void rh4n_jni_dumpSessionInformations_handleInt(JNIEnv *env, jobject osessionInformations, jfieldID targetField, struct dumpSessionInformationsLookup *lookupEntry) {

@@ -36,6 +36,12 @@ void rh4n_jni_jsonconverter_handleString(RH4nJsonConverterArguments_t *args, job
     char *value = NULL;
     int ret = 0;
 
+    /*if((value = (char*)(*(args->env))->GetCharArrayElements(args->env, (jcharArray)ovalue, NULL)) == NULL) {
+        if((*(args->env))->ExceptionCheck(args->env)) { return; }
+        rh4n_jni_utils_throwJNIException(args->env, -1, "Chararray returned NULL");
+        return;
+    }*/
+
     if((value = (char*)(*(args->env))->GetByteArrayElements(args->env, (jbyteArray)ovalue, NULL)) == NULL) {
         if((*(args->env))->ExceptionCheck(args->env)) { return; }
         rh4n_jni_utils_throwJNIException(args->env, -1, "Bytearray returned NULL");
@@ -51,6 +57,9 @@ void rh4n_jni_jsonconverter_handleString(RH4nJsonConverterArguments_t *args, job
     if(ret != RH4N_RET_OK) {
         rh4n_jni_utils_throwJNIException(args->env, ret, "Could not set string");
     }
+    
+    (*(args->env))->ReleaseByteArrayElements(args->env, (jbyteArray)ovalue, value, JNI_ABORT);
+    //(*(args->env))->ReleaseCharArrayElements(args->env, (jcharArray)ovalue, value, JNI_ABORT);
 }
 
 void rh4n_jni_jsonconverter_handleInt(RH4nJsonConverterArguments_t *args, jobject ovalue, int32_t index[3]) {
@@ -86,7 +95,6 @@ void rh4n_jni_jsonconverter_handleBoolean(RH4nJsonConverterArguments_t *args, jo
 
     if(ret != RH4N_RET_OK) {
         rh4n_jni_utils_throwJNIException(args->env, ret, "Could not set boolean");
-        return;
     }
 }
 

@@ -134,3 +134,38 @@ void rh4n_jni_jsonconverter_getProperties(JNIEnv *env, struct rh4n_jni_JSONConve
     }
   
 }
+
+void rh4n_jni_jsonconverter_freeProperties(JNIEnv *env, struct rh4n_jni_JSONConverterProperties *props) {
+    (*env)->DeleteLocalRef(env, props->cObjectSignature);
+    (*env)->DeleteLocalRef(env, props->cObjectSignatureNode);
+    (*env)->DeleteLocalRef(env, props->cTypes);
+    (*env)->DeleteLocalRef(env, props->cArraySignature);
+    (*env)->DeleteLocalRef(env, props->cArrayList);
+    (*env)->DeleteLocalRef(env, props->cBoolean);
+    (*env)->DeleteLocalRef(env, props->cInteger);
+    (*env)->DeleteLocalRef(env, props->cFloat);
+
+    /*(*env)->DeleteLocalRef(env, props->fObjectSignature_head);
+    (*env)->DeleteLocalRef(env, props->mObjectSignature_getHead);
+
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_name);
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_vartype);
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_value);
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_arrsig);
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_next);
+    (*env)->DeleteLocalRef(env, props->fObjectSignature_nextlvl);
+
+    (*env)->DeleteLocalRef(env, props->mTypes_getNumberRep);
+
+    (*env)->DeleteLocalRef(env, props->fArraySignature_dimensions);
+    (*env)->DeleteLocalRef(env, props->fArraySignature_length);
+    (*env)->DeleteLocalRef(env, props->fArraySignature_vartype);
+
+    (*env)->DeleteLocalRef(env, props->mArrayList_get);
+
+    (*env)->DeleteLocalRef(env, props->mBoolean_booleanValue);
+
+    (*env)->DeleteLocalRef(env, props->mInteger_intValue);
+
+    (*env)->DeleteLocalRef(env, props->mFloat_doubleValue);*/
+}

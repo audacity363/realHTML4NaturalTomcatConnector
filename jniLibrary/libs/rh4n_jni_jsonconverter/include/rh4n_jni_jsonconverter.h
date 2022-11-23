@@ -63,10 +63,12 @@ typedef struct {
     rh4nNameStack namestack;
 } RH4nJsonConverterArguments_t;
 
+void rh4n_jni_jsonconverter_getProperties(JNIEnv *, struct rh4n_jni_JSONConverterProperties*);
+void rh4n_jni_jsonconverter_freeProperties(JNIEnv *env, struct rh4n_jni_JSONConverterProperties *props);
 
 void rh4n_jni_jsonconverter_dumpObjectSignature(JNIEnv*, jobject, RH4nVarList*);
 void rh4n_jni_jsonconverter_dumpObjectSignatureNode(RH4nJsonConverterArguments_t*, jobject);
-void rh4n_jni_jsonconverter_getProperties(JNIEnv *, struct rh4n_jni_JSONConverterProperties*);
+
 void rh4n_jni_jsonconverter_getArraySignature(RH4nJsonConverterArguments_t*, jobject, struct rh4n_jni_ArraySignature*);
 void rh4n_jni_jsonconverter_dumpArray(RH4nJsonConverterArguments_t*, jobject, jobject);
 void rh4n_jni_jsonconverter_dumpArrayEntry(RH4nJsonConverterArguments_t*, jobject, struct rh4n_jni_ArraySignature*, int32_t[3], uint8_t);

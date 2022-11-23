@@ -26,8 +26,10 @@ void rh4n_jni_utils_throwJNIException(JNIEnv *env, int errorno, const char *erro
     ojniexception = (*env)->NewObject(env, cjniexception, mconstructor, 
             errorno, (*env)->NewStringUTF(env, errorstr));
 
+
     (*env)->Throw(env, (jthrowable)ojniexception);
-    return;
+
+    (*env)->DeleteLocalRef(env, cjniexception);
 }
 
 void rh4n_jni_utils_throwSocketClosedException(JNIEnv *env) {
@@ -48,5 +50,6 @@ void rh4n_jni_utils_throwSocketClosedException(JNIEnv *env) {
     osocketclosedexception = (*env)->NewObject(env, csocketclosedexception, mconstructor);
 
     (*env)->Throw(env, (jthrowable)osocketclosedexception);
-    return;
+
+    (*env)->DeleteLocalRef(env, csocketclosedexception);
 }

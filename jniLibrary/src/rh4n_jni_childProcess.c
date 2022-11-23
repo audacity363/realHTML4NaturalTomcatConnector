@@ -92,12 +92,18 @@ jobject rh4n_jni_childProcess_createChildProcessObject(JNIEnv *env, int pid, boo
     
     if((mconstructor = (*env)->GetMethodID(env, cChildProcess, "<init>", "(IZILjava/lang/String;I)V")) == NULL) {
         rh4n_jni_utils_throwJNIException(env, -1, "Could not find constructor for class \"realHTML/jni/ChildProcess\"");
+        (*env)->DeleteLocalRef(env, cChildProcess);
         return(NULL);
     }
 
     oChildProcess = (*env)->NewObject(env, cChildProcess, mconstructor, pid, exited, exitCode, 
             (*env)->NewStringUTF(env, reason), udsClient);
-    if((*env)->ExceptionCheck(env)) { return(NULL); }
+    if((*env)->ExceptionCheck(env)) { 
+        (*env)->DeleteLocalRef(env, cChildProcess);
+        return(NULL); 
+    }
+
+    (*env)->DeleteLocalRef(env, cChildProcess);
 
     return(oChildProcess);
 }
