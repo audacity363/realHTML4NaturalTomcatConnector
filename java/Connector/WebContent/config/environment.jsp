@@ -132,6 +132,15 @@
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td>Http Methods:</td>
+                <td>
+                    <input type="checkbox" name="getenabled"> GET
+                    <input type="checkbox" name="postenabled"> POST
+                    <input type="checkbox" name="putenabled"> PUT
+                    <input type="checkbox" name="deletenabled"> DELETE
+                </td>
+            </tr>
         </table>
 		<input value="<%= envname %>" name="_envname" type="hidden">
 		<input value="put" name="_method" type="hidden">
