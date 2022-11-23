@@ -11,7 +11,7 @@ import realHTML.tomcat.xml.Import;
 public class RealHTMLInit extends HttpServlet {
 
 	private static final long serialVersionUID = -6815603038617744076L;
-	private final String version = "2.0";
+	private final String version = "2.3";
 	public String configurationfile;
     public String logpath;
 	
