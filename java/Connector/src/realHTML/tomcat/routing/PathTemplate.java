@@ -12,6 +12,8 @@ public class PathTemplate {
 		this.template = template;
 		this.route = route;
 	}
+
+    public PathTemplate() { }
 	
 	public void parseTemplate() {
 		ArrayList<String> entries;
@@ -25,48 +27,49 @@ public class PathTemplate {
 	}
 	
 	
-	public Boolean matchPath(String url) {
+	//public Boolean matchPath(String url) {
+	public PathTemplate matchPath(String url) throws CloneNotSupportedException {
 		String[] urlentries_complete = url.split("/"),
 				 urlentries;
+        ArrayList<PathEntry> routeValuesClone = new ArrayList<PathEntry>();
+        PathEntry clonedEntry;
+        PathTemplate clonedReturnTemplate;
+
 		if(!this.route.active) {
-			return(false);
+			return(null);
 		}
 		
 		urlentries = new String[urlentries_complete.length-1];
 		System.arraycopy(urlentries_complete, 1, urlentries, 0, urlentries_complete.length-1);
-//		System.out.println("----------------------------------");
-//		for(int i = 0; i < urlentries.length; i++) {
-//			System.out.println(urlentries[i]);
-//		}
-//		System.out.println("----------------------------------");
 		
 		if (urlentries.length != this.entries.length) {
-			return(false);
+			return(null);
 		}
 		
 		for(int i = 0; i < this.entries.length; i++) {
 			switch(this.entries[i].type) {
 				case STATIC:
-					if(!this.entries[i].getName().equals(urlentries[i])) { return(false); }
+					if(!this.entries[i].getName().equals(urlentries[i])) { return(null); }
 					break;
 				case VARIABLE:
-					this.entries[i].setValue(urlentries[i]);
+                    clonedEntry = (PathEntry)this.entries[i].clone();
+					clonedEntry.setValue(urlentries[i]);
+                    routeValuesClone.add(clonedEntry);
 					break;
 				case SELECTION:
-					if(!this.entries[i].containsOption(urlentries[i])) { return(false); }
-					this.entries[i].setValue(urlentries[i]);
+					if(!this.entries[i].containsOption(urlentries[i])) { return(null); }
+                    clonedEntry = (PathEntry)this.entries[i].clone();
+					clonedEntry.setValue(urlentries[i]);
+                    routeValuesClone.add(clonedEntry);
 					break;
 			}
-//			if(!this.entries[i].isVariable() && 
-//				!this.entries[i].getName().equals(urlentries[i])) {
-//				return(false);
-//			} else if(this.entries[i].isVariable()) {
-//				this.entries[i].setValue(urlentries[i]);
-//			}
 		}
+	
+        clonedReturnTemplate = new PathTemplate();
+        clonedReturnTemplate.route = this.route;
+        clonedReturnTemplate.entries = routeValuesClone.toArray(new PathEntry[routeValuesClone.size()]);
 		
-		
-		return(true);
+		return(clonedReturnTemplate);
 	}
 	
 	public HashMap<String, String> getParms() {
@@ -85,11 +88,6 @@ public class PathTemplate {
 		int i = 0;
 		for(String entry: entries) {
 			peentries[i++] = parseParmString(entry);
-//			if(entry.charAt(0) == ':') {
-//				peentries[i++] = new PathEntry(PathType.VARIABLE, entry.substring(1));
-//			} else {
-//				peentries[i++] = new PathEntry(PathType.STATIC, entry);
-//			}
 		}
 		return(peentries);
 	}

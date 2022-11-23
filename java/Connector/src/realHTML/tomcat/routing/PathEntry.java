@@ -2,7 +2,7 @@ package realHTML.tomcat.routing;
 
 import java.util.Arrays;
 
-public class PathEntry {
+public class PathEntry implements Cloneable {
 	PathType type;
 	String name;
 	String value;
@@ -73,4 +73,8 @@ public class PathEntry {
 	public Boolean containsOption(String option) {
 		return(Arrays.asList(this.options).contains(option));
 	}
+
+    public Object clone() throws CloneNotSupportedException {
+        return (PathEntry)super.clone();
+    }
 }

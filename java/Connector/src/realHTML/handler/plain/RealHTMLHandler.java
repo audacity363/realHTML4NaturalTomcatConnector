@@ -26,6 +26,8 @@ import realHTML.auth.exceptions.AuthException;
 import org.apache.commons.io.*;
 import org.json.JSONObject;
 
+import java.util.*;
+
 
 public class RealHTMLHandler extends RealHTMLInit {
 	/**
@@ -55,12 +57,13 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    public void handleError(Exception ex, HttpServletResponse response) throws ServletException {
+    public void handleError(ServletException ex, HttpServletResponse response) throws ServletException {
         response.setStatus(500);
 
         JSONObject root = new JSONObject();
         root.append("status", 500);
-        root.append("message", ex.getMessage());
+        root.append("message", ex.getRootCause().getMessage());
+        root.append("stack", ex.getRootCause().getStackTrace());
 
         try {
             response.getOutputStream().print(root.toString());
@@ -76,7 +79,8 @@ public class RealHTMLHandler extends RealHTMLInit {
             handleRequest(request, response);
         } catch(ServletException e) {
             handleError(e, response);
-        } catch(AuthException e) {
+        } 
+        catch(AuthException e) {
             handleAuthError(e, response);
         } 
     }
@@ -131,7 +135,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
 
         try {
-            session.outputfile = createTmpFile();
+            session.outputfile = createTmpFile(request.getSession().getId());
         } catch(Exception e) {
             throw(new ServletException(e));
         }
@@ -141,6 +145,9 @@ public class RealHTMLHandler extends RealHTMLInit {
 
         try {
             urlvars = getQueryParms(request, activatedRoute.route);
+            if (urlvars != null) {
+                urlvars.printList();
+            }
             
             contentType = request.getContentType();
             if(contentType != null && contentType.equals("application/json")) {
@@ -170,7 +177,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    private String createTmpFile() 
+    private String createTmpFile(String sessionID) 
         throws Exception {
         try  {
             File tmp = File.createTempFile("rh4n", "", new File("/tmp/"));
@@ -187,7 +194,10 @@ public class RealHTMLHandler extends RealHTMLInit {
         EnvironmentBuffer envs;
         RouteInformations infos = new RouteInformations();
 
-        path = request.getRequestURI().substring((request.getContextPath() + "/nat").length());
+        String completeURL = request.getRequestURI();
+        String deploymentPath = request.getContextPath();
+
+        path = completeURL.substring((deploymentPath + "/nat").length());
         if(path.length() == 1) {
             throw(new ServletException(new RouteException("Enviroment and Route is missing")));
         }
@@ -207,7 +217,12 @@ public class RealHTMLHandler extends RealHTMLInit {
             throw(new ServletException(e));
         }
 
-        infos.route = infos.env.routing.getRoute(path);
+        try {
+            infos.route = infos.env.routing.getRoute(path);
+        } catch(Exception e) {
+            throw(new ServletException(e));
+        }
+
         if(infos.route == null) {
             throw(new ServletException("Unkown Route"));
         }

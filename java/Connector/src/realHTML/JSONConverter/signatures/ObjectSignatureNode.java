@@ -3,6 +3,12 @@ package realHTML.JSONConverter.signatures;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+
+import realHTML.JSONConverter.utils.HexDump;
+
 public class ObjectSignatureNode {
 	public String name;
 	public Types vartype = null;
@@ -147,18 +153,28 @@ public class ObjectSignatureNode {
 	}
 	
 	private byte[] convertStringtoByteArray(String value) throws UnsupportedEncodingException {
-		byte[] encodedBytes = value.getBytes("ISO-8859-1");
-		byte[] completeString = new byte[value.length()+1];
-		
-		System.arraycopy(encodedBytes, 0, completeString, 0, value.length());
-		completeString[value.length()] = 0x00;
-		
-		//System.out.print("Add string; ");
-        //for(int i = 0; i < completeString.length; i++) {
-            //System.out.printf("0x%x ", completeString[i]);
-        //}
-        //System.out.println();
-		
-		return(completeString);
+        Charset utf8charset = Charset.forName("UTF-8");
+        Charset iso88591charset = Charset.forName("ISO-8859-1");
+
+        try {
+            ByteBuffer inputBuffer = ByteBuffer.wrap(value.getBytes());
+            CharBuffer data = utf8charset.decode(inputBuffer);
+            //System.out.printf("decoded from UTF8: %s\n", HexDump.formatHexDump(data.array(), 0, data.array().length));
+
+            ByteBuffer outputBuffer = iso88591charset.encode(data);
+            //System.out.printf("encoded to ISO: %s\n", HexDump.formatHexDump(outputBuffer.array(), 0, outputBuffer.array().length));
+
+            byte[] completeString = new byte[outputBuffer.array().length+1];
+            System.arraycopy(outputBuffer.array(), 0, completeString, 0, outputBuffer.array().length);
+            completeString[completeString.length-1] = 0x00;
+
+            return(completeString);
+        } catch(Exception e)  {
+            System.out.println("ERROR WHILE CONVERTING!!!");
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+        return(null);
  	}
 }
