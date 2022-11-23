@@ -16,12 +16,16 @@ JNIEXPORT jstring JNICALL Java_realHTML_jni_JNI_jni_1recvMessage(JNIEnv *env, jc
     char *text = NULL;
     jstring messageValue = NULL;
     int readRet = 0;
+    RH4nMessagingProperties messaging;
 
-    props.logging = rh4nLoggingCreateStreamingRule("JNI", "WSTHREAD", RH4N_DEVELOP, "");
+    RH4NLIBMESSAGING_INIT(&messaging);
+
+    messaging.logging = props.logging = rh4nLoggingCreateStreamingRule("JNI", "WSTHREAD", RH4N_DEVELOP, "");
+    messaging.clientSocket = udsClient;
 
     rh4n_log_develop(props.logging, "Start recv new Message");
     
-    if((readRet = rh4n_messaging_recvTextBlock(udsClient, &text, &props)) < 0) {
+    if((readRet = rh4n_messaging_recvTextBlock(&messaging, &text)) < 0) {
         //rh4n_del_log_rule(props.logging);
         rh4n_jni_utils_throwJNIException(env, -1, "Something went wrong while receiving message. See logs for more information");
         return(NULL);

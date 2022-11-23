@@ -16,10 +16,13 @@ public class Routing {
 		this.templates.add(newroute);
 	}
 	
-	public PathTemplate getRoute(String url) {
+	public PathTemplate getRoute(String url) throws CloneNotSupportedException {
+        PathTemplate matchedRoute;
+
 		for(PathTemplate entry: this.templates) {
-			if(entry.matchPath(url)) {
-				return(entry);
+            matchedRoute = entry.matchPath(url);
+			if(matchedRoute != null) {
+				return(matchedRoute);
 			}
 		}
 		return(null);

@@ -42,7 +42,8 @@ pid_t rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, int *udsClient, 
     }
 
     if((realHTMLexe = calloc(realHTMLexeLength, sizeof(char))) == NULL) {
-        (*env)->ReleaseStringUTFChars(env, onatbinpath, natbinpath); rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for realHTML4NaturalNatCaller exec path");
+        (*env)->ReleaseStringUTFChars(env, onatbinpath, natbinpath); 
+        rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for realHTML4NaturalNatCaller exec path");
         return(0);
     }
 
@@ -58,17 +59,26 @@ pid_t rh4n_jni_startupNatural(JNIEnv *env, jobject onatbinpath, int *udsClient, 
 
     if(access(realHTMLexe, X_OK) < 0) {
         sprintf(errorstr, "could not locate %s - %s", realHTMLexe, strerror(errno));
-        rh4n_jni_utils_throwJNIException(env, -1, errorstr); return(0);
+        rh4n_jni_utils_throwJNIException(env, errno, errorstr); 
+        return(0);
     }
-
-
-    if((udsServerPath = calloc(strlen(props->outputfile)+2, sizeof(char))) == NULL) {
+    /*
+    if((udsServerPath = calloc(strlen(props->outputfile)+5, sizeof(char))) == NULL) {
         free(realHTMLexe);
-        rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for realHTML4NaturalNatCaller exec path");
+        rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for uds server path");
         return(0);
     }
     sprintf(udsServerPath, "%s.soc", props->outputfile);
     rh4n_log_develop(props->logging, "God udServerPath: [%s]", udsServerPath);
+    */
+
+    if((udsServerPath = calloc(strlen(props->outputfile)+7, sizeof(char))) == NULL) {
+        free(realHTMLexe);
+        rh4n_jni_utils_throwJNIException(env, -1, "Could not allocate memory for props path");
+        return(0);
+    }
+    sprintf(udsServerPath, "%s.props", props->outputfile);
+    rh4n_log_develop(props->logging, "God props path: [%s]", udsServerPath);
 
     naturalProcess = rh4n_jni_startNatural(env, udsServerPath, realHTMLexe, udsClient, props);
     if((*env)->ExceptionCheck(env)) { 
@@ -87,8 +97,13 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
     pid_t naturalPID = 0;
     char errorstr[500];
     uint8_t i = 0;
-    int udsClient = 0;
     pid_t threadID = getpid();
+    RH4nMessagingProperties messaging;
+
+    RH4NLIBMESSAGING_INIT(&messaging);
+    messaging.logging = props->logging;
+
+    rh4nUtilsDumpProperties(udsServerPath, props);
 
     if((naturalPID = fork()) < 0) {
         sprintf(errorstr, "Could not fork - %s", strerror(errno));
@@ -117,50 +132,51 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
 
     rh4n_log_debug(props->logging, "Spawned new child: %d", naturalPID);
 
+    /*
     rh4n_jni_waitForUDSServer(env, udsServerPath, props);
     if((*env)->ExceptionCheck(env)) { return(0); }
 
-    if((udsClient = rh4n_messaging_connectToUDSServer((const char*)udsServerPath, props)) < 0) {
+    if(rh4n_messaging_connectToUDSServer((const char*)udsServerPath, &messaging) < 0) {
         rh4n_log_fatal(props->logging, "Could not connect to UDS server %s", udsServerPath);
-        rh4n_jni_utils_throwJNIException(env, -1, "Could not connect to UDS server");
+        rh4n_jni_utils_throwJNIException(env, messaging.errorno, "Could not connect to UDS server");
         return(0);
     }
 
-    rh4n_log_debug(props->logging, "Sending SessionInformations to socket %d", udsClient);
-    if(rh4n_messaging_sendSessionInformations(udsClient, props) < 0) {
-        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
-        close(udsClient);
+    rh4n_log_debug(props->logging, "Sending SessionInformations to socket %d", messaging.clientSocket);
+    if(rh4n_messaging_sendSessionInformations(&messaging, props) < 0) {
+        rh4n_log_fatal(props->logging, "Could not send session informations to server - errno: %d - %s", messaging.errorno, strerror(messaging.errorno));
+        RH4NLIBMESSAGING_CLOSE_CLIENTSOCKET(&messaging, RH4NLIBMESSAGING_SOCKETSTATE_DISCONNECTED);
         rh4n_jni_childProcess_kill(env, naturalPID, props);
-        rh4n_jni_utils_throwJNIException(env, -1, "Could not send session informations to client");
+        rh4n_jni_utils_throwJNIException(env, messaging.errorno, "Could not send session informations to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending session informations");
 
-    rh4n_log_debug(props->logging, "Sending url variables to socket %d", udsClient);
-    if(rh4n_messaging_sendVarlist(udsClient, &props->urlvars, props) != 0) {
-        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
-        close(udsClient);
+    rh4n_log_debug(props->logging, "Sending url variables to socket %d", messaging.clientSocket);
+    if(rh4n_messaging_sendVarlist(&messaging, &props->urlvars) < 0) {
+        rh4n_log_fatal(props->logging, "Could not url variables to server - errno: %d - %s", messaging.errorno, strerror(messaging.errorno));
+        RH4NLIBMESSAGING_CLOSE_CLIENTSOCKET(&messaging, RH4NLIBMESSAGING_SOCKETSTATE_DISCONNECTED);
         rh4n_jni_childProcess_kill(env, naturalPID, props);
-        rh4n_jni_utils_throwJNIException(env, -1, "Could not send url variables to client");
+        rh4n_jni_utils_throwJNIException(env, messaging.errorno, "Could not send url variables to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending url variables");
 
-    rh4n_log_debug(props->logging, "Sending body variables to socet %d", udsClient);
-    if(rh4n_messaging_sendVarlist(udsClient, &props->bodyvars, props) != 0) {
-        rh4n_log_develop(props->logging, "Closing socket %d", udsClient);
-        close(udsClient);
+    rh4n_log_debug(props->logging, "Sending body variables to socket %d", messaging.clientSocket);
+    if(rh4n_messaging_sendVarlist(&messaging, &props->bodyvars) < 0) {
+        rh4n_log_fatal(props->logging, "Could not send body variables to server - errno: %d - %s", messaging.errorno, strerror(messaging.errorno));
+        RH4NLIBMESSAGING_CLOSE_CLIENTSOCKET(&messaging, RH4NLIBMESSAGING_SOCKETSTATE_DISCONNECTED);
         rh4n_jni_childProcess_kill(env, naturalPID, props);
-        rh4n_jni_utils_throwJNIException(env, -1, "Could not send body variables to client");
+        rh4n_jni_utils_throwJNIException(env, messaging.errorno, "Could not send body variables to client");
         return(0);
     }
     rh4n_log_debug(props->logging, "Done sending body variables");
 
     if(props->mode == 0) {
-        close(udsClient);
+        RH4NLIBMESSAGING_CLOSE_CLIENTSOCKET(&messaging, RH4NLIBMESSAGING_SOCKETSTATE_DISCONNECTED);
     } else if(props->mode == 1) { 
-        *pudsClient = udsClient;
-    }
+        *pudsClient = messaging.clientSocket;
+    }*/
 
     return(naturalPID);
 }
@@ -252,6 +268,7 @@ int rh4n_jni_waitForUDSServer_xlc(JNIEnv *env, char *udsServerPath, RH4nProperti
     start = time(NULL);
     while(1) {
         if((accessRet = access(udsServerPath, (R_OK | W_OK))) == 0) {
+            sleep(0.5);
             return(0);
         }
 
