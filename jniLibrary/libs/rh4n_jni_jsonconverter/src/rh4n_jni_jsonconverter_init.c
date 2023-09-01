@@ -136,14 +136,14 @@ void rh4n_jni_jsonconverter_getProperties(JNIEnv *env, struct rh4n_jni_JSONConve
 }
 
 void rh4n_jni_jsonconverter_freeProperties(JNIEnv *env, struct rh4n_jni_JSONConverterProperties *props) {
-    (*env)->DeleteLocalRef(env, props->cObjectSignature);
-    (*env)->DeleteLocalRef(env, props->cObjectSignatureNode);
-    (*env)->DeleteLocalRef(env, props->cTypes);
-    (*env)->DeleteLocalRef(env, props->cArraySignature);
-    (*env)->DeleteLocalRef(env, props->cArrayList);
-    (*env)->DeleteLocalRef(env, props->cBoolean);
-    (*env)->DeleteLocalRef(env, props->cInteger);
-    (*env)->DeleteLocalRef(env, props->cFloat);
+    // (*env)->DeleteLocalRef(env, props->cObjectSignature);
+    // (*env)->DeleteLocalRef(env, props->cObjectSignatureNode);
+    // (*env)->DeleteLocalRef(env, props->cTypes);
+    // (*env)->DeleteLocalRef(env, props->cArraySignature);
+    // (*env)->DeleteLocalRef(env, props->cArrayList);
+    // (*env)->DeleteLocalRef(env, props->cBoolean);
+    // (*env)->DeleteLocalRef(env, props->cInteger);
+    // (*env)->DeleteLocalRef(env, props->cFloat);
 
     /*(*env)->DeleteLocalRef(env, props->fObjectSignature_head);
     (*env)->DeleteLocalRef(env, props->mObjectSignature_getHead);

@@ -98,10 +98,10 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
     char errorstr[500];
     uint8_t i = 0;
     pid_t threadID = getpid();
-    RH4nMessagingProperties messaging;
+    // RH4nMessagingProperties messaging;
 
-    RH4NLIBMESSAGING_INIT(&messaging);
-    messaging.logging = props->logging;
+    // RH4NLIBMESSAGING_INIT(&messaging);
+    // messaging.logging = props->logging;
 
     rh4nUtilsDumpProperties(udsServerPath, props);
 

@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 
-import realHTML.JSONConverter.utils.HexDump;
+// import realHTML.JSONConverter.utils.HexDump;
 
 public class ObjectSignatureNode {
 	public String name;
