@@ -69,7 +69,7 @@ help:
 	@printf "\t| tomcatconnector_warfile                                    |\n"
 	@printf "\t|   Creates a deployable warfile                             |\n"
 	@printf "\t+------------------------------------------------------------+\n"
-	@printf "\t| jnilibrary                                                 |\n"
+	@printf "\t| jniLibrary                                                 |\n"
 	@printf "\t|   JNI library required by the servlet                      |\n"
 	@printf "\t|                                                            |\n"
 	@printf "\t| jniheader                                                  |\n"
@@ -287,8 +287,9 @@ JNI_OBJS = rh4n_jni_plain_main.o \
 			  rh4n_jni_utils.o \
 			  rh4n_jni_childProcess.o \
 			  rh4n_jni_getChildProcessStatus.o \
-			  rh4n_jni_checkForNewMessage.o \
-			  rh4n_jni_recvMessage.o
+			#   rh4n_jni_recvMessage.o
+			#   rh4n_jni_checkForNewMessage.o \
+			  
 
 jniLibrary: core jni_jsonconverter jniLibrary_clean jniLibrary_pre $(JNI_OBJS)
 	@printf "Linking librealHTMLconnector.so\n"
