@@ -1,13 +1,6 @@
-0010/*C               S                *  <SAG_Comment: Start of original source text.>                   DA:00.00ED:00.00PF:UNV:09010100
-0020/*C               S                *  <TBI=;>
-0030/*C               S                *  DEFINE DATA LOCAL
-0040/*C               S                *  1 json-output;
-0050/*C               S                *      2 msg (A20);
-0060/*C               S                *      2 msg-i (i4);
-0070/*C               S                *      2 cmd (A) DYNAMIC;
-0080/*C               S                *  END-DEFINE;
-0090/*C               S                *  <SAG_Comment: End of original source text.>
-0100/*DS              0                  1json-output
-0110/*DK              4     A        20  2msg
-0120/*DK              4     I         4  2msg-i
-0130/*DK              4     ADYNAMIC     2cmd
+0001DEFINE DATA LOCAL
+00021 json-output
+0003    2 msg (A20)
+0004    2 msg-i (i4)
+0005    2 cmd (A) DYNAMIC
+0006END-DEFINE
