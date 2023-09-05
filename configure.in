@@ -1,0 +1,30 @@
+AC_INIT([realHTML4NaturalTomcatConnector], [1.0])
+
+m4_include([m4/ax_jni_include_dir.m4])
+
+AC_PROG_CC()
+
+AC_PATH_TOOL([AR], [ar])
+AS_IF([test -z "$AR"], AC_MSG_ERROR([ar not found]))
+
+AX_JNI_INCLUDE_DIR()
+for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
+do
+    JAVA_INCLUDE="$JAVA_INCLUDE -I$JNI_INCLUDE_DIR"
+done
+AC_SUBST([JAVA_INCLUDE], [$JAVA_INCLUDE])
+
+AC_PATH_TOOL([JAVAC], [javac])
+AS_IF([test -z "$JAVAC"], AC_MSG_ERROR([javac not found. Please install a JDK]))
+
+#For older JDK Versions where "javac -h" does not exist
+AC_PATH_TOOL([JAVAH], [javah])
+AS_IF([test -z "$JAVAH"], [AC_SUBST([JAVAH], ["$JAVAC -h"])])
+
+AC_PATH_TOOL([JAR], [jar])
+AS_IF([test -z "$JAR"], AC_MSG_ERROR([jar not found. Please install a JDK]))
+
+AS_IF([test "$(basename "$CC")" == "xlc"], AC_SUBST([LFLAGS1_SO], [-G]), AC_SUBST([LFLAGS1_SO], [-shared]))
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
