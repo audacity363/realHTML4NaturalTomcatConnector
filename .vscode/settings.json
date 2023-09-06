@@ -1,0 +1,7 @@
+{
+    "command-runner.terminal.name": "dev-build",
+    "command-runner.commands": {
+        "Build and run": "./natural-ce_build.sh",
+        "Show tomcat logs": "docker exec -it rh4n tail -n 1000 -f /srv/apache-tomcat-9.0.80/logs/catalina.out"
+    }
+}
