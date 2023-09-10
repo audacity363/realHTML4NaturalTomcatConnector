@@ -53,4 +53,22 @@ public class Environment {
 	public EnvironmentVar[] getEnvirons() {
 		return(this.environvars.toArray(new EnvironmentVar[this.environvars.size()]));
 	}
+
+	public String getNatparms() { return this.natparms; }
+	public void setNatparms(String natparms) { this.natparms = natparms; }  
+	
+	public String getNatbinpath() { return this.natbinpath; }
+	public void setNatbinpath(String natbinpath) { this.natbinpath = natbinpath; }
+	
+	public String getNatsourcepath() { return this.natsourcepath; }
+	public void setNatsourcepath(String natsourcepath) { this.natsourcepath = natsourcepath; } 
+	
+	public String getCharEncoding() { return this.charEncoding; }
+	public void setCharEncoding(String charEncoding) { this.charEncoding = charEncoding; }
+	
+	public String getAuthServer() { return this.authServer; }
+	public void setAuthServer(String authServer) { this.authServer = authServer; }
+	
+	public String getAuthHeaderField() { return this.authHeaderField; }
+	public void setAuthHeaderField(String authHeaderField) { this.authHeaderField = authHeaderField; }
 }

@@ -61,22 +61,22 @@ public class Export {
 		envElement.setAttribute("name", envname);
 
         natbinElement = doc.createElement("natbinpath");
-        natbinElement.setTextContent(env.natbinpath);
+        natbinElement.setTextContent(env.getNatbinpath());
 		
 		natsrcElement = doc.createElement("natsrc");
-		natsrcElement.setTextContent(env.natsourcepath);
+		natsrcElement.setTextContent(env.getNatbinpath());
 		
 		natparmElement = doc.createElement("natparms");
-		natparmElement.setTextContent(env.natparms);
+		natparmElement.setTextContent(env.getNatparms());
     
         encodingElement = doc.createElement("charencoding");
-        encodingElement.setTextContent(env.charEncoding);
+        encodingElement.setTextContent(env.getCharEncoding());
 
         authServerElement = doc.createElement("authServer");
-        authServerElement.setTextContent(env.authServer);
+        authServerElement.setTextContent(env.getAuthServer());
 
         authHeaderFieldElement = doc.createElement("authHeaderField");
-        authHeaderFieldElement.setTextContent(env.authHeaderField);
+        authHeaderFieldElement.setTextContent(env.getAuthHeaderField());
 		
 		envElement.appendChild(natsrcElement);
         envElement.appendChild(natbinElement);
