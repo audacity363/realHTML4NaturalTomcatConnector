@@ -1,8 +1,11 @@
 #!/bin/bash
 
-docker build -t rh4n:9.2.2 --progress=plain . 2>&1 | stdbuf --output=L awk -f scripts/filterBuildOutput.awk
-if [[ "${PIPESTATUS[0]}" != "0" ]]; then
-    cat build.log;
+#For some reasons there is a problem with the output buffering 
+#docker build -t rh4n:9.2.2 --progress=plain . 2>&1 | stdbuf --output=L awk -f scripts/filterBuildOutput.awk
+if ! docker build -t rh4n:9.2.2 --progress=plain .; then
+    echo "exit code: $?";
+#if [[ "${PIPESTATUS[0]}" != "0" ]]; then
+    # cat build.log;
     exit 1;
 fi
 

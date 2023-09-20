@@ -4,14 +4,16 @@
 *.class
 *.so
 bin/*
+docker/coredumps/*
 java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar
 docker/testWorkspace/.naturalone/log/*.log
 realHTML4NaturalCore/bin/realHTML4NaturalNatCaller
 cker/testWorkspace/.naturalone/*
 config.log
 autom4te.cache
-config.status
+config.st2atus
 configure~
 Makefile
 docker/bin
 build.log
+config.status
