@@ -12,20 +12,20 @@ import realHTML.jni.natural.Message;
 import realHTML.tomcat.routing.Route;
 
 public class ConnectionPool {
-	static Map<Integer, WSThread> activeWSs = new HashMap<Integer, WSThread>();
+	static Map<String, WSThread> activeWSs = new HashMap<String, WSThread>();
 	public static JNI jnihandler;
 	
 	static void handleClient(Route targetRoute, Session client) {
 		synchronized (ConnectionPool.activeWSs) { 
-			if(ConnectionPool.activeWSs.containsKey(targetRoute.id) && ConnectionPool.activeWSs.get(targetRoute.id).getClientLength() == 0) {
+			if(ConnectionPool.activeWSs.containsKey(targetRoute.getTemplate()) && ConnectionPool.activeWSs.get(targetRoute.getTemplate()).getClientLength() == 0) {
 				System.out.println("No clients left on this sessions. Delete it and reopen");
-				ConnectionPool.activeWSs.remove(targetRoute.id);
+				ConnectionPool.activeWSs.remove(targetRoute.getTemplate());
 			} 
 			
-			if(ConnectionPool.activeWSs.containsKey(targetRoute.id)) {
-				ConnectionPool.activeWSs.get(targetRoute.id).addClient(client);
+			if(ConnectionPool.activeWSs.containsKey(targetRoute.getTemplate())) {
+				ConnectionPool.activeWSs.get(targetRoute.getTemplate()).addClient(client);
 			} else {
-				ConnectionPool.activeWSs.put(targetRoute.id, ConnectionPool.startNewNaturalSession(targetRoute, client));
+				ConnectionPool.activeWSs.put(targetRoute.getTemplate(), ConnectionPool.startNewNaturalSession(targetRoute, client));
 			}
 		}
 	}
@@ -38,14 +38,14 @@ public class ConnectionPool {
 		System.out.println("First connection on that client");
 		
 		sessionInfos = new SessionInformations();
-		sessionInfos.natlibrary = targetroute.natLibrary;
-		sessionInfos.natprogram = targetroute.natProgram;
+		sessionInfos.natlibrary = targetroute.getRoute().getNatLibrary();
+		sessionInfos.natprogram = targetroute.getRoute().getNatProgram();
 		sessionInfos.natparms = "etid=$$";
 		sessionInfos.mode = 1;
 		sessionInfos.natsrcpath = "/opt/softwareag/Natural/fuser";
 		sessionInfos.logpath = "/opt/rh4n/logs/";
 		sessionInfos.loglevel = "DEVELOP";
-		sessionInfos.outputfile = "/tmp/rh4nws_" + targetroute.id;
+		sessionInfos.outputfile = "/tmp/rh4nws_" + targetroute.getTemplate();
 		sessionInfos.username = "";
 		
 		naturalProcess = ConnectionPool.jnihandler.startNaturalWs(sessionInfos, "/opt/softwareag/Natural/bin/", null, null);
@@ -59,7 +59,7 @@ public class ConnectionPool {
 	
 	static void removeClientFromNaturalSession(Session client) {
 		synchronized (ConnectionPool.activeWSs) {
-			for(Map.Entry<Integer, WSThread> entry: ConnectionPool.activeWSs.entrySet()) {
+			for(Map.Entry<String, WSThread> entry: ConnectionPool.activeWSs.entrySet()) {
 				if(entry.getValue().hasClient(client)) {
 					entry.getValue().removeClient(client);
 					
@@ -68,9 +68,9 @@ public class ConnectionPool {
 		}
 	}
 	
-	static void addMessageToQueue(int routeID, Message msg) {
+	static void addMessageToQueue(String urlTemplate, Message msg) {
 		synchronized (ConnectionPool.activeWSs) {
-			ConnectionPool.activeWSs.get(routeID).addMessage(msg);
+			ConnectionPool.activeWSs.get(urlTemplate).addMessage(msg);
 		}
 	}
 }

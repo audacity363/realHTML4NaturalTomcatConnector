@@ -6,6 +6,7 @@
 bin/*
 docker/coredumps/*
 java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar
+java/Connector/WebContent/WEB-INF/classes
 docker/testWorkspace/.naturalone/log/*.log
 realHTML4NaturalCore/bin/realHTML4NaturalNatCaller
 cker/testWorkspace/.naturalone/*

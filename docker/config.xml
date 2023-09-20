@@ -1,1 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><realHTML4Natural><environment name="test"><natsrc>/opt/softwareag/Natural/fuser</natsrc><natbinpath>/opt/softwareag/Natural/bin/</natbinpath><natparms/><routes><route path="help"><natLibrary>TESTLIB</natLibrary><natProgram>TESTPROG</natProgram><login>false</login><loglevel>DEVELOP</loglevel><active>true</active></route><route path="/mbn"><natLibrary>TESTLIB</natLibrary><natProgram>MBNSTEST</natProgram><login>false</login><loglevel>DEVELOP</loglevel><active>true</active></route></routes><environs/></environment></realHTML4Natural>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<realHTML4Natural>
+    <environment authHeaderField="" authServer="" name="rh4ndemo" natbinpath="/opt/softwareag/Natural/bin" natparms="" natsrcpath="/opt/softwareag/Natural/fuser">
+        <route path="/echo">
+            <natLibrary>TESTLIB</natLibrary>
+            <natProgram>TESTPROG</natProgram>
+            <login>false</login>
+            <loglevel>ERROR</loglevel>
+            <active>true</active>
+        </route>
+    </environment>
+</realHTML4Natural>

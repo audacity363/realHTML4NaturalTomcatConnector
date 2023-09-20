@@ -1,0 +1,10 @@
+{
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.explorer.showNonJavaResources": true,
+    "java.project.referencedLibraries": [
+        "WebContent/WEB-INF/lib/javax.servlet-api-4.0.1.jar",
+        "java/Connector/WebContent/WEB-INF/lib/javax.servlet-api-4.0.1.jar",
+        "java/Connector/WebContent/WEB-INF/lib/*",
+        "bin/servlet/**/*.class"
+    ]
+}

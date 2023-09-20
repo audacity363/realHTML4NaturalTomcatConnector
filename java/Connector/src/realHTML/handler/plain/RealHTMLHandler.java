@@ -6,11 +6,11 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.nio.charset.Charset;
 
-import realHTML.servlet.exceptions.*;
-
-import realHTML.tomcat.routing.PathTemplate;
+import realHTML.tomcat.routing.Route;
+import realHTML.tomcat.routing.exceptions.RouteException;
+import realHTML.tomcat.config.ConfigService;
+import realHTML.tomcat.config.exceptions.ConfigException;
 import realHTML.tomcat.environment.Environment;
-import realHTML.tomcat.environment.EnvironmentBuffer;
 
 import realHTML.auth.oauth.RealHTMLOAuth;
 import realHTML.jni.ChildProcess;
@@ -26,10 +26,8 @@ import realHTML.auth.exceptions.AuthException;
 import org.apache.commons.io.*;
 import org.json.JSONObject;
 
-import java.util.*;
 
-
-public class RealHTMLHandler extends RealHTMLInit {
+public class RealHTMLHandler extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -37,15 +35,25 @@ public class RealHTMLHandler extends RealHTMLInit {
 
 	private class RouteInformations {
 		public Environment env;
-		public PathTemplate route;
+		public Route route;
 	}
 	
     private JNI bs;
+    private ConfigService configService;
+    private String loggingPath;
 
-    public void init() throws ServletException {
-        super.init();
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
 
         this.bs = new JNI();
+
+        this.configService = new ConfigService();
+        try {
+            this.configService.init(getServletContext());
+            this.loggingPath = this.configService.getLoggingPath();
+        } catch(ConfigException e) {
+            throw new ServletException("Error while initialising ConfigService", e);
+        }
     }
 
     public void handleAuthError(AuthException authex, HttpServletResponse response) throws ServletException {
@@ -126,10 +134,10 @@ public class RealHTMLHandler extends RealHTMLInit {
         ChildProcess natret;
 
         activatedRoute = this.getRouteInformations(request, response);
-        session = new SessionInformations(activatedRoute.env, activatedRoute.route.route);
+        session = new SessionInformations(activatedRoute.env, activatedRoute.route);
         
-        if(activatedRoute.route.route.login) {
-            session.username = checkLogin(request, activatedRoute.env.authServer, activatedRoute.env.authHeaderField);
+        if(activatedRoute.route.getRoute().getLogin()) {
+            session.username = checkLogin(request, activatedRoute.env.getAuthServer(), activatedRoute.env.getAuthHeaderField());
         } else {
             session.username = "";
         }
@@ -141,7 +149,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
 
         httpMethod = request.getMethod();
-        session.logpath = this.logpath;
+        session.logpath = this.loggingPath;
 
         try {
             urlvars = getQueryParms(request, activatedRoute.route);
@@ -160,8 +168,8 @@ public class RealHTMLHandler extends RealHTMLInit {
         session.mode = 0;
             
         try {
-            natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.natbinpath, null, urlvars, bodyvars);
-            deliverFile(response, session.outputfile, true, activatedRoute.env.charEncoding);
+            natret = bs.startNaturalPlain(session, httpMethod, activatedRoute.env.getNatbinpath(), null, urlvars, bodyvars);
+            deliverFile(response, session.outputfile, true, activatedRoute.env.getCharEncoding());
 
         } catch(Exception e) {
             throw(new ServletException(e));
@@ -189,9 +197,9 @@ public class RealHTMLHandler extends RealHTMLInit {
 
     private RouteInformations getRouteInformations(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
-        String environment, path;
+        String environmentName, path;
         int index = 0;
-        EnvironmentBuffer envs;
+        Environment environment;
         RouteInformations infos = new RouteInformations();
 
         String completeURL = request.getRequestURI();
@@ -207,24 +215,20 @@ public class RealHTMLHandler extends RealHTMLInit {
             throw(new ServletException(new RouteException("No Route was given")));
         }
 
-        environment = path.substring(1, index);
-        path = path.replace("/" + environment, "");
-
-        envs = EnvironmentBuffer.getEnvironmentsfromContext(getServletContext());
-        try {
-            infos.env = envs.getEnvironment(environment);
-        } catch(Exception e) {
-            throw(new ServletException(e));
-        }
+        environmentName = path.substring(1, index);
+        path = path.replace("/" + environmentName, "");
 
         try {
-            infos.route = infos.env.routing.getRoute(path);
-        } catch(Exception e) {
-            throw(new ServletException(e));
+            environment = this.configService.getEnvironment(environmentName);
+        } catch (ConfigException e) {
+            throw new ServletException("Error while getting environment informations from ConfigService", e);
         }
+
+        infos.route = environment.getRouting().getRoute(path);
+        infos.env = environment;
 
         if(infos.route == null) {
-            throw(new ServletException("Unkown Route"));
+            throw(new ServletException("Unkown Route for URL [" + path + "]"));
         }
         
         return(infos);
@@ -244,7 +248,7 @@ public class RealHTMLHandler extends RealHTMLInit {
         }
     }
 
-    private ObjectSignature getQueryParms(HttpServletRequest request, PathTemplate route) throws UnsupportedEncodingException {
+    private ObjectSignature getQueryParms(HttpServletRequest request, Route route) throws UnsupportedEncodingException {
         Map<String, String[]> urlparms;
         HashMap<String, String> routeparms;
         String[] values;

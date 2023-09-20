@@ -11,9 +11,10 @@ import javax.websocket.Endpoint;
 import javax.websocket.server.ServerApplicationConfig;
 import javax.websocket.server.ServerEndpointConfig;
 
-import realHTML.tomcat.routing.PathTemplate;
 import realHTML.tomcat.routing.Route;
 import realHTML.tomcat.routing.Routing;
+import realHTML.tomcat.routing.exceptions.EndpointException;
+import realHTML.tomcat.routing.exceptions.RouteException;
 
 public class WSConfig implements ServerApplicationConfig {
 	
@@ -32,7 +33,7 @@ public class WSConfig implements ServerApplicationConfig {
 	private Set<ServerEndpointConfig> buildWebSocketEndpoints() {
 		Set<ServerEndpointConfig> result = new HashSet<>();
 		Routing routing = this.generateDummyRouting();
-		PathTemplate routes[] = routing.getRoutes();
+		Route routes[] = routing.getRoutes();
 		
 		for(int i = 0; i < routes.length; i++) {
 			result.add(this.buildConfigforRoute(routes[i]));
@@ -42,18 +43,18 @@ public class WSConfig implements ServerApplicationConfig {
 		return result;
 	}
 	
-	private ServerEndpointConfig buildConfigforRoute(PathTemplate target) {
+	private ServerEndpointConfig buildConfigforRoute(Route target) {
 		ServerEndpointConfig config;
 		String pathString = "/ws/";
 		
-		for(int i = 0; i < target.entries.length; i++) {
-			if(target.entries[i].isVariable()) {
-				pathString += "{" + target.entries[i].getName() + "}";
+		for(int i = 0; i < target.getEntries().length; i++) {
+			if(target.getEntries()[i].isVariable()) {
+				pathString += "{" + target.getEntries()[i].getName() + "}";
 			} else {
-				pathString += target.entries[i].getName();
+				pathString += target.getEntries()[i].getName();
 			}
 			
-			if(i+1 < target.entries.length) {
+			if(i+1 < target.getEntries().length) {
 				pathString += "/";
 			}
 		}
@@ -68,29 +69,34 @@ public class WSConfig implements ServerApplicationConfig {
 		config = builder.build();
 		
 		Map<String, Object> properties = config.getUserProperties();
-		properties.put("routeconfig", target.route);
+		properties.put("routeconfig", target.getRoute());
 		
 		return config;
 	}
 	
 	
-	private Routing generateDummyRouting() {
+	private Routing generateDummyRouting() throws RouteException{
 		//TODO:  Dummy. Load from config file
 		Routing routing = new Routing();
-		Route testroute = new Route("LIB1", "PROG1", false, "DEBUG", true);
+
+		try {
+		realHTML.tomcat.routing.Endpoint testroute = new realHTML.tomcat.routing.Endpoint("LIB1", "PROG1", false, "DEBUG", true);
 		routing.addRoute("/path1/:parm1", testroute);
 		
-		testroute = new Route("RH4N", "WSTEST", false, "DEBUG", true);
+		testroute = new realHTML.tomcat.routing.Endpoint("RH4N", "WSTEST", false, "DEBUG", true);
 		routing.addRoute("/path2", testroute);
 		
-		testroute = new Route("LIB1", "PROG3", false, "DEBUG", true);
+		testroute = new realHTML.tomcat.routing.Endpoint("LIB1", "PROG3", false, "DEBUG", true);
 		routing.addRoute("/path3/:parm1/:parm2/test", testroute);
 		
-		testroute = new Route("LIB1", "PROG4", false, "DEBUG", true);
+		testroute = new realHTML.tomcat.routing.Endpoint("LIB1", "PROG4", false, "DEBUG", true);
 		routing.addRoute("/path4/test", testroute);
 		
-		testroute = new Route("LIB1", "PROG5", false, "DEBUG", true);
+		testroute = new realHTML.tomcat.routing.Endpoint("LIB1", "PROG5", false, "DEBUG", true);
 		routing.addRoute("/path5/test/:parm2", testroute);
+		} catch(EndpointException e) {
+			throw new RouteException("", e);
+		}
 		
 		return routing;
 	}

@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import realHTML.JSONConverter.signatures.ArraySignature;
@@ -16,7 +14,6 @@ import realHTML.JSONConverter.signatures.ObjectSignatureNode;
 import realHTML.JSONConverter.signatures.Types;
 
 public class Rh4nObject {
-	private static final Logger logging = LogManager.getLogger(Rh4nObject.class);
 	
 	private HashMap<String, Object> target = null;
 	
@@ -52,18 +49,18 @@ public class Rh4nObject {
 			key = objentry.getKey();
 			value = objentry.getValue();
 			
-			logging.debug("God key [{}] and value of class {}", key, value.getClass());
+			System.out.println(String.format("God key [{}] and value of class {}", key, value.getClass()));
 			
 			newNode = objsig.addAtEnd(key);
 			newNode.originalvartype = newNode.vartype = vartype = Types.getTypefromobject(value);
 			if(vartype == Types.ARRAY) {
-				logging.debug("Trying to get array signature");
+				System.out.println("Trying to get array signature");
 				arr = new Rh4nArray((ArrayList<Object>)value);
 				newNode.arrsig = arr.getSignature();
-				logging.debug("Successfully got array signature");
+				System.out.println("Successfully got array signature");
 				newNode.orignalarrsig = new ArraySignature(newNode.arrsig);
 				if(newNode.arrsig.vartype == Types.OBJECT) {
-					logging.debug("{} is an object array", key);
+					System.out.println(String.format("{} is an object array", key));
 					newNode.nextlvl = new Rh4nObjectArray((ArrayList<Object>)value, newNode.arrsig).getSignature().getHead();
 					newNode.arrsig = null;
 					newNode.vartype = Types.OBJECT;
@@ -72,7 +69,7 @@ public class Rh4nObject {
 				obj = new Rh4nObject((HashMap<String, Object>)value);
 				newNode.nextlvl = obj.getSignature().getHead();
 			}
-			logging.debug("End for handling {}", key);
+			System.out.println(String.format("End for handling {}", key));
 		}
 		
 		return(objsig);

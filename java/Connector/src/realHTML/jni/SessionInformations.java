@@ -19,11 +19,11 @@ public class SessionInformations {
 	}
 	
 	public SessionInformations(Environment env, Route route) {
-		this.natlibrary = route.natLibrary;
-		this.natprogram = route.natProgram;
-		this.loglevel = route.loglevel;
+		this.natlibrary = route.getRoute().getNatLibrary();
+		this.natprogram = route.getRoute().getNatProgram();
+		this.loglevel = route.getRoute().getLoglevel();
 		
-		this.natparms = env.natparms;
-		this.natsrcpath = env.natsourcepath;
+		this.natparms = env.getNatparms();
+		this.natsrcpath = env.getNatsrcpath();
 	}
 }

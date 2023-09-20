@@ -3,15 +3,10 @@ package realHTML.JSONConverter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import realHTML.JSONConverter.signatures.ArraySignature;
 import realHTML.JSONConverter.signatures.ObjectSignature;
 
 public class Rh4nObjectArray {
-	
-	private static final Logger logging = LogManager.getLogger(Rh4nObjectArray.class);
 	
 	ArrayList<Object> target = null;
 	ArraySignature arrcontainer = null;
@@ -61,9 +56,9 @@ public class Rh4nObjectArray {
 			} else {
 				tmpsig = new Rh4nObject((HashMap<String, Object>)target).getSignature();
 				if(!rootsig.equals(tmpsig)) {
-					logging.info("Root signature:");
+					System.out.println("Root signature:");
 					rootsig.printList();
-					logging.info("Failed compare:");
+					System.out.println("Failed compare:");
 					tmpsig.printList();
 					return(false);
 				}

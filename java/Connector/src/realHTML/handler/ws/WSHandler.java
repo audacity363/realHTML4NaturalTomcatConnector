@@ -28,8 +28,8 @@ public class WSHandler extends Endpoint {
 		System.out.println("User connected");
 		
 		Route targetRoute = (Route)config.getUserProperties().get("routeconfig");
-		System.out.println("Staring id: [" + targetRoute.id + "] " + targetRoute.natProgram + " in " + 
-				targetRoute.natLibrary);
+		System.out.println("Staring id: [" + targetRoute.getTemplate() + "] " + targetRoute.getRoute().getNatProgram() + " in " + 
+				targetRoute.getRoute().getNatLibrary());
 
 		ConnectionPool.handleClient(targetRoute, client);
 		
@@ -55,7 +55,7 @@ public class WSHandler extends Endpoint {
 					newmsg.type = MessageType.TEXT;
 				}
 				
-				ConnectionPool.addMessageToQueue(targetRoute.id, newmsg);
+				ConnectionPool.addMessageToQueue(targetRoute.getTemplate(), newmsg);
 			}
 		});
 	}

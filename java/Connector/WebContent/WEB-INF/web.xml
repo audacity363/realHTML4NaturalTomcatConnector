@@ -1,82 +1,48 @@
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http:/java.sun.com/dtd/web-app_2_3.dtd">
-    <display-name>realHTML4Natural</display-name>
-    <discription>Tomcat connector for the realHTML4Natural webframework</discription>
-
-    <!-- Main handler which handles requests to natural -->
-    <servlet>
-        <servlet-name>realHTMLServlet</servlet-name>
-        <servlet-class>realHTML.handler.plain.RealHTMLHandler</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>realHTMLServlet</servlet-name>
-        <url-pattern>/nat/*</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-		<servlet-name>LoadConfig</servlet-name>
-		<servlet-class>realHTML.tomcat.gui.RealHTMLLoadConfig</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoadConfig</servlet-name>
-		<url-pattern>/config/import</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>SaveConfig</servlet-name>
-		<servlet-class>realHTML.tomcat.gui.RealHTMLSaveConfig</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SaveConfig</servlet-name>
-		<url-pattern>/config/save</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>ManageEnvironmentVars</servlet-name>
-		<servlet-class>realHTML.tomcat.gui.RealHTMLManageEnvironmentVars</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ManageEnvironmentVars</servlet-name>
-		<url-pattern>/config/environmentvar</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>ManageEnvironment</servlet-name>
-		<servlet-class>realHTML.tomcat.gui.RealHTMLManageEnvironment</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ManageEnvironment</servlet-name>
-		<url-pattern>/config/environment</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>ManageRoute</servlet-name>
-		<servlet-class>realHTML.tomcat.gui.RealHTMLManageRoute</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ManageRoute</servlet-name>
-		<url-pattern>/config/routes</url-pattern>
-	</servlet-mapping>
-
-    <filter>
-        <filter-name>CorsFilter</filter-name>
-        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
-        <init-param>
-            <param-name>cors.allowed.methods</param-name>
-            <param-value>GET, POST, PUT, DELETE, OPTIONS, HEAD</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cors.allowed.origins</param-name>
-            <param-value>*</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cors.allowed.headers</param-name>
-            <param-value>Accept,Accept-Encoding,Accept-Language,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization,Connection,Content-Type,Host,Origin,Referer,Token-Id,User-Agent,X-Requested-With,webBDEToken</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>CorsFilter</filter-name>
-        <url-pattern>*</url-pattern>
-    </filter-mapping>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  id="WebApp_ID" version="4.0">
+  <display-name>RH4NUI</display-name>
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>realHTMLServlet</servlet-name>
+    <servlet-class>realHTML.handler.plain.RealHTMLHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>realHTMLServlet</servlet-name>
+    <url-pattern>/nat/*</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+    <init-param>
+      <param-name>cors.allowed.methods</param-name>
+      <param-value>GET, POST, PUT, DELETE, OPTIONS, HEAD</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.origins</param-name>
+      <param-value>*</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.headers</param-name>
+      <param-value>Accept,Accept-Encoding,Accept-Language,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization,Connection,Content-Type,Host,Origin,Referer,Token-Id,User-Agent,X-Requested-With,webBDEToken</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
 </web-app>

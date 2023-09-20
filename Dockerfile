@@ -34,6 +34,11 @@ COPY docker/entrypoint.sh /srv/entrypoint.sh
 
 ADD ./docker/fuser/ /opt/softwareag/Natural/fuser/
 
+USER root
+RUN chown -R sagadmin: /srv
+
+USER sagadmin
+
 ENV ACCEPT_EULA=Y
 EXPOSE 8080/tcp 2700/tcp
 

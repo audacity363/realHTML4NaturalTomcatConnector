@@ -1,26 +1,73 @@
 package realHTML.tomcat.routing;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Routing {
-	public ArrayList<PathTemplate> templates;
+import realHTML.tomcat.routing.exceptions.RouteException;
+import realHTML.Utils;
+
+public class Routing implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7972594055474751932L;
+	private ArrayList<Route> routes;
 	
 	public Routing() {
-		this.templates = new ArrayList<PathTemplate>();
+		this.routes = new ArrayList<Route>();
 	}
 	
-	public void addRoute(String template, Route route) {
-		PathTemplate newroute = new PathTemplate(template, route);
+	public void addRoute(String template, Endpoint route) throws RouteException {
+		if(this.doesURLTemplateExist(template)) {
+			throw new RouteException("Route with Template [" + template + "] does already exist"); 
+		} else if(template.charAt(0) != '/') {
+			throw new RouteException("URL template must begin with a '/'");
+		} else if(template.charAt(template.length()-1) == '/') {
+			throw new RouteException("URL template must not end with a '/'");
+		} else if(!Utils.onlyASCIIandNoSpace(template)) {
+			throw new RouteException("Only ACII characters and no spaces allowed");
+		}
+		
+		Route newroute = new Route(template, route);
 		newroute.parseTemplate();
-		newroute.route.id = this.templates.size();
-		this.templates.add(newroute);
+		this.routes.add(newroute);
 	}
 	
-	public PathTemplate getRoute(String url) throws CloneNotSupportedException {
-        PathTemplate matchedRoute;
+	public void editRoute(String template, Endpoint endpoint) throws RouteException {
+		if(!this.doesURLTemplateExist(template)) {
+			throw new RouteException("Route with Template [" + template + "] does not exist"); 
+		}
+		
+		for(Route entry: this.routes) {
+			if(entry.getTemplate().equals(template)) {
+				entry.setRoute(endpoint);
+				break;
+			}
+		}
+	}
+	
+	public void deleteRoute(String template) throws RouteException {
+		if(!this.doesURLTemplateExist(template)) {
+			throw new RouteException("Route with Template [" + template + "] does not exist"); 
+		}
+		
+		for(int i = 0; i < this.routes.size(); i++) {
+			if(this.routes.get(i).getTemplate().equals(template)) {
+				this.routes.remove(i);
+				break;
+			}
+		}
+	}
+	
+	public Route getRoute(String url) throws RouteException {
+        Route matchedRoute;
 
-		for(PathTemplate entry: this.templates) {
-            matchedRoute = entry.matchPath(url);
+		for(Route entry: this.routes) {
+			try {
+				matchedRoute = entry.matchPath(url);
+			} catch(CloneNotSupportedException e) {
+				throw new RouteException("Exception while finding matching route", e);
+			}
 			if(matchedRoute != null) {
 				return(matchedRoute);
 			}
@@ -29,31 +76,25 @@ public class Routing {
 	}
 	
 	public String[] getRoutesTemplates() {
-		String[] routes = new String[this.templates.size()];
+		String[] routes = new String[this.routes.size()];
 		
-		for(int i = 0; i < this.templates.size(); i++) {
-			routes[i] = this.templates.get(i).template;
+		for(int i = 0; i < this.routes.size(); i++) {
+			routes[i] = this.routes.get(i).getTemplate();
 		}
 		
 		return(routes);
 	}
 	
-	public Route getRouteById(int id) {
-		if(id > this.templates.size()) {
-			return(null);
-		}
-		
-		return(this.templates.get(id).route);
+	public Route[] getRoutes() {
+		return(this.routes.toArray(new Route[this.routes.size()]));
 	}
 	
-	public void deleteRoute(int id) {
-		if(id > this.templates.size()) {
-			return;
+	private boolean doesURLTemplateExist(String urlTemplate) {
+		for(Route entry: this.routes) {
+			if(entry.getTemplate().equals(urlTemplate)) {
+				return true;
+			}
 		}
-		this.templates.remove(id);
-	}
-	
-	public PathTemplate[] getRoutes() {
-		return(this.templates.toArray(new PathTemplate[this.templates.size()]));
+		return false;
 	}
 }

@@ -13,7 +13,7 @@ JAVAH = @JAVAH@
 LFLAGS1_SO = @LFLAGS1_SO@
 LFLAGS2_SO = 
 
-RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/json-20180813.jar:./java/Connector/WebContent/WEB-INF/lib/commons-io-1.3.2.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-api-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-core-2.11.1.jar:./java/Connector/WebContent/WEB-INF/lib/log4j-web-2.3.jar:./java/Connector/WebContent/WEB-INF/lib/servlet-api.jar:./java/Connector/WebContent/WEB-INF/lib/jsp-api.jar:./java/Connector/WebContent/WEB-INF/lib/websocket-api.jar
+RH4NCLASSPATH = ./bin/servlet/lib:./java/Connector/WebContent/WEB-INF/lib/*
 CLASSPATH = "$(TOMCATCLASSPATH):$(RH4NCLASSPATH)"
 
 JNIINCLUDE = @JAVA_INCLUDE@
@@ -74,6 +74,10 @@ core:
 TOMCONNECTOR_SRC = ./java/Connector/src
 TOMCONNECTOR_LIB_BIN = ./bin/servlet/lib
 
+JAVA_REALHTML_SRC = $(TOMCONNECTOR_SRC)/realHTML
+JAVA_REALHTML = $(JAVA_REALHTML_SRC)/LoggingLevels.java \
+                $(JAVA_REALHTML_SRC)/Utils.java
+
 JAVA_REALHTML_AUTH_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/auth/exceptions
 JAVA_REALHTML_AUTH_EXCEPTIONS = $(JAVA_REALHTML_AUTH_EXCEPTIONS_SRC)/AuthException.java
 
@@ -110,41 +114,38 @@ JAVA_REALHTML_JNI = $(JAVA_REALHTML_JNI_SRC)/SessionInformations.java \
 					$(JAVA_REALHTML_JNI_SRC)/ChildProcess.java \
 					$(JAVA_REALHTML_JNI_SRC)/JNI.java
 
-JAVA_REALHTML_TOMCAT_ROUTING_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/routing
-JAVA_REALHTML_TOMCAT_ROUTING = $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Route.java \
-							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathType.java \
-							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathTemplate.java \
-							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/PathEntry.java \
-							   $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Routing.java
+JAVA_REALHTML_TOMCAT_ROUTING_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/routing/exceptions
+JAVA_REALHTML_TOMCAT_ROUTING_EXCEPTIONS = $(JAVA_REALHTML_TOMCAT_ROUTING_EXCEPTIONS_SRC)/RouteException.java \
+                                          $(JAVA_REALHTML_TOMCAT_ROUTING_EXCEPTIONS_SRC)/EndpointException.java
 
-JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/servlet/exceptions
-JAVA_REALHTML_SERVLET_EXCEPTIONS = $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/EnvironmentException.java \
-								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/EnvironmentVarException.java \
-								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/RouteException.java \
-								   $(JAVA_REALHTML_SERVLET_EXCEPTIONS_SRC)/XMLException.java 
+JAVA_REALHTML_TOMCAT_ROUTING_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/routing
+JAVA_REALHTML_TOMCAT_ROUTING = $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Endpoint.java \
+                               $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Route.java \
+                               $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/RouteTokenType.java \
+                               $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/RouteToken.java \
+                               $(JAVA_REALHTML_TOMCAT_ROUTING_SRC)/Routing.java 
 
 JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/environment
 JAVA_REALHTML_TOMCAT_ENVIRONMENT = $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/EnvironmentVar.java \
-								   $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/Environment.java \
-								   $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/EnvironmentBuffer.java
+								   $(JAVA_REALHTML_TOMCAT_ENVIRONMENT_SRC)/Environment.java 
 
+JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/config/exceptions
+JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS = $(JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS_SRC)/ConfigException.java \
+                                         $(JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS_SRC)/ImportException.java \
+                                         $(JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS_SRC)/ExportException.java 
+
+JAVA_REALHTML_TOMCAT_CONFIG_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/config
+JAVA_REALHTML_TOMCAT_CONFIG = $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/ConfigService.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/RouteTreeWrapper.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/Export.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/ImportExportHelper.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/Import.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/ConfigBean.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/MyFacesConfig.java \
+                              $(JAVA_REALHTML_TOMCAT_CONFIG_SRC)/EditingModes.java 
 
 JAVA_REALHTML_HANDLER_PLAIN_SRC = $(TOMCONNECTOR_SRC)/realHTML/handler/plain
-JAVA_REALHTML_HANDLER_PLAIN = $(JAVA_REALHTML_HANDLER_PLAIN_SRC)/RealHTMLInit.java \
-							  $(JAVA_REALHTML_HANDLER_PLAIN_SRC)/RealHTMLHandler.java
-
-JAVA_REALHTML_TOMCAT_GUI_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/gui
-JAVA_REALHTML_TOMCAT_GUI = $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RouteSorting.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RouteTree.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLLoadConfig.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageEnvironment.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageEnvironmentVars.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLManageRoute.java \
-						   $(JAVA_REALHTML_TOMCAT_GUI_SRC)/RealHTMLSaveConfig.java
-
-JAVA_REALHTML_TOMCAT_XML_SRC = $(TOMCONNECTOR_SRC)/realHTML/tomcat/xml
-JAVA_REALHTML_TOMCAT_XML = $(JAVA_REALHTML_TOMCAT_XML_SRC)/Export.java \
-						   $(JAVA_REALHTML_TOMCAT_XML_SRC)/Import.java 
+JAVA_REALHTML_HANDLER_PLAIN = $(JAVA_REALHTML_HANDLER_PLAIN_SRC)/RealHTMLHandler.java
 
 JAVA_REALHTML_HANDLER_WS_SRC = $(TOMCONNECTOR_SRC)/realHTML/handler/ws
 JAVA_REALHTML_HANDLER_WS = $(JAVA_REALHTML_HANDLER_WS_SRC)/WSThread.java \
@@ -158,6 +159,9 @@ TOMCAT_SERVLETS_BIN = ./bin/servlet/servlets
 WARFILE_PREFIX = ./java/Connector/WebContent
 
 tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_pre
+	@printf "Compiling realHTML\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML)
+
 	@printf "Compiling realHTML.auth.exceptions\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_AUTH_EXCEPTIONS)
 
@@ -173,8 +177,8 @@ tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_p
 	@printf "Compiling realHTML.JSONConverter\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JSONCONVERTER)
 
-	@printf "Compiling realHTML.servlet.exceptions\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_SERVLET_EXCEPTIONS)
+	@printf "Compiling realHTML.tomcat.routing.exceptions\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_ROUTING_EXCEPTIONS)
 
 	@printf "Compiling realHTML.tomcat.routing\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_ROUTING)
@@ -191,20 +195,22 @@ tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_p
 	@printf "Compiling realHTML.jni\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_JNI)
 
-	@printf "Compiling realHTML.tomcat.xml\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_XML)
+	@printf "Compiling realHTML.tomcat.config.exceptions\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_CONFIG_EXCEPTIONS)
+
+	@printf "Compiling realHTML.tomcat.config\n"
+	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_CONFIG)
 
 	@printf "Compiling realHTML.handler.plain\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_HANDLER_PLAIN)
 
-	@printf "Compiling realHTML.tomcat.gui\n"
-	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_TOMCAT_GUI)
-
 	@printf "Compiling realHTML.handler.ws\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_HANDLER_WS)
 
-	@printf "Creating realHTMLconnector.jar\n"
-	@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
+	cp -rv bin/servlet/lib/* java/Connector/WebContent/WEB-INF/classes/
+
+	#@printf "Creating realHTMLconnector.jar\n"
+	#@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
 	
 tomcatconnector_package_pre:
 	@printf "Creating tomcatconnector package output folder\n"

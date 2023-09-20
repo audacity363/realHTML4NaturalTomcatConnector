@@ -1,0 +1,18 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "WebContent/WEB-INF/lib/*.jar",
+        // "WebContent/WEB-INF/lib/javax.servlet-api-4.0.1.jar",
+        // "WebContent/WEB-INF/lib/log4j-api-2.11.1.jar",
+        // "WebContent/WEB-INF/lib/log4j-web-2.3.jar",
+        // "WebContent/WEB-INF/lib/primefaces-13.0.0.jar",
+        // "WebContent/WEB-INF/lib/weld-servlet-2.4.8.Final.jar",
+        // "WebContent/WEB-INF/lib/javax.faces-2.4.0.jar",
+        // "WebContent/WEB-INF/lib/json-20180813.jar",
+        // "WebContent/WEB-INF/lib/jstl-1.2.jar",
+        // "WebContent/WEB-INF/lib/log4j-core-2.11.1.jar",
+        // "WebContent/WEB-INF/lib/lombok.jar",
+        // "WebContent/WEB-INF/lib/primeflex-3.3.1.jar"
+    ],
+    "java.project.explorer.showNonJavaResources": true
+}
