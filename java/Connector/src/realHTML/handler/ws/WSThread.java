@@ -10,6 +10,9 @@ import java.util.Set;
 import javax.websocket.CloseReason;
 import javax.websocket.Session;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import realHTML.jni.ChildProcess;
 import realHTML.jni.JNI;
 import realHTML.jni.exceptions.SocketClosedException;
@@ -23,6 +26,8 @@ public class WSThread extends Thread  {
 	private Queue<Message> queue;
 	
 	static JNI jnihandler;
+
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
 	
 	public WSThread(ChildProcess naturalProcess) {
 		WSThread.jnihandler = new JNI();
@@ -44,19 +49,19 @@ public class WSThread extends Thread  {
 				}
 				
 				if(WSThread.jnihandler.checkForNewMessage(this.naturalProcess.udsClient)) {
-					System.out.println("There is at leased one message in the queue");
+					LOGGER.info("There is at leased one message in the queue");
 					try {
 						msg = WSThread.jnihandler.recvMessage(this.naturalProcess.udsClient);
 						this.sendMessageToClient(-1,  msg);
 					} catch(SocketClosedException e) {
-						System.out.println("Socket was closed");
+						LOGGER.info("Socket was closed");
 						this.naturalProcess.udsClient = -1;
 					}
 				}
 				
 				naturalStatus = WSThread.jnihandler.getChildProcessStatus(this.naturalProcess.pid);
 				if(naturalStatus.exited) {
-					System.out.println("Natural Process has exited");
+					LOGGER.info("Natural Process has exited");
 					this.sendMessageToClient(-1, "Natural has exited with status [" + naturalStatus.exitCode + "]");
 					break;
 				}
@@ -68,7 +73,7 @@ public class WSThread extends Thread  {
 					}	
 				}
 			} catch (InterruptedException e) {
-				System.out.println("God an interrupt");
+				LOGGER.info("God an interrupt");
 				if(this.exit) {
 					break;
 				}
@@ -87,7 +92,7 @@ public class WSThread extends Thread  {
 		}	
 		this.clients = new HashSet<Session>();
 		
-		System.out.println("Exiting sending thread");
+		LOGGER.info("Exiting sending thread");
 	}
 	
 	private void sendMessageToClient(int clientID, String msg) throws IOException {

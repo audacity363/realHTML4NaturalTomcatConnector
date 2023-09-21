@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.websocket.Decoder;
 import javax.websocket.Endpoint;
 import javax.websocket.server.ServerApplicationConfig;
@@ -17,6 +20,8 @@ import realHTML.tomcat.routing.exceptions.EndpointException;
 import realHTML.tomcat.routing.exceptions.RouteException;
 
 public class WSConfig implements ServerApplicationConfig {
+
+	final Logger LOGGER = LogManager.getLogger(WSConfig.class);
 	
 	@Override
 	public Set<ServerEndpointConfig> getEndpointConfigs(Set<Class<? extends Endpoint>> endpointClasses) {
@@ -59,7 +64,7 @@ public class WSConfig implements ServerApplicationConfig {
 			}
 		}
 		
-		System.out.println("Add [" + pathString + "]");
+		LOGGER.debug("Add [" + pathString + "]");
 		
 		ServerEndpointConfig.Builder builder = ServerEndpointConfig.Builder.create(WSHandler.class, pathString);
 		List<Class<? extends Decoder>> decoders = new ArrayList<>();

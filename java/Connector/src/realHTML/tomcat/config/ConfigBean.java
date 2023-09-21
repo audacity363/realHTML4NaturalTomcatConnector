@@ -14,6 +14,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
@@ -35,8 +37,12 @@ public class ConfigBean implements Serializable {
 
 	private static final long serialVersionUID = 9131248247829440254L;
 
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
+
 	@Inject
 	private @Getter ConfigService configService;
+
+	private @Getter @Setter String globalLoglevel;
 	
 	private @Getter int selectedTabIndex;
 	private @Getter ArrayList<String> environmentNames;
@@ -111,12 +117,12 @@ public class ConfigBean implements Serializable {
 
 		this.selectedTabIndex = this.environmentNames.indexOf(this.environmentName)+1;
 
-		System.out.println("environentEditMode: " + this.environmentEditMode);
-		System.out.println("selected Tab Index:" + this.selectedTabIndex);
+		LOGGER.debug("environentEditMode: " + this.environmentEditMode);
+		LOGGER.debug("selected Tab Index:" + this.selectedTabIndex);
 	}
 
 	public void onSaveConfig(){
-		System.out.println("Saving config");
+		LOGGER.debug("Saving config");
 		try {
 			this.configService.saveConfigToFile();
 		} catch(ConfigException e) {
@@ -125,7 +131,7 @@ public class ConfigBean implements Serializable {
 	}
 	
 	public void onReloadConfig() {
-		System.out.println("Reload config");
+		LOGGER.debug("Reload config");
 		try {
 			this.configService.reloadConfig();
 			this.environmentNames = new ArrayList<String>(this.configService
@@ -242,14 +248,14 @@ public class ConfigBean implements Serializable {
 			context.redirect(target);
 		} catch(IOException e) {
 			//TODO: Throw a valid Exception and display it on the page
-			System.out.println("Could not redirect: " + e.getMessage());
+			LOGGER.fatal("Could not redirect: ", e);
 		}
 	}
 
 	// Route handling
 	//TODO: Get rid of the Exception. Display is the proper way on the page
 	public void onRouteSave() {
-		System.out.println("Processing " + this.selectedRouteEntry + " with mode " + this.routeEditMode);
+		LOGGER.debug("Processing " + this.selectedRouteEntry + " with mode " + this.routeEditMode);
 		
 		try {
 			switch (this.routeEditMode) {
@@ -297,7 +303,7 @@ public class ConfigBean implements Serializable {
 
 	// Environment Variable handling
 	public void onEnvironmentVariableSave() {
-		System.out.println(
+		LOGGER.debug(
 				"Processing " + this.selectedEnvironmentVar + " with mode " + this.environmentVariableEditMode);
 		switch (this.environmentVariableEditMode) {
 		case NEW:
@@ -325,6 +331,10 @@ public class ConfigBean implements Serializable {
 	public void onEnvironmentVariableDelete() {
 		this.environmentVariableEditMode = EditingModes.DELETE;
 		this.onEnvironmentVariableSave();
+	}
+
+	public void onGlobalLoglevelSet() {
+		this.configService.setGlobalLogLevel(this.globalLoglevel);
 	}
 
 }

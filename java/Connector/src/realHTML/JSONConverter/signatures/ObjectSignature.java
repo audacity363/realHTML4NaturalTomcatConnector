@@ -4,12 +4,16 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.json.JSONPointer;
 
 import realHTML.JSONConverter.utils.NameStack;
 
 public class ObjectSignature {
+
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 	ObjectSignatureNode head = null;
 	
@@ -91,15 +95,15 @@ public class ObjectSignature {
 		for(; hptr != null; hptr = hptr.next) {
 			parents.pushName(hptr.name);
 			
-			System.out.println(String.format("Getting Node {}", parents.toString()));
+			LOGGER.debug(String.format("Getting Node {}", parents.toString()));
 			compareNode = comparesig.getNode(parents);
 			if(compareNode == null) {
-				System.out.println(String.format("Didn't find {} in compare target", parents.toString()));
+				LOGGER.debug(String.format("Didn't find {} in compare target", parents.toString()));
 				return(false);
 			}
 			
 			if(!hptr.equals(compareNode)) {
-				System.out.println(String.format("Node [{}] is not equals to [{}]", hptr.toString(), compareNode.toString()));
+				LOGGER.debug(String.format("Node [{}] is not equals to [{}]", hptr.toString(), compareNode.toString()));
 				return(false);
 			}
 			
@@ -134,12 +138,7 @@ public class ObjectSignature {
 		ObjectSignatureNode hptr = target;
 		
 		for(; hptr != null; hptr = hptr.next) {
-			System.out.println(String.format("{}{}", this.getTabs(level), hptr.toString()));
-			/*System.out.println("{}Name: {}", this.getTabs(level), hptr.name);
-			System.out.println("{}Vartype: {}", this.getTabs(level), hptr.vartype);
-			if(hptr.arrsig != null) {
-				System.out.println("{}Array: {}", this.getTabs(level), hptr.arrsig.toString());
-			}*/
+			LOGGER.debug(String.format("{}{}", this.getTabs(level), hptr.toString()));
 			if(hptr.nextlvl != null) {
 				this.printEntry(hptr.nextlvl, level+1);
 			}
@@ -196,8 +195,8 @@ public class ObjectSignature {
 				hptr.setValue(value, this.index);
 			} else {
 				value = root.query(new JSONPointer(pointer));
-				System.out.println(String.format("Name: {}, Value: [{}]", pointer.toString(), value));
-				System.out.println(String.format("Rh4n index: {}", this.index));
+				LOGGER.debug(String.format("Name: {}, Value: [{}]", pointer.toString(), value));
+				LOGGER.debug(String.format("Rh4n index: {}", this.index));
 				hptr.setValue(value);
 			}
 			pointer.remove(pointer.lastIndexOf(hptr.name));
@@ -217,8 +216,8 @@ public class ObjectSignature {
 				this.fillArray(target, pointer, dim+1, index, root);
 			} else {
 				value = root.query(new JSONPointer(pointer));
-				System.out.println(String.format("Name: {}; Value: [{}]", pointer.toString(), value));
-				System.out.println(String.format("Rh4n index: {}", this.index));
+				LOGGER.debug(String.format("Name: {}; Value: [{}]", pointer.toString(), value));
+				LOGGER.debug(String.format("Rh4n index: {}", this.index));
 				target.setValue(value, this.index);
 			}
 			pointer.remove(pointer.lastIndexOf(index[dim-1].toString()));

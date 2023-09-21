@@ -4,9 +4,14 @@ import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import realHTML.JSONConverter.JSONConverter;
 
 public class WSMessageDecoder implements Decoder.Text<Object> {
+
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 	@Override
 	public void destroy() {
@@ -16,7 +21,7 @@ public class WSMessageDecoder implements Decoder.Text<Object> {
 	
 	@Override
 	public void init(EndpointConfig arg0) {
-		System.out.println("Decoder registered");
+		LOGGER.info("Decoder registered");
 	}
 
 	@Override

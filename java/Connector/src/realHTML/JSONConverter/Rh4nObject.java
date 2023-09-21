@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import realHTML.JSONConverter.signatures.ArraySignature;
@@ -16,6 +18,7 @@ import realHTML.JSONConverter.signatures.Types;
 public class Rh4nObject {
 	
 	private HashMap<String, Object> target = null;
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
 	
 	public Rh4nObject(JSONObject target) {
 		this.target = new HashMap<String, Object>(target.toMap());
@@ -49,18 +52,18 @@ public class Rh4nObject {
 			key = objentry.getKey();
 			value = objentry.getValue();
 			
-			System.out.println(String.format("God key [{}] and value of class {}", key, value.getClass()));
+			LOGGER.debug(String.format("God key [{}] and value of class {}", key, value.getClass()));
 			
 			newNode = objsig.addAtEnd(key);
 			newNode.originalvartype = newNode.vartype = vartype = Types.getTypefromobject(value);
 			if(vartype == Types.ARRAY) {
-				System.out.println("Trying to get array signature");
+				LOGGER.debug("Trying to get array signature");
 				arr = new Rh4nArray((ArrayList<Object>)value);
 				newNode.arrsig = arr.getSignature();
-				System.out.println("Successfully got array signature");
+				LOGGER.debug("Successfully got array signature");
 				newNode.orignalarrsig = new ArraySignature(newNode.arrsig);
 				if(newNode.arrsig.vartype == Types.OBJECT) {
-					System.out.println(String.format("{} is an object array", key));
+					LOGGER.debug(String.format("{} is an object array", key));
 					newNode.nextlvl = new Rh4nObjectArray((ArrayList<Object>)value, newNode.arrsig).getSignature().getHead();
 					newNode.arrsig = null;
 					newNode.vartype = Types.OBJECT;
@@ -69,7 +72,7 @@ public class Rh4nObject {
 				obj = new Rh4nObject((HashMap<String, Object>)value);
 				newNode.nextlvl = obj.getSignature().getHead();
 			}
-			System.out.println(String.format("End for handling {}", key));
+			LOGGER.debug(String.format("End for handling {}", key));
 		}
 		
 		return(objsig);

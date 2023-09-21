@@ -1,40 +1,50 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<h:outputStylesheet library="webjars"
-		name="primeflex/3.3.1/primeflex.min.css" />
+	<h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
 	<title>RH4N Config</title>
 	<style>
-.ui-tabmenu-nav {
-	overflow: hidden !important;
-}
+		.ui-tabmenu-nav {
+			overflow: hidden !important;
+		}
 
-.max-width {
-	width: 100%;
-}
+		.max-width {
+			width: 100%;
+		}
 
-.full-width-message {
-	margin: 5px 0 0 0 !important;
-	width: 100%
-}
-</style>
+		.full-width-message {
+			margin: 5px 0 0 0 !important;
+			width: 100%
+		}
+	</style>
 </h:head>
 <h:body style="max-width: 80%; margin: 0 auto;">
-	<p:importEnum type="realHTML.tomcat.config.EditingModes"
-		var="EditingModes" />
+	<p:importEnum type="realHTML.tomcat.config.EditingModes" var="EditingModes" />
 	<h:form id="growl">
 		<p:growl showDetail="true" />
 	</h:form>
 	<div class="grid">
 		<div class="col">
+			<h:form>
+				<p:selectOneMenu id="option" hideNoSelectionOption="true" value="#{configBean.globalLoglevel}">
+					<f:selectItem itemLabel="Trace" itemValue="TRACE" />
+					<f:selectItem itemLabel="Debug" itemValue="DEBUG" />
+					<f:selectItem itemLabel="Info" itemValue="INFO" />
+					<f:selectItem itemLabel="Warning" itemValue="WARN" />
+					<f:selectItem itemLabel="Error" itemValue="ERROR" />
+					<f:selectItem itemLabel="Fatal" itemValue="FATAL" />
+				</p:selectOneMenu>
+				<p:commandButton value="Save loglevel" styleClass="mr-2"
+						action="#{configBean.onGlobalLoglevelSet}" />
+			</h:form>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="col">
 			<h:form id="configFileDirtyWarning">
-				<p:staticMessage
-					rendered="#{configBean.configService.configFileDirty}"
-					severity="warn" summary="WARNING"
+				<p:staticMessage rendered="#{configBean.configService.configFileDirty}" severity="warn"
+					summary="WARNING"
 					detail="Changes not saved to file. They will be lost on next application server restart"
 					styleClass="full-width-message">
 					<p:autoUpdate></p:autoUpdate>
@@ -44,18 +54,15 @@
 	</div>
 	<div class="grid">
 		<div class="col">
-			<p:staticMessage id="environmentChangedWarning" severity="warn"
-				summary="WARNING" detail="Environment not yet saved"
-				styleClass="full-width-message" style="display: none;" />
+			<p:staticMessage id="environmentChangedWarning" severity="warn" summary="WARNING"
+				detail="Environment not yet saved" styleClass="full-width-message" style="display: none;" />
 		</div>
 	</div>
 	<div class="grid" style="margin-top: 10px;">
 		<div class="col-2">
-			<p:tabMenu activeIndex="#{configBean.selectedTabIndex}"
-				orientation="left">
+			<p:tabMenu activeIndex="#{configBean.selectedTabIndex}" orientation="left">
 				<p:menuitem icon="pi pi-plus" outcome="index.xhtml" />
-				<c:forEach items="#{configBean.environmentNames}"
-					var="environmentName" varStatus="status">
+				<c:forEach items="#{configBean.environmentNames}" var="environmentName" varStatus="status">
 					<p:menuitem value="#{environmentName}" outcome="index.xhtml">
 						<f:param name="environ" value="#{environmentName}" />
 					</p:menuitem>
@@ -66,32 +73,26 @@
 			<div class="card">
 				<p:toolbar>
 					<p:toolbarGroup>
-						<p:commandButton value="Save environment" icon="pi pi-save"
-							styleClass="mr-2" action="#{configBean.onEnvironmentSave}"
-							form="environmentEditData" validateClient="true"
+						<p:commandButton value="Save environment" icon="pi pi-save" styleClass="mr-2"
+							action="#{configBean.onEnvironmentSave}" form="environmentEditData" validateClient="true"
 							update="environmentEditData configFileDirtyWarning"
 							onsuccess="resetEnvironmentConfigChanged()" />
-						<p:commandButton type="button" value="Delete environment"
-							icon="pi pi-trash" styleClass="mr-2 ui-button-danger"
+						<p:commandButton type="button" value="Delete environment" icon="pi pi-trash"
+							styleClass="mr-2 ui-button-danger"
 							rendered="#{configBean.environmentEditMode != EditingModes.NEW}"
 							onclick="PF('confirmEnvironmentDelete').show()" />
 					</p:toolbarGroup>
 					<p:toolbarGroup align="right">
-						<p:commandButton value="Save config" icon="pi pi-save"
-							styleClass="mr-2" action="#{configBean.onSaveConfig}"
-							update="configFileDirtyWarning" />
-						<p:commandButton value="Reload config" icon="pi pi-refresh"
-							styleClass="mr-2" action="#{configBean.onReloadConfig}"
-							update="configFileDirtyWarning" />
+						<p:commandButton value="Save config" icon="pi pi-save" styleClass="mr-2"
+							action="#{configBean.onSaveConfig}" update="configFileDirtyWarning" />
+						<p:commandButton value="Reload config" icon="pi pi-refresh" styleClass="mr-2"
+							action="#{configBean.onReloadConfig}" update="configFileDirtyWarning" />
 					</p:toolbarGroup>
 				</p:toolbar>
-				<p:confirmDialog header="Confirmation"
-					widgetVar="confirmEnvironmentDelete"
+				<p:confirmDialog header="Confirmation" widgetVar="confirmEnvironmentDelete"
 					message="Do you want to delete this environment?">
-					<p:commandButton value="No" type="button"
-						onclick="PF('confirmEnvironmentDelete').hide();" />
-					<p:commandButton value="Yes"
-						action="#{configBean.onEnvironmentDelete}" />
+					<p:commandButton value="No" type="button" onclick="PF('confirmEnvironmentDelete').hide();" />
+					<p:commandButton value="Yes" action="#{configBean.onEnvironmentDelete}" />
 				</p:confirmDialog>
 			</div>
 			<div class="grid">
@@ -102,8 +103,8 @@
 								<p:outputLabel for="@next" value="Name" />
 								<p:inputText id="environmentName" styleClass="max-width"
 									value="#{configBean.environmentName}"
-									disabled="#{configBean.environmentEditMode != EditingModes.NEW}"
-									required="true" onchange="showEnvironmentSaveWarning()" />
+									disabled="#{configBean.environmentEditMode != EditingModes.NEW}" required="true"
+									onchange="showEnvironmentSaveWarning()" />
 								<p:message for="@previous" styleClass="full-width-message" />
 							</div>
 							<div class="col-4">
@@ -119,39 +120,34 @@
 						<div class="grid">
 							<div class="col-6">
 								<p:outputLabel for="@next" value="Authserver" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.currentEnv.authServer}"
+								<p:inputText styleClass="max-width" value="#{configBean.currentEnv.authServer}"
 									onchange="showEnvironmentSaveWarning()" />
 							</div>
 							<div class="col-6">
 								<p:outputLabel for="@next" value="Authheaderfield" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.currentEnv.authHeaderField}" 
-									onchange="showEnvironmentSaveWarning()"/>
+								<p:inputText styleClass="max-width" value="#{configBean.currentEnv.authHeaderField}"
+									onchange="showEnvironmentSaveWarning()" />
 							</div>
 						</div>
 						<div class="grid">
 							<div class="col-6">
 								<p:outputLabel for="@next" value="Natbin path" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.currentEnv.natbinpath}" required="true" 
-									onchange="showEnvironmentSaveWarning()"/>
+								<p:inputText styleClass="max-width" value="#{configBean.currentEnv.natbinpath}"
+									required="true" onchange="showEnvironmentSaveWarning()" />
 								<p:message for="@previous" styleClass="full-width-message" />
 							</div>
 							<div class="col-6">
 								<p:outputLabel for="@next" value="Natsrc path" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.currentEnv.natsrcpath}" required="true" 
-									onchange="showEnvironmentSaveWarning()"/>
+								<p:inputText styleClass="max-width" value="#{configBean.currentEnv.natsrcpath}"
+									required="true" onchange="showEnvironmentSaveWarning()" />
 								<p:message for="@previous" styleClass="full-width-message" />
 							</div>
 						</div>
 						<div class="grid">
 							<div class="col-12">
 								<p:outputLabel for="@next" value="Natparms" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.currentEnv.natparms}" 
-									onchange="showEnvironmentSaveWarning()"/>
+								<p:inputText styleClass="max-width" value="#{configBean.currentEnv.natparms}"
+									onchange="showEnvironmentSaveWarning()" />
 							</div>
 						</div>
 					</h:form>
@@ -164,11 +160,9 @@
 							<h:form>
 								<p:toolbar>
 									<p:toolbarGroup>
-										<p:commandButton value="New" icon="pi pi-plus"
-											styleClass="ui-button-success" style="margin-right: .5rem"
-											action="#{configBean.onEnvironmentVariableNew}"
-											update="environEditDialog"
-											oncomplete="PF('environEditDialog').show()" />
+										<p:commandButton value="New" icon="pi pi-plus" styleClass="ui-button-success"
+											style="margin-right: .5rem" action="#{configBean.onEnvironmentVariableNew}"
+											update="environEditDialog" oncomplete="PF('environEditDialog').show()" />
 									</p:toolbarGroup>
 								</p:toolbar>
 							</h:form>
@@ -178,8 +172,8 @@
 						<div class="col-12">
 							<h:form id="environmentVariableTableForm">
 								<p:dataTable id="environmentVariableTable" var="entry"
-									value="#{configBean.currentEnv.environvars}" lazy="false"
-									paginator="true" rows="10" paginatorPosition="bottom">
+									value="#{configBean.currentEnv.environvars}" lazy="false" paginator="true" rows="10"
+									paginatorPosition="bottom">
 									<p:column headerText="Name" value="#{entry.name}">
 										<h:outputText value="#{entry.name}" />
 									</p:column>
@@ -190,10 +184,8 @@
 										<h:outputText value="#{entry.append}" />
 									</p:column>
 									<p:column style="width:3rem;text-align: center">
-										<p:commandButton type="submit" icon="pi pi-pencil"
-											title="View/Edit/Delete"
-											action="#{configBean.onEnvironmentVariableEdit}"
-											update="environEditDialog"
+										<p:commandButton type="submit" icon="pi pi-pencil" title="View/Edit/Delete"
+											action="#{configBean.onEnvironmentVariableEdit}" update="environEditDialog"
 											oncomplete="PF('environEditDialog').show()">
 											<f:setPropertyActionListener value="#{entry}"
 												target="#{configBean.selectedEnvironmentVar}" />
@@ -210,9 +202,8 @@
 					<div class="grid">
 						<div class="col-12">
 							<h:form id="routesTreeForm">
-								<p:tree id="routesTree" value="#{configBean.getRoutingTree()}"
-									var="node" selectionMode="single"
-									filterFunction="#{configBean.treeFilter}">
+								<p:tree id="routesTree" value="#{configBean.getRoutingTree()}" var="node"
+									selectionMode="single" filterFunction="#{configBean.treeFilter}">
 									<p:ajax event="select" listener="#{configBean.onRouteSelect}" />
 									<p:treeNode type="entry" icon="pi pi-folder">
 										<h:outputText value="${node.entry.name}" />
@@ -227,19 +218,17 @@
 					<div class="grid">
 						<div class="col-12">
 							<h:form>
-								<p:commandButton value="New" icon="pi pi-plus"
-									styleClass="ui-button-success" style="margin-right: .5rem"
-									action="#{configBean.onRouteNew}"
-									oncomplete="PF('routeEditDialog').show();"
-									update="routeEditDialog" />
+								<p:commandButton value="New" icon="pi pi-plus" styleClass="ui-button-success"
+									style="margin-right: .5rem" action="#{configBean.onRouteNew}"
+									oncomplete="PF('routeEditDialog').show();" update="routeEditDialog" />
 							</h:form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- route create/edit/delete dialog -->
-			<p:dialog id="routeEditDialog" widgetVar="routeEditDialog"
-				modal="true" header="#{configBean.routeEditMode.toString()} route">
+			<p:dialog id="routeEditDialog" widgetVar="routeEditDialog" modal="true"
+				header="#{configBean.routeEditMode.toString()} route">
 				<p:column rendered="#{configBean.selectedRouteEntry != null}">
 					<h:form id="routeEditForm">
 						<div class="grid">
@@ -276,20 +265,17 @@
 						<div class="grid">
 							<div class="col-4">
 								<p:outputLabel for="@next" value="Login necessary?" />
-								<p:selectBooleanButton onLabel="Yes" offLabel="No"
-									style="width:100%"
+								<p:selectBooleanButton onLabel="Yes" offLabel="No" style="width:100%"
 									value="#{configBean.selectedRouteEntry.endpoint.login}" />
 							</div>
 							<div class="col-4">
 								<p:outputLabel for="@next" value="Route active?" />
-								<p:selectBooleanButton onLabel="Yes" offLabel="No"
-									style="width:100%"
+								<p:selectBooleanButton onLabel="Yes" offLabel="No" style="width:100%"
 									value="#{configBean.selectedRouteEntry.endpoint.active}" />
 							</div>
 							<div class="col-4">
 								<p:outputLabel for="@next" value="Loglevel" />
-								<p:selectOneMenu id="option" style="width:100%"
-									hideNoSelectionOption="true"
+								<p:selectOneMenu id="option" style="width:100%" hideNoSelectionOption="true"
 									value="#{configBean.selectedRouteEntry.endpoint.loglevel}">
 									<f:selectItem itemLabel="Develop" itemValue="DEVELOP" />
 									<f:selectItem itemLabel="Debug" itemValue="DEBUG" />
@@ -315,29 +301,25 @@
 					</h:form>
 				</p:column>
 				<f:facet name="footer">
-					<p:commandButton value="Save" class="ui-button-success"
-						action="#{configBean.onRouteSave}" form="routeEditForm"
-						update="routeEditForm :routesTreeForm:routesTree"
-						validateClient="true"
+					<p:commandButton value="Save" class="ui-button-success" action="#{configBean.onRouteSave}"
+						form="routeEditForm" update="routeEditForm :routesTreeForm:routesTree" validateClient="true"
 						oncomplete="hideDialogOnSuccess(args, 'routeEditDialog')" />
-					<p:commandButton type="button" value="Delete"
-						class="ui-button-danger" onclick="PF('confirmRouteDelete').show()"
+					<p:commandButton type="button" value="Delete" class="ui-button-danger"
+						onclick="PF('confirmRouteDelete').show()"
 						rendered="#{configBean.routeEditMode != EditingModes.NEW}" />
 				</f:facet>
 			</p:dialog>
 			<!-- Confirmation Dialog for deleting an route -->
 			<p:confirmDialog header="Confirmation" widgetVar="confirmRouteDelete"
 				message="Do you want to delete this route?">
-				<p:commandButton value="No" type="button"
-					onclick="PF('confirmRouteDelete').hide();" />
+				<p:commandButton value="No" type="button" onclick="PF('confirmRouteDelete').hide();" />
 				<p:commandButton value="Yes" action="#{configBean.onRouteDelete}"
 					oncomplete="PF('confirmRouteDelete').hide(); PF('routeEditDialog').hide();"
 					update=":routesTreeForm:routesTree" />
 			</p:confirmDialog>
 
 			<!-- Environment variable create/edit/delete dialog -->
-			<p:dialog id="environEditDialog" widgetVar="environEditDialog"
-				modal="true"
+			<p:dialog id="environEditDialog" widgetVar="environEditDialog" modal="true"
 				header="#{configBean.environmentVariableEditMode.toString()} environment variable">
 				<p:column rendered="#{configBean.selectedEnvironmentVar != null}">
 					<h:form id="environEditForm">
@@ -356,8 +338,7 @@
 						<div class="grid">
 							<div class="col-12">
 								<p:outputLabel for="@next" value="Value" />
-								<p:inputText styleClass="max-width"
-									value="#{configBean.selectedEnvironmentVar.value}">
+								<p:inputText styleClass="max-width" value="#{configBean.selectedEnvironmentVar.value}">
 									<f:validateRegex pattern="^[\x00-\x7F]*$"></f:validateRegex>
 								</p:inputText>
 							</div>
@@ -365,8 +346,7 @@
 						<div class="grid">
 							<div class="col-12">
 								<p:outputLabel for="@next" value="Append value?" />
-								<p:selectBooleanButton onLabel="Yes" offLabel="No"
-									style="width:100%"
+								<p:selectBooleanButton onLabel="Yes" offLabel="No" style="width:100%"
 									value="#{configBean.selectedEnvironmentVar.append}" />
 							</div>
 						</div>
@@ -375,42 +355,33 @@
 				<f:facet name="footer">
 					<!-- update=":environmentVariableTableForm:environmentVariableTable environEditForm" -->
 					<p:commandButton value="Save" class="ui-button-success"
-						action="#{configBean.onEnvironmentVariableSave}"
-						form="environEditForm"
+						action="#{configBean.onEnvironmentVariableSave}" form="environEditForm"
 						update="environEditForm :environmentVariableTableForm:environmentVariableTable"
-						oncomplete="hideDialogOnSuccess(args, 'environEditDialog')"
-						validateClient="true" />
-					<p:commandButton type="button" value="Delete"
-						class="ui-button-danger"
+						oncomplete="hideDialogOnSuccess(args, 'environEditDialog')" validateClient="true" />
+					<p:commandButton type="button" value="Delete" class="ui-button-danger"
 						onclick="PF('confirmEnvironmentVarDelete').show()"
 						rendered="#{configBean.environmentVariableEditMode != EditingModes.NEW}" />
 				</f:facet>
 			</p:dialog>
 			<!-- Confirmation Dialog for deleting an environment variable -->
-			<p:confirmDialog header="Confirmation"
-				widgetVar="confirmEnvironmentVarDelete"
+			<p:confirmDialog header="Confirmation" widgetVar="confirmEnvironmentVarDelete"
 				message="Do you want to delete this environment variable?">
-				<p:commandButton value="No" type="button"
-					onclick="PF('confirmEnvironmentVarDelete').hide();" />
-				<p:commandButton value="Yes"
-					action="#{configBean.onEnvironmentVariableDelete}"
+				<p:commandButton value="No" type="button" onclick="PF('confirmEnvironmentVarDelete').hide();" />
+				<p:commandButton value="Yes" action="#{configBean.onEnvironmentVariableDelete}"
 					oncomplete="PF('confirmEnvironmentVarDelete').hide(); PF('environEditDialog').hide();"
 					update=":environmentVariableTableForm:environmentVariableTable" />
 			</p:confirmDialog>
 		</div>
 	</div>
 	<h:form>
-		<p:ajaxExceptionHandler
-			type="javax.faces.application.ViewExpiredException"
-			update="exceptionDialog" onexception="PF('exceptionDialog').show();" />
-		<p:dialog id="exceptionDialog"
-			header="Exception: #{pfExceptionHandler.type} occured!"
+		<p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException" update="exceptionDialog"
+			onexception="PF('exceptionDialog').show();" />
+		<p:dialog id="exceptionDialog" header="Exception: #{pfExceptionHandler.type} occured!"
 			widgetVar="exceptionDialog" height="500px">
-	    	Message: #{pfExceptionHandler.message} <br />
-	    	StackTrace: <h:outputText
-				value="#{pfExceptionHandler.formattedStackTrace}" escape="false" />
-			<p:button onclick="document.location.href = document.location.href;"
-				value="Reload!" />
+			Message: #{pfExceptionHandler.message} <br />
+			StackTrace:
+			<h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" />
+			<p:button onclick="document.location.href = document.location.href;" value="Reload!" />
 		</p:dialog>
 	</h:form>
 </h:body>
@@ -420,31 +391,32 @@
 		document.getElementById("environmentChangedWarning").style.display = "block";
 		environmentConfigChanged = true;
 	}
-	
+
 	function resetEnvironmentConfigChanged() {
 		document.getElementById("environmentChangedWarning").style.display = "none";
 		environmentConfigChanged = false;
 	}
-	
-	window.onload = function() {
-	    window.addEventListener("beforeunload", function (e) {
-	        if (!environmentConfigChanged) {
-	            return undefined;
-	        }
-	        
-	        var confirmationMessage = 'Changes were made to the environment. '
-	                                + 'If you leave before saving, your changes will be lost.';
 
-	        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-	        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-	    });
+	window.onload = function () {
+		window.addEventListener("beforeunload", function (e) {
+			if (!environmentConfigChanged) {
+				return undefined;
+			}
+
+			var confirmationMessage = 'Changes were made to the environment. '
+				+ 'If you leave before saving, your changes will be lost.';
+
+			(e || window.event).returnValue = confirmationMessage; //Gecko + IE
+			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+		});
 	};
-	    
-	
+
+
 	function hideDialogOnSuccess(args, dialogWidgetVar) {
-	    if (args &amp;&amp; !args.validationFailed) {
-	        PF(dialogWidgetVar).hide();
-	    }
+		if (args &amp;&amp; !args.validationFailed) {
+			PF(dialogWidgetVar).hide();
+		}
 	}
 </script>
+
 </html>

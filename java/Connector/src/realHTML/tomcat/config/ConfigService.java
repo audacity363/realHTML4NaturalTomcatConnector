@@ -1,12 +1,18 @@
 package realHTML.tomcat.config;
 
 import java.io.FileNotFoundException;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Set;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.Configuration;
+import org.apache.logging.log4j.core.config.LoggerConfig;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -65,6 +71,8 @@ public class ConfigService {
 			return (ConfigRevision)super.clone();
 		}
 	}
+
+	private static final Logger LOGGER = LogManager.getLogger(ConfigService.class);
 	
 	private final String CONTEXT_PARAMETER_ENVIRONMENT = "environments";
 	private final String CONTEXT_PARAMETER_CONFIGREVISION = "configrevision";
@@ -93,9 +101,41 @@ public class ConfigService {
 
 		return loggingTargetPath;
 	}
+
+	public void setGlobalLogLevel(String level) {
+		LoggerContext ctx = (LoggerContext)LogManager.getContext(false);
+		Configuration config = ctx.getConfiguration();
+		LoggerConfig loggerConfig = config.getLoggerConfig("realHTML");
+
+		LOGGER.debug("Setting loglevel to " + level);
+		switch(level) {
+			case "TRACE":
+				loggerConfig.setLevel(Level.TRACE);
+				break;
+			case "DEBUG":
+				loggerConfig.setLevel(Level.DEBUG);
+				break;
+			case "INFO":
+				loggerConfig.setLevel(Level.INFO);
+				break;
+			case "WARN":
+				loggerConfig.setLevel(Level.WARN);
+				break;
+			case "ERROR":
+				loggerConfig.setLevel(Level.ERROR);
+				break;
+			case "FATAL":
+				loggerConfig.setLevel(Level.FATAL);
+				break;
+		}
+
+		ctx.updateLoggers();
+	}
 	
 	public void init(ServletContext context) throws ConfigException {
 		this.context = context;
+
+		LOGGER.info("Init ConfigService");
 		
 		ConfigRevision contextPtr = this.getConfigRevision();
 		if(this.configRevision != null) {
@@ -192,8 +232,7 @@ public class ConfigService {
 			if(! (e.getCause() instanceof FileNotFoundException)) {
 				throw new ConfigException(e);
 			}
-			System.out.println("Warning: Configfile does not exist.");
-			System.out.println("Warning: There will be no environments definied.");
+			LOGGER.warn("Configfile does not exist. There will be no environments defined");
 			this.environments = new HashMap<>();
 		}
 		
@@ -225,16 +264,16 @@ public class ConfigService {
 		boolean isConfigInContext = isConfigLoadedIntoContext();
 		ConfigRevision configRevision = this.getConfigRevision();
 		
-		System.out.println("My revision: [" + this.configRevision + "] Global revision: [" + configRevision + "]");
+		LOGGER.debug("My revision: [" + this.configRevision + "] Global revision: [" + configRevision + "]");
 		
 		if(this.environments == null && !isConfigInContext) {
 			//Nothing is loaded yet. Probably the first call after a restart of the webapp 
-			System.out.println("Config is not loaded into context. Loading from file");
+			LOGGER.debug("Config is not loaded into context. Loading from file");
 			this.loadConfigFromFile();
 			return;
 		} else if((this.environments == null && isConfigInContext) || this.configRevision.compare(configRevision) < 0) {
 			//Config is not yet loaded into the Service but is cached in the context. First Call of the Servlet/Bean
-			System.out.println("Config is not loaded into cache or revision has changed. (Re)loading from context");
+			LOGGER.debug("Config is not loaded into cache or revision has changed. (Re)loading from context");
 			this.environments = this.loadConfigFromContext();
 			try {
 				this.configRevision = configRevision.clone();
@@ -242,7 +281,7 @@ public class ConfigService {
 				throw new ConfigException("Could not clone config revision which is saved in the servlet context", e);
 			}
 		} else {
-			System.out.println("Nothing to do");
+			LOGGER.debug("Nothing to do");
 		}
 	}
 	
@@ -265,7 +304,7 @@ public class ConfigService {
 	}
 	
 	private void setConfigRevision(ConfigRevision configRevision) {
-		System.out.println("Setting configRevision to " + configRevision);
+		LOGGER.debug("Setting configRevision to " + configRevision);
 		this.context.setAttribute(CONTEXT_PARAMETER_CONFIGREVISION, configRevision);
 	}
 }

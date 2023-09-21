@@ -4,11 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Route implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4633713834074131268L;
+
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
+
 	private String template;
 	private Endpoint route;
 	private RouteToken[] entries;
@@ -27,7 +33,7 @@ public class Route implements Serializable{
 		this.entries = convertEntries(entries);
 		
 		for(int i = 0; i < this.entries.length; i++) {
-			System.out.println(this.entries[i]);
+			LOGGER.debug(this.entries[i]);
 		}
 	}
 	

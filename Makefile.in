@@ -227,6 +227,11 @@ tomcatconnector_warfile: jniLibrary tomcatconnector_package \
 	@printf "Creating realHTML4Natural.war\n"
 	@cd $(WARFILE_PREFIX); $(JAR) cvf ../../../bin/realHTML4Natural.war .
 
+tomcatconnector_warfile_dev: tomcatconnector_package \
+						 tomcatconnector_warfile_pre tomcatconnector_warfile_clean
+	@printf "Creating realHTML4Natural.war\n"
+	@cd $(WARFILE_PREFIX); $(JAR) cvf ../../../bin/realHTML4Natural.war .
+
 tomcatconnector_warfile_pre:
 	@printf "Creating warfile output folder\n"
 	@mkdir -p ./bin

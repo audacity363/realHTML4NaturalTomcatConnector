@@ -3,6 +3,9 @@ package realHTML.JSONConverter.signatures;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
@@ -10,6 +13,9 @@ import java.nio.charset.Charset;
 // import realHTML.JSONConverter.utils.HexDump;
 
 public class ObjectSignatureNode {
+
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
+	
 	public String name;
 	public Types vartype = null;
 	public Types originalvartype = null;
@@ -170,9 +176,7 @@ public class ObjectSignatureNode {
 
             return(completeString);
         } catch(Exception e)  {
-            System.out.println("ERROR WHILE CONVERTING!!!");
-            System.out.println(e);
-            e.printStackTrace();
+            LOGGER.error("ERROR WHILE CONVERTING!!!", e);
         }
 
         return(null);

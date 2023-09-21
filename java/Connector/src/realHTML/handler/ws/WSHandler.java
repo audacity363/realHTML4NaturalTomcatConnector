@@ -6,6 +6,8 @@ import javax.websocket.EndpointConfig;
 import javax.websocket.MessageHandler;
 import javax.websocket.Session;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import realHTML.JSONConverter.JSONConverter;
 import realHTML.jni.JNI;
@@ -18,17 +20,19 @@ import java.io.IOException;
 
 public class WSHandler extends Endpoint {
 
+	final Logger LOGGER = LogManager.getLogger(this.getClass());
+
 	public WSHandler() {
-		System.out.println("Init WSHandler");
+		LOGGER.info("Init WSHandler");
 		ConnectionPool.jnihandler = new JNI();
 	}
 
 	@Override
 	public void onOpen(Session client, EndpointConfig config) {
-		System.out.println("User connected");
+		LOGGER.info("User connected");
 		
 		Route targetRoute = (Route)config.getUserProperties().get("routeconfig");
-		System.out.println("Staring id: [" + targetRoute.getTemplate() + "] " + targetRoute.getRoute().getNatProgram() + " in " + 
+		LOGGER.info("Staring id: [" + targetRoute.getTemplate() + "] " + targetRoute.getRoute().getNatProgram() + " in " + 
 				targetRoute.getRoute().getNatLibrary());
 
 		ConnectionPool.handleClient(targetRoute, client);
@@ -72,9 +76,9 @@ public class WSHandler extends Endpoint {
 	@Override
 	public void onError(Session session, Throwable error) {
 		if (error instanceof EOFException) {
-			System.out.println("Client disconnected");
+			LOGGER.info("Client disconnected");
 		} else {
-			System.out.println("Something bad has happen:");
+			LOGGER.info("Something bad has happen:");
 			new Exception(error).printStackTrace();
 		}
 	}

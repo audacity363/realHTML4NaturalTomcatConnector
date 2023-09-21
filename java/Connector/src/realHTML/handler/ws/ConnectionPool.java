@@ -5,6 +5,9 @@ import java.util.Map;
 
 import javax.websocket.Session;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import realHTML.jni.ChildProcess;
 import realHTML.jni.JNI;
 import realHTML.jni.SessionInformations;
@@ -14,11 +17,12 @@ import realHTML.tomcat.routing.Route;
 public class ConnectionPool {
 	static Map<String, WSThread> activeWSs = new HashMap<String, WSThread>();
 	public static JNI jnihandler;
+	final static Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 	
 	static void handleClient(Route targetRoute, Session client) {
 		synchronized (ConnectionPool.activeWSs) { 
 			if(ConnectionPool.activeWSs.containsKey(targetRoute.getTemplate()) && ConnectionPool.activeWSs.get(targetRoute.getTemplate()).getClientLength() == 0) {
-				System.out.println("No clients left on this sessions. Delete it and reopen");
+				LOGGER.info("No clients left on this sessions. Delete it and reopen");
 				ConnectionPool.activeWSs.remove(targetRoute.getTemplate());
 			} 
 			
@@ -35,7 +39,7 @@ public class ConnectionPool {
 		ChildProcess naturalProcess = null;
 		WSThread sendingThread = null;
 		
-		System.out.println("First connection on that client");
+		LOGGER.info("First connection on that client");
 		
 		sessionInfos = new SessionInformations();
 		sessionInfos.natlibrary = targetroute.getRoute().getNatLibrary();

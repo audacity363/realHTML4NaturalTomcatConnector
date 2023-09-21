@@ -6,5 +6,10 @@
         "java/Connector/WebContent/WEB-INF/lib/javax.servlet-api-4.0.1.jar",
         "java/Connector/WebContent/WEB-INF/lib/*",
         "bin/servlet/**/*.class"
-    ]
+    ],
+    "command-runner.commands": {
+        "make": "make tomcatconnector_warfile_dev && cp -v bin/realHTML4Natural.war ~/.tomcat/apache-tomcat-9.0.80/webapps/"
+    },
+    
+
 }
