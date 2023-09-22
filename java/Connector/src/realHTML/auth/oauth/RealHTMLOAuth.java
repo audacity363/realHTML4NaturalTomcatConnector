@@ -5,12 +5,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import realHTML.auth.exceptions.AuthException;
 
 public class RealHTMLOAuth {
+    private final static Logger LOGGER = LogManager.getLogger(RealHTMLOAuth.class);
+    
     public static String checkLogin(String target, String headerField, String token) throws Exception, AuthException {
+
         URL targeturl;
         HttpURLConnection con;
         BufferedReader in;
@@ -45,8 +50,11 @@ public class RealHTMLOAuth {
             throw(e);
         }
 
+        LOGGER.error("Authentication response contains status code {}", httpStatus);
+
         if(httpStatus != 200) {
-            throw new AuthException(content.toString(), httpStatus);
+            LOGGER.trace("It seems that authentication has failed. Got http code {} expected 200", httpStatus);
+            throw new AuthException(content.toString());
         }
 
         root = new JSONObject(content.toString());

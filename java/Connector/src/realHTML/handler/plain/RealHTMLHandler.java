@@ -24,6 +24,9 @@ import realHTML.JSONConverter.signatures.Types;
 import realHTML.auth.exceptions.AuthException;
 
 import org.apache.commons.io.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -32,6 +35,8 @@ public class RealHTMLHandler extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1076903443567066328L;
+
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 	private class RouteInformations {
 		public Environment env;
@@ -56,73 +61,53 @@ public class RealHTMLHandler extends HttpServlet {
         }
     }
 
-    public void handleAuthError(AuthException authex, HttpServletResponse response) throws ServletException {
-        response.setStatus(authex.getHttpStatus());
-        try {
-            response.getOutputStream().print(authex.getMessage());
-        } catch(Exception e) {
-            throw(new ServletException("", e));
-        }
-    }
-
-    public void handleError(ServletException ex, HttpServletResponse response) throws ServletException {
-        response.setStatus(500);
-
-        JSONObject root = new JSONObject();
-        root.append("status", 500);
-        root.append("message", ex.getRootCause().getMessage());
-        root.append("stack", ex.getRootCause().getStackTrace());
-
-        try {
-            response.getOutputStream().print(root.toString());
-        } catch(Exception e) {
-            throw new ServletException("", e);
-        }
-
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
-        try {
-            handleRequest(request, response);
-        } catch(ServletException e) {
-            handleError(e, response);
-        } 
-        catch(AuthException e) {
-            handleAuthError(e, response);
-        } 
+        handleRequestWrapper(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
-        try {
-            handleRequest(request, response);
-        } catch(ServletException e) {
-            handleError(e, response);
-        } catch(AuthException e) {
-            handleAuthError(e, response);
-        }
+        handleRequestWrapper(request, response);
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
-        try {
-            handleRequest(request, response);
-        } catch(ServletException e) {
-            handleError(e, response);
-        } catch(AuthException e) {
-            handleAuthError(e, response);
-        }
+        handleRequestWrapper(request, response);
     }
 
     public void doDelete(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException {
+        handleRequestWrapper(request, response);
+    }
+
+    private void generateJSONExceptionArray(Throwable e, JSONArray arr) {
+        arr.put(e.toString());
+        if(e.getCause() != null) {
+            generateJSONExceptionArray(e.getCause(), arr);
+        }
+    }
+
+    private void  handleRequestWrapper(HttpServletRequest request, HttpServletResponse response) throws ServletException{
         try {
             handleRequest(request, response);
-        } catch(ServletException e) {
-            handleError(e, response);
-        } catch(AuthException e) {
-            handleAuthError(e, response);
+        } catch(Exception e) {
+            response.setStatus(500);
+
+            JSONObject root = new JSONObject();
+            JSONArray exceptions = new JSONArray();
+            
+            generateJSONExceptionArray(e, exceptions);
+
+            root.put("status", 500);
+            root.put("message", e.toString());
+            root.put("stack", exceptions);
+
+            try {
+                response.getOutputStream().print(root.toString());
+            } catch(Exception ex) {
+                throw new ServletException(ex);
+            }
         }
     }
 
@@ -176,15 +161,6 @@ public class RealHTMLHandler extends HttpServlet {
         }
     }
 
-    private void sendErrorMessage(HttpServletResponse response, String errormessage) 
-        throws Exception {
-        try {
-            response.sendError(500, errormessage);
-        } catch (Exception e) {
-            throw(e);
-        }
-    }
-
     private String createTmpFile(String sessionID) 
         throws Exception {
         try  {
@@ -235,10 +211,17 @@ public class RealHTMLHandler extends HttpServlet {
     }
 
     private String checkLogin(HttpServletRequest request, String target, String headerField) throws ServletException, AuthException {
+        LOGGER.trace("Checking authentication against {}", target);
+        LOGGER.trace("Getting authentication token from header field {}", headerField);
+
         String token = request.getHeader(headerField);
         if(token == null) {
-            throw new AuthException("{\"message\":\"token is missing\",\"status\":400}", 400);
+            LOGGER.error("Could not find authentication token [{}] in header", headerField);
+            throw new AuthException("Could not find authentication token in header");
         }
+
+        LOGGER.trace("Found authentication token");
+
         try {
             return RealHTMLOAuth.checkLogin(target, headerField, token);
         } catch(AuthException e) {

@@ -6,16 +6,18 @@ public class AuthException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = -3853589024041506415L;
-	int httpStatus = 0;
 
     public AuthException() {}
 
-    public AuthException(String message, int httpStatus) {
+    public AuthException(String message) {
         super(message);
-        this.httpStatus = httpStatus;
     }
 
-    public int getHttpStatus() {
-        return(this.httpStatus);
+    public AuthException(String message, Throwable e) {
+        super(message, e);
+    }
+
+    public AuthException(Throwable e) {
+        super(e);
     }
 }
