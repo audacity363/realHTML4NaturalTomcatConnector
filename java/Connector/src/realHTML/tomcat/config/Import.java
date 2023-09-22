@@ -11,14 +11,19 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import lombok.Getter;
 import realHTML.tomcat.config.exceptions.ImportException;
 import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentVar;
 import realHTML.tomcat.routing.Endpoint;
 
 public class Import {	
-	public HashMap<String, Environment> importFromFile(String path) throws ImportException {
-		HashMap<String, Environment> environments = new HashMap<String, Environment>();
+
+	private @Getter String globalLoglevel = null; 
+	private @Getter HashMap<String, Environment> environments = null;
+
+	public void importFromFile(String path) throws ImportException {
+		environments = new HashMap<String, Environment>();
 		Environment newEnvironment;
 		String environmentName;
 		ImportExportHelper[] importFields = {
@@ -51,6 +56,14 @@ public class Import {
         }
         
         doc.getDocumentElement().normalize();
+
+		if(doc.getElementsByTagName("realHTML4Natural").getLength() != 1 ) {
+			throw new ImportException("Found " + doc.getElementsByTagName("realHTML4Natural").getLength() + "realHTML4Natural nodes in config. Expected 0");
+		}
+
+		globalLoglevel = ((Element)doc.getElementsByTagName("realHTML4Natural").item(0)).getAttribute("loglevel");
+		globalLoglevel = (globalLoglevel.isEmpty()  || globalLoglevel.isBlank()) ? "WARNING" : globalLoglevel;
+
         
         environmentsElements = doc.getElementsByTagName("environment");
         for(int i = 0; i < environmentsElements.getLength(); i++) {
@@ -84,8 +97,6 @@ public class Import {
 			
 			environments.put(environmentName, newEnvironment);
         }
-		
-		return(environments);
 	}
 	
 	private void readRoutes(Element environmentElement, Environment environment) throws ImportException {

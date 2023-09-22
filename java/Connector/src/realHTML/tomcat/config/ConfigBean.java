@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -42,7 +43,7 @@ public class ConfigBean implements Serializable {
 	@Inject
 	private @Getter ConfigService configService;
 
-	private @Getter @Setter String globalLoglevel;
+	private @Setter String globalLoglevel;
 	
 	private @Getter int selectedTabIndex;
 	private @Getter ArrayList<String> environmentNames;
@@ -333,8 +334,13 @@ public class ConfigBean implements Serializable {
 		this.onEnvironmentVariableSave();
 	}
 
-	public void onGlobalLoglevelSet() {
-		this.configService.setGlobalLogLevel(this.globalLoglevel);
+	public void onGlobalLoglevelChange(ValueChangeEvent event) {
+		this.configService.setGlobalLogLevel((String)event.getNewValue());
+		this.addGrowl(FacesMessage.SEVERITY_INFO, "Global Loglevel sucessfully saved", "");
+	}
+
+	public String getGlobalLoglevel() {
+		return this.configService.getGlobalLoglevel();
 	}
 
 }

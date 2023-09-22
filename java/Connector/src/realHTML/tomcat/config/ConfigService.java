@@ -31,7 +31,7 @@ public class ConfigService {
 		private Integer revision;
 		
 		public ConfigRevision() {
-			this.revision = Integer.MAX_VALUE;
+			this.revision = 0;
 		}
 		
 		public void increase() {
@@ -130,12 +130,33 @@ public class ConfigService {
 		}
 
 		ctx.updateLoggers();
+		this.configFileDirty = true;
+	}
+
+	public String getGlobalLoglevel() {
+		LoggerContext ctx = (LoggerContext)LogManager.getContext(false);
+		Configuration config = ctx.getConfiguration();
+		LoggerConfig loggerConfig = config.getLoggerConfig("realHTML");
+		Level currentLevel = loggerConfig.getLevel();
+
+		if(currentLevel.compareTo(Level.TRACE) == 0) {
+			return "TRACE";
+		} else if(currentLevel.compareTo(Level.DEBUG) == 0) {
+			return "DEBUG";
+		} else if(currentLevel.compareTo(Level.INFO) == 0) {
+			return "INFO";
+		} else if(currentLevel.compareTo(Level.WARN) == 0) {
+			return "WARN";
+		} else if(currentLevel.compareTo(Level.ERROR) == 0) {
+			return "ERROR";
+		} else if(currentLevel.compareTo(Level.FATAL) == 0) {
+			return "FATAL";
+		}
+		return "UNKOWN";
 	}
 	
 	public void init(ServletContext context) throws ConfigException {
 		this.context = context;
-
-		LOGGER.info("Init ConfigService");
 		
 		ConfigRevision contextPtr = this.getConfigRevision();
 		if(this.configRevision != null) {
@@ -217,7 +238,7 @@ public class ConfigService {
 	public void saveConfigToFile() throws ConfigException{
 		Export export = new Export();
 		try {
-			export.exportConfigToFile(this.getConfigFilePath(), this.environments);
+			export.exportConfigToFile(this.getConfigFilePath(), this.environments, this.getGlobalLoglevel());
 		} catch(ExportException e) {
 			throw new ConfigException("Error while saving config", e);
 		}
@@ -227,7 +248,9 @@ public class ConfigService {
 	private void loadConfigFromFile() throws ConfigException {
 		Import xmlimport = new Import();
 		try {
-			this.environments = xmlimport.importFromFile(this.getConfigFilePath());
+			xmlimport.importFromFile(this.getConfigFilePath());
+			this.environments = xmlimport.getEnvironments();
+			this.setGlobalLogLevel(xmlimport.getGlobalLoglevel());
 		} catch(ImportException e) {
 			if(! (e.getCause() instanceof FileNotFoundException)) {
 				throw new ConfigException(e);

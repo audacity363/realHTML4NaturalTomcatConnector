@@ -26,22 +26,6 @@
 	</h:form>
 	<div class="grid">
 		<div class="col">
-			<h:form>
-				<p:selectOneMenu id="option" hideNoSelectionOption="true" value="#{configBean.globalLoglevel}">
-					<f:selectItem itemLabel="Trace" itemValue="TRACE" />
-					<f:selectItem itemLabel="Debug" itemValue="DEBUG" />
-					<f:selectItem itemLabel="Info" itemValue="INFO" />
-					<f:selectItem itemLabel="Warning" itemValue="WARN" />
-					<f:selectItem itemLabel="Error" itemValue="ERROR" />
-					<f:selectItem itemLabel="Fatal" itemValue="FATAL" />
-				</p:selectOneMenu>
-				<p:commandButton value="Save loglevel" styleClass="mr-2"
-						action="#{configBean.onGlobalLoglevelSet}" />
-			</h:form>
-		</div>
-	</div>
-	<div class="grid">
-		<div class="col">
 			<h:form id="configFileDirtyWarning">
 				<p:staticMessage rendered="#{configBean.configService.configFileDirty}" severity="warn"
 					summary="WARNING"
@@ -50,6 +34,44 @@
 					<p:autoUpdate></p:autoUpdate>
 				</p:staticMessage>
 			</h:form>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="col">
+			<p:divider align="left">
+				<b>Global settings</b>
+			</p:divider>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="col-2">
+			<h:form>
+				<p:outputLabel for="@next" value="Loglevel" />
+				<p:selectOneMenu id="option" hideNoSelectionOption="true"
+					value="#{configBean.globalLoglevel}" styleClass="mr-2"
+					valueChangeListener="#{configBean.onGlobalLoglevelChange}" style="width: 100%">
+					<f:selectItem itemLabel="Trace" itemValue="TRACE" />
+					<f:selectItem itemLabel="Debug" itemValue="DEBUG" />
+					<f:selectItem itemLabel="Info" itemValue="INFO" />
+					<f:selectItem itemLabel="Warning" itemValue="WARN" />
+					<f:selectItem itemLabel="Error" itemValue="ERROR" />
+					<f:selectItem itemLabel="Fatal" itemValue="FATAL" />
+					<p:ajax update="@this configFileDirtyWarning"/>
+				</p:selectOneMenu>
+			</h:form>
+		</div>
+		<div class="col-10" style="text-align: right;">
+			<p:commandButton value="Save config" icon="pi pi-save" styleClass="mr-2"
+			action="#{configBean.onSaveConfig}" update="configFileDirtyWarning" />
+			<p:commandButton value="Reload config" icon="pi pi-refresh" styleClass="mr-2"
+			action="#{configBean.onReloadConfig}" update="configFileDirtyWarning" />
+		</div>
+	</div>
+	<div class="grid">
+		<div class="col">
+			<p:divider align="left">
+				<b>Environments</b>
+			</p:divider>
 		</div>
 	</div>
 	<div class="grid">
@@ -81,12 +103,6 @@
 							styleClass="mr-2 ui-button-danger"
 							rendered="#{configBean.environmentEditMode != EditingModes.NEW}"
 							onclick="PF('confirmEnvironmentDelete').show()" />
-					</p:toolbarGroup>
-					<p:toolbarGroup align="right">
-						<p:commandButton value="Save config" icon="pi pi-save" styleClass="mr-2"
-							action="#{configBean.onSaveConfig}" update="configFileDirtyWarning" />
-						<p:commandButton value="Reload config" icon="pi pi-refresh" styleClass="mr-2"
-							action="#{configBean.onReloadConfig}" update="configFileDirtyWarning" />
 					</p:toolbarGroup>
 				</p:toolbar>
 				<p:confirmDialog header="Confirmation" widgetVar="confirmEnvironmentDelete"

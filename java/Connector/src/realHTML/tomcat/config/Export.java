@@ -24,7 +24,7 @@ import realHTML.tomcat.routing.Route;
 public class Export {
 	Document rootDoc;
 	
-	public void exportConfigToFile(String path, HashMap<String, Environment> environments) throws  ExportException {
+	public void exportConfigToFile(String path, HashMap<String, Environment> environments, String globalLoglevel) throws  ExportException {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder;
 		TransformerFactory transformerFactory;
@@ -41,6 +41,7 @@ public class Export {
 
 		this.rootDoc = docBuilder.newDocument();
 		Element rootElement = this.rootDoc.createElement("realHTML4Natural");
+		rootElement.setAttribute("loglevel", globalLoglevel);
 		this.rootDoc.appendChild(rootElement);
 		
 		Iterator<Entry<String, Environment>> itr = environments.entrySet().iterator();
