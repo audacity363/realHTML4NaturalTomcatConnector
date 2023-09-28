@@ -207,7 +207,7 @@ tomcatconnector_package: tomcatconnector_package_clean tomcatconnector_package_p
 	@printf "Compiling realHTML.handler.ws\n"
 	@$(JAVAC) -d $(TOMCONNECTOR_LIB_BIN) -cp $(CLASSPATH) $(JAVA_REALHTML_HANDLER_WS)
 
-	cp -rv bin/servlet/lib/* java/Connector/WebContent/WEB-INF/classes/
+	cp -r bin/servlet/lib/* java/Connector/WebContent/WEB-INF/classes/
 
 	#@printf "Creating realHTMLconnector.jar\n"
 	#@cd $(TOMCONNECTOR_LIB_BIN) && jar cf ../../../java/Connector/WebContent/WEB-INF/lib/realHTMLconnector.jar ./realHTML
