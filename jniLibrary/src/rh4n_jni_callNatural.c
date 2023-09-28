@@ -7,9 +7,15 @@
 #include <sys/types.h>
 #include <signal.h>
 
-#ifndef __xlc__
+#ifdef HAVE_POLL_H
 #include <poll.h>
+#endif
+
+#ifdef HAVE_SYS_INOTIFY_H
 #include <sys/inotify.h>
+#endif
+
+#ifdef HAVE_LIBGEN_H
 #include <libgen.h>
 #endif
 
@@ -183,7 +189,7 @@ pid_t rh4n_jni_startNatural(JNIEnv *env, char *udsServerPath, char *realHTMLexe,
 
 
 //On AIX there is no function like inotify so we need to poll if the socket file is available. It's not a great solution but it works...
-#ifndef __xlc__
+#ifdef HAVE_POLL_H && HAVE_SYS_INOTIFY_H && HAVE_LIBGEN_H
 int rh4n_jni_waitForUDSServer_gnu(JNIEnv *env, char *udsServerPath, RH4nProperties *props) {
     char *socketFilename = NULL, buff[4096], *eventptr = NULL, errorstr[1024];
     int watchfd = 0, pollNum = 0, len = 0;

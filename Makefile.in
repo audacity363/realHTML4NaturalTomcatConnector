@@ -35,7 +35,7 @@ LIBS = -L./realHTML4NaturalCore/bin/libs -L./bin/libs \
 	   -ldl -lrh4nmessaging -lrh4njnijsonconverter -lrh4nutils -lrh4nlogging -lrh4nvar2name -lrh4nvars -lrh4nldaparser \
 	   -lrh4njsongenerator -lcrypt -lrh4nlogging
 
-CARGS1 = -g -c -fpic $(INCLUDE)
+CARGS1 = @DEFS@ -g -c -fpic $(INCLUDE)
 CARGS2 = 
 CARGS_SO = -c -g -fpic $(INCLUDE)
 
@@ -65,7 +65,7 @@ all: core jniLibrary tomcatconnector_warfile
 	@printf "You find the binarys under ./bin\n"
 
 core:
-	@cd ./realHTML4NaturalCore && make all
+	@cd ./realHTML4NaturalCore && ./configure && make all
 
 #                         +-----------------+
 #-------------------------| Tomcat Connector|----------------------------------
