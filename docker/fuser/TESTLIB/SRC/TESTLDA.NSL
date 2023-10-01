@@ -1,6 +1,0 @@
-0001DEFINE DATA LOCAL
-00021 json-output
-0003    2 msg (A20)
-0004    2 msg-i (i4)
-0005    2 cmd (A) DYNAMIC
-0006END-DEFINE

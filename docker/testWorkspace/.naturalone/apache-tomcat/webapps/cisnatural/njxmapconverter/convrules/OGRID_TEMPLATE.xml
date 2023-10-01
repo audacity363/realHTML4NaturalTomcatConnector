@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<textgridsss2 griddataprop="$$gridname$$" rowcount="$$" width="$$" stylevariant="VAR2" selectprop='SELECT' onclickmethod='onSelect'>
-    <njx:njxvariable name="OGRIDCOL" />
-</textgridsss2>
