@@ -65,6 +65,7 @@ all: core jniLibrary tomcatconnector_warfile
 	@printf "You find the binarys under ./bin\n"
 
 core:
+	@test -f ./realHTML4NaturalCore/Makefile || (echo "Please run ./configure in ./realHTML4NaturalCore first"; exit 1)
 	@cd ./realHTML4NaturalCore && ./configure && make all
 
 #                         +-----------------+
@@ -283,9 +284,7 @@ JNI_OBJS = rh4n_jni_plain_main.o \
 			  rh4n_jni_callNatural.o \
 			  rh4n_jni_utils.o \
 			  rh4n_jni_childProcess.o \
-			  rh4n_jni_getChildProcessStatus.o \
-			#   rh4n_jni_recvMessage.o
-			#   rh4n_jni_checkForNewMessage.o \
+			  rh4n_jni_getChildProcessStatus.o
 			  
 
 jniLibrary: core jni_jsonconverter jniLibrary_clean jniLibrary_pre $(JNI_OBJS)
