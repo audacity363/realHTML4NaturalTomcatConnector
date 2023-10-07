@@ -7,6 +7,7 @@ import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -67,7 +68,7 @@ public class Import {
 		}
 
 		globalLoglevel = ((Element)doc.getElementsByTagName("realHTML4Natural").item(0)).getAttribute("loglevel");
-		globalLoglevel = (globalLoglevel.isEmpty()  || globalLoglevel.isBlank()) ? "WARNING" : globalLoglevel;
+		globalLoglevel = (globalLoglevel.isEmpty()  || StringUtils.isBlank(globalLoglevel)) ? "WARNING" : globalLoglevel;
 
         
         environmentsElements = doc.getElementsByTagName("environment");
@@ -76,7 +77,7 @@ public class Import {
 			targetElement = (Element)environmentsElements.item(i);
 			
 			environmentName = targetElement.getAttribute("name");
-			if(environmentName.isEmpty() || environmentName.isBlank()) {
+			if(environmentName.isEmpty() || StringUtils.isBlank(environmentName)) {
 				throw new ImportException("Name of environment in index " + i + " is empty");
 			}
 			
@@ -122,7 +123,7 @@ public class Import {
 			newEndpoint = new Endpoint();
 			routeElement = (Element)routeElements.item(i);
 			urlTemplate = routeElement.getAttribute("path");
-			if(urlTemplate.isEmpty() || urlTemplate.isBlank()) {
+			if(urlTemplate.isEmpty() || StringUtils.isBlank(urlTemplate)) {
 				throw new ImportException("url template on index " + i + "is empty or does not exist");
 			}
 			

@@ -2,6 +2,7 @@ package realHTML.tomcat.config;
 
 import java.lang.reflect.Method;
 
+import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -115,7 +116,7 @@ public class ImportExportHelper {
 		
 		Object setValue;
 		
-		if(value.isEmpty() || value.isBlank()) {
+		if(value.isEmpty() || StringUtils.isBlank(value)) {
 			if (this.required) {
 				throw new ImportException("Value in attribute or node " + this.valueName + " is empty but required");
 			}

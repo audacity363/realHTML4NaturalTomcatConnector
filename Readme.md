@@ -10,7 +10,7 @@ For POST and PUT, you can send JSON data as a body payload (compressed and uncom
 ## Build
 ### Prerequisite
 
-* Java JDK >= 11
+* Java JDK >= 8
   * javac
   * jar
   * javah (only in use when using an older JDK version where `javac -h` does not exist)
