@@ -27,6 +27,7 @@ public class RealHTMLOAuth {
         try {
             targeturl = new URL(target);
             con = (HttpURLConnection)targeturl.openConnection();
+            con.setReadTimeout(5);
 
             con.setRequestMethod("GET");
             con.setRequestProperty("Content-Type", "application/json");
