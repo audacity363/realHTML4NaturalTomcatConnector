@@ -7,6 +7,8 @@ import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -16,8 +18,11 @@ import realHTML.tomcat.config.exceptions.ImportException;
 import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentVar;
 import realHTML.tomcat.routing.Endpoint;
+import realHTML.tomcat.routing.exceptions.EndpointException;
 
 public class Import {	
+
+	private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
 	private @Getter String globalLoglevel = null; 
 	private @Getter HashMap<String, Environment> environments = null;
@@ -123,6 +128,13 @@ public class Import {
 			
 			for(int x = 0; x < importFields.length; x++) {
 				importFields[x].setValueOnTargetfromNode(routeElement, newEndpoint);
+			}
+
+			try {
+				newEndpoint.setNatLibrary(newEndpoint.getNatLibrary().toUpperCase());
+				newEndpoint.setNatProgram(newEndpoint.getNatProgram().toUpperCase());
+			} catch(EndpointException e) {
+				LOGGER.fatal("This should never happend!", e);
 			}
 			
 			try {

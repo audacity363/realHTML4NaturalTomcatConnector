@@ -31,6 +31,7 @@ import realHTML.tomcat.environment.Environment;
 import realHTML.tomcat.environment.EnvironmentVar;
 import realHTML.tomcat.routing.Route;
 import realHTML.tomcat.routing.Routing;
+import realHTML.tomcat.routing.exceptions.EndpointException;
 
 @Named("configBean")
 @ViewScoped
@@ -44,50 +45,50 @@ public class ConfigBean implements Serializable {
 	private @Getter ConfigService configService;
 
 	private @Setter String globalLoglevel;
-	
+
 	private @Getter int selectedTabIndex;
 	private @Getter ArrayList<String> environmentNames;
 
 	private @Getter Environment currentEnv;
 	private @Getter EditingModes environmentEditMode;
 	private @Getter @Setter String environmentName;
-	
-	//Environment Variable
+
+	// Environment Variable
 	private @Getter @Setter EnvironmentVar selectedEnvironmentVar;
 	private @Getter EditingModes environmentVariableEditMode;
-	
-	//Route
+
+	// Route
 	private TreeNode<RouteTreeWrapper> routeTree;
 	private @Getter RouteTreeWrapper selectedRouteEntry;
 	private @Getter EditingModes routeEditMode;
 
 	private ServletContext getServletContext() {
-		return (ServletContext)FacesContext.getCurrentInstance().getExternalContext().getContext();
+		return (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
 	}
-	
+
 	private void addGrowl(FacesMessage.Severity severity, String summary, String detail) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, summary, detail));
 		PrimeFaces.current().ajax().update("growl");
 		PrimeFaces.current().ajax().addCallbackParam("validationFailed", true);
 	}
-	
+
 	private void showEnvironmentSaveWarning() {
 		PrimeFaces.current().executeScript("showEnvironmentSaveWarning();");
 	}
-	
+
 	private void resetEnvironmentConfigChanged() {
 		PrimeFaces.current().executeScript("resetEnvironmentConfigChanged();");
 	}
 
 	@PostConstruct
 	public void init() {
-		
+
 		try {
 			this.configService.init(this.getServletContext());
-		} catch(ConfigException e) {
+		} catch (ConfigException e) {
 			throw new RuntimeException(e);
 		}
-		
+
 		try {
 			this.environmentNames = new ArrayList<String>(this.configService
 					.getEnvironments()
@@ -103,42 +104,42 @@ public class ConfigBean implements Serializable {
 			this.currentEnv = new Environment();
 			return;
 		}
-		
+
 		try {
 			this.currentEnv = this.configService.getEnvironment(this.environmentName);
-		} catch(ConfigException e) {
+		} catch (ConfigException e) {
 			throw new RuntimeException(e);
 		}
-			
-		if(this.currentEnv == null) {
+
+		if (this.currentEnv == null) {
 			this.redirectToEnvironment(null);
 			return;
 		}
 		this.environmentEditMode = EditingModes.EDIT;
 
-		this.selectedTabIndex = this.environmentNames.indexOf(this.environmentName)+1;
+		this.selectedTabIndex = this.environmentNames.indexOf(this.environmentName) + 1;
 
 		LOGGER.debug("environentEditMode: " + this.environmentEditMode);
 		LOGGER.debug("selected Tab Index:" + this.selectedTabIndex);
 	}
 
-	public void onSaveConfig(){
+	public void onSaveConfig() {
 		LOGGER.debug("Saving config");
 		try {
 			this.configService.saveConfigToFile();
-		} catch(ConfigException e) {
+		} catch (ConfigException e) {
 			this.addGrowl(FacesMessage.SEVERITY_ERROR, "Config Error", Utils.stackTraceToString(e));
 		}
 	}
-	
+
 	public void onReloadConfig() {
 		LOGGER.debug("Reload config");
 		try {
 			this.configService.reloadConfig();
 			this.environmentNames = new ArrayList<String>(this.configService
-				.getEnvironments()
-				.keySet());
-		} catch(Exception e) {
+					.getEnvironments()
+					.keySet());
+		} catch (Exception e) {
 			this.addGrowl(FacesMessage.SEVERITY_ERROR, "Config Error", Utils.stackTraceToString(e));
 		}
 		this.redirectToEnvironment(environmentName);
@@ -161,7 +162,8 @@ public class ConfigBean implements Serializable {
 			TreeNode<RouteTreeWrapper> searchAnker = this.routeTree;
 			for (int x = 0; x < routes[i].getEntries().length; x++) {
 				if (x == routes[i].getEntries().length - 1) {
-					wrapper = new RouteTreeWrapper(routes[i].getEntries()[x], routes[i].getRoute(), routes[i].getTemplate());
+					wrapper = new RouteTreeWrapper(routes[i].getEntries()[x], routes[i].getRoute(),
+							routes[i].getTemplate());
 					type = "endpoint";
 				} else {
 					wrapper = new RouteTreeWrapper(routes[i].getEntries()[x], null, null);
@@ -209,55 +211,62 @@ public class ConfigBean implements Serializable {
 		return treeNode.getData().getEndpoint().getNatLibrary().toLowerCase().contains(filterText)
 				|| treeNode.getData().getEndpoint().getNatProgram().toLowerCase().contains(filterText);
 	}
-	
-	//TODO: Get rid of the Exception. Display is the proper way on the page
+
+	// TODO: Get rid of the Exception. Display is the proper way on the page
 	public void onEnvironmentSave() {
 		try {
-			switch(this.environmentEditMode) {
-			case NEW:
-				this.configService.addEnvironment(this.environmentName, this.currentEnv);
-				this.redirectToEnvironment(this.environmentName);
-				break;
-			case EDIT:
-				this.configService.editEnvironment(this.environmentName, this.currentEnv);
-				break;
-			case DELETE:
-				this.configService.deleteEnvironment(this.environmentName);
-				this.redirectToEnvironment(null);
-				break;
+			switch (this.environmentEditMode) {
+				case NEW:
+					this.configService.addEnvironment(this.environmentName, this.currentEnv);
+					this.redirectToEnvironment(this.environmentName);
+					break;
+				case EDIT:
+					this.configService.editEnvironment(this.environmentName, this.currentEnv);
+					break;
+				case DELETE:
+					this.configService.deleteEnvironment(this.environmentName);
+					this.redirectToEnvironment(null);
+					break;
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			this.addGrowl(FacesMessage.SEVERITY_ERROR, "Environment Error", Utils.stackTraceToString(e));
 			return;
 		}
-		
+
 		this.resetEnvironmentConfigChanged();
 	}
-	
+
 	public void onEnvironmentDelete() {
 		this.environmentEditMode = EditingModes.DELETE;
 		this.onEnvironmentSave();
 	}
-	
-	private void redirectToEnvironment(String name){
+
+	private void redirectToEnvironment(String name) {
 		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 		String target = "index.xhtml";
-		if(name != null) {
+		if (name != null) {
 			target += "?environ=" + name;
 		}
 		try {
 			context.redirect(target);
-		} catch(IOException e) {
-			//TODO: Throw a valid Exception and display it on the page
+		} catch (IOException e) {
+			// TODO: Throw a valid Exception and display it on the page
 			LOGGER.fatal("Could not redirect: ", e);
 		}
 	}
 
 	// Route handling
-	//TODO: Get rid of the Exception. Display is the proper way on the page
+	// TODO: Get rid of the Exception. Display is the proper way on the page
 	public void onRouteSave() {
 		LOGGER.debug("Processing " + this.selectedRouteEntry + " with mode " + this.routeEditMode);
 		
+		try {
+			this.selectedRouteEntry.getEndpoint().setNatLibrary(this.selectedRouteEntry.getEndpoint().getNatLibrary());
+			this.selectedRouteEntry.getEndpoint().setNatProgram(this.selectedRouteEntry.getEndpoint().getNatProgram());
+		} catch(EndpointException e) {
+			LOGGER.fatal("This should never happend!", e);
+		}
+
 		try {
 			switch (this.routeEditMode) {
 			case NEW:
@@ -307,15 +316,15 @@ public class ConfigBean implements Serializable {
 		LOGGER.debug(
 				"Processing " + this.selectedEnvironmentVar + " with mode " + this.environmentVariableEditMode);
 		switch (this.environmentVariableEditMode) {
-		case NEW:
-			this.currentEnv.addEnvironmentVar(this.selectedEnvironmentVar);
-			break;
-		case EDIT:
-			this.currentEnv.editEnvironmentVar(this.selectedEnvironmentVar);
-			break;
-		case DELETE:
-			this.currentEnv.deleteEnvironmentVar(this.selectedEnvironmentVar.getName());
-			break;
+			case NEW:
+				this.currentEnv.addEnvironmentVar(this.selectedEnvironmentVar);
+				break;
+			case EDIT:
+				this.currentEnv.editEnvironmentVar(this.selectedEnvironmentVar);
+				break;
+			case DELETE:
+				this.currentEnv.deleteEnvironmentVar(this.selectedEnvironmentVar.getName());
+				break;
 		}
 		this.showEnvironmentSaveWarning();
 	}
@@ -335,7 +344,7 @@ public class ConfigBean implements Serializable {
 	}
 
 	public void onGlobalLoglevelChange(ValueChangeEvent event) {
-		this.configService.setGlobalLogLevel((String)event.getNewValue());
+		this.configService.setGlobalLogLevel((String) event.getNewValue());
 		this.addGrowl(FacesMessage.SEVERITY_INFO, "Global Loglevel sucessfully saved", "");
 	}
 
