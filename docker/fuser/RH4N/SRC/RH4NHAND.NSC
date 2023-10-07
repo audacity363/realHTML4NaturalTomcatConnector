@@ -1,0 +1,14 @@
+0001
+0002decide on first value of http-req-type
+0003    value "GET"
+0004        perform get-handler
+0005    value "POST"
+0006        perform post-handler
+0007    value "PUT"
+0008        perform put-handler
+0009    value "DELETE"
+0010        perform delete-handler
+0011    none value 
+0012        /* TODO: Generate Error
+0013        ignore
+0014end-decide

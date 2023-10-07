@@ -1,0 +1,28 @@
+0001define data
+0002    parameter using rh4nparm
+0003    local using rh4ncons
+0004    local using lecho
+0005end-define
+0006
+0007include rh4nhand
+0008
+0009define subroutine get-handler
+0010    call interface4 RH4N-GET-URL-VARIABLE rh4n-internals 'msg' message
+0011    call interface4 RH4N-GENERATE-JSON rh4n-internals 'echo@LECHO' echo
+0012end-subroutine
+0013
+0014define subroutine post-handler
+0015    call interface4 RH4N-GET-BODY-VARIABLE rh4n-internals 'msg' message
+0016    call interface4 RH4N-GENERATE-JSON rh4n-internals 'echo@LECHO' echo
+0017end-subroutine
+0018
+0019define subroutine put-handler
+0020    call interface4 RH4N-GET-BODY-OBJECT rh4n-internals 'put-echo@LECHO' put-echo
+0021    call interface4 RH4N-GENERATE-JSON rh4n-internals 'put-echo@LECHO' put-echo 
+0022end-subroutine
+0023
+0024define subroutine delete-handler
+0025    ignore
+0026end-subroutine
+0027
+0028END

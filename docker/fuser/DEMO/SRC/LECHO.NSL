@@ -1,0 +1,8 @@
+0001DEFINE DATA LOCAL
+00021 echo
+0003    2 message (A) DYNAMIC
+0004    
+00051 put-echo
+0006    2 first-message (A) DYNAMIC
+0007    2 second-message (A) DYNAMIC
+0008END-DEFINE
