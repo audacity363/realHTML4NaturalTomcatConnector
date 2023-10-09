@@ -174,3 +174,5 @@ This sets the loglevel for the realHTML4Natural framework. The logs can be found
 </xs:schema>
 ```
 
+## Update Notice
+When updating from an earlier commit then 1b8e791 to 1b8e791 or higher the schema of the configuration has changed. For this purpose you find a helper page to convert your current configuration. Just open the file [config_converter.html](scripts/config_converter.html) in a semi modern browser, paste your configuration in the input textarea and click "Convert". You will find the updated configuration in the output textarea. Override your existing configuration on the server with this one and restart the application server.

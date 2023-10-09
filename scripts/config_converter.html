@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <title>realHTML4Natural Config converter</title>
+    </head>
+    <body>
+        <h2>Input:</h2>
+        <textarea id="inputConfig" style="width: 100%; height: 40%"></textarea>
+        <br>
+        <button onclick="convertConfig()" style="margin-top: 5px">Convert</button>
+        <br>
+        <h2>Output</h2>
+        <textarea id="outputConfig" style="width: 100%; height: 40%;"></textarea>
+    </body>
+    <script>
+        function prettyfyXML(sourceXml) {
+            var xmlDoc = new DOMParser().parseFromString(sourceXml, 'application/xml');
+            var xsltDoc = new DOMParser().parseFromString([
+                // describes how we want to modify the XML - indent everything
+                '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform">',
+                '  <xsl:strip-space elements="*"/>',
+                '  <xsl:template match="para[content-style][not(text())]">', // change to just text() to strip space in text nodes
+                '    <xsl:value-of select="normalize-space(.)"/>',
+                '  </xsl:template>',
+                '  <xsl:template match="node()|@*">',
+                '    <xsl:copy><xsl:apply-templates select="node()|@*"/></xsl:copy>',
+                '  </xsl:template>',
+                '  <xsl:output indent="yes"/>',
+                '</xsl:stylesheet>',
+            ].join('\n'), 'application/xml');
+
+            var xsltProcessor = new XSLTProcessor();    
+            xsltProcessor.importStylesheet(xsltDoc);
+            var resultDoc = xsltProcessor.transformToDocument(xmlDoc);
+            var resultXml = new XMLSerializer().serializeToString(resultDoc);
+            return resultXml;
+        }
+
+        function createRouteElements(sourceRouteElements, environmentElement, newConfigDocument) {
+            let routeDefaultData = {
+                "natLibrary": {"required": true},
+                "natProgram": {"required": true},
+                "login": {"required": false, "default": "false"},
+                "loglevel": {"required": false, "default": "ERROR"},
+                "active": {"required": false, "default": "true"}
+            }
+
+            for(let i=0; i < sourceRouteElements.childNodes.length; i++) {
+                let newRouteElement = newConfigDocument.createElement("route");
+                let URLTemplate = sourceRouteElements.childNodes[i].getAttribute("path");
+                if(URLTemplate.substr(0, 1) != "/") {
+                    URLTemplate = "/"  + URLTemplate;
+                }
+                newRouteElement.setAttribute("path", URLTemplate);
+                
+                let fields = Object.keys(routeDefaultData);
+                for(let x=0; x < fields.length; x++) {
+                    let newRouteValueElement = newConfigDocument.createElement(fields[x]);
+                    let targetSourceElement = sourceRouteElements.childNodes[i];
+                    let foundElements = targetSourceElement.getElementsByTagName(fields[x]);
+
+                    if(foundElements.length == 0 && routeDefaultData[fields[x]]["required"] === true) {
+                        alert("Didn't found requiredXML field " + fields[x]);
+                        return false;
+                    } else if(foundElements.length == 0 && routeDefaultData[fields[x]]["required"] === false) {
+                        newRouteValueElement.innerHTML = routeDefaultData[fields[x]]["default"];
+                    } else {
+                        newRouteValueElement.innerHTML = foundElements[0].innerHTML;
+                    }
+
+                    newRouteElement.appendChild(newRouteValueElement);
+                }
+
+                environmentElement.appendChild(newRouteElement);
+            }
+            return true;
+        }
+
+        function createEnvironElements(sourceEnvironElements, environmentElement, newConfigDocument) {
+            let environDefaultData = {
+                "name": {"required": true},
+                "value": {"required": true, "sourceName": "content"},
+                "append": {"required": false, "default": "false"}
+            }   
+
+            for(let i=0; i < sourceEnvironElements.childNodes.length; i++) {
+                let newEnvironElement = newConfigDocument.createElement("environ");
+
+                let fields = Object.keys(environDefaultData);
+                for(let x=0; x < fields.length; x++) {
+                    let newEnvironValueElement = newConfigDocument.createElement(fields[x]);
+                    let targetSourceElement = sourceEnvironElements.childNodes[i];
+                    let sourceName = ((environDefaultData[fields[x]]["sourceName"] === undefined) ? fields[x] : environDefaultData[fields[x]]["sourceName"])
+                    let foundElements = targetSourceElement.getElementsByTagName(sourceName);
+
+                    if(foundElements.length == 0 && environDefaultData[fields[x]]["required"] === true) {
+                        alert("Didn't found requiredXML field " + sourceName);
+                        return false;
+                    } else if(foundElements.length == 0 && environDefaultData[fields[x]]["required"] === false) {
+                        newEnvironValueElement.innerHTML = environDefaultData[fields[x]]["default"];
+                    } else {
+                        newEnvironValueElement.innerHTML = foundElements[0].innerHTML;
+                    }
+
+                    newEnvironElement.appendChild(newEnvironValueElement);
+                }
+
+                environmentElement.appendChild(newEnvironElement);
+            }
+            return true;
+        }
+
+        function convertConfig() {
+            let inputTextarea = document.getElementById("inputConfig");
+            if(inputTextarea.value?.length < 1) {
+                alert("Please enter your config");
+                return;
+            }
+
+            let parser = new DOMParser();
+            let newConfig = document.implementation.createDocument(null, "realHTML4Natural");
+            newConfig.firstChild.setAttribute("loglevel", "INFO");
+
+            xmlDoc = parser.parseFromString(inputTextarea.value, "text/xml");
+            let environments = xmlDoc.getElementsByTagName("environment");
+            if(environments?.length === 0) {
+                alert("No environments were found!");
+                return;
+            }
+
+            for(let i=0; i < environments.length; i++) {
+                let newEnvironmentChild = newConfig.createElement("environment");
+                let targetEnvironment = environments[i];
+                let environmentName = targetEnvironment.getAttribute("name");
+
+                newEnvironmentChild.setAttribute("name", environmentName);
+                console.log("Handling environment " + environmentName);
+
+                let environmentAttrNameTranslation = {
+                    "natsrc": "natsrcpath",
+                    "natbinpath": "natbinpath", 
+                    "natparms": "natparms",
+                    "authServer": "authServer",
+                    "authHeaderField": "authHeaderField"
+                }
+
+
+                for(let x=0; x < targetEnvironment.childNodes.length; x++) {
+                    let targetChild = targetEnvironment.childNodes[x];
+                    if(targetChild.tagName === undefined) {
+                        continue;
+                    }
+
+                    if(Object.keys(environmentAttrNameTranslation).includes(targetChild.tagName)) {
+                        newEnvironmentChild.setAttribute(environmentAttrNameTranslation[targetChild.tagName], targetChild.innerHTML);
+                        continue;
+                    }
+
+                    if(targetChild.tagName === "routes") {
+                        if(targetChild.childNodes.length < 1) {
+                            continue;
+                        }
+
+                        if(!createRouteElements(targetChild, newEnvironmentChild, newConfig)) {
+                            alert("Error while converting routes in environment " + environmentName);
+                            return;
+                        }
+                    } else if(targetChild.tagName === "environs") {
+                        if(targetChild.childNodes.length < 1) {
+                            continue;
+                        }
+                        if(!createEnvironElements(targetChild, newEnvironmentChild, newConfig)) {
+                            alert("Error while converting environment variables in environment " + environmentName)
+                            return;
+                        }
+                    } else {
+                        alert("Unexpected XML tag [" + targetChild.tagName + "] in environment " + environmentName);
+                        return;
+                    }
+                }
+
+                newConfig.firstChild.appendChild(newEnvironmentChild);
+            }
+
+            let serializer = new XMLSerializer();
+            document.getElementById("outputConfig").value = prettyfyXML(serializer.serializeToString(newConfig));
+            console.log(newConfig);
+        }
+    </script>
+</html>
